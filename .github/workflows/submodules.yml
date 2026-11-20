@@ -21,6 +21,7 @@ jobs:
           "$RUNNER_TEMP/parity-venv/bin/python" -m unittest discover -s checks
           "$RUNNER_TEMP/parity-venv/bin/python" checks/actions_pins.py
           "$RUNNER_TEMP/parity-venv/bin/python" checks/pr_ci.py
+          "$RUNNER_TEMP/parity-venv/bin/python" checks/repo_tests.py
       - name: Build the offline Make help sandbox
         run: |
           docker build --tag make-help-ci:local - <<'DOCKERFILE'
