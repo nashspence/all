@@ -13,10 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 COMMIT = re.compile(r"[0-9a-fA-F]{40}")
 REMOTE = re.compile(r"[\w.-]+/[\w.-]+(?:/[^@\s]+)?@([0-9a-zA-Z._/-]+)")
 PROFFER_WORKFLOW = ".github/workflows/test.yml"
-EXPECTED = {
-    ("proffer", PROFFER_WORKFLOW, "test", "step", "actions/checkout@v4"): "nashspence/all#4",
-    ("proffer", PROFFER_WORKFLOW, "test", "step", "actions/setup-python@v5"): "nashspence/all#4",
-}
+EXPECTED = {}
 
 
 def git(root, *args):
