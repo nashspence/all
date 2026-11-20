@@ -168,7 +168,8 @@ def main():
     parser.add_argument("--image", required=True, help="local Docker image with GNU Make and base shell utilities")
     args = parser.parse_args()
     try:
-        pins = list(inventory(ROOT))
+        # Press exercises help in its own PR suite; repo_tests.py verifies the wiring.
+        pins = [pin for pin in inventory(ROOT) if pin.name != "press"]
         notes, errors = check(pins, lambda directory, goal: run_make(args.image, directory, goal))
     except (ValueError, OSError, subprocess.SubprocessError, tarfile.TarError) as exc:
         print(f"FAIL {str(exc)!r}", file=sys.stderr)

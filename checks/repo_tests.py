@@ -15,7 +15,7 @@ TEST_FILE = "tests/test_press.py"
 CLASS = "PublisherTests"
 METHOD = "test_make_help_works_before_setup"
 LOCATION = f"press/{TEST_FILE}::{CLASS}.{METHOD}"
-EXPECTED_MISSING = "nashspence/all#14"
+EXPECTED_MISSING = None
 
 SETUP_CONDITION = "ifneq ($(filter setup,$(MAKECMDGOALS)),)"
 PYTHON = "PYTHON := mise exec -- uv run --locked python"
