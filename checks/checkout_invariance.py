@@ -13,7 +13,7 @@ GUAVAJAM = (
     ":(glob)projects/view/src/guavajam/**/*.py",
     ":(glob)projects/view/src/guavajam/**/*.css",
 )
-XFAIL = {"guavajam": "https://github.com/nashspence/all/issues/1"}
+XFAIL = {}
 
 
 def git(repo, *args):
