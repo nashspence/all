@@ -7,6 +7,7 @@ from make_help import Pin
 from repo_tests import PRESS, TEST_FILE, check, tracked_blob
 
 
+ISSUE = "nashspence/all#14"
 WORKFLOW = f"""on: pull_request
 jobs:
   {PRESS.job}:
@@ -34,15 +35,15 @@ METHOD = b"""
 
 class RepoTests(unittest.TestCase):
     def test_only_absent_case_is_xfail(self):
-        notes, errors = check(WORKFLOW, MAKEFILE, BASE)
+        notes, errors = check(WORKFLOW, MAKEFILE, BASE, expected=ISSUE)
         self.assertEqual(errors, [])
         self.assertIn("XFAIL", notes[0])
-        self.assertIn("nashspence/all#14", notes[0])
-        self.assertIn("FAIL", check(WORKFLOW, MAKEFILE, BASE, expected=None)[1][0])
+        self.assertIn(ISSUE, notes[0])
+        self.assertIn("FAIL", check(WORKFLOW, MAKEFILE, BASE)[1][0])
 
     def test_correct_wiring_and_present_case_are_strict_xpass_until_exception_removed(self):
-        self.assertIn("XPASS", check(WORKFLOW, MAKEFILE, BASE + METHOD)[1][0])
-        self.assertEqual(check(WORKFLOW, MAKEFILE, BASE + METHOD, expected=None), ([], []))
+        self.assertIn("XPASS", check(WORKFLOW, MAKEFILE, BASE + METHOD, expected=ISSUE)[1][0])
+        self.assertEqual(check(WORKFLOW, MAKEFILE, BASE + METHOD), ([], []))
 
     def test_requires_pr_lane_even_while_case_is_missing(self):
         for workflow in (
@@ -52,7 +53,7 @@ class RepoTests(unittest.TestCase):
             b"jobs: [",
         ):
             with self.subTest(workflow=workflow):
-                notes, errors = check(workflow, MAKEFILE, BASE)
+                notes, errors = check(workflow, MAKEFILE, BASE, expected=ISSUE)
                 self.assertEqual(notes, [])
                 self.assertTrue(errors[0].startswith("FAIL "))
 
@@ -70,7 +71,7 @@ class RepoTests(unittest.TestCase):
             MAKEFILE + b"test: ; @true\n",
         ):
             with self.subTest(makefile=makefile):
-                notes, errors = check(WORKFLOW, makefile, BASE)
+                notes, errors = check(WORKFLOW, makefile, BASE, expected=ISSUE)
                 self.assertEqual(notes, [])
                 self.assertTrue(errors[0].startswith("FAIL "))
 
@@ -93,7 +94,7 @@ class RepoTests(unittest.TestCase):
             BASE.replace(b"class PublisherTests", b"@unittest.skip('not checked')\nclass PublisherTests"),
         ):
             with self.subTest(source=source):
-                notes, errors = check(WORKFLOW, MAKEFILE, source)
+                notes, errors = check(WORKFLOW, MAKEFILE, source, expected=ISSUE)
                 self.assertEqual(notes, [])
                 self.assertTrue(errors[0].startswith("FAIL "))
 
