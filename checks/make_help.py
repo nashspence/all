@@ -15,16 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ISSUE = "nashspence/all#11"
-EXPECTED = {
-    "0819870.xyz-public-keys": "missing Makefile",
-    "forgejo-restic-restore-bootstrap": "missing Makefile",
-    "press": "help needs installed publisher dependency",
-    "proffer": "missing Makefile",
-}
-PRESS_ERROR = re.compile(
-    r"Makefile:\d+: \*\*\* Install the locked dependency with make setup\.  Stop\."
-)
-PRESS_MISSING_MISE = {"make: mise: No such file or directory", "/bin/sh: 1: mise: not found"}
+EXPECTED = {}
 
 
 @dataclass(frozen=True)
@@ -129,15 +120,6 @@ def run_make(image, directory, goal):
     return result
 
 
-def press_setup_error(result):
-    lines = result.stderr.strip().splitlines()
-    return (
-        result.returncode == 2 and not result.stdout.strip() and bool(lines)
-        and PRESS_ERROR.fullmatch(lines[-1]) is not None
-        and set(lines[:-1]) <= PRESS_MISSING_MISE
-    )
-
-
 def check_pin(pin, run):
     entries = {name: (mode, kind) for mode, kind, _, name in tree(pin.path, pin.commit)}
     makefile = entries.get(b"Makefile")
@@ -153,9 +135,6 @@ def check_pin(pin, run):
         if not (directory / "Makefile").is_file():
             return Failure("invalid Makefile", "tracked root Makefile missing from snapshot")
         bare, explicit = run(directory, ()), run(directory, ("help",))
-    if press_setup_error(bare) and press_setup_error(explicit):
-        return Failure("help needs installed publisher dependency",
-                       "both help commands stop during publisher dependency loading")
     for title, result in (("make", bare), ("make help", explicit)):
         if result.returncode or not result.stdout.strip():
             return Failure("help failed", f"{title} must print guidance and exit zero "
