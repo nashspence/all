@@ -11,9 +11,7 @@ from make_help import Pin, capture, check, inventory, run_make
 
 
 HELP = ".DEFAULT_GOAL := help\n.PHONY: help\nhelp:\n\t@printf '%s\\n' 'Run make help for commands.'\n"
-PRESS_ERROR = "make: mise: No such file or directory\nMakefile:18: *** Install the locked dependency with make setup.  Stop.\n"
 MISS = "missing Makefile"
-PRESS = "help needs installed publisher dependency"
 
 
 def git(path, *args):
@@ -101,25 +99,6 @@ class MakeHelpTests(unittest.TestCase):
         self.assertIn("same guidance", check([pin], different, {})[1][0])
         self.assertIn("must print guidance", check([pin], empty, {})[1][0])
 
-    def test_press_exception_matches_only_old_diagnostic_on_both_commands(self):
-        press = self.repo("press", Makefile=HELP)
-        known = {"press": PRESS}
-
-        def existing(directory, args):
-            return failure(PRESS_ERROR)
-
-        def only_help(directory, args):
-            return existing(directory, args) if args else passed(directory, args)
-
-        def additional_error(directory, args):
-            return failure("unexpected error\n" + PRESS_ERROR)
-
-        self.assertIn("XFAIL", check([press], existing, known)[0][0])
-        self.assertIn("FAIL", check([press], existing, {})[1][0])
-        self.assertIn("FAIL", check([press], only_help, known)[1][0])
-        self.assertIn("FAIL", check([press], additional_error, known)[1][0])
-        self.assertIn("XPASS", check([press], passed, known)[1][0])
-
     def test_inventory_rejects_gitlink_at_wrong_commit(self):
         hub = self.repo("all", Makefile=HELP)
         child = repo(hub.path / "repos" / "child", "child", {"Makefile": HELP})
@@ -130,8 +109,8 @@ class MakeHelpTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "not checked out"):
             list(inventory(hub.path))
 
-    def test_sandbox_failure_cannot_match_press_exception(self):
-        with patch("make_help.capture", return_value=failure(PRESS_ERROR, code=125)) as execute:
+    def test_sandbox_infrastructure_failure_is_fatal(self):
+        with patch("make_help.capture", return_value=failure("daemon unavailable", code=125)) as execute:
             with self.assertRaisesRegex(ValueError, "Docker could not run GNU Make"):
                 run_make("make-help-ci:local", self.directory, ("help",))
         command = execute.call_args.args[0]
