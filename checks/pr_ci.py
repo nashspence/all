@@ -47,9 +47,7 @@ LANES = {
     ),
 }
 EXCLUDED = frozenset({"0819870.xyz-public-keys"})  # Public-key data, no maintained tests.
-EXPECTED_MISSING = {
-    ("forgejo-restic-restore-bootstrap", LANES["forgejo-restic-restore-bootstrap"]): "nashspence/all#8",
-}
+EXPECTED_MISSING = {}
 
 
 def scalar(node):
