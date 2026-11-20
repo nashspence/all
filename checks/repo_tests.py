@@ -1,29 +1,67 @@
-"""Check the Press pilot's pinned, repo-owned parity test without loading it."""
+"""Check pinned repo-owned parity tests without loading downstream code."""
 
 import ast
 import re
 import subprocess
 import sys
+from dataclasses import dataclass
 
 import yaml
 
 from make_help import ROOT, git, inventory
-from pr_ci import LANES, check_workflow
-
-PRESS = LANES["press"]
-TEST_FILE = "tests/test_press.py"
-CLASS = "PublisherTests"
-METHOD = "test_make_help_works_before_setup"
-LOCATION = f"press/{TEST_FILE}::{CLASS}.{METHOD}"
-EXPECTED_MISSING = None
+from pr_ci import LANES, Lane, check_workflow
 
 SETUP_CONDITION = "ifneq ($(filter setup,$(MAKECMDGOALS)),)"
-PYTHON = "PYTHON := mise exec -- uv run --locked python"
-TEST_RECIPE = "\t@$(PYTHON) -m unittest discover -s tests"
 
 
-def tracked_blob(pin, path):
+@dataclass(frozen=True)
+class RepoTest:
+    repo: str
+    lane: Lane
+    target: str
+    directory: str
+    filename: str
+    case: str
+    method: str
+    python: str
+    flags: str = ""
+    condition: tuple = ()
+
+    @property
+    def path(self):
+        return f"{self.directory}/{self.filename}"
+
+    @property
+    def location(self):
+        return f"{self.repo}/{self.path}::{self.case}.{self.method}"
+
+    @property
+    def recipe(self):
+        return f"\t@$(PYTHON) -m unittest discover -s {self.directory}{self.flags}"
+
+
+PRESS = RepoTest(
+    "press", LANES["press"], "test", "tests", "test_press.py",
+    "PublisherTests", "test_make_help_works_before_setup",
+    "PYTHON := mise exec -- uv run --locked python",
+    condition=((SETUP_CONDITION, True),),
+)
+GUAVAJAM = RepoTest(
+    "guavajam", Lane(LANES["guavajam"].workflow, LANES["guavajam"].job,
+                    "make test-repository PYTHON=.venv/bin/python", LANES["guavajam"].branch),
+    "test-repository", "tests/repository", "test_renderer_checkout.py",
+    "RendererCheckoutTests", "test_javascript_fingerprint_inputs_keep_checkout_bytes",
+    "PYTHON := mise exec -- uv run --locked --all-packages --group dev python",
+    flags=" -v",
+)
+PROBES = (PRESS, GUAVAJAM)
+EXPECTED_MISSING = {GUAVAJAM: "nashspence/all#18"}
+
+
+def tracked_blob(pin, path, *, missing_ok=False):
     entries = git(pin.path, "ls-tree", "-z", pin.commit, "--", path).split(b"\0")
+    if entries == [b""] and missing_ok:
+        return None
     if len(entries) != 2 or not entries[0]:
         raise ValueError(f"{path}: missing tracked file")
     metadata, name = entries[0].split(b"\t", 1)
@@ -33,8 +71,8 @@ def tracked_blob(pin, path):
     return git(pin.path, "cat-file", "blob", oid.decode())
 
 
-def check_makefile(source):
-    # Recognize the existing Press target shape, not arbitrary GNU Make
+def check_makefile(probe, source):
+    # Recognize the existing test target shape, not arbitrary GNU Make
     # programs. Do not evaluate Make variables or includes in the hub.
     lines = source.decode().splitlines()
     active, targets, python = [], [], []
@@ -57,16 +95,16 @@ def check_makefile(source):
             python.append((line, list(active)))
         elif line.startswith(".IGNORE:"):
             ignored = line.partition(":")[2].split()
-            if not ignored or "test" in ignored:
+            if not ignored or probe.target in ignored:
                 raise ValueError("Makefile: test failures must not be ignored")
-        elif ":" in line and "test" in line.split(":", 1)[0].split():
+        elif ":" in line and probe.target in line.split(":", 1)[0].split():
             targets.append((index, line, list(active)))
     if active:
         raise ValueError("Makefile: unclosed conditional")
-    if python != [(PYTHON, [])]:
+    if python != [(probe.python, [])]:
         raise ValueError("Makefile: expected the locked Python runner")
     if len(targets) != 1:
-        raise ValueError("Makefile: expected one literal test target")
+        raise ValueError(f"Makefile: expected one literal {probe.target} target")
     index, target, context = targets[0]
     recipes = []
     for line in lines[index + 1:]:
@@ -76,82 +114,97 @@ def check_makefile(source):
             continue
         else:
             break
-    if target != "test:" or context not in ([], [(SETUP_CONDITION, True)]) or recipes != [TEST_RECIPE]:
-        raise ValueError("Makefile: test must run unittest discovery in tests")
+    if (target != f"{probe.target}:" or tuple(context) not in ((), probe.condition)
+            or recipes != [probe.recipe]):
+        raise ValueError(f"Makefile: {probe.target} must run unittest discovery in {probe.directory}")
 
 
-def test_present(source):
-    module = ast.parse(source, filename=TEST_FILE)
-    compile(module, TEST_FILE, "exec")  # Validate syntax without running any code.
+def test_present(probe, source):
+    path, case_name, method_name = probe.path, probe.case, probe.method
+    module = ast.parse(source, filename=path)
+    compile(module, path, "exec")  # Validate syntax without running any code.
     nodes = list(ast.walk(module))
     if not any(isinstance(node, ast.Import) and
                any(alias.name == "unittest" and alias.asname is None for alias in node.names)
                for node in module.body):
-        raise ValueError(f"{TEST_FILE}: expected a direct unittest import")
+        raise ValueError(f"{path}: expected a direct unittest import")
     for node in nodes:
         if (isinstance(node, ast.Name) and isinstance(node.ctx, (ast.Store, ast.Del))
-                and node.id in {"unittest", CLASS, "load_tests", METHOD, "__unittest_skip__"}):
-            raise ValueError(f"{TEST_FILE}: test discovery name is rebound: {node.id}")
+                and node.id in {"unittest", case_name, "load_tests", method_name, "__unittest_skip__"}):
+            raise ValueError(f"{path}: test discovery name is rebound: {node.id}")
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)) and node.name == "load_tests":
-            raise ValueError(f"{TEST_FILE}: custom unittest discovery")
+            raise ValueError(f"{path}: custom unittest discovery")
 
-    classes = [node for node in nodes if isinstance(node, ast.ClassDef) and node.name == CLASS]
+    classes = [node for node in nodes if isinstance(node, ast.ClassDef) and node.name == case_name]
     if len(classes) != 1 or classes[0] not in module.body:
-        raise ValueError(f"{TEST_FILE}: expected a single module-level {CLASS}")
+        raise ValueError(f"{path}: expected a single module-level {case_name}")
     case = classes[0]
     if (case.decorator_list or case.keywords or len(case.bases) != 1
             or not isinstance(case.bases[0], ast.Attribute) or case.bases[0].attr != "TestCase"
             or not isinstance(case.bases[0].value, ast.Name) or case.bases[0].value.id != "unittest"):
-        raise ValueError(f"{TEST_FILE}: {CLASS} must directly inherit undecorated unittest.TestCase")
+        raise ValueError(f"{path}: {case_name} must directly inherit undecorated unittest.TestCase")
 
     methods = [node for node in nodes if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
-               and node.name == METHOD]
+               and node.name == method_name]
     if not methods:
         return False
     if len(methods) != 1 or methods[0] not in case.body or not isinstance(methods[0], ast.FunctionDef):
-        raise ValueError(f"{TEST_FILE}: {METHOD} must be one direct synchronous method")
+        raise ValueError(f"{path}: {method_name} must be one direct synchronous method")
     test = methods[0]
     args = test.args
     if (test.decorator_list or [arg.arg for arg in args.posonlyargs + args.args] != ["self"]
             or args.vararg or args.kwarg or args.kwonlyargs or args.defaults):
-        raise ValueError(f"{TEST_FILE}: {METHOD} must be undecorated and callable with self only")
+        raise ValueError(f"{path}: {method_name} must be undecorated and callable with self only")
     if any((isinstance(node, ast.Attribute) and node.attr in {"skipTest", "SkipTest"})
            or (isinstance(node, ast.Name) and node.id == "SkipTest")
            for node in ast.walk(test)):
-        raise ValueError(f"{TEST_FILE}: {METHOD} must not skip")
+        raise ValueError(f"{path}: {method_name} must not skip")
     return True
 
 
-def check(workflow, makefile, tests, expected=EXPECTED_MISSING):
+def check(probe, workflow, makefile, tests, expected=None):
+    location = probe.location
     try:
-        check_workflow(workflow, PRESS)
-        check_makefile(makefile)
-        present = test_present(tests)
+        check_workflow(workflow, probe.lane)
+        check_makefile(probe, makefile)
+        present = tests is not None and test_present(probe, tests)
     except (ValueError, SyntaxError, yaml.YAMLError) as exc:
-        return [], [f"FAIL {LOCATION}: {str(exc)!r}"]
+        return [], [f"FAIL {location}: {str(exc)!r}"]
     if present and expected:
-        return [], [f"XPASS {LOCATION} [{expected}]; remove the resolved exception"]
+        return [], [f"XPASS {location} [{expected}]; remove the resolved exception"]
     if not present:
+        reason = "missing tracked test file" if tests is None else "missing test method"
         if expected:
-            return [f"XFAIL {LOCATION}: missing test method [{expected}]"], []
-        return [], [f"FAIL {LOCATION}: missing test method"]
+            return [f"XFAIL {location}: {reason} [{expected}]"], []
+        return [], [f"FAIL {location}: {reason}"]
     return [], []
 
 
 def main():
+    notes, errors = [], []
     try:
-        press = next((pin for pin in inventory(ROOT) if pin.name == "press"), None)
-        if press is None:
-            raise ValueError("Press is not pinned")
-        notes, errors = check(*(tracked_blob(press, path)
-                                for path in (PRESS.workflow, "Makefile", TEST_FILE)))
+        pins = {pin.name: pin for pin in inventory(ROOT)}
     except (ValueError, subprocess.CalledProcessError) as exc:
-        notes, errors = [], [f"FAIL {LOCATION}: {str(exc)!r}"]
+        print(f"FAIL {str(exc)!r}", file=sys.stderr)
+        return 1
+    for probe in PROBES:
+        try:
+            if probe.repo not in pins:
+                raise ValueError(f"{probe.repo} is not pinned")
+            pin = pins[probe.repo]
+            found, failed = check(
+                probe, tracked_blob(pin, probe.lane.workflow), tracked_blob(pin, "Makefile"),
+                tracked_blob(pin, probe.path, missing_ok=True), EXPECTED_MISSING.get(probe),
+            )
+            notes.extend(found)
+            errors.extend(failed)
+        except (ValueError, subprocess.CalledProcessError) as exc:
+            errors.append(f"FAIL {probe.location}: {str(exc)!r}")
     for note in notes:
         print(note)
     for error in errors:
         print(error, file=sys.stderr)
-    print(f"Checked Press repo-owned parity test ({len(notes)} expected failures)")
+    print(f"Checked {len(PROBES)} repo-owned parity tests ({len(notes)} expected failures)")
     return bool(errors)
 
 

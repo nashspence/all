@@ -4,15 +4,15 @@ import unittest
 from pathlib import Path
 
 from make_help import Pin
-from repo_tests import PRESS, TEST_FILE, check, tracked_blob
+from repo_tests import GUAVAJAM, PRESS, check, tracked_blob
 
 
 ISSUE = "nashspence/all#14"
 WORKFLOW = f"""on: pull_request
 jobs:
-  {PRESS.job}:
+  {PRESS.lane.job}:
     steps:
-      - run: {PRESS.command}
+      - run: {PRESS.lane.command}
 """.encode()
 MAKEFILE = b"""PYTHON := mise exec -- uv run --locked python
 ifneq ($(filter setup,$(MAKECMDGOALS)),)
@@ -33,17 +33,29 @@ METHOD = b"""
 """
 
 
+RENDERER_WORKFLOW = WORKFLOW.replace(PRESS.lane.job.encode() + b":", b"packages:").replace(
+    PRESS.lane.command.encode(), b"make test-repository PYTHON=.venv/bin/python",
+)
+RENDERER_MAKEFILE = b"""PYTHON := mise exec -- uv run --locked --all-packages --group dev python
+test-repository: ## Run repository tests.
+	@$(PYTHON) -m unittest discover -s tests/repository -v
+"""
+RENDERER_BASE = BASE.replace(b"PublisherTests", b"RendererCheckoutTests")
+RENDERER_METHOD = METHOD.replace(b"test_make_help_works_before_setup", b"test_javascript_fingerprint_inputs_keep_checkout_bytes")
+RENDERER_ISSUE = "nashspence/all#18"
+
+
 class RepoTests(unittest.TestCase):
     def test_only_absent_case_is_xfail(self):
-        notes, errors = check(WORKFLOW, MAKEFILE, BASE, expected=ISSUE)
+        notes, errors = check(PRESS, WORKFLOW, MAKEFILE, BASE, expected=ISSUE)
         self.assertEqual(errors, [])
         self.assertIn("XFAIL", notes[0])
         self.assertIn(ISSUE, notes[0])
-        self.assertIn("FAIL", check(WORKFLOW, MAKEFILE, BASE)[1][0])
+        self.assertIn("FAIL", check(PRESS, WORKFLOW, MAKEFILE, BASE)[1][0])
 
     def test_correct_wiring_and_present_case_are_strict_xpass_until_exception_removed(self):
-        self.assertIn("XPASS", check(WORKFLOW, MAKEFILE, BASE + METHOD, expected=ISSUE)[1][0])
-        self.assertEqual(check(WORKFLOW, MAKEFILE, BASE + METHOD), ([], []))
+        self.assertIn("XPASS", check(PRESS, WORKFLOW, MAKEFILE, BASE + METHOD, expected=ISSUE)[1][0])
+        self.assertEqual(check(PRESS, WORKFLOW, MAKEFILE, BASE + METHOD), ([], []))
 
     def test_requires_pr_lane_even_while_case_is_missing(self):
         for workflow in (
@@ -53,7 +65,7 @@ class RepoTests(unittest.TestCase):
             b"jobs: [",
         ):
             with self.subTest(workflow=workflow):
-                notes, errors = check(workflow, MAKEFILE, BASE, expected=ISSUE)
+                notes, errors = check(PRESS, workflow, MAKEFILE, BASE, expected=ISSUE)
                 self.assertEqual(notes, [])
                 self.assertTrue(errors[0].startswith("FAIL "))
 
@@ -71,7 +83,7 @@ class RepoTests(unittest.TestCase):
             MAKEFILE + b"test: ; @true\n",
         ):
             with self.subTest(makefile=makefile):
-                notes, errors = check(WORKFLOW, makefile, BASE, expected=ISSUE)
+                notes, errors = check(PRESS, WORKFLOW, makefile, BASE, expected=ISSUE)
                 self.assertEqual(notes, [])
                 self.assertTrue(errors[0].startswith("FAIL "))
 
@@ -94,7 +106,37 @@ class RepoTests(unittest.TestCase):
             BASE.replace(b"class PublisherTests", b"@unittest.skip('not checked')\nclass PublisherTests"),
         ):
             with self.subTest(source=source):
-                notes, errors = check(WORKFLOW, MAKEFILE, source, expected=ISSUE)
+                notes, errors = check(PRESS, WORKFLOW, MAKEFILE, source, expected=ISSUE)
+                self.assertEqual(notes, [])
+                self.assertTrue(errors[0].startswith("FAIL "))
+
+    def test_renderer_missing_file_or_method_are_strict_xfails(self):
+        for tests, reason in ((None, "missing tracked test file"), (RENDERER_BASE, "missing test method")):
+            with self.subTest(reason=reason):
+                args = (GUAVAJAM, RENDERER_WORKFLOW, RENDERER_MAKEFILE, tests)
+                notes, errors = check(*args, expected=RENDERER_ISSUE)
+                self.assertEqual(errors, [])
+                self.assertIn("XFAIL", notes[0])
+                self.assertIn(reason, notes[0])
+                self.assertIn(RENDERER_ISSUE, notes[0])
+                self.assertIn("FAIL", check(*args)[1][0])
+
+    def test_renderer_valid_case_is_strict_xpass(self):
+        args = (GUAVAJAM, RENDERER_WORKFLOW, RENDERER_MAKEFILE, RENDERER_BASE + RENDERER_METHOD)
+        self.assertIn("XPASS", check(*args, expected=RENDERER_ISSUE)[1][0])
+        self.assertEqual(check(*args), ([], []))
+
+    def test_renderer_rejects_broken_wiring_or_skipped_case(self):
+        broken_workflow = RENDERER_WORKFLOW.replace(b"make test-repository", b"make test-core")
+        broken_makefile = RENDERER_MAKEFILE.replace(b"-s tests/repository", b"-s tests/deployment")
+        skipped = RENDERER_METHOD.replace(b"    def", b"    @unittest.skip('not checked')\n    def")
+        for workflow, makefile, tests in (
+            (broken_workflow, RENDERER_MAKEFILE, None),
+            (RENDERER_WORKFLOW, broken_makefile, None),
+            (RENDERER_WORKFLOW, RENDERER_MAKEFILE, RENDERER_BASE + skipped),
+        ):
+            with self.subTest(workflow=workflow, makefile=makefile, tests=tests):
+                notes, errors = check(GUAVAJAM, workflow, makefile, tests, expected=RENDERER_ISSUE)
                 self.assertEqual(notes, [])
                 self.assertTrue(errors[0].startswith("FAIL "))
 
@@ -109,7 +151,7 @@ class RepoTests(unittest.TestCase):
             git("config", "user.name", "Test Fixture")
             git("config", "user.email", "tests@example.invalid")
             git("config", "commit.gpgsign", "false")
-            tracked = repo / TEST_FILE
+            tracked = repo / PRESS.path
             tracked.parent.mkdir()
             tracked.write_bytes(BASE)
             git("add", ".")
@@ -122,11 +164,14 @@ class RepoTests(unittest.TestCase):
             git("commit", "-qm", "Use symlink fixture")
             second = git("rev-parse", "HEAD")
 
-            self.assertEqual(tracked_blob(Pin("press", repo, first), TEST_FILE), BASE)
+            self.assertEqual(tracked_blob(Pin("press", repo, first), PRESS.path), BASE)
             with self.assertRaisesRegex(ValueError, "regular tracked blob"):
-                tracked_blob(Pin("press", repo, second), TEST_FILE)
+                tracked_blob(Pin("press", repo, second), PRESS.path)
             with self.assertRaisesRegex(ValueError, "missing tracked file"):
                 tracked_blob(Pin("press", repo, first), "tests/nonexistent.py")
+            self.assertIsNone(tracked_blob(Pin("press", repo, first), "tests/nonexistent.py", missing_ok=True))
+            with self.assertRaisesRegex(ValueError, "regular tracked blob"):
+                tracked_blob(Pin("press", repo, second), PRESS.path, missing_ok=True)
 
 
 if __name__ == "__main__":
