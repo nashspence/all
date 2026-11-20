@@ -14,9 +14,10 @@ jobs:
       - run: git submodule update --init --checkout --depth 1
       - run: python3 checks/submodules.py --checkout
       - run: python3 checks/checkout_invariance.py
-      - name: Check Action pins
+      - name: Check workflow parity
         run: |
           python3.12 -m venv "$RUNNER_TEMP/parity-venv"
           "$RUNNER_TEMP/parity-venv/bin/python" -m pip install --require-hashes --only-binary=:all: -r checks/requirements-ci.txt
           "$RUNNER_TEMP/parity-venv/bin/python" -m unittest discover -s checks
           "$RUNNER_TEMP/parity-venv/bin/python" checks/actions_pins.py
+          "$RUNNER_TEMP/parity-venv/bin/python" checks/pr_ci.py
