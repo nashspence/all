@@ -13,3 +13,4 @@ jobs:
       - run: python3 checks/submodules.py
       - run: git submodule update --init --checkout --depth 1
       - run: python3 checks/submodules.py --checkout
+      - run: python3 checks/checkout_invariance.py
