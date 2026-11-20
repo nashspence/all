@@ -21,3 +21,12 @@ jobs:
           "$RUNNER_TEMP/parity-venv/bin/python" -m unittest discover -s checks
           "$RUNNER_TEMP/parity-venv/bin/python" checks/actions_pins.py
           "$RUNNER_TEMP/parity-venv/bin/python" checks/pr_ci.py
+      - name: Build the offline Make help sandbox
+        run: |
+          docker build --tag make-help-ci:local - <<'DOCKERFILE'
+          FROM debian:bookworm-slim@sha256:734a72b3d6142a71993b4bc580ca01d8ca687f77a2c422d96a961d3376b179bc
+          RUN apt-get update && apt-get install -y --no-install-recommends make mawk \
+              && rm -rf /var/lib/apt/lists/*
+          DOCKERFILE
+      - name: Verify fresh-checkout Make help
+        run: python3 checks/make_help.py --image make-help-ci:local
