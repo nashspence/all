@@ -1,0 +1,21 @@
+[submodule "0819870.xyz-public-keys"]
+	path = repos/0819870.xyz-public-keys
+	url = https://github.com/nashspence/0819870.xyz-public-keys.git
+[submodule "fishhat"]
+	path = repos/fishhat
+	url = https://github.com/nashspence/fishhat.git
+[submodule "forgejo-restic-restore-bootstrap"]
+	path = repos/forgejo-restic-restore-bootstrap
+	url = https://github.com/nashspence/forgejo-restic-restore-bootstrap.git
+[submodule "guavajam"]
+	path = repos/guavajam
+	url = https://github.com/nashspence/guavajam.git
+[submodule "press"]
+	path = repos/press
+	url = https://github.com/nashspence/press.git
+[submodule "proffer"]
+	path = repos/proffer
+	url = https://github.com/nashspence/proffer.git
+[submodule "riverhog"]
+	path = repos/riverhog
+	url = https://github.com/nashspence/riverhog.git
