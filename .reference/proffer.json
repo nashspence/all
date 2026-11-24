@@ -1,0 +1,54 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/43",
+  "purpose": "Both selected surfaces translate typed source YAML into the JSON domain. Fishhat already tests an explicit scalar dialect, and no inspected Riverhog example required legacy octal/sexagesimal interpretation. A real compatibility requirement remains a valid reason to reject or except this inference.",
+  "producer": [
+    "ChatGPT"
+  ],
+  "requester": "nashspence",
+  "first_step": "Read the owning issue and .reference/test_policy.py; rerun .reference/reproduce.py against its audited source commits. Independently accept, adapt, defer, or reject the reference. Do not merge this reference branch wholesale.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "python -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "0ff15cf991f2b2e856c91678684a8c18e569d55f"
+      },
+      "environment": "Python 3.12.14; Linux x86_64; git version 2.56.1; PyYAML 6.0.3, jsonschema 4.26.0, setuptools 84.2.1. Source-comparison environment: rfc8785==0.1.4 in an isolated environment with base site packages; URI format checker absent.",
+      "notes": "7 reference tests passed without skips."
+    },
+    {
+      "command": "python .reference/reproduce.py --repos /workspace/scratch/da2e720d8b94/drift-research/repos",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "0ff15cf991f2b2e856c91678684a8c18e569d55f"
+      },
+      "environment": "Python 3.12.14; Linux x86_64; git version 2.56.1; PyYAML 6.0.3, jsonschema 4.26.0, setuptools 84.2.1. Source-comparison environment: rfc8785==0.1.4 in an isolated environment with base site packages; URI format checker absent.",
+      "notes": "Used the isolated source-comparison interpreter. Audited commit IDs are enforced by reproduce.py. A successful comparison confirms the recorded implementation drift; it is not a passing consumer-policy result. Replace --repos with the location of those exact clean checkouts when rerunning."
+    },
+    {
+      "command": "consumer integration and native qualification",
+      "result": "not-run",
+      "reason": "This contribution publishes a non-authoritative reference only; no consumer adapter or policy adoption is applied."
+    }
+  ],
+  "limitations": [
+    "Authored prose metadata, Compose and other intentional YAML dialects remain outside this profile. It does not impose Fishhat's JCS policy or a universal integer ceiling; null spellings follow the audited Fishhat resolver. No consumer migration is performed.",
+    "The existing repository implementations are compared in disposable fixtures or copies. Validation of the reference does not establish consumer conformance, operational permission, or acceptance."
+  ]
+}
