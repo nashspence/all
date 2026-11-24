@@ -1,0 +1,55 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/61",
+  "purpose": "share one low-noise dependency review convention",
+  "producer": [
+    "ChatGPT, with independent research and reference review"
+  ],
+  "requester": "nashspence",
+  "first_step": "Inspect the immutable evidence, implementation and counterexamples. Independently accept, adapt, defer or reject the shared default after assessing actual migration and exception costs; qualify the real owner adapter before adoption.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "a5954754a613af73a34f7ff3b258c0b21f92448a"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "10 behavioral tests passed, with no skips. The tested tree is preserved by parent commit 6eb0a2c71a89ae01d8d8b4ec7554cbd4d68b28c9."
+    },
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B .reference/reproduce.py --repos /workspace/scratch/da2e720d8b94/rails-research/repos",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "a5954754a613af73a34f7ff3b258c0b21f92448a"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "At fixed clean heads, Riverhog's three routes match; Fishhat's two routes differ on assignment/prefix. Other CI repositories are reported as enrollment gaps owned by #44. Tests cover profile differences, typed queue limits, grouping, exact release-window exceptions, duplicate routes and collision-free exact route keys."
+    },
+    {
+      "command": "Integrate the real owner adapters, migrate consumers and execute their complete required validation",
+      "result": "not-run",
+      "reason": "This publication offers an independent policy possibility. No consumer repository was changed; candidate versions and conventions are not claimed to be migration-qualified."
+    }
+  ],
+  "limitations": [
+    "The reference compares selected source-declared profile fields only; it does not validate the entire Dependabot schema or prove updater activation, available updates or vulnerability status.",
+    "It neither changes dependency eligibility nor removes Riverhog's explicit Python Docker compatibility exclusion.",
+    "Scope/observed-value/reason/revisit records make deviations reviewable but do not prove the stated constraint."
+  ]
+}
