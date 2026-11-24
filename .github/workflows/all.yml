@@ -1,0 +1,12 @@
+name: all
+on:
+  push: {}
+  pull_request: {}
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch: {}
+permissions:
+  contents: read
+jobs:
+  all:
+    uses: ./.github/workflows/policy.yml
