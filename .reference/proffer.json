@@ -1,0 +1,56 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/48",
+  "purpose": "put repository-only maintenance code under scripts",
+  "producer": [
+    "ChatGPT, with independent research and reference review"
+  ],
+  "requester": "nashspence",
+  "first_step": "Inspect the immutable evidence, implementation and counterexamples. Independently accept, adapt, defer or reject the shared default after assessing actual migration and exception costs; qualify the real owner adapter before adoption.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "073631b42bdb0421d6c0b7bb11449fecba5dd712"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "7 behavioral tests passed, with no skips. The tested tree is preserved by parent commit 6852461176f66f90c3bd427c1896710a8e471a9e."
+    },
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B .reference/reproduce.py --repos /workspace/scratch/da2e720d8b94/rails-research/repos",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "073631b42bdb0421d6c0b7bb11449fecba5dd712"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "Fixed clean commit guards; compares actual committed repository-tool inventories. Fishhat63 and Riverhog87 satisfy scripts/; Guavajam8 all use tools/. Public Proffer check.py is deliberately outside this selected role."
+    },
+    {
+      "command": "Integrate the real owner adapters, migrate consumers and execute their complete required validation",
+      "result": "not-run",
+      "reason": "This publication offers an independent policy possibility. No consumer repository was changed; candidate versions and conventions are not claimed to be migration-qualified."
+    }
+  ],
+  "limitations": [
+    "The predicate accepts an owner-derived repository-only classification. It neither infers purpose from a filename nor proves classification completeness or runtime separation.",
+    "The reproduction inventories currently documented scripts/ and tools/ Python/shell owners; it is not a general classifier for every executable in a repository.",
+    "An exception string records a retained constraint for review; it is not evidence of authorization or a machine proof that the cost outweighs standardization.",
+    "Adoption requires real import/command/path updates and ordinary-suite validation; the reference does not move any existing source."
+  ]
+}
