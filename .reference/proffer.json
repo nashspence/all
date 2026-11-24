@@ -1,0 +1,57 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/49",
+  "purpose": "put repository-only policy tests under tests/repository",
+  "producer": [
+    "ChatGPT, with independent research and reference review"
+  ],
+  "requester": "nashspence",
+  "first_step": "Inspect the immutable evidence, implementation and counterexamples. Independently accept, adapt, defer or reject the shared default after assessing actual migration and exception costs; qualify the real owner adapter before adoption.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "2d94c5772bd2e3ded665911f529b8fded7e8a3dd"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "7 behavioral tests passed, with no skips. The tested tree is preserved by parent commit 8901ad66a229df6107ed8a6b7b9e7d540a8fd378."
+    },
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B .reference/reproduce.py --repos /workspace/scratch/da2e720d8b94/rails-research/repos",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "2d94c5772bd2e3ded665911f529b8fded7e8a3dd"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "Fixed clean commit guards; reads and hashes the six cited actual test modules, parses their test functions without importing them, and checks the reviewed path roles. Guavajam passes; both Fishhat and both Riverhog samples show the naming drift. No native suites run."
+    },
+    {
+      "command": "Integrate the real owner adapters, migrate consumers and execute their complete required validation",
+      "result": "not-run",
+      "reason": "This publication offers an independent policy possibility. No consumer repository was changed; candidate versions and conventions are not claimed to be migration-qualified."
+    }
+  ],
+  "limitations": [
+    "The reference checks location of an explicitly classified set. It does not determine assertion purpose or prove a suite collected/executed the tests.",
+    "The source comparison samples two independently inspected repository-policy modules per repository; it is not a complete classification of every test module.",
+    "Renaming test nodes invalidates old source-qualified receipts; regenerate/review real collection evidence and retain required coverage, rather than claiming old receipts apply.",
+    "The test_*.py convention is for the observed Python policy-test surfaces. Other runner languages require a deliberate equivalent adapter, not forced Python rewrites.",
+    "An exception reason is input for human review, not machine authorization."
+  ]
+}
