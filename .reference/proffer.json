@@ -1,0 +1,55 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/52",
+  "purpose": "share one Python formatting profile",
+  "producer": [
+    "ChatGPT, with independent research and reference review"
+  ],
+  "requester": "nashspence",
+  "first_step": "Inspect the immutable evidence, implementation and counterexamples. Independently accept, adapt, defer or reject the shared default after assessing actual migration and exception costs; qualify the real owner adapter before adoption.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "c2de293e9c912b8ef232563010c591e284e8e7c2"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1; Ruff 0.17.1 optional C901 cost probe",
+      "notes": "9 behavioral tests passed, with no skips. The tested tree is preserved by parent commit 81087923ba31d5558f51db0cc65d838ccb78bed3."
+    },
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B .reference/reproduce.py --repos /workspace/scratch/da2e720d8b94/rails-research/repos --ruff /workspace/scratch/da2e720d8b94/rails-research/tool-validation/bin/ruff",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "c2de293e9c912b8ef232563010c591e284e8e7c2"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1; Ruff 0.17.1 optional C901 cost probe",
+      "notes": "Fixed-source read-only inventory confirms two existing100-column Ruff profiles and four absent profiles; no native source is reformatted."
+    },
+    {
+      "command": "Integrate the real owner adapters, migrate consumers and execute their complete required validation",
+      "result": "not-run",
+      "reason": "This publication offers an independent policy possibility. No consumer repository was changed; candidate versions and conventions are not claimed to be migration-qualified."
+    }
+  ],
+  "limitations": [
+    "A proposed formatting profile, not a claim that all current sources pass it or a cross-repo migration has been qualified.",
+    "The checker consumes a complete maintained configuration inventory and cannot establish that the caller supplied every file.",
+    "Reason text needs substantive human/agent review; nonempty text alone is not proof that a deviation is justified."
+  ]
+}
