@@ -1,0 +1,55 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/60",
+  "purpose": "complete independent CI matrix evidence after a failure",
+  "producer": [
+    "ChatGPT, with independent research and reference review"
+  ],
+  "requester": "nashspence",
+  "first_step": "Inspect the immutable evidence, implementation and counterexamples. Independently accept, adapt, defer or reject the shared default after assessing actual migration and exception costs; qualify the real owner adapter before adoption.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "b3576300be9ae609c1b3dacfcd9789b13d326566"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "8 behavioral tests passed, with no skips. The tested tree is preserved by parent commit dd72b416daada9d50fd17ef73ffa791f83c11a46."
+    },
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B .reference/reproduce.py --repos /workspace/scratch/da2e720d8b94/rails-research/repos",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "b3576300be9ae609c1b3dacfcd9789b13d326566"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "The actual five matrix-bearing ordinary workflows show all alone lacks the explicit false value; the other four match. Tests cover dynamic matrix declarations, nonmatrix jobs, actual booleans versus quoted/numeric lookalikes, malformed strategy and exact speculative-work exceptions."
+    },
+    {
+      "command": "Integrate the real owner adapters, migrate consumers and execute their complete required validation",
+      "result": "not-run",
+      "reason": "This publication offers an independent policy possibility. No consumer repository was changed; candidate versions and conventions are not claimed to be migration-qualified."
+    }
+  ],
+  "limitations": [
+    "The owner adapter must establish matrix independence; a matrix shape alone does not reveal assertion meaning.",
+    "This is a configuration predicate, not evidence that every lane ran, passed or belonged to the final source.",
+    "No matrix workload, supported platform or resource limit was changed."
+  ]
+}
