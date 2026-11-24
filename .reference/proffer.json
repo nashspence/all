@@ -1,0 +1,57 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/46",
+  "purpose": "give every repository the same help, setup and test commands",
+  "producer": [
+    "ChatGPT, with independent research and reference review"
+  ],
+  "requester": "nashspence",
+  "first_step": "Inspect the immutable evidence, implementation and counterexamples. Independently accept, adapt, defer or reject the shared default after assessing actual migration and exception costs; qualify the real owner adapter before adoption.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "6e0a654150378cd5ab2e4995da9521447cba3d01"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "7 behavioral tests passed, with no skips. The tested tree is preserved by parent commit e9427987738c9fa61beab210fc8dee10d02a1eee."
+    },
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B .reference/reproduce.py --repos /workspace/scratch/da2e720d8b94/rails-research/repos",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "6e0a654150378cd5ab2e4995da9521447cba3d01"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "Fixed clean commit guards; reads actual committed Makefiles from six repositories. Fishhat and Guavajam satisfy the declaration predicate; all, Proffer, Restore and Riverhog expose the specific missing roles. No source execution or modifications."
+    },
+    {
+      "command": "Integrate the real owner adapters, migrate consumers and execute their complete required validation",
+      "result": "not-run",
+      "reason": "This publication offers an independent policy possibility. No consumer repository was changed; candidate versions and conventions are not claimed to be migration-qualified."
+    }
+  ],
+  "limitations": [
+    "The reference reads a deliberately literal declaration subset; it is not a complete GNU Make parser. Conditional reachability, includes, dynamic target expansion, recipe meaning and native suite coverage require real command execution at adoption.",
+    "The portable comparison inspects committed Makefile text without invoking repository setup or tests. It does not establish that the native frontend executes successfully.",
+    "The synthetic executable example uses host GNU Make and a POSIX shell; this does not qualify Windows environments.",
+    "Adding common role names does not itself enroll all-policy or make test complete; #16 and #17 own those checks.",
+    "The proposed dependency vocabulary may be supplied by the separate common uv environment policy. This reference does not choose a second resolver."
+  ]
+}
