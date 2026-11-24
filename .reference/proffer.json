@@ -1,0 +1,43 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/16",
+  "purpose": "A repository's ordinary test command should actually observe the shared policy, rather than only having a separate nominal integration.",
+  "producer": [
+    "ChatGPT"
+  ],
+  "requester": "nashspence",
+  "first_step": "Read the owning issue and .reference/test_policy.py. Independently reuse, adapt, defer, or reject the reference; do not merge the reference branch wholesale.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py"
+  ],
+  "checks": [
+    {
+      "command": "python -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "6ca9bff520412632185722082df4229751adefbb"
+      },
+      "environment": "Python 3.12.14, Linux x86_64; repository base 03de186a044c9c6b365347485a6c4093ce831c79; Proffer 2ce5e15c3191fcdc2be70213c0170f57c852a883",
+      "notes": "3 tests passed with no skips. Required evaluation tools were available: Git 2.56.1, Python 3.12.14, PyYAML 6.0.3, jsonschema 4.26.0, GNU Make 4.4.1 and OpenSSH 10.0p2. For proffer-publication only, set PROFFER_CHECKER to check.py in the named Proffer checkout."
+    },
+    {
+      "command": "consumer repository integration and native qualification",
+      "result": "not-run",
+      "reason": "This is an independent reference with fixture tests; no consumer adapter was installed or consumer repository modified."
+    }
+  ],
+  "limitations": [
+    "This supplements the existing all workflow protocol; it does not replace the audit or require another CI gate. Never inject faults into a developer's live checkout. A test adapter must choose a stable policy violation and real ordinary command.",
+    "Fixture validation does not establish consumer conformance, product authority, deployment permission, or acceptance of this policy."
+  ]
+}
