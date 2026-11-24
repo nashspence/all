@@ -1,0 +1,57 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/55",
+  "purpose": "share a default Python build backend and version",
+  "producer": [
+    "ChatGPT, with independent research and reference review"
+  ],
+  "requester": "nashspence",
+  "first_step": "Inspect the immutable evidence, implementation and counterexamples. Independently accept, adapt, defer or reject the shared default after assessing actual migration and exception costs; qualify the real owner adapter before adoption.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "a8c9796047ca456c89fe6bf1428c3c47ff79d25e"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "9 behavioral tests passed, with no skips. The tested tree is preserved by parent commit 6ccbb7984f6c7b19593d15aff3e78107313172f2."
+    },
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B .reference/reproduce.py --repos /workspace/scratch/da2e720d8b94/rails-research/repos",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "a8c9796047ca456c89fe6bf1428c3c47ff79d25e"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "reproduce.py inventories exact clean source commits, confirms143 distribution manifests and89 ordinary Riverhog Hatch candidates after two precise native-hook exceptions. All eight behavioral tests and the source comparison pass."
+    },
+    {
+      "command": "Integrate the real owner adapters, migrate consumers and execute their complete required validation",
+      "result": "not-run",
+      "reason": "This publication offers an independent policy possibility. No consumer repository was changed; candidate versions and conventions are not claimed to be migration-qualified."
+    }
+  ],
+  "limitations": [
+    "No backend migration, package build, installation, native compilation, license or compatibility qualification was performed.",
+    "Actual-source comparison counts manifest configurations and two byte-bound hook exceptions only.",
+    "The checker cannot decide whether a proposed exception is worth its cost; that remains the handling agent's independent decision.",
+    "Resource/file inclusion tables, distribution metadata and publishing/release practices are not standardized by this build-system-table predicate.",
+    "Build-system-present manifests remain in scope even when legacy setup.py/setup.cfg owns metadata; an owner adapter must discover legacy distributions without a pyproject separately."
+  ]
+}
