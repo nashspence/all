@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nashspence-all"
+version = "0"
+description = "Shared executable repository policy"
+requires-python = ">=3.11"
+dependencies = ["PyYAML>=6,<7"]
+
+[project.scripts]
+all-policy = "all_policy.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["all_policy*"]
