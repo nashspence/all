@@ -1,0 +1,55 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/57",
+  "purpose": "share an explicit baseline for ordinary Linux CI",
+  "producer": [
+    "ChatGPT, with independent research and reference review"
+  ],
+  "requester": "nashspence",
+  "first_step": "Inspect the immutable evidence, implementation and counterexamples. Independently accept, adapt, defer or reject the shared default after assessing actual migration and exception costs; qualify the real owner adapter before adoption.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "547bb4c2f78d5c5295f0b27d510b6b169c1e176b"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "7 behavioral tests passed, with no skips. The tested tree is preserved by parent commit afe02333d9d545fa64eb91ae689baabb1eeb3c3d."
+    },
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B .reference/reproduce.py --repos /workspace/scratch/da2e720d8b94/rails-research/repos",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "547bb4c2f78d5c5295f0b27d510b6b169c1e176b"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "The actual ordinary workflow inventory yields differences for all and Proffer and no baseline differences for Fishhat, Riverhog, Guavajam or Restore. Tests preserve non-Linux platforms and reject latest/other generation/dynamic unresolved selected lanes and stale exceptions."
+    },
+    {
+      "command": "Integrate the real owner adapters, migrate consumers and execute their complete required validation",
+      "result": "not-run",
+      "reason": "This publication offers an independent policy possibility. No consumer repository was changed; candidate versions and conventions are not claimed to be migration-qualified."
+    }
+  ],
+  "limitations": [
+    "The reproduction helper supports the literal Ubuntu labels and static matrix.os forms used in the inspected ordinary workflows; it is not a general GitHub expression/matrix evaluator.",
+    "Hosted image contents can still change under ubuntu-24.04; exact execution identity remains separate.",
+    "No existing job or supported platform was changed or executed."
+  ]
+}
