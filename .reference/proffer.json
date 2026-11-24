@@ -1,0 +1,54 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/45",
+  "purpose": "Installed consumers need the marker to discover an inline-typed library's type information. A small VCS-distributed library can preserve that metadata just as other Python libraries do. Whether all promises inline typing remains an explicit acceptance decision; no packaging constraint requiring omission was found.",
+  "producer": [
+    "ChatGPT"
+  ],
+  "requester": "nashspence",
+  "first_step": "Read the owning issue and .reference/test_policy.py; rerun .reference/reproduce.py against its audited source commits. Independently accept, adapt, defer, or reject the reference. Do not merge this reference branch wholesale.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "python -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "19984864117cecd6d700bfc1f1a044fd6623f839"
+      },
+      "environment": "Python 3.12.14; Linux x86_64; git version 2.56.1; PyYAML 6.0.3, jsonschema 4.26.0, setuptools 84.2.1. Source-comparison environment: rfc8785==0.1.4 in an isolated environment with base site packages; URI format checker absent.",
+      "notes": "6 reference tests passed without skips."
+    },
+    {
+      "command": "python .reference/reproduce.py --repos /workspace/scratch/da2e720d8b94/drift-research/repos",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "19984864117cecd6d700bfc1f1a044fd6623f839"
+      },
+      "environment": "Python 3.12.14; Linux x86_64; git version 2.56.1; PyYAML 6.0.3, jsonschema 4.26.0, setuptools 84.2.1. Source-comparison environment: rfc8785==0.1.4 in an isolated environment with base site packages; URI format checker absent.",
+      "notes": "Used the isolated source-comparison interpreter. Audited commit IDs are enforced by reproduce.py. A successful comparison confirms the recorded implementation drift; it is not a passing consumer-policy result. Replace --repos with the location of those exact clean checkouts when rerunning."
+    },
+    {
+      "command": "consumer integration and native qualification",
+      "result": "not-run",
+      "reason": "This contribution publishes a non-authoritative reference only; no consumer adapter or policy adoption is applied."
+    }
+  ],
+  "limitations": [
+    "Deliberately untyped libraries, separate stub-only packages and non-Python tools have different contracts. Namespace subpackages own their markers. This does not prove annotation completeness, correctness, static-analysis success or full native packaging qualification. See the [typing distribution specification](https://typing.python.org/en/latest/spec/distributing.html#packaging-type-information).",
+    "The existing repository implementations are compared in disposable fixtures or copies. Validation of the reference does not establish consumer conformance, operational permission, or acceptance."
+  ]
+}
