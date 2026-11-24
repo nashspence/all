@@ -1,0 +1,57 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/47",
+  "purpose": "use src as the source root of every Python distribution",
+  "producer": [
+    "ChatGPT, with independent research and reference review"
+  ],
+  "requester": "nashspence",
+  "first_step": "Inspect the immutable evidence, implementation and counterexamples. Independently accept, adapt, defer or reject the shared default after assessing actual migration and exception costs; qualify the real owner adapter before adoption.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "73a0f71961393561be690dff7dcef85bdd93b7f2"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "10 behavioral tests passed, with no skips. The tested tree is preserved by parent commit 9229ab1ae0724c9c2dd5e3b49c40dc6928544efa."
+    },
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B .reference/reproduce.py --repos /workspace/scratch/da2e720d8b94/rails-research/repos",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "73a0f71961393561be690dff7dcef85bdd93b7f2"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "Fixed clean commit guards; inventories every committed pyproject.toml containing [project]. 132 distributions have canonical roots with no unsupported source routes. Ten Riverhog projects retain canonical declared roots but are reported as adapter-required for two native hooks and eight NOTICE/formal-resource force-includes. all reports one flat source-layout deviation. No builds or source execution."
+    },
+    {
+      "command": "Integrate the real owner adapters, migrate consumers and execute their complete required validation",
+      "result": "not-run",
+      "reason": "This publication offers an independent policy possibility. No consumer repository was changed; candidate versions and conventions are not claimed to be migration-qualified."
+    }
+  ],
+  "limitations": [
+    "The reference covers the current setuptools find declarations and explicit Hatch wheel-package declarations. Setuptools py-modules/explicit package lists and Hatch force-include, remapping, custom hooks or alternate inclusion routes fail with a reviewed-adapter requirement; generated modules, binary-only extensions and unknown backends likewise need real adapters.",
+    "This proves declared source placement, tracked presence and flat-name collision absence; it does not build artifacts or prove installed import origin or behavior.",
+    "Migration must update build metadata, relevant direct source-path references and isolated artifact tests while preserving public import/CLI names.",
+    "This does not prescribe a common monorepo component topology or require every repository to become a workspace.",
+    "Native C sources and separately owned NOTICE/formal resources have evidenced reasons to remain outside Python src. The reference reports their source-expansion routes as adapter-required; it does not label their existence unnecessary drift or claim their builds qualified."
+  ]
+}
