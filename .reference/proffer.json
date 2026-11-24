@@ -1,0 +1,55 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/51",
+  "purpose": "share editor text defaults across maintained repositories",
+  "producer": [
+    "ChatGPT, with independent research and reference review"
+  ],
+  "requester": "nashspence",
+  "first_step": "Inspect the immutable evidence, implementation and counterexamples. Independently accept, adapt, defer or reject the shared default after assessing actual migration and exception costs; qualify the real owner adapter before adoption.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "f5a6f3ef691bc37ed43d1713a456df1e8ed9d720"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "11 behavioral tests passed, with no skips. The tested tree is preserved by parent commit 3d42162066643dc9a703ab4025e5d335f24cb918."
+    },
+    {
+      "command": "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python -B .reference/reproduce.py --repos /workspace/scratch/da2e720d8b94/rails-research/repos",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "f5a6f3ef691bc37ed43d1713a456df1e8ed9d720"
+      },
+      "environment": "Python 3.12.14; PyYAML 6.0.3; jsonschema 4.26.0; git version 2.56.1; GNU Make 4.4.1",
+      "notes": "Read-only fixed-SHA inventory confirms Guavajam has the sole root EditorConfig among six inspected code repos and reports the different checkout-attribute scopes."
+    },
+    {
+      "command": "Integrate the real owner adapters, migrate consumers and execute their complete required validation",
+      "result": "not-run",
+      "reason": "This publication offers an independent policy possibility. No consumer repository was changed; candidate versions and conventions are not claimed to be migration-qualified."
+    }
+  ],
+  "limitations": [
+    "A declaration/default policy, not a general EditorConfig parser, content formatter or byte-custody proof.",
+    "The reference intentionally admits a small canonical section grammar and exact safe POSIX exception paths, not every legal EditorConfig glob.",
+    "The consumer must identify protected/generated inputs before adopting defaults; reason text cannot itself verify that classification."
+  ]
+}
