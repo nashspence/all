@@ -130,6 +130,15 @@ include complete atomic replacements at parallelism 1/2/4 and individually
 synchronized versus batch-acknowledged transactions. Batch success does not
 qualify individually acknowledged commits.
 
+A separate parent process enforces a total deadline of at most 300 seconds,
+including preparation, probes, verification and cleanup. It checkpoints valid
+partial evidence as collection proceeds. A timeout or interruption retains
+completed observations and the unfinished stage, reports collection failure and
+does not wait indefinitely for a worker stuck in kernel I/O. Keep the output,
+installed package and interpreter on responsive control storage; use a separate
+healthy filesystem when investigating storage stalls. An existing output packet
+is never reused or overwritten by a new invocation.
+
 The result is an **unapproved qualification packet**, not profile enrollment or
 a product acceptance result. Exit 2 retains that status even when every numeric
 screen passes; exit 3 reports collection failure. Shared review must establish
