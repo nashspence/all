@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "operations": {
+    "check_repository16_warm": {
+      "profile": "public-linux-x64-4cpu-native-api-v1",
+      "max_wall_ns": 20000000
+    },
+    "check_repository16_cold": {
+      "profile": "public-linux-x64-4cpu-native-api-v1",
+      "max_wall_ns": 125000000
+    }
+  }
+}

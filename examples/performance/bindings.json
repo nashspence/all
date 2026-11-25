@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "repository": "nashspence/all",
+  "operations": {
+    "check_repository16_warm": {
+      "approved_files": {
+        "examples/performance/all_policy_case.py": "00a262b020ff002739f3e90cdc5867d721d10e198df45b70ed01b88ca2508729"
+      },
+      "mode": "request",
+      "unit": "Sixteen serial warm all_policy.check_repository calls over the approved real workflow fixtures",
+      "completion": "All sixteen workflow reads, YAML parses and policy decisions have returned; no useful operation work is deferred to verify or close",
+      "adapter": "examples/performance/all_policy_case.py",
+      "cold_operation": "check_repository16_cold"
+    },
+    "check_repository16_cold": {
+      "approved_files": {
+        "examples/performance/all_policy_case.py": "00a262b020ff002739f3e90cdc5867d721d10e198df45b70ed01b88ca2508729"
+      },
+      "mode": "command",
+      "unit": "One fresh Python process creates the sixteen fixtures, imports the candidate, executes all sixteen checks and writes its completed result",
+      "completion": "The result file is closed and the foreground process and all its descendants have exited",
+      "command": [
+        "{python}",
+        "-I",
+        "-B",
+        "{subject}/examples/performance/all_policy_case.py",
+        "run",
+        "{subject}",
+        "{work}"
+      ],
+      "verify": [
+        "{python}",
+        "-I",
+        "-B",
+        "{subject}/examples/performance/all_policy_case.py",
+        "verify",
+        "{subject}",
+        "{work}"
+      ]
+    }
+  }
+}

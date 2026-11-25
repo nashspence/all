@@ -1,5 +1,6 @@
 import contextlib
 import io
+import json
 import os
 from pathlib import Path
 import subprocess
@@ -14,6 +15,16 @@ from all_policy.protocol import SOURCE_REPOSITORY
 
 
 class CliTests(unittest.TestCase):
+    def test_performance_cli_rejects_floating_authority_before_running_candidate(self):
+        with tempfile.TemporaryDirectory() as directory, contextlib.redirect_stdout(io.StringIO()) as out:
+            status = main(["performance", "--authority", directory, "--approved-revision", "main",
+                           "--repository", "nashspence/example", "--subject", directory,
+                           "--storage", "public-linux-x64-4cpu-native-api-v1=" + directory])
+        self.assertEqual(3, status)
+        evidence = json.loads(out.getvalue())
+        self.assertEqual("failed", evidence["verdict"])
+        self.assertIn("full approved commit required", evidence["error"])
+
     def test_installed_cli_and_module_expose_the_library_check(self):
         root = Path(__file__).resolve().parents[1]
         for command in (["all-policy"], [sys.executable, "-m", "all_policy"]):
