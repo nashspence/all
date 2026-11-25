@@ -1,0 +1,163 @@
+{
+  "format": "all-reference-guard-config/v3",
+  "status": "frozen_before_fresh_v3_validation",
+  "fitted_from": {
+    "run_id": 45680767861,
+    "source": "7355aed8042e61eedc491428a063080a7f557f5b",
+    "sha256": "605fc7ebc30a1ffd4bab506ff9b9d2c5fbc854735af48f592b4c5075dde75e10",
+    "path": "experiments/64/v2/observations.json",
+    "allocations": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24
+    ]
+  },
+  "primary_families": [
+    "policy16_p1",
+    "policy512_p1",
+    "policy512_p2",
+    "policy512_p4",
+    "files4096"
+  ],
+  "estimator": "ratio_of_minima_using_faster_reference",
+  "guard_maximum_symmetric_relative_difference": 0.1,
+  "guard_formula": "max(min(Rcase),min(Raudit))/min(min(Rcase),min(Raudit))-1",
+  "score_formula": "min(Ccase)/min(min(Rcase),min(Raudit))",
+  "maximum_allowance": 0.2,
+  "fit_headroom": 0.03,
+  "illustrative_budget_ratio": 1.2,
+  "fresh_allocation_count": 24,
+  "minimum_guard_eligible_per_cohort": 23,
+  "fit_drops_or_recenterings": 0,
+  "families": {
+    "policy16_p1": {
+      "primary": true,
+      "same_case_audit": "policy16_p1/work50",
+      "fit_max_null_error_all_24": 0.06961757956422954,
+      "allowance": 0.09961757956422954,
+      "allowance_within_cap": true,
+      "reference_anchor_ms": 7.6025735,
+      "fit_guard_eligible_count": 24,
+      "fit_null_budget_pass_count": 24
+    },
+    "policy16_p2": {
+      "primary": false,
+      "same_case_audit": "policy16_p2/work50",
+      "fit_max_null_error_all_24": 0.2669967757144467,
+      "allowance": 0.2969967757144467,
+      "allowance_within_cap": false,
+      "reference_anchor_ms": 11.3326895,
+      "fit_guard_eligible_count": 15,
+      "fit_null_budget_pass_count": 3
+    },
+    "policy16_p4": {
+      "primary": false,
+      "same_case_audit": "policy16_p4/work50",
+      "fit_max_null_error_all_24": 0.07942142406589026,
+      "allowance": 0.10942142406589025,
+      "allowance_within_cap": true,
+      "reference_anchor_ms": 13.149932,
+      "fit_guard_eligible_count": 24,
+      "fit_null_budget_pass_count": 24
+    },
+    "policy512_p1": {
+      "primary": true,
+      "same_case_audit": "policy512_p1/work50",
+      "fit_max_null_error_all_24": 0.015162555570464642,
+      "allowance": 0.04516255557046464,
+      "allowance_within_cap": true,
+      "reference_anchor_ms": 238.66045350000002,
+      "fit_guard_eligible_count": 24,
+      "fit_null_budget_pass_count": 24
+    },
+    "policy512_p2": {
+      "primary": true,
+      "same_case_audit": "policy512_p2/work50",
+      "fit_max_null_error_all_24": 0.07913072556915379,
+      "allowance": 0.10913072556915379,
+      "allowance_within_cap": true,
+      "reference_anchor_ms": 152.373464,
+      "fit_guard_eligible_count": 24,
+      "fit_null_budget_pass_count": 23
+    },
+    "policy512_p4": {
+      "primary": true,
+      "same_case_audit": "policy512_p4/work50",
+      "fit_max_null_error_all_24": 0.03434112176883963,
+      "allowance": 0.06434112176883963,
+      "allowance_within_cap": true,
+      "reference_anchor_ms": 144.69932999999997,
+      "fit_guard_eligible_count": 24,
+      "fit_null_budget_pass_count": 24
+    },
+    "files4096": {
+      "primary": true,
+      "same_case_audit": "files4096/work50",
+      "fit_max_null_error_all_24": 0.029365750752024855,
+      "allowance": 0.059365750752024854,
+      "allowance_within_cap": true,
+      "reference_anchor_ms": 49.048511,
+      "fit_guard_eligible_count": 24,
+      "fit_null_budget_pass_count": 24
+    },
+    "sqlite64": {
+      "primary": false,
+      "same_case_audit": "sqlite64/work50",
+      "fit_max_null_error_all_24": 0.5013232719255232,
+      "allowance": 0.5313232719255232,
+      "allowance_within_cap": false,
+      "reference_anchor_ms": 47.3839245,
+      "fit_guard_eligible_count": 12,
+      "fit_null_budget_pass_count": 0
+    },
+    "cycle48": {
+      "primary": false,
+      "same_case_audit": "cycle48/wait_cycle",
+      "fit_max_null_error_all_24": 0.029109307270678952,
+      "allowance": 0.05910930727067895,
+      "allowance_within_cap": true,
+      "reference_anchor_ms": 22.496236500000002,
+      "fit_guard_eligible_count": 24,
+      "fit_null_budget_pass_count": 24
+    },
+    "cold16": {
+      "primary": false,
+      "same_case_audit": "cold16/wait_each",
+      "fit_max_null_error_all_24": 0.025270831925111814,
+      "allowance": 0.05527083192511181,
+      "allowance_within_cap": true,
+      "reference_anchor_ms": 61.367692,
+      "fit_guard_eligible_count": 24,
+      "fit_null_budget_pass_count": 24
+    }
+  },
+  "interpretation": [
+    "All 24 old campaign allocations fit the new rule; none remains a holdout for it.",
+    "Every new campaign allocation validates the fixed rule; legacy fit/holdout record labels do not change this.",
+    "The allowance is not clamped to 20%; values above the cap fail qualification.",
+    "Only the five declared primary families support the primary success decision; all other cases remain visible.",
+    "Guard failure means unestablished measurement, not candidate conformance or a discarded worker.",
+    "A current candidate being slow cannot invalidate its reference guard."
+  ]
+}
