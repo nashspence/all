@@ -1,0 +1,60 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/63",
+  "purpose": "Keep validation composition economical, including the cost of enforcing the policy",
+  "producer": [
+    "ChatGPT"
+  ],
+  "requester": "nashspence",
+  "first_step": "Independently assess one evidenced amplification path and the existing required evidence. Prefer counters from its ordinary execution and a small passive predicate. Add a dedicated finite witness only if it materially improves detection at justified recurring cost. Review enforcement cost and stop at a small ordinary code check; do not recursively qualify every test. Accept, adapt, defer or reject independently; preserve all proof obligations.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "python -B -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "f7c57b4d0dece3929bc3904645f7109b3de1cbc6"
+      },
+      "environment": "Python 3.13.5; standard library only; Git 2.47.3 for identity checks",
+      "notes": "Four focused tests passed with no skips, including five fixed small positive cases, three targeted amplification controls, missing/incorrect/duplicate receipt and counter controls. The reference tree preserves the exact three locally tested file blobs. Parent c9504e6c89267629524a44c2314137f8c2a6da81 records the tested tree."
+    },
+    {
+      "command": "python -B .reference/reproduce.py",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "f7c57b4d0dece3929bc3904645f7109b3de1cbc6"
+      },
+      "environment": "Python 3.13.5; standard library only",
+      "notes": "Optional standalone illustration run for this publication, not an additional required CI run. In the largest synthetic case, generated and reader-read bytes each equal 1792; reader and oracle hash input bytes each equal 2304. Whole-report reader reads 24832 bytes; repeated setup reads 5632 and hashes 6144; repeated oracle hashes 6144. All three mutants preserve complete correct receipts and violate the appropriate work limits. The independent oracle computes its common digest once in the positive cases."
+    },
+    {
+      "command": "Integrate the actual owner evidence and justify net recurring enforcement cost; qualify the ordinary suite and native proof where applicable",
+      "result": "not-run",
+      "reason": "Unadopted policy possibility. No consumer or main-branch code was changed or executed."
+    }
+  ],
+  "limitations": [
+    "This is a passive observation predicate and a fixed synthetic experiment, not a required additional runner or universal profiling framework. It neither runs validation nor calls the oracle itself. It cannot establish source/cohort custody, proof independence, or the authenticity/completeness of supplied counters; those remain with actual owners.",
+    "The selected logical counters cover generated fixture bytes, reader read/hash bytes and independent oracle hash bytes, including its shared digest and receipt prefixes. They do not measure every copy, allocation, instruction, physical I/O, or real CI timing. The checker and instrumentation have a small structural review: fixed passes over the supplied identity/receipt rows and selected metrics, no original-payload scan, no rerun, and constant-size counter state in this synthetic adapter. No worst-case hash-table bound or exhaustive self-benchmark is claimed.",
+    "The five sample shapes are deliberately fixed and tiny; the three negative controls each execute only the joint case once per test run. The standalone illustration duplicates those demonstrations only when explicitly invoked. No exhaustive Cartesian matrix, recursive tests of the checker, arbitrary timing gate, or numerical net-benefit threshold is required.",
+    "The historical evidence is attributed to the linked Fishhat and Riverhog issue reviews; original native artifacts were not re-audited. Real savings, justified recurring cost, equivalent native evidence and actual consumer integration remain unqualified."
+  ],
+  "supersedes": {
+    "url": "https://github.com/nashspence/all/blob/e59aa574b1c94c6c951b57199ee09ca99280dd67/.reference/proffer.json",
+    "commit": "e59aa574b1c94c6c951b57199ee09ca99280dd67"
+  }
+}
