@@ -1,0 +1,85 @@
+name: calibration-absolute-64
+on:
+  push:
+    branches: ['experiment/64-runner-calibration']
+    paths:
+      - '.github/workflows/calibration-absolute-64.yml'
+      - 'experiments/64/v4/workloads.py'
+permissions:
+  contents: read
+jobs:
+  first:
+    name: absolute-${{ matrix.allocation }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        allocation: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: '3c88f1b3bf28b4fe5ae8973ff40412be1c049952'
+          path: benchmark-authority
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.9'
+      - run: >-
+          python -m pip install --disable-pip-version-check --only-binary=:all: PyYAML==6.0.3
+      - name: Measure raw budgets using pinned external authority
+        timeout-minutes: 4
+        env:
+          AUTHORITY_REVISION: '3c88f1b3bf28b4fe5ae8973ff40412be1c049952'
+          CANDIDATE_TREE: ${{ github.workspace }}
+        run: python benchmark-authority/experiments/64/v4/measure.py ${{ matrix.allocation }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: absolute-${{ matrix.allocation }}
+          path: absolute-observation.json
+          if-no-files-found: error
+          retention-days: 30
+  second:
+    name: absolute-${{ matrix.allocation }}
+    needs: first
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        allocation: [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: '3c88f1b3bf28b4fe5ae8973ff40412be1c049952'
+          path: benchmark-authority
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.9'
+      - run: >-
+          python -m pip install --disable-pip-version-check --only-binary=:all: PyYAML==6.0.3
+      - name: Measure raw budgets using pinned external authority
+        timeout-minutes: 4
+        env:
+          AUTHORITY_REVISION: '3c88f1b3bf28b4fe5ae8973ff40412be1c049952'
+          CANDIDATE_TREE: ${{ github.workspace }}
+        run: python benchmark-authority/experiments/64/v4/measure.py ${{ matrix.allocation }}
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: absolute-${{ matrix.allocation }}
+          path: absolute-observation.json
+          if-no-files-found: error
+          retention-days: 30
