@@ -1,0 +1,2128 @@
+{
+  "campaign": "shared-package-v5-12",
+  "source": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+  "authority": "ed6c2dd701d5a8969166872af48b9d434d6f8af3",
+  "shared": "a324c2a1c203ac2478afaac127f385f9e1e264d3",
+  "run": {
+    "id": 45705830013,
+    "name": "Frozen shared performance package validation",
+    "node_id": "WFR_kwLOV55tQs8AAAAKpEeefQ",
+    "head_branch": "experiment/64-runner-calibration",
+    "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+    "path": ".github/workflows/performance-common-64.yml",
+    "display_title": "Run twelve fresh workers against the frozen installed performance pac…",
+    "run_number": 1,
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "workflow_id": 430885423,
+    "check_suite_id": 123666562220,
+    "check_suite_node_id": "CS_kwDOV55tQs8AAAAcyxn8rA",
+    "url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013",
+    "html_url": "https://github.com/nashspence/all/actions/runs/45705830013",
+    "pull_requests": [],
+    "created_at": "2026-11-25T21:36:05Z",
+    "updated_at": "2026-11-25T21:36:44Z",
+    "actor": {
+      "login": "nashspence",
+      "id": 2545356,
+      "node_id": "MDQ6VXNlcjI1NDUzNTY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2545356?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nashspence",
+      "html_url": "https://github.com/nashspence",
+      "followers_url": "https://api.github.com/users/nashspence/followers",
+      "following_url": "https://api.github.com/users/nashspence/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nashspence/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nashspence/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nashspence/subscriptions",
+      "organizations_url": "https://api.github.com/users/nashspence/orgs",
+      "repos_url": "https://api.github.com/users/nashspence/repos",
+      "events_url": "https://api.github.com/users/nashspence/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nashspence/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "run_attempt": 1,
+    "referenced_workflows": [],
+    "run_started_at": "2026-11-25T21:36:05Z",
+    "triggering_actor": {
+      "login": "nashspence",
+      "id": 2545356,
+      "node_id": "MDQ6VXNlcjI1NDUzNTY=",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2545356?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nashspence",
+      "html_url": "https://github.com/nashspence",
+      "followers_url": "https://api.github.com/users/nashspence/followers",
+      "following_url": "https://api.github.com/users/nashspence/following{/other_user}",
+      "gists_url": "https://api.github.com/users/nashspence/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/nashspence/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/nashspence/subscriptions",
+      "organizations_url": "https://api.github.com/users/nashspence/orgs",
+      "repos_url": "https://api.github.com/users/nashspence/repos",
+      "events_url": "https://api.github.com/users/nashspence/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/nashspence/received_events",
+      "type": "User",
+      "user_view_type": "public",
+      "site_admin": false
+    },
+    "jobs_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013/jobs",
+    "logs_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013/logs",
+    "check_suite_url": "https://api.github.com/repos/nashspence/all/check-suites/123666562220",
+    "artifacts_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013/artifacts",
+    "cancel_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013/cancel",
+    "rerun_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013/rerun",
+    "previous_attempt_url": null,
+    "workflow_url": "https://api.github.com/repos/nashspence/all/actions/workflows/430885423",
+    "head_commit": {
+      "id": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+      "tree_id": "fee797abd3f775e474b17059d75fe8c6582f81e5",
+      "message": "Run twelve fresh workers against the frozen installed performance package",
+      "timestamp": "2026-11-25T21:35:58Z",
+      "author": {
+        "name": "Nash Spence",
+        "email": "nashspence@gmail.com"
+      },
+      "committer": {
+        "name": "Nash Spence",
+        "email": "nashspence@gmail.com"
+      }
+    },
+    "repository": {
+      "id": 1470000450,
+      "node_id": "R_kgDOV55tQg",
+      "name": "all",
+      "full_name": "nashspence/all",
+      "private": false,
+      "owner": {
+        "login": "nashspence",
+        "id": 2545356,
+        "node_id": "MDQ6VXNlcjI1NDUzNTY=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/2545356?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/nashspence",
+        "html_url": "https://github.com/nashspence",
+        "followers_url": "https://api.github.com/users/nashspence/followers",
+        "following_url": "https://api.github.com/users/nashspence/following{/other_user}",
+        "gists_url": "https://api.github.com/users/nashspence/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/nashspence/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/nashspence/subscriptions",
+        "organizations_url": "https://api.github.com/users/nashspence/orgs",
+        "repos_url": "https://api.github.com/users/nashspence/repos",
+        "events_url": "https://api.github.com/users/nashspence/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/nashspence/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "html_url": "https://github.com/nashspence/all",
+      "description": null,
+      "fork": false,
+      "url": "https://api.github.com/repos/nashspence/all",
+      "forks_url": "https://api.github.com/repos/nashspence/all/forks",
+      "keys_url": "https://api.github.com/repos/nashspence/all/keys{/key_id}",
+      "collaborators_url": "https://api.github.com/repos/nashspence/all/collaborators{/collaborator}",
+      "teams_url": "https://api.github.com/repos/nashspence/all/teams",
+      "hooks_url": "https://api.github.com/repos/nashspence/all/hooks",
+      "issue_events_url": "https://api.github.com/repos/nashspence/all/issues/events{/number}",
+      "events_url": "https://api.github.com/repos/nashspence/all/events",
+      "assignees_url": "https://api.github.com/repos/nashspence/all/assignees{/user}",
+      "branches_url": "https://api.github.com/repos/nashspence/all/branches{/branch}",
+      "tags_url": "https://api.github.com/repos/nashspence/all/tags",
+      "blobs_url": "https://api.github.com/repos/nashspence/all/git/blobs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/nashspence/all/git/tags{/sha}",
+      "git_refs_url": "https://api.github.com/repos/nashspence/all/git/refs{/sha}",
+      "trees_url": "https://api.github.com/repos/nashspence/all/git/trees{/sha}",
+      "statuses_url": "https://api.github.com/repos/nashspence/all/statuses/{sha}",
+      "languages_url": "https://api.github.com/repos/nashspence/all/languages",
+      "stargazers_url": "https://api.github.com/repos/nashspence/all/stargazers",
+      "contributors_url": "https://api.github.com/repos/nashspence/all/contributors",
+      "subscribers_url": "https://api.github.com/repos/nashspence/all/subscribers",
+      "subscription_url": "https://api.github.com/repos/nashspence/all/subscription",
+      "commits_url": "https://api.github.com/repos/nashspence/all/commits{/sha}",
+      "git_commits_url": "https://api.github.com/repos/nashspence/all/git/commits{/sha}",
+      "comments_url": "https://api.github.com/repos/nashspence/all/comments{/number}",
+      "issue_comment_url": "https://api.github.com/repos/nashspence/all/issues/comments{/number}",
+      "contents_url": "https://api.github.com/repos/nashspence/all/contents/{+path}",
+      "compare_url": "https://api.github.com/repos/nashspence/all/compare/{base}...{head}",
+      "merges_url": "https://api.github.com/repos/nashspence/all/merges",
+      "archive_url": "https://api.github.com/repos/nashspence/all/{archive_format}{/ref}",
+      "downloads_url": "https://api.github.com/repos/nashspence/all/downloads",
+      "issues_url": "https://api.github.com/repos/nashspence/all/issues{/number}",
+      "pulls_url": "https://api.github.com/repos/nashspence/all/pulls{/number}",
+      "milestones_url": "https://api.github.com/repos/nashspence/all/milestones{/number}",
+      "notifications_url": "https://api.github.com/repos/nashspence/all/notifications{?since,all,participating}",
+      "labels_url": "https://api.github.com/repos/nashspence/all/labels{/name}",
+      "releases_url": "https://api.github.com/repos/nashspence/all/releases{/id}",
+      "deployments_url": "https://api.github.com/repos/nashspence/all/deployments"
+    },
+    "head_repository": {
+      "id": 1470000450,
+      "node_id": "R_kgDOV55tQg",
+      "name": "all",
+      "full_name": "nashspence/all",
+      "private": false,
+      "owner": {
+        "login": "nashspence",
+        "id": 2545356,
+        "node_id": "MDQ6VXNlcjI1NDUzNTY=",
+        "avatar_url": "https://avatars.githubusercontent.com/u/2545356?v=4",
+        "gravatar_id": "",
+        "url": "https://api.github.com/users/nashspence",
+        "html_url": "https://github.com/nashspence",
+        "followers_url": "https://api.github.com/users/nashspence/followers",
+        "following_url": "https://api.github.com/users/nashspence/following{/other_user}",
+        "gists_url": "https://api.github.com/users/nashspence/gists{/gist_id}",
+        "starred_url": "https://api.github.com/users/nashspence/starred{/owner}{/repo}",
+        "subscriptions_url": "https://api.github.com/users/nashspence/subscriptions",
+        "organizations_url": "https://api.github.com/users/nashspence/orgs",
+        "repos_url": "https://api.github.com/users/nashspence/repos",
+        "events_url": "https://api.github.com/users/nashspence/events{/privacy}",
+        "received_events_url": "https://api.github.com/users/nashspence/received_events",
+        "type": "User",
+        "user_view_type": "public",
+        "site_admin": false
+      },
+      "html_url": "https://github.com/nashspence/all",
+      "description": null,
+      "fork": false,
+      "url": "https://api.github.com/repos/nashspence/all",
+      "forks_url": "https://api.github.com/repos/nashspence/all/forks",
+      "keys_url": "https://api.github.com/repos/nashspence/all/keys{/key_id}",
+      "collaborators_url": "https://api.github.com/repos/nashspence/all/collaborators{/collaborator}",
+      "teams_url": "https://api.github.com/repos/nashspence/all/teams",
+      "hooks_url": "https://api.github.com/repos/nashspence/all/hooks",
+      "issue_events_url": "https://api.github.com/repos/nashspence/all/issues/events{/number}",
+      "events_url": "https://api.github.com/repos/nashspence/all/events",
+      "assignees_url": "https://api.github.com/repos/nashspence/all/assignees{/user}",
+      "branches_url": "https://api.github.com/repos/nashspence/all/branches{/branch}",
+      "tags_url": "https://api.github.com/repos/nashspence/all/tags",
+      "blobs_url": "https://api.github.com/repos/nashspence/all/git/blobs{/sha}",
+      "git_tags_url": "https://api.github.com/repos/nashspence/all/git/tags{/sha}",
+      "git_refs_url": "https://api.github.com/repos/nashspence/all/git/refs{/sha}",
+      "trees_url": "https://api.github.com/repos/nashspence/all/git/trees{/sha}",
+      "statuses_url": "https://api.github.com/repos/nashspence/all/statuses/{sha}",
+      "languages_url": "https://api.github.com/repos/nashspence/all/languages",
+      "stargazers_url": "https://api.github.com/repos/nashspence/all/stargazers",
+      "contributors_url": "https://api.github.com/repos/nashspence/all/contributors",
+      "subscribers_url": "https://api.github.com/repos/nashspence/all/subscribers",
+      "subscription_url": "https://api.github.com/repos/nashspence/all/subscription",
+      "commits_url": "https://api.github.com/repos/nashspence/all/commits{/sha}",
+      "git_commits_url": "https://api.github.com/repos/nashspence/all/git/commits{/sha}",
+      "comments_url": "https://api.github.com/repos/nashspence/all/comments{/number}",
+      "issue_comment_url": "https://api.github.com/repos/nashspence/all/issues/comments{/number}",
+      "contents_url": "https://api.github.com/repos/nashspence/all/contents/{+path}",
+      "compare_url": "https://api.github.com/repos/nashspence/all/compare/{base}...{head}",
+      "merges_url": "https://api.github.com/repos/nashspence/all/merges",
+      "archive_url": "https://api.github.com/repos/nashspence/all/{archive_format}{/ref}",
+      "downloads_url": "https://api.github.com/repos/nashspence/all/downloads",
+      "issues_url": "https://api.github.com/repos/nashspence/all/issues{/number}",
+      "pulls_url": "https://api.github.com/repos/nashspence/all/pulls{/number}",
+      "milestones_url": "https://api.github.com/repos/nashspence/all/milestones{/number}",
+      "notifications_url": "https://api.github.com/repos/nashspence/all/notifications{?since,all,participating}",
+      "labels_url": "https://api.github.com/repos/nashspence/all/labels{/name}",
+      "releases_url": "https://api.github.com/repos/nashspence/all/releases{/id}",
+      "deployments_url": "https://api.github.com/repos/nashspence/all/deployments"
+    }
+  },
+  "jobs": [
+    {
+      "id": 139527430976,
+      "run_id": 45705830013,
+      "workflow_name": "Frozen shared performance package validation",
+      "head_branch": "experiment/64-runner-calibration",
+      "run_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOV55tQs8AAAAgfHujQA",
+      "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+      "url": "https://api.github.com/repos/nashspence/all/actions/jobs/139527430976",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45705830013/job/139527430976",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T21:36:05Z",
+      "started_at": "2026-11-25T21:36:07Z",
+      "completed_at": "2026-11-25T21:36:35Z",
+      "name": "common-4",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T21:36:08Z",
+          "completed_at": "2026-11-25T21:36:10Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T21:36:10Z",
+          "completed_at": "2026-11-25T21:36:14Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T21:36:14Z",
+          "completed_at": "2026-11-25T21:36:15Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T21:36:15Z",
+          "completed_at": "2026-11-25T21:36:15Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T21:36:15Z",
+          "completed_at": "2026-11-25T21:36:23Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T21:36:23Z",
+          "completed_at": "2026-11-25T21:36:30Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T21:36:30Z",
+          "completed_at": "2026-11-25T21:36:33Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T21:36:33Z",
+          "completed_at": "2026-11-25T21:36:33Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-25T21:36:33Z",
+          "completed_at": "2026-11-25T21:36:33Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-25T21:36:33Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-25T21:36:34Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-25T21:36:34Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T21:36:34Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/nashspence/all/check-runs/139527430976",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000056444,
+      "runner_name": "GitHub Actions 1000056444",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 139527430991,
+      "run_id": 45705830013,
+      "workflow_name": "Frozen shared performance package validation",
+      "head_branch": "experiment/64-runner-calibration",
+      "run_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOV55tQs8AAAAgfHujTw",
+      "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+      "url": "https://api.github.com/repos/nashspence/all/actions/jobs/139527430991",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45705830013/job/139527430991",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T21:36:05Z",
+      "started_at": "2026-11-25T21:36:07Z",
+      "completed_at": "2026-11-25T21:36:36Z",
+      "name": "common-3",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T21:36:08Z",
+          "completed_at": "2026-11-25T21:36:09Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T21:36:09Z",
+          "completed_at": "2026-11-25T21:36:10Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T21:36:10Z",
+          "completed_at": "2026-11-25T21:36:11Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T21:36:11Z",
+          "completed_at": "2026-11-25T21:36:12Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T21:36:12Z",
+          "completed_at": "2026-11-25T21:36:21Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T21:36:21Z",
+          "completed_at": "2026-11-25T21:36:27Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T21:36:27Z",
+          "completed_at": "2026-11-25T21:36:31Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T21:36:31Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:33Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-25T21:36:33Z",
+          "completed_at": "2026-11-25T21:36:33Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T21:36:33Z",
+          "completed_at": "2026-11-25T21:36:33Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/nashspence/all/check-runs/139527430991",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000056445,
+      "runner_name": "GitHub Actions 1000056445",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 139527431042,
+      "run_id": 45705830013,
+      "workflow_name": "Frozen shared performance package validation",
+      "head_branch": "experiment/64-runner-calibration",
+      "run_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOV55tQs8AAAAgfHujgg",
+      "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+      "url": "https://api.github.com/repos/nashspence/all/actions/jobs/139527431042",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45705830013/job/139527431042",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T21:36:05Z",
+      "started_at": "2026-11-25T21:36:07Z",
+      "completed_at": "2026-11-25T21:36:33Z",
+      "name": "common-11",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T21:36:08Z",
+          "completed_at": "2026-11-25T21:36:09Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T21:36:09Z",
+          "completed_at": "2026-11-25T21:36:10Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T21:36:10Z",
+          "completed_at": "2026-11-25T21:36:11Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T21:36:11Z",
+          "completed_at": "2026-11-25T21:36:12Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T21:36:12Z",
+          "completed_at": "2026-11-25T21:36:20Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T21:36:20Z",
+          "completed_at": "2026-11-25T21:36:25Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T21:36:25Z",
+          "completed_at": "2026-11-25T21:36:28Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T21:36:28Z",
+          "completed_at": "2026-11-25T21:36:29Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-25T21:36:29Z",
+          "completed_at": "2026-11-25T21:36:30Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-25T21:36:30Z",
+          "completed_at": "2026-11-25T21:36:30Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-25T21:36:30Z",
+          "completed_at": "2026-11-25T21:36:30Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-25T21:36:30Z",
+          "completed_at": "2026-11-25T21:36:30Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T21:36:30Z",
+          "completed_at": "2026-11-25T21:36:30Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/nashspence/all/check-runs/139527431042",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000056449,
+      "runner_name": "GitHub Actions 1000056449",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 139527431048,
+      "run_id": 45705830013,
+      "workflow_name": "Frozen shared performance package validation",
+      "head_branch": "experiment/64-runner-calibration",
+      "run_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOV55tQs8AAAAgfHujiA",
+      "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+      "url": "https://api.github.com/repos/nashspence/all/actions/jobs/139527431048",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45705830013/job/139527431048",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T21:36:05Z",
+      "started_at": "2026-11-25T21:36:08Z",
+      "completed_at": "2026-11-25T21:36:40Z",
+      "name": "common-7",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T21:36:09Z",
+          "completed_at": "2026-11-25T21:36:11Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T21:36:11Z",
+          "completed_at": "2026-11-25T21:36:16Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T21:36:16Z",
+          "completed_at": "2026-11-25T21:36:16Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T21:36:16Z",
+          "completed_at": "2026-11-25T21:36:17Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T21:36:17Z",
+          "completed_at": "2026-11-25T21:36:25Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T21:36:25Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T21:36:34Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-25T21:36:36Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-25T21:36:36Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-25T21:36:36Z",
+          "completed_at": "2026-11-25T21:36:37Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-25T21:36:37Z",
+          "completed_at": "2026-11-25T21:36:37Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T21:36:37Z",
+          "completed_at": "2026-11-25T21:36:37Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/nashspence/all/check-runs/139527431048",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000056453,
+      "runner_name": "GitHub Actions 1000056453",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 139527431070,
+      "run_id": 45705830013,
+      "workflow_name": "Frozen shared performance package validation",
+      "head_branch": "experiment/64-runner-calibration",
+      "run_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOV55tQs8AAAAgfHujng",
+      "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+      "url": "https://api.github.com/repos/nashspence/all/actions/jobs/139527431070",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45705830013/job/139527431070",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T21:36:05Z",
+      "started_at": "2026-11-25T21:36:08Z",
+      "completed_at": "2026-11-25T21:36:39Z",
+      "name": "common-8",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T21:36:09Z",
+          "completed_at": "2026-11-25T21:36:11Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T21:36:11Z",
+          "completed_at": "2026-11-25T21:36:15Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T21:36:15Z",
+          "completed_at": "2026-11-25T21:36:16Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T21:36:16Z",
+          "completed_at": "2026-11-25T21:36:16Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T21:36:16Z",
+          "completed_at": "2026-11-25T21:36:25Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T21:36:25Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T21:36:34Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-25T21:36:36Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-25T21:36:36Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-25T21:36:36Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-25T21:36:36Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T21:36:36Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/nashspence/all/check-runs/139527431070",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000056454,
+      "runner_name": "GitHub Actions 1000056454",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 139527431079,
+      "run_id": 45705830013,
+      "workflow_name": "Frozen shared performance package validation",
+      "head_branch": "experiment/64-runner-calibration",
+      "run_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOV55tQs8AAAAgfHujpw",
+      "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+      "url": "https://api.github.com/repos/nashspence/all/actions/jobs/139527431079",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45705830013/job/139527431079",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T21:36:05Z",
+      "started_at": "2026-11-25T21:36:07Z",
+      "completed_at": "2026-11-25T21:36:35Z",
+      "name": "common-6",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T21:36:08Z",
+          "completed_at": "2026-11-25T21:36:09Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T21:36:09Z",
+          "completed_at": "2026-11-25T21:36:10Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T21:36:10Z",
+          "completed_at": "2026-11-25T21:36:11Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T21:36:11Z",
+          "completed_at": "2026-11-25T21:36:12Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T21:36:12Z",
+          "completed_at": "2026-11-25T21:36:21Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T21:36:21Z",
+          "completed_at": "2026-11-25T21:36:27Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T21:36:27Z",
+          "completed_at": "2026-11-25T21:36:30Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T21:36:30Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/nashspence/all/check-runs/139527431079",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000056446,
+      "runner_name": "GitHub Actions 1000056446",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 139527431097,
+      "run_id": 45705830013,
+      "workflow_name": "Frozen shared performance package validation",
+      "head_branch": "experiment/64-runner-calibration",
+      "run_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOV55tQs8AAAAgfHujuQ",
+      "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+      "url": "https://api.github.com/repos/nashspence/all/actions/jobs/139527431097",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45705830013/job/139527431097",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T21:36:05Z",
+      "started_at": "2026-11-25T21:36:08Z",
+      "completed_at": "2026-11-25T21:36:44Z",
+      "name": "common-5",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T21:36:09Z",
+          "completed_at": "2026-11-25T21:36:11Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T21:36:11Z",
+          "completed_at": "2026-11-25T21:36:15Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T21:36:15Z",
+          "completed_at": "2026-11-25T21:36:15Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T21:36:15Z",
+          "completed_at": "2026-11-25T21:36:16Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T21:36:16Z",
+          "completed_at": "2026-11-25T21:36:29Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T21:36:29Z",
+          "completed_at": "2026-11-25T21:36:35Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T21:36:35Z",
+          "completed_at": "2026-11-25T21:36:38Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T21:36:38Z",
+          "completed_at": "2026-11-25T21:36:40Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-25T21:36:40Z",
+          "completed_at": "2026-11-25T21:36:40Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-25T21:36:40Z",
+          "completed_at": "2026-11-25T21:36:40Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-25T21:36:40Z",
+          "completed_at": "2026-11-25T21:36:40Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-25T21:36:40Z",
+          "completed_at": "2026-11-25T21:36:40Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T21:36:40Z",
+          "completed_at": "2026-11-25T21:36:40Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/nashspence/all/check-runs/139527431097",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000056451,
+      "runner_name": "GitHub Actions 1000056451",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 139527431124,
+      "run_id": 45705830013,
+      "workflow_name": "Frozen shared performance package validation",
+      "head_branch": "experiment/64-runner-calibration",
+      "run_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOV55tQs8AAAAgfHuj1A",
+      "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+      "url": "https://api.github.com/repos/nashspence/all/actions/jobs/139527431124",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45705830013/job/139527431124",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T21:36:05Z",
+      "started_at": "2026-11-25T21:36:08Z",
+      "completed_at": "2026-11-25T21:36:40Z",
+      "name": "common-1",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T21:36:09Z",
+          "completed_at": "2026-11-25T21:36:11Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T21:36:11Z",
+          "completed_at": "2026-11-25T21:36:15Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T21:36:15Z",
+          "completed_at": "2026-11-25T21:36:16Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T21:36:16Z",
+          "completed_at": "2026-11-25T21:36:17Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T21:36:17Z",
+          "completed_at": "2026-11-25T21:36:25Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T21:36:25Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T21:36:34Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-25T21:36:36Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-25T21:36:36Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-25T21:36:36Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-25T21:36:36Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T21:36:36Z",
+          "completed_at": "2026-11-25T21:36:36Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/nashspence/all/check-runs/139527431124",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000056452,
+      "runner_name": "GitHub Actions 1000056452",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 139527431153,
+      "run_id": 45705830013,
+      "workflow_name": "Frozen shared performance package validation",
+      "head_branch": "experiment/64-runner-calibration",
+      "run_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOV55tQs8AAAAgfHuj8Q",
+      "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+      "url": "https://api.github.com/repos/nashspence/all/actions/jobs/139527431153",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45705830013/job/139527431153",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T21:36:05Z",
+      "started_at": "2026-11-25T21:36:07Z",
+      "completed_at": "2026-11-25T21:36:30Z",
+      "name": "common-10",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T21:36:08Z",
+          "completed_at": "2026-11-25T21:36:09Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T21:36:09Z",
+          "completed_at": "2026-11-25T21:36:10Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T21:36:10Z",
+          "completed_at": "2026-11-25T21:36:10Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T21:36:10Z",
+          "completed_at": "2026-11-25T21:36:11Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T21:36:11Z",
+          "completed_at": "2026-11-25T21:36:18Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T21:36:18Z",
+          "completed_at": "2026-11-25T21:36:23Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T21:36:23Z",
+          "completed_at": "2026-11-25T21:36:25Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T21:36:25Z",
+          "completed_at": "2026-11-25T21:36:26Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-25T21:36:26Z",
+          "completed_at": "2026-11-25T21:36:26Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-25T21:36:26Z",
+          "completed_at": "2026-11-25T21:36:26Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-25T21:36:26Z",
+          "completed_at": "2026-11-25T21:36:27Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-25T21:36:27Z",
+          "completed_at": "2026-11-25T21:36:27Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T21:36:27Z",
+          "completed_at": "2026-11-25T21:36:27Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/nashspence/all/check-runs/139527431153",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000056450,
+      "runner_name": "GitHub Actions 1000056450",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 139527431154,
+      "run_id": 45705830013,
+      "workflow_name": "Frozen shared performance package validation",
+      "head_branch": "experiment/64-runner-calibration",
+      "run_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOV55tQs8AAAAgfHuj8g",
+      "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+      "url": "https://api.github.com/repos/nashspence/all/actions/jobs/139527431154",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45705830013/job/139527431154",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T21:36:05Z",
+      "started_at": "2026-11-25T21:36:07Z",
+      "completed_at": "2026-11-25T21:36:33Z",
+      "name": "common-12",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T21:36:07Z",
+          "completed_at": "2026-11-25T21:36:09Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T21:36:09Z",
+          "completed_at": "2026-11-25T21:36:13Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T21:36:13Z",
+          "completed_at": "2026-11-25T21:36:13Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T21:36:13Z",
+          "completed_at": "2026-11-25T21:36:14Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T21:36:14Z",
+          "completed_at": "2026-11-25T21:36:22Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T21:36:22Z",
+          "completed_at": "2026-11-25T21:36:28Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T21:36:28Z",
+          "completed_at": "2026-11-25T21:36:31Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T21:36:31Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/nashspence/all/check-runs/139527431154",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000056448,
+      "runner_name": "GitHub Actions 1000056448",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 139527431184,
+      "run_id": 45705830013,
+      "workflow_name": "Frozen shared performance package validation",
+      "head_branch": "experiment/64-runner-calibration",
+      "run_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOV55tQs8AAAAgfHukEA",
+      "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+      "url": "https://api.github.com/repos/nashspence/all/actions/jobs/139527431184",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45705830013/job/139527431184",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T21:36:05Z",
+      "started_at": "2026-11-25T21:36:07Z",
+      "completed_at": "2026-11-25T21:36:37Z",
+      "name": "common-9",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T21:36:08Z",
+          "completed_at": "2026-11-25T21:36:10Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T21:36:10Z",
+          "completed_at": "2026-11-25T21:36:16Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T21:36:16Z",
+          "completed_at": "2026-11-25T21:36:16Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T21:36:16Z",
+          "completed_at": "2026-11-25T21:36:17Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T21:36:17Z",
+          "completed_at": "2026-11-25T21:36:24Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T21:36:24Z",
+          "completed_at": "2026-11-25T21:36:32Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T21:36:32Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T21:36:34Z",
+          "completed_at": "2026-11-25T21:36:35Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-25T21:36:35Z",
+          "completed_at": "2026-11-25T21:36:35Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-25T21:36:35Z",
+          "completed_at": "2026-11-25T21:36:35Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-25T21:36:35Z",
+          "completed_at": "2026-11-25T21:36:35Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-25T21:36:35Z",
+          "completed_at": "2026-11-25T21:36:35Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T21:36:35Z",
+          "completed_at": "2026-11-25T21:36:35Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/nashspence/all/check-runs/139527431184",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000056455,
+      "runner_name": "GitHub Actions 1000056455",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 139527431450,
+      "run_id": 45705830013,
+      "workflow_name": "Frozen shared performance package validation",
+      "head_branch": "experiment/64-runner-calibration",
+      "run_url": "https://api.github.com/repos/nashspence/all/actions/runs/45705830013",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOV55tQs8AAAAgfHulGg",
+      "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+      "url": "https://api.github.com/repos/nashspence/all/actions/jobs/139527431450",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45705830013/job/139527431450",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-25T21:36:05Z",
+      "started_at": "2026-11-25T21:36:07Z",
+      "completed_at": "2026-11-25T21:36:36Z",
+      "name": "common-2",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-25T21:36:08Z",
+          "completed_at": "2026-11-25T21:36:10Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-25T21:36:10Z",
+          "completed_at": "2026-11-25T21:36:14Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-25T21:36:14Z",
+          "completed_at": "2026-11-25T21:36:14Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-25T21:36:14Z",
+          "completed_at": "2026-11-25T21:36:15Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-25T21:36:15Z",
+          "completed_at": "2026-11-25T21:36:23Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-25T21:36:23Z",
+          "completed_at": "2026-11-25T21:36:31Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-25T21:36:31Z",
+          "completed_at": "2026-11-25T21:36:33Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-25T21:36:33Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-25T21:36:34Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-25T21:36:34Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-25T21:36:34Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-25T21:36:34Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-25T21:36:34Z",
+          "completed_at": "2026-11-25T21:36:34Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/nashspence/all/check-runs/139527431450",
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "runner_id": 1000056456,
+      "runner_name": "GitHub Actions 1000056456",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ],
+  "artifacts": {
+    "total_count": 12,
+    "artifacts": [
+      {
+        "id": 15066190015,
+        "node_id": "MDg6QXJ0aWZhY3QxNTA2NjE5MDAxNQ==",
+        "name": "common-package-6",
+        "size_in_bytes": 11440,
+        "url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15066190015",
+        "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15066190015/zip",
+        "expired": false,
+        "digest": "sha256:09180e16c02b622ef4029b157ccbf91c7bbd7de578d4a0da00f90d5bfd2fa0dc",
+        "created_at": "2026-11-25T21:36:31Z",
+        "updated_at": "2026-11-25T21:36:31Z",
+        "expires_at": "2026-12-25T21:36:31Z",
+        "workflow_run": {
+          "id": 45705830013,
+          "repository_id": 1470000450,
+          "head_repository_id": 1470000450,
+          "head_branch": "experiment/64-runner-calibration",
+          "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782"
+        }
+      },
+      {
+        "id": 15066180070,
+        "node_id": "MDg6QXJ0aWZhY3QxNTA2NjE4MDA3MA==",
+        "name": "common-package-4",
+        "size_in_bytes": 12090,
+        "url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15066180070",
+        "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15066180070/zip",
+        "expired": false,
+        "digest": "sha256:8e9cd26f8822c15cda7b8c01aae28174e4cd910e63b538840fb751c26ed1366f",
+        "created_at": "2026-11-25T21:36:33Z",
+        "updated_at": "2026-11-25T21:36:33Z",
+        "expires_at": "2026-12-25T21:36:33Z",
+        "workflow_run": {
+          "id": 45705830013,
+          "repository_id": 1470000450,
+          "head_repository_id": 1470000450,
+          "head_branch": "experiment/64-runner-calibration",
+          "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782"
+        }
+      },
+      {
+        "id": 15065960310,
+        "node_id": "MDg6QXJ0aWZhY3QxNTA2NTk2MDMxMA==",
+        "name": "common-package-10",
+        "size_in_bytes": 11453,
+        "url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065960310",
+        "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065960310/zip",
+        "expired": false,
+        "digest": "sha256:35c1ddb13d0195ecdf1841e055600d67fd9388121c7baaeb81b78c478add4c14",
+        "created_at": "2026-11-25T21:36:26Z",
+        "updated_at": "2026-11-25T21:36:26Z",
+        "expires_at": "2026-12-25T21:36:25Z",
+        "workflow_run": {
+          "id": 45705830013,
+          "repository_id": 1470000450,
+          "head_repository_id": 1470000450,
+          "head_branch": "experiment/64-runner-calibration",
+          "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782"
+        }
+      },
+      {
+        "id": 15065875552,
+        "node_id": "MDg6QXJ0aWZhY3QxNTA2NTg3NTU1Mg==",
+        "name": "common-package-5",
+        "size_in_bytes": 12104,
+        "url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065875552",
+        "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065875552/zip",
+        "expired": false,
+        "digest": "sha256:00ae65be1717fffc93659a046c8d21e284818156f9af37dfec4981c4304efc71",
+        "created_at": "2026-11-25T21:36:40Z",
+        "updated_at": "2026-11-25T21:36:40Z",
+        "expires_at": "2026-12-25T21:36:38Z",
+        "workflow_run": {
+          "id": 45705830013,
+          "repository_id": 1470000450,
+          "head_repository_id": 1470000450,
+          "head_branch": "experiment/64-runner-calibration",
+          "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782"
+        }
+      },
+      {
+        "id": 15065750974,
+        "node_id": "MDg6QXJ0aWZhY3QxNTA2NTc1MDk3NA==",
+        "name": "common-package-1",
+        "size_in_bytes": 12068,
+        "url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065750974",
+        "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065750974/zip",
+        "expired": false,
+        "digest": "sha256:41f0f84a48535baeafadc81791db59e2c2bfd96f042c35da2093f31f95931842",
+        "created_at": "2026-11-25T21:36:36Z",
+        "updated_at": "2026-11-25T21:36:36Z",
+        "expires_at": "2026-12-25T21:36:34Z",
+        "workflow_run": {
+          "id": 45705830013,
+          "repository_id": 1470000450,
+          "head_repository_id": 1470000450,
+          "head_branch": "experiment/64-runner-calibration",
+          "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782"
+        }
+      },
+      {
+        "id": 15065556460,
+        "node_id": "MDg6QXJ0aWZhY3QxNTA2NTU1NjQ2MA==",
+        "name": "common-package-2",
+        "size_in_bytes": 12094,
+        "url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065556460",
+        "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065556460/zip",
+        "expired": false,
+        "digest": "sha256:e68c465430ea6e73bea51e7eac116eb1d5fad6d217ce18f28ecb8d820c3585c1",
+        "created_at": "2026-11-25T21:36:34Z",
+        "updated_at": "2026-11-25T21:36:34Z",
+        "expires_at": "2026-12-25T21:36:33Z",
+        "workflow_run": {
+          "id": 45705830013,
+          "repository_id": 1470000450,
+          "head_repository_id": 1470000450,
+          "head_branch": "experiment/64-runner-calibration",
+          "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782"
+        }
+      },
+      {
+        "id": 15065516329,
+        "node_id": "MDg6QXJ0aWZhY3QxNTA2NTUxNjMyOQ==",
+        "name": "common-package-9",
+        "size_in_bytes": 12082,
+        "url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065516329",
+        "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065516329/zip",
+        "expired": false,
+        "digest": "sha256:98176158a1e2dff7ef2f3868e019c86bd83d25eb002b55685a78bb12175b4a91",
+        "created_at": "2026-11-25T21:36:35Z",
+        "updated_at": "2026-11-25T21:36:35Z",
+        "expires_at": "2026-12-25T21:36:34Z",
+        "workflow_run": {
+          "id": 45705830013,
+          "repository_id": 1470000450,
+          "head_repository_id": 1470000450,
+          "head_branch": "experiment/64-runner-calibration",
+          "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782"
+        }
+      },
+      {
+        "id": 15065331723,
+        "node_id": "MDg6QXJ0aWZhY3QxNTA2NTMzMTcyMw==",
+        "name": "common-package-11",
+        "size_in_bytes": 11460,
+        "url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065331723",
+        "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065331723/zip",
+        "expired": false,
+        "digest": "sha256:f6b0f008e25ce019bff153afa24288a616638ae20225762b38fda7e1b7974e67",
+        "created_at": "2026-11-25T21:36:29Z",
+        "updated_at": "2026-11-25T21:36:29Z",
+        "expires_at": "2026-12-25T21:36:28Z",
+        "workflow_run": {
+          "id": 45705830013,
+          "repository_id": 1470000450,
+          "head_repository_id": 1470000450,
+          "head_branch": "experiment/64-runner-calibration",
+          "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782"
+        }
+      },
+      {
+        "id": 15065301220,
+        "node_id": "MDg6QXJ0aWZhY3QxNTA2NTMwMTIyMA==",
+        "name": "common-package-3",
+        "size_in_bytes": 11440,
+        "url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065301220",
+        "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15065301220/zip",
+        "expired": false,
+        "digest": "sha256:ff4d0ddbef1ef81e3336618d5d589a0b436e9bbf043f7f02a6d99fb72e837f4f",
+        "created_at": "2026-11-25T21:36:32Z",
+        "updated_at": "2026-11-25T21:36:32Z",
+        "expires_at": "2026-12-25T21:36:31Z",
+        "workflow_run": {
+          "id": 45705830013,
+          "repository_id": 1470000450,
+          "head_repository_id": 1470000450,
+          "head_branch": "experiment/64-runner-calibration",
+          "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782"
+        }
+      },
+      {
+        "id": 15064718614,
+        "node_id": "MDg6QXJ0aWZhY3QxNTA2NDcxODYxNA==",
+        "name": "common-package-12",
+        "size_in_bytes": 12065,
+        "url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15064718614",
+        "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15064718614/zip",
+        "expired": false,
+        "digest": "sha256:8938e3cab9e984c9c272225bf64129bbc71fdbfbc06605b152594310009f0472",
+        "created_at": "2026-11-25T21:36:31Z",
+        "updated_at": "2026-11-25T21:36:31Z",
+        "expires_at": "2026-12-25T21:36:31Z",
+        "workflow_run": {
+          "id": 45705830013,
+          "repository_id": 1470000450,
+          "head_repository_id": 1470000450,
+          "head_branch": "experiment/64-runner-calibration",
+          "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782"
+        }
+      },
+      {
+        "id": 15064648215,
+        "node_id": "MDg6QXJ0aWZhY3QxNTA2NDY0ODIxNQ==",
+        "name": "common-package-8",
+        "size_in_bytes": 12076,
+        "url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15064648215",
+        "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15064648215/zip",
+        "expired": false,
+        "digest": "sha256:891623c992fcac61c415e3847964f14e1a67abd6cf93298631771a00d3d3b8e8",
+        "created_at": "2026-11-25T21:36:35Z",
+        "updated_at": "2026-11-25T21:36:35Z",
+        "expires_at": "2026-12-25T21:36:34Z",
+        "workflow_run": {
+          "id": 45705830013,
+          "repository_id": 1470000450,
+          "head_repository_id": 1470000450,
+          "head_branch": "experiment/64-runner-calibration",
+          "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782"
+        }
+      },
+      {
+        "id": 15064069903,
+        "node_id": "MDg6QXJ0aWZhY3QxNTA2NDA2OTkwMw==",
+        "name": "common-package-7",
+        "size_in_bytes": 12093,
+        "url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15064069903",
+        "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15064069903/zip",
+        "expired": false,
+        "digest": "sha256:05b8acb4791fb3226388b7d06452cb7edb00c3d5609dd0e1998bab0ed3e81a89",
+        "created_at": "2026-11-25T21:36:36Z",
+        "updated_at": "2026-11-25T21:36:36Z",
+        "expires_at": "2026-12-25T21:36:35Z",
+        "workflow_run": {
+          "id": 45705830013,
+          "repository_id": 1470000450,
+          "head_repository_id": 1470000450,
+          "head_branch": "experiment/64-runner-calibration",
+          "head_sha": "b0d7b03b8e3ffe16932d7036d1df111e088c7782"
+        }
+      }
+    ]
+  },
+  "collection": {
+    "source": "Original first-attempt GitHub job log JSON lines; exact raw observations retained",
+    "artifact_metadata_verified": true,
+    "artifact_zip_bytes_downloaded": false,
+    "worker_jobs": [
+      {
+        "worker": 1,
+        "job_id": 139527431124,
+        "runner_id": 1000056452
+      },
+      {
+        "worker": 2,
+        "job_id": 139527431450,
+        "runner_id": 1000056456
+      },
+      {
+        "worker": 3,
+        "job_id": 139527430991,
+        "runner_id": 1000056445
+      },
+      {
+        "worker": 4,
+        "job_id": 139527430976,
+        "runner_id": 1000056444
+      },
+      {
+        "worker": 5,
+        "job_id": 139527431097,
+        "runner_id": 1000056451
+      },
+      {
+        "worker": 6,
+        "job_id": 139527431079,
+        "runner_id": 1000056446
+      },
+      {
+        "worker": 7,
+        "job_id": 139527431048,
+        "runner_id": 1000056453
+      },
+      {
+        "worker": 8,
+        "job_id": 139527431070,
+        "runner_id": 1000056454
+      },
+      {
+        "worker": 9,
+        "job_id": 139527431184,
+        "runner_id": 1000056455
+      },
+      {
+        "worker": 10,
+        "job_id": 139527431153,
+        "runner_id": 1000056450
+      },
+      {
+        "worker": 11,
+        "job_id": 139527431042,
+        "runner_id": 1000056449
+      },
+      {
+        "worker": 12,
+        "job_id": 139527431154,
+        "runner_id": 1000056448
+      }
+    ]
+  }
+}
