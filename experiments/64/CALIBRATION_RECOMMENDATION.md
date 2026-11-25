@@ -1,3 +1,14 @@
+# Historical matched-reference experiment — recommendation superseded
+
+**The recommendation below is retired.** The maintainer rejected project-specific
+reference implementations and reference-equivalent time as the policy direction.
+Use the [v4 raw wall-clock findings and recommendation](v4/RECOMMENDATION.md) and
+the [current proposal in #64](https://github.com/nashspence/all/issues/64).
+This report and its original numerical results remain historical evidence;
+matched-reference comparisons are not an alternative recommendation.
+
+## Original report (historical)
+
 # #64: a workable matched-reference calibration, with explicit limits
 
 ## Finding
