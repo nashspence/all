@@ -1,0 +1,882 @@
+﻿2026-11-25T22:53:10.1297844Z Current runner version: '2.338.2'
+2026-11-25T22:53:10.1325719Z ##[group]Runner Image Provisioner
+2026-11-25T22:53:10.1326575Z Hosted Compute Agent
+2026-11-25T22:53:10.1327273Z Version: 20261111.635
+2026-11-25T22:53:10.1327955Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-25T22:53:10.1328720Z Build Date: 2026-11-11T01:49:01Z
+2026-11-25T22:53:10.1329468Z Worker ID: {ea484ad8-59cd-4335-ba82-569d53a40cca}
+2026-11-25T22:53:10.1330174Z Region: eastus
+2026-11-25T22:53:10.1330814Z Cloud: Azure
+2026-11-25T22:53:10.1331351Z ##[endgroup]
+2026-11-25T22:53:10.1332974Z ##[group]Operating System
+2026-11-25T22:53:10.1333926Z Ubuntu
+2026-11-25T22:53:10.1334468Z 24.04.5
+2026-11-25T22:53:10.1335044Z LTS
+2026-11-25T22:53:10.1335563Z ##[endgroup]
+2026-11-25T22:53:10.1336093Z ##[group]Runner Image
+2026-11-25T22:53:10.1336903Z Image: ubuntu-24.04
+2026-11-25T22:53:10.1337555Z Version: 20261116.376.1
+2026-11-25T22:53:10.1339233Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261116.376/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-25T22:53:10.1340844Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261116.376
+2026-11-25T22:53:10.1341877Z ##[endgroup]
+2026-11-25T22:53:10.1343045Z ##[group]GITHUB_TOKEN Permissions
+2026-11-25T22:53:10.1345453Z Contents: read
+2026-11-25T22:53:10.1346073Z Metadata: read
+2026-11-25T22:53:10.1346820Z ##[endgroup]
+2026-11-25T22:53:10.1349067Z Secret source: Actions
+2026-11-25T22:53:10.1350111Z Cache mode: write
+2026-11-25T22:53:10.1350885Z Prepare workflow directory
+2026-11-25T22:53:10.1888136Z Prepare all required actions
+2026-11-25T22:53:10.1938483Z Getting action download info
+2026-11-25T22:53:10.4170678Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-25T22:53:10.5815346Z Download action repository 'actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0' (SHA:6d4fd22b20465ccc0f7354476588e8df7c9ca0e0)
+2026-11-25T22:53:10.6648278Z Download action repository 'astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9' (SHA:94527f2e458b27549849d47d273a16bec83a01e9)
+2026-11-25T22:53:10.8551145Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-25T22:53:11.0833408Z Complete job name: storage-1
+2026-11-25T22:53:11.1753831Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-25T22:53:11.1755018Z with:
+2026-11-25T22:53:11.1755463Z   repository: nashspence/all
+2026-11-25T22:53:11.1756024Z   ref: bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:11.1756603Z   path: runtime
+2026-11-25T22:53:11.1757055Z   persist-credentials: false
+2026-11-25T22:53:11.1760768Z   token: ***
+2026-11-25T22:53:11.1761187Z   ssh-strict: true
+2026-11-25T22:53:11.1761614Z   ssh-user: git
+2026-11-25T22:53:11.1762029Z   clean: true
+2026-11-25T22:53:11.1762472Z   sparse-checkout-cone-mode: true
+2026-11-25T22:53:11.1762990Z   fetch-depth: 1
+2026-11-25T22:53:11.1763675Z   fetch-tags: false
+2026-11-25T22:53:11.1764123Z   show-progress: true
+2026-11-25T22:53:11.1764559Z   lfs: false
+2026-11-25T22:53:11.1764967Z   submodules: false
+2026-11-25T22:53:11.1765413Z   set-safe-directory: true
+2026-11-25T22:53:11.1765914Z   allow-unsafe-pr-checkout: false
+2026-11-25T22:53:11.1766732Z env:
+2026-11-25T22:53:11.1767303Z   FROZEN_SHARED_SHA: bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:11.1767975Z   STORAGE66_PHASE: acceptance
+2026-11-25T22:53:11.1857563Z   STORAGE66_WORKER: 1
+2026-11-25T22:53:11.1858849Z   STORAGE66_WORKFLOW_SHA: 9f81bfa4fe431a51e9ed65d2ed41cb12ded53157
+2026-11-25T22:53:11.1860212Z ##[endgroup]
+2026-11-25T22:53:11.4995422Z Syncing repository: nashspence/all
+2026-11-25T22:53:11.4998473Z ##[group]Getting Git version info
+2026-11-25T22:53:11.4999333Z Working directory is '/home/runner/work/all/all/runtime'
+2026-11-25T22:53:11.5001054Z [command]/usr/bin/git version
+2026-11-25T22:53:11.5102460Z git version 2.56.1
+2026-11-25T22:53:11.5127801Z ##[endgroup]
+2026-11-25T22:53:11.5139375Z Temporarily overriding HOME='/home/runner/work/_temp/2fa3aac5-a318-4f63-bd06-ad3121c44f00' before making global git config changes
+2026-11-25T22:53:11.5142303Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T22:53:11.5145314Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/all/all/runtime
+2026-11-25T22:53:11.5201405Z ##[group]Determining repository object format
+2026-11-25T22:53:11.5203875Z ##[endgroup]
+2026-11-25T22:53:11.5205401Z ##[group]Initializing the repository
+2026-11-25T22:53:11.5209902Z [command]/usr/bin/git init /home/runner/work/all/all/runtime
+2026-11-25T22:53:11.5356001Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-25T22:53:11.5358069Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-25T22:53:11.5359899Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-25T22:53:11.5361357Z hint: call:
+2026-11-25T22:53:11.5362179Z hint:
+2026-11-25T22:53:11.5363142Z hint: 	git config --global init.defaultBranch <name>
+2026-11-25T22:53:11.5364551Z hint:
+2026-11-25T22:53:11.5365596Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-25T22:53:11.5367484Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-25T22:53:11.5368851Z hint:
+2026-11-25T22:53:11.5369572Z hint: 	git branch -m <name>
+2026-11-25T22:53:11.5370507Z hint:
+2026-11-25T22:53:11.5371735Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-25T22:53:11.5373831Z Initialized empty Git repository in /home/runner/work/all/all/runtime/.git/
+2026-11-25T22:53:11.5384972Z [command]/usr/bin/git remote add origin https://github.com/nashspence/all
+2026-11-25T22:53:11.5439316Z ##[endgroup]
+2026-11-25T22:53:11.5441050Z ##[group]Disabling automatic garbage collection
+2026-11-25T22:53:11.5444245Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-25T22:53:11.5485404Z ##[endgroup]
+2026-11-25T22:53:11.5486940Z ##[group]Setting up auth
+2026-11-25T22:53:11.5488401Z Removing SSH command configuration
+2026-11-25T22:53:11.5492659Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T22:53:11.5550613Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T22:53:11.6008753Z Removing HTTP extra header
+2026-11-25T22:53:11.6014946Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T22:53:11.6066473Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T22:53:11.6314981Z Removing includeIf entries pointing to credentials config files
+2026-11-25T22:53:11.6319413Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T22:53:11.6368005Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T22:53:11.6624002Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-81a5d3e0-87e0-4546-9769-e9b47c4b53a3.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-25T22:53:11.6677346Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/all/all/runtime/.git.path /home/runner/work/_temp/git-credentials-81a5d3e0-87e0-4546-9769-e9b47c4b53a3.config
+2026-11-25T22:53:11.6723776Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/all/all/runtime/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-81a5d3e0-87e0-4546-9769-e9b47c4b53a3.config
+2026-11-25T22:53:11.6769997Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/runtime/.git.path /github/runner_temp/git-credentials-81a5d3e0-87e0-4546-9769-e9b47c4b53a3.config
+2026-11-25T22:53:11.6816737Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/runtime/.git/worktrees/*.path /github/runner_temp/git-credentials-81a5d3e0-87e0-4546-9769-e9b47c4b53a3.config
+2026-11-25T22:53:11.6859795Z ##[endgroup]
+2026-11-25T22:53:11.6860864Z ##[group]Fetching the repository
+2026-11-25T22:53:11.6867071Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:11.8977463Z From https://github.com/nashspence/all
+2026-11-25T22:53:11.8978953Z  * branch            bea509359a6abb2f42f56ae5ef15622ed4a3d292 -> FETCH_HEAD
+2026-11-25T22:53:11.8988568Z [command]/usr/bin/git rev-parse --verify --quiet bea509359a6abb2f42f56ae5ef15622ed4a3d292^{object}
+2026-11-25T22:53:11.9029029Z bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:11.9034605Z ##[endgroup]
+2026-11-25T22:53:11.9035738Z ##[group]Determining the checkout info
+2026-11-25T22:53:11.9037304Z ##[endgroup]
+2026-11-25T22:53:11.9040063Z [command]/usr/bin/git sparse-checkout disable
+2026-11-25T22:53:11.9121574Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-25T22:53:11.9168703Z ##[group]Checking out the ref
+2026-11-25T22:53:11.9173561Z [command]/usr/bin/git checkout --progress --force bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:11.9276672Z Note: switching to 'bea509359a6abb2f42f56ae5ef15622ed4a3d292'.
+2026-11-25T22:53:11.9278007Z 
+2026-11-25T22:53:11.9278745Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-25T22:53:11.9280648Z changes and commit them, and you can discard any commits you make in this
+2026-11-25T22:53:11.9282322Z state without impacting any branches by switching back to a branch.
+2026-11-25T22:53:11.9283758Z 
+2026-11-25T22:53:11.9284649Z If you want to create a new branch to retain commits you create, you may
+2026-11-25T22:53:11.9286633Z do so (now or later) by using -c with the switch command. Example:
+2026-11-25T22:53:11.9288018Z 
+2026-11-25T22:53:11.9288691Z   git switch -c <new-branch-name>
+2026-11-25T22:53:11.9289526Z 
+2026-11-25T22:53:11.9290066Z Or undo this operation with:
+2026-11-25T22:53:11.9290797Z 
+2026-11-25T22:53:11.9291220Z   git switch -
+2026-11-25T22:53:11.9291763Z 
+2026-11-25T22:53:11.9293114Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-25T22:53:11.9295262Z 
+2026-11-25T22:53:11.9296725Z HEAD is now at bea5093 perf: freeze reusable prepared storage profile and prospective acceptance source for #66
+2026-11-25T22:53:11.9301520Z ##[endgroup]
+2026-11-25T22:53:11.9348484Z [command]/usr/bin/git log -1 --format=%H
+2026-11-25T22:53:11.9389003Z bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:11.9399954Z ##[group]Removing auth
+2026-11-25T22:53:11.9401767Z Removing SSH command configuration
+2026-11-25T22:53:11.9405165Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T22:53:11.9455076Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T22:53:11.9704544Z Removing HTTP extra header
+2026-11-25T22:53:11.9708565Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T22:53:11.9760279Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T22:53:12.0012856Z Removing includeIf entries pointing to credentials config files
+2026-11-25T22:53:12.0017185Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T22:53:12.0058737Z includeif.gitdir:/home/runner/work/all/all/runtime/.git.path
+2026-11-25T22:53:12.0061393Z includeif.gitdir:/home/runner/work/all/all/runtime/.git/worktrees/*.path
+2026-11-25T22:53:12.0065305Z includeif.gitdir:/github/workspace/runtime/.git.path
+2026-11-25T22:53:12.0068279Z includeif.gitdir:/github/workspace/runtime/.git/worktrees/*.path
+2026-11-25T22:53:12.0074302Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/all/all/runtime/.git.path
+2026-11-25T22:53:12.0112416Z /home/runner/work/_temp/git-credentials-81a5d3e0-87e0-4546-9769-e9b47c4b53a3.config
+2026-11-25T22:53:12.0127714Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/all/all/runtime/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-81a5d3e0\-87e0\-4546\-9769\-e9b47c4b53a3\.config
+2026-11-25T22:53:12.0180089Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/all/all/runtime/.git/worktrees/*.path
+2026-11-25T22:53:12.0217185Z /home/runner/work/_temp/git-credentials-81a5d3e0-87e0-4546-9769-e9b47c4b53a3.config
+2026-11-25T22:53:12.0228776Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/all/all/runtime/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-81a5d3e0\-87e0\-4546\-9769\-e9b47c4b53a3\.config
+2026-11-25T22:53:12.0277855Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/runtime/.git.path
+2026-11-25T22:53:12.0314634Z /github/runner_temp/git-credentials-81a5d3e0-87e0-4546-9769-e9b47c4b53a3.config
+2026-11-25T22:53:12.0324979Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/runtime/.git.path \/github\/runner_temp\/git\-credentials\-81a5d3e0\-87e0\-4546\-9769\-e9b47c4b53a3\.config
+2026-11-25T22:53:12.0374450Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/runtime/.git/worktrees/*.path
+2026-11-25T22:53:12.0410472Z /github/runner_temp/git-credentials-81a5d3e0-87e0-4546-9769-e9b47c4b53a3.config
+2026-11-25T22:53:12.0420064Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/runtime/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-81a5d3e0\-87e0\-4546\-9769\-e9b47c4b53a3\.config
+2026-11-25T22:53:12.0480189Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T22:53:12.0763918Z Removing credentials config '/home/runner/work/_temp/git-credentials-81a5d3e0-87e0-4546-9769-e9b47c4b53a3.config'
+2026-11-25T22:53:12.0779510Z ##[endgroup]
+2026-11-25T22:53:12.1305821Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-25T22:53:12.1307387Z with:
+2026-11-25T22:53:12.1308260Z   repository: nashspence/fishhat
+2026-11-25T22:53:12.1309454Z   ref: f96b83dc20f059d62a4363a63c37bb0ef8c642e5
+2026-11-25T22:53:12.1310678Z   path: fishhat
+2026-11-25T22:53:12.1311591Z   persist-credentials: false
+2026-11-25T22:53:12.1320872Z   token: ***
+2026-11-25T22:53:12.1321754Z   ssh-strict: true
+2026-11-25T22:53:12.1322662Z   ssh-user: git
+2026-11-25T22:53:12.1323862Z   clean: true
+2026-11-25T22:53:12.1324807Z   sparse-checkout-cone-mode: true
+2026-11-25T22:53:12.1325989Z   fetch-depth: 1
+2026-11-25T22:53:12.1326938Z   fetch-tags: false
+2026-11-25T22:53:12.1327873Z   show-progress: true
+2026-11-25T22:53:12.1328817Z   lfs: false
+2026-11-25T22:53:12.1329677Z   submodules: false
+2026-11-25T22:53:12.1330623Z   set-safe-directory: true
+2026-11-25T22:53:12.1331694Z   allow-unsafe-pr-checkout: false
+2026-11-25T22:53:12.1332796Z env:
+2026-11-25T22:53:12.1334308Z   FROZEN_SHARED_SHA: bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:12.1335771Z   STORAGE66_PHASE: acceptance
+2026-11-25T22:53:12.1336812Z   STORAGE66_WORKER: 1
+2026-11-25T22:53:12.1338079Z   STORAGE66_WORKFLOW_SHA: 9f81bfa4fe431a51e9ed65d2ed41cb12ded53157
+2026-11-25T22:53:12.1339567Z ##[endgroup]
+2026-11-25T22:53:12.2331395Z Syncing repository: nashspence/fishhat
+2026-11-25T22:53:12.2337958Z ##[group]Getting Git version info
+2026-11-25T22:53:12.2341405Z Working directory is '/home/runner/work/all/all/fishhat'
+2026-11-25T22:53:12.2408002Z [command]/usr/bin/git version
+2026-11-25T22:53:12.2458152Z git version 2.56.1
+2026-11-25T22:53:12.2482539Z ##[endgroup]
+2026-11-25T22:53:12.2492966Z Temporarily overriding HOME='/home/runner/work/_temp/e210eba9-ed09-4511-a711-f72acf6136b9' before making global git config changes
+2026-11-25T22:53:12.2497090Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T22:53:12.2500529Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/all/all/fishhat
+2026-11-25T22:53:12.2541007Z ##[group]Determining repository object format
+2026-11-25T22:53:12.2543888Z ##[endgroup]
+2026-11-25T22:53:12.2546543Z ##[group]Initializing the repository
+2026-11-25T22:53:12.2549241Z [command]/usr/bin/git init /home/runner/work/all/all/fishhat
+2026-11-25T22:53:12.2601983Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-25T22:53:12.2606024Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-25T22:53:12.2609628Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-25T22:53:12.2611914Z hint: call:
+2026-11-25T22:53:12.2613592Z hint:
+2026-11-25T22:53:12.2615497Z hint: 	git config --global init.defaultBranch <name>
+2026-11-25T22:53:12.2617592Z hint:
+2026-11-25T22:53:12.2619692Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-25T22:53:12.2622447Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-25T22:53:12.2625217Z hint:
+2026-11-25T22:53:12.2626823Z hint: 	git branch -m <name>
+2026-11-25T22:53:12.2628388Z hint:
+2026-11-25T22:53:12.2629748Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-25T22:53:12.2631871Z Initialized empty Git repository in /home/runner/work/all/all/fishhat/.git/
+2026-11-25T22:53:12.2635823Z [command]/usr/bin/git remote add origin https://github.com/nashspence/fishhat
+2026-11-25T22:53:12.2687353Z ##[endgroup]
+2026-11-25T22:53:12.2689968Z ##[group]Disabling automatic garbage collection
+2026-11-25T22:53:12.2692771Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-25T22:53:12.2739454Z ##[endgroup]
+2026-11-25T22:53:12.2741356Z ##[group]Setting up auth
+2026-11-25T22:53:12.2743452Z Removing SSH command configuration
+2026-11-25T22:53:12.2747488Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T22:53:12.2815111Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T22:53:12.3121012Z Removing HTTP extra header
+2026-11-25T22:53:12.3128260Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T22:53:12.3177453Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T22:53:12.3470866Z Removing includeIf entries pointing to credentials config files
+2026-11-25T22:53:12.3484902Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T22:53:12.3537617Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T22:53:12.3798046Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-a02e3840-488f-4fba-b315-32ba2aed7eb9.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-25T22:53:12.3852440Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/all/all/fishhat/.git.path /home/runner/work/_temp/git-credentials-a02e3840-488f-4fba-b315-32ba2aed7eb9.config
+2026-11-25T22:53:12.3900248Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/all/all/fishhat/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-a02e3840-488f-4fba-b315-32ba2aed7eb9.config
+2026-11-25T22:53:12.3947687Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/fishhat/.git.path /github/runner_temp/git-credentials-a02e3840-488f-4fba-b315-32ba2aed7eb9.config
+2026-11-25T22:53:12.3994195Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/fishhat/.git/worktrees/*.path /github/runner_temp/git-credentials-a02e3840-488f-4fba-b315-32ba2aed7eb9.config
+2026-11-25T22:53:12.4035226Z ##[endgroup]
+2026-11-25T22:53:12.4037166Z ##[group]Fetching the repository
+2026-11-25T22:53:12.4043139Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin f96b83dc20f059d62a4363a63c37bb0ef8c642e5
+2026-11-25T22:53:13.0138230Z From https://github.com/nashspence/fishhat
+2026-11-25T22:53:13.0139991Z  * branch            f96b83dc20f059d62a4363a63c37bb0ef8c642e5 -> FETCH_HEAD
+2026-11-25T22:53:13.0149559Z [command]/usr/bin/git rev-parse --verify --quiet f96b83dc20f059d62a4363a63c37bb0ef8c642e5^{object}
+2026-11-25T22:53:13.0196398Z f96b83dc20f059d62a4363a63c37bb0ef8c642e5
+2026-11-25T22:53:13.0201568Z ##[endgroup]
+2026-11-25T22:53:13.0202125Z ##[group]Determining the checkout info
+2026-11-25T22:53:13.0202836Z ##[endgroup]
+2026-11-25T22:53:13.0210080Z [command]/usr/bin/git sparse-checkout disable
+2026-11-25T22:53:13.0274166Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-25T22:53:13.0329031Z ##[group]Checking out the ref
+2026-11-25T22:53:13.0330345Z [command]/usr/bin/git checkout --progress --force f96b83dc20f059d62a4363a63c37bb0ef8c642e5
+2026-11-25T22:53:13.1116810Z Note: switching to 'f96b83dc20f059d62a4363a63c37bb0ef8c642e5'.
+2026-11-25T22:53:13.1117524Z 
+2026-11-25T22:53:13.1117852Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-25T22:53:13.1118581Z changes and commit them, and you can discard any commits you make in this
+2026-11-25T22:53:13.1119313Z state without impacting any branches by switching back to a branch.
+2026-11-25T22:53:13.1119763Z 
+2026-11-25T22:53:13.1120046Z If you want to create a new branch to retain commits you create, you may
+2026-11-25T22:53:13.1120751Z do so (now or later) by using -c with the switch command. Example:
+2026-11-25T22:53:13.1121275Z 
+2026-11-25T22:53:13.1121518Z   git switch -c <new-branch-name>
+2026-11-25T22:53:13.1121972Z 
+2026-11-25T22:53:13.1122237Z Or undo this operation with:
+2026-11-25T22:53:13.1122663Z 
+2026-11-25T22:53:13.1122882Z   git switch -
+2026-11-25T22:53:13.1124009Z 
+2026-11-25T22:53:13.1124602Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-25T22:53:13.1125265Z 
+2026-11-25T22:53:13.1125713Z HEAD is now at f96b83d Stop checkpoint publication before replacement (#449)
+2026-11-25T22:53:13.1128124Z ##[endgroup]
+2026-11-25T22:53:13.1187103Z [command]/usr/bin/git log -1 --format=%H
+2026-11-25T22:53:13.1228460Z f96b83dc20f059d62a4363a63c37bb0ef8c642e5
+2026-11-25T22:53:13.1239289Z ##[group]Removing auth
+2026-11-25T22:53:13.1239955Z Removing SSH command configuration
+2026-11-25T22:53:13.1245120Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T22:53:13.1295986Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T22:53:13.1564846Z Removing HTTP extra header
+2026-11-25T22:53:13.1569801Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T22:53:13.1622781Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T22:53:13.1878124Z Removing includeIf entries pointing to credentials config files
+2026-11-25T22:53:13.1884085Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T22:53:13.1924349Z includeif.gitdir:/home/runner/work/all/all/fishhat/.git.path
+2026-11-25T22:53:13.1926031Z includeif.gitdir:/home/runner/work/all/all/fishhat/.git/worktrees/*.path
+2026-11-25T22:53:13.1927024Z includeif.gitdir:/github/workspace/fishhat/.git.path
+2026-11-25T22:53:13.1929124Z includeif.gitdir:/github/workspace/fishhat/.git/worktrees/*.path
+2026-11-25T22:53:13.1938942Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/all/all/fishhat/.git.path
+2026-11-25T22:53:13.1985244Z /home/runner/work/_temp/git-credentials-a02e3840-488f-4fba-b315-32ba2aed7eb9.config
+2026-11-25T22:53:13.1997524Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/all/all/fishhat/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-a02e3840\-488f\-4fba\-b315\-32ba2aed7eb9\.config
+2026-11-25T22:53:13.2052507Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/all/all/fishhat/.git/worktrees/*.path
+2026-11-25T22:53:13.2091452Z /home/runner/work/_temp/git-credentials-a02e3840-488f-4fba-b315-32ba2aed7eb9.config
+2026-11-25T22:53:13.2102191Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/all/all/fishhat/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-a02e3840\-488f\-4fba\-b315\-32ba2aed7eb9\.config
+2026-11-25T22:53:13.2157497Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/fishhat/.git.path
+2026-11-25T22:53:13.2195964Z /github/runner_temp/git-credentials-a02e3840-488f-4fba-b315-32ba2aed7eb9.config
+2026-11-25T22:53:13.2206825Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/fishhat/.git.path \/github\/runner_temp\/git\-credentials\-a02e3840\-488f\-4fba\-b315\-32ba2aed7eb9\.config
+2026-11-25T22:53:13.2260021Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/fishhat/.git/worktrees/*.path
+2026-11-25T22:53:13.2300454Z /github/runner_temp/git-credentials-a02e3840-488f-4fba-b315-32ba2aed7eb9.config
+2026-11-25T22:53:13.2307135Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/fishhat/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-a02e3840\-488f\-4fba\-b315\-32ba2aed7eb9\.config
+2026-11-25T22:53:13.2359630Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T22:53:13.2635192Z Removing credentials config '/home/runner/work/_temp/git-credentials-a02e3840-488f-4fba-b315-32ba2aed7eb9.config'
+2026-11-25T22:53:13.2647201Z ##[endgroup]
+2026-11-25T22:53:13.2888026Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-25T22:53:13.2888544Z with:
+2026-11-25T22:53:13.2888815Z   repository: nashspence/riverhog
+2026-11-25T22:53:13.2889169Z   ref: be483fd6d567616d5fcd355202d61f1e682efe75
+2026-11-25T22:53:13.2889523Z   path: riverhog
+2026-11-25T22:53:13.2889797Z   persist-credentials: false
+2026-11-25T22:53:13.2892443Z   token: ***
+2026-11-25T22:53:13.2892720Z   ssh-strict: true
+2026-11-25T22:53:13.2893012Z   ssh-user: git
+2026-11-25T22:53:13.2893665Z   clean: true
+2026-11-25T22:53:13.2893983Z   sparse-checkout-cone-mode: true
+2026-11-25T22:53:13.2894306Z   fetch-depth: 1
+2026-11-25T22:53:13.2894563Z   fetch-tags: false
+2026-11-25T22:53:13.2894825Z   show-progress: true
+2026-11-25T22:53:13.2895089Z   lfs: false
+2026-11-25T22:53:13.2895336Z   submodules: false
+2026-11-25T22:53:13.2895603Z   set-safe-directory: true
+2026-11-25T22:53:13.2895912Z   allow-unsafe-pr-checkout: false
+2026-11-25T22:53:13.2896220Z env:
+2026-11-25T22:53:13.2896605Z   FROZEN_SHARED_SHA: bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:13.2897005Z   STORAGE66_PHASE: acceptance
+2026-11-25T22:53:13.2897294Z   STORAGE66_WORKER: 1
+2026-11-25T22:53:13.2897647Z   STORAGE66_WORKFLOW_SHA: 9f81bfa4fe431a51e9ed65d2ed41cb12ded53157
+2026-11-25T22:53:13.2898072Z ##[endgroup]
+2026-11-25T22:53:13.3796205Z Syncing repository: nashspence/riverhog
+2026-11-25T22:53:13.3805223Z ##[group]Getting Git version info
+2026-11-25T22:53:13.3805969Z Working directory is '/home/runner/work/all/all/riverhog'
+2026-11-25T22:53:13.3852443Z [command]/usr/bin/git version
+2026-11-25T22:53:13.3902857Z git version 2.56.1
+2026-11-25T22:53:13.3932785Z ##[endgroup]
+2026-11-25T22:53:13.3940206Z Temporarily overriding HOME='/home/runner/work/_temp/56823e9b-b42c-48c0-a746-d0ccf6e197b6' before making global git config changes
+2026-11-25T22:53:13.3941582Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T22:53:13.3946546Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/all/all/riverhog
+2026-11-25T22:53:13.3989067Z ##[group]Determining repository object format
+2026-11-25T22:53:13.3991372Z ##[endgroup]
+2026-11-25T22:53:13.3991875Z ##[group]Initializing the repository
+2026-11-25T22:53:13.3996939Z [command]/usr/bin/git init /home/runner/work/all/all/riverhog
+2026-11-25T22:53:13.4046628Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-25T22:53:13.4048180Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-25T22:53:13.4049678Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-25T22:53:13.4050656Z hint: call:
+2026-11-25T22:53:13.4051364Z hint:
+2026-11-25T22:53:13.4052203Z hint: 	git config --global init.defaultBranch <name>
+2026-11-25T22:53:13.4052975Z hint:
+2026-11-25T22:53:13.4053939Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-25T22:53:13.4055049Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-25T22:53:13.4055505Z hint:
+2026-11-25T22:53:13.4055766Z hint: 	git branch -m <name>
+2026-11-25T22:53:13.4056054Z hint:
+2026-11-25T22:53:13.4057158Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-25T22:53:13.4058064Z Initialized empty Git repository in /home/runner/work/all/all/riverhog/.git/
+2026-11-25T22:53:13.4061049Z [command]/usr/bin/git remote add origin https://github.com/nashspence/riverhog
+2026-11-25T22:53:13.4143409Z ##[endgroup]
+2026-11-25T22:53:13.4145052Z ##[group]Disabling automatic garbage collection
+2026-11-25T22:53:13.4148009Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-25T22:53:13.4196817Z ##[endgroup]
+2026-11-25T22:53:13.4197859Z ##[group]Setting up auth
+2026-11-25T22:53:13.4198385Z Removing SSH command configuration
+2026-11-25T22:53:13.4215784Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T22:53:13.4264875Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T22:53:13.4553910Z Removing HTTP extra header
+2026-11-25T22:53:13.4559805Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T22:53:13.4609543Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T22:53:13.4905450Z Removing includeIf entries pointing to credentials config files
+2026-11-25T22:53:13.4911174Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T22:53:13.4959280Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T22:53:13.5211344Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-4d9e4ac0-afeb-4c43-8c1f-fe01a4055d2b.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-25T22:53:13.5268651Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/all/all/riverhog/.git.path /home/runner/work/_temp/git-credentials-4d9e4ac0-afeb-4c43-8c1f-fe01a4055d2b.config
+2026-11-25T22:53:13.5314499Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/all/all/riverhog/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-4d9e4ac0-afeb-4c43-8c1f-fe01a4055d2b.config
+2026-11-25T22:53:13.5359351Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/riverhog/.git.path /github/runner_temp/git-credentials-4d9e4ac0-afeb-4c43-8c1f-fe01a4055d2b.config
+2026-11-25T22:53:13.5404792Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/riverhog/.git/worktrees/*.path /github/runner_temp/git-credentials-4d9e4ac0-afeb-4c43-8c1f-fe01a4055d2b.config
+2026-11-25T22:53:13.5447558Z ##[endgroup]
+2026-11-25T22:53:13.5448032Z ##[group]Fetching the repository
+2026-11-25T22:53:13.5454771Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin be483fd6d567616d5fcd355202d61f1e682efe75
+2026-11-25T22:53:15.0182436Z From https://github.com/nashspence/riverhog
+2026-11-25T22:53:15.0183000Z  * branch            be483fd6d567616d5fcd355202d61f1e682efe75 -> FETCH_HEAD
+2026-11-25T22:53:15.0194127Z [command]/usr/bin/git rev-parse --verify --quiet be483fd6d567616d5fcd355202d61f1e682efe75^{object}
+2026-11-25T22:53:15.0237880Z be483fd6d567616d5fcd355202d61f1e682efe75
+2026-11-25T22:53:15.0243103Z ##[endgroup]
+2026-11-25T22:53:15.0243959Z ##[group]Determining the checkout info
+2026-11-25T22:53:15.0245144Z ##[endgroup]
+2026-11-25T22:53:15.0250082Z [command]/usr/bin/git sparse-checkout disable
+2026-11-25T22:53:15.0308213Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-25T22:53:15.0354606Z ##[group]Checking out the ref
+2026-11-25T22:53:15.0359380Z [command]/usr/bin/git checkout --progress --force be483fd6d567616d5fcd355202d61f1e682efe75
+2026-11-25T22:53:15.2566005Z Note: switching to 'be483fd6d567616d5fcd355202d61f1e682efe75'.
+2026-11-25T22:53:15.2566638Z 
+2026-11-25T22:53:15.2566974Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-25T22:53:15.2567786Z changes and commit them, and you can discard any commits you make in this
+2026-11-25T22:53:15.2568590Z state without impacting any branches by switching back to a branch.
+2026-11-25T22:53:15.2569102Z 
+2026-11-25T22:53:15.2569411Z If you want to create a new branch to retain commits you create, you may
+2026-11-25T22:53:15.2570158Z do so (now or later) by using -c with the switch command. Example:
+2026-11-25T22:53:15.2570586Z 
+2026-11-25T22:53:15.2570753Z   git switch -c <new-branch-name>
+2026-11-25T22:53:15.2571040Z 
+2026-11-25T22:53:15.2571198Z Or undo this operation with:
+2026-11-25T22:53:15.2571466Z 
+2026-11-25T22:53:15.2571599Z   git switch -
+2026-11-25T22:53:15.2572077Z 
+2026-11-25T22:53:15.2572447Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-25T22:53:15.2572979Z 
+2026-11-25T22:53:15.2573615Z HEAD is now at be483fd Integrate bounded collection publication and recovery (#979)
+2026-11-25T22:53:15.2581634Z ##[endgroup]
+2026-11-25T22:53:15.2640259Z [command]/usr/bin/git log -1 --format=%H
+2026-11-25T22:53:15.2679568Z be483fd6d567616d5fcd355202d61f1e682efe75
+2026-11-25T22:53:15.2689152Z ##[group]Removing auth
+2026-11-25T22:53:15.2689580Z Removing SSH command configuration
+2026-11-25T22:53:15.2693726Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T22:53:15.2739919Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T22:53:15.2993902Z Removing HTTP extra header
+2026-11-25T22:53:15.2998938Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T22:53:15.3052931Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T22:53:15.3306799Z Removing includeIf entries pointing to credentials config files
+2026-11-25T22:53:15.3311753Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T22:53:15.3350627Z includeif.gitdir:/home/runner/work/all/all/riverhog/.git.path
+2026-11-25T22:53:15.3352047Z includeif.gitdir:/home/runner/work/all/all/riverhog/.git/worktrees/*.path
+2026-11-25T22:53:15.3353104Z includeif.gitdir:/github/workspace/riverhog/.git.path
+2026-11-25T22:53:15.3354259Z includeif.gitdir:/github/workspace/riverhog/.git/worktrees/*.path
+2026-11-25T22:53:15.3363836Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/all/all/riverhog/.git.path
+2026-11-25T22:53:15.3406060Z /home/runner/work/_temp/git-credentials-4d9e4ac0-afeb-4c43-8c1f-fe01a4055d2b.config
+2026-11-25T22:53:15.3417181Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/all/all/riverhog/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-4d9e4ac0\-afeb\-4c43\-8c1f\-fe01a4055d2b\.config
+2026-11-25T22:53:15.3465663Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/all/all/riverhog/.git/worktrees/*.path
+2026-11-25T22:53:15.3504953Z /home/runner/work/_temp/git-credentials-4d9e4ac0-afeb-4c43-8c1f-fe01a4055d2b.config
+2026-11-25T22:53:15.3513878Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/all/all/riverhog/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-4d9e4ac0\-afeb\-4c43\-8c1f\-fe01a4055d2b\.config
+2026-11-25T22:53:15.3568453Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/riverhog/.git.path
+2026-11-25T22:53:15.3606143Z /github/runner_temp/git-credentials-4d9e4ac0-afeb-4c43-8c1f-fe01a4055d2b.config
+2026-11-25T22:53:15.3616012Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/riverhog/.git.path \/github\/runner_temp\/git\-credentials\-4d9e4ac0\-afeb\-4c43\-8c1f\-fe01a4055d2b\.config
+2026-11-25T22:53:15.3668838Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/riverhog/.git/worktrees/*.path
+2026-11-25T22:53:15.3705003Z /github/runner_temp/git-credentials-4d9e4ac0-afeb-4c43-8c1f-fe01a4055d2b.config
+2026-11-25T22:53:15.3713853Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/riverhog/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-4d9e4ac0\-afeb\-4c43\-8c1f\-fe01a4055d2b\.config
+2026-11-25T22:53:15.3764241Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T22:53:15.4018304Z Removing credentials config '/home/runner/work/_temp/git-credentials-4d9e4ac0-afeb-4c43-8c1f-fe01a4055d2b.config'
+2026-11-25T22:53:15.4028992Z ##[endgroup]
+2026-11-25T22:53:15.4207742Z ##[group]Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+2026-11-25T22:53:15.4208157Z with:
+2026-11-25T22:53:15.4208365Z   python-version: 3.12.16
+2026-11-25T22:53:15.4208605Z   check-latest: false
+2026-11-25T22:53:15.4210951Z   token: ***
+2026-11-25T22:53:15.4211277Z   mirror: https://raw.githubusercontent.com/actions/python-versions/main
+2026-11-25T22:53:15.4211684Z   update-environment: true
+2026-11-25T22:53:15.4211922Z   allow-prereleases: false
+2026-11-25T22:53:15.4212167Z   freethreaded: false
+2026-11-25T22:53:15.4212372Z env:
+2026-11-25T22:53:15.4212623Z   FROZEN_SHARED_SHA: bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:15.4212960Z   STORAGE66_PHASE: acceptance
+2026-11-25T22:53:15.4213497Z   STORAGE66_WORKER: 1
+2026-11-25T22:53:15.4213814Z   STORAGE66_WORKFLOW_SHA: 9f81bfa4fe431a51e9ed65d2ed41cb12ded53157
+2026-11-25T22:53:15.4214158Z ##[endgroup]
+2026-11-25T22:53:15.5392606Z ##[group]Installed versions
+2026-11-25T22:53:15.5433098Z Successfully set up CPython (3.12.16)
+2026-11-25T22:53:15.5434212Z ##[endgroup]
+2026-11-25T22:53:15.5670895Z ##[group]Run astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9
+2026-11-25T22:53:15.5671549Z with:
+2026-11-25T22:53:15.5671850Z   version: 0.11.24
+2026-11-25T22:53:15.5672197Z   enable-cache: false
+2026-11-25T22:53:15.5672577Z   activate-environment: false
+2026-11-25T22:53:15.5673039Z   working-directory: /home/runner/work/all/all
+2026-11-25T22:53:15.5677945Z   github-token: ***
+2026-11-25T22:53:15.5679178Z   cache-dependency-glob: **/*requirements*.txt
+**/*requirements*.in
+**/*constraints*.txt
+**/*constraints*.in
+**/pyproject.toml
+**/uv.lock
+**/*.py.lock
+
+2026-11-25T22:53:15.5680305Z   restore-cache: true
+2026-11-25T22:53:15.5680653Z   save-cache: true
+2026-11-25T22:53:15.5680987Z   prune-cache: true
+2026-11-25T22:53:15.5681327Z   cache-python: false
+2026-11-25T22:53:15.5681700Z   ignore-nothing-to-cache: false
+2026-11-25T22:53:15.5682131Z   ignore-empty-workdir: false
+2026-11-25T22:53:15.5682545Z   add-problem-matchers: true
+2026-11-25T22:53:15.5682989Z   resolution-strategy: highest
+2026-11-25T22:53:15.5683714Z env:
+2026-11-25T22:53:15.5684128Z   FROZEN_SHARED_SHA: bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:15.5684710Z   STORAGE66_PHASE: acceptance
+2026-11-25T22:53:15.5685097Z   STORAGE66_WORKER: 1
+2026-11-25T22:53:15.5685597Z   STORAGE66_WORKFLOW_SHA: 9f81bfa4fe431a51e9ed65d2ed41cb12ded53157
+2026-11-25T22:53:15.5686334Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:15.5687133Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-25T22:53:15.5687872Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:15.5688527Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:15.5689192Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:15.5689853Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-25T22:53:15.5690399Z ##[endgroup]
+2026-11-25T22:53:15.7798020Z Fetching version data from https://raw.githubusercontent.com/astral-sh/versions/main/v1/uv.ndjson ...
+2026-11-25T22:53:15.8979305Z Downloading uv from "https://releases.astral.sh/github/uv/releases/download/0.11.24/uv-x86_64-unknown-linux-gnu.tar.gz" ...
+2026-11-25T22:53:16.1048707Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/a6e76b06-84cd-4586-8a2d-5ebab2a2be9e -f /home/runner/work/_temp/7479cd42-80c2-4394-8d82-099fd13dcf77
+2026-11-25T22:53:16.5747821Z Added /home/runner/.local/bin to the path
+2026-11-25T22:53:16.5751021Z Added /opt/hostedtoolcache/uv/0.11.24/x86_64 to the path
+2026-11-25T22:53:16.5752202Z Set UV_PYTHON_INSTALL_DIR to /home/runner/work/_temp/uv-python-dir
+2026-11-25T22:53:16.5753114Z Added /home/runner/work/_temp/uv-python-dir to the path
+2026-11-25T22:53:16.5764016Z Successfully installed uv version 0.11.24
+2026-11-25T22:53:17.2348658Z ##[group]Run mkdir -p "$GITHUB_WORKSPACE/storage-output"
+2026-11-25T22:53:17.2349174Z [36;1mmkdir -p "$GITHUB_WORKSPACE/storage-output"[0m
+2026-11-25T22:53:17.2349630Z [36;1mstart="$(python -I -B -c 'import time; print(time.perf_counter_ns())')"[0m
+2026-11-25T22:53:17.2350048Z [36;1mpython312="$(command -v python)"[0m
+2026-11-25T22:53:17.2350402Z [36;1muv venv --python "$python312" "$RUNNER_TEMP/all66-common"[0m
+2026-11-25T22:53:17.2350886Z [36;1muv pip install --python "$RUNNER_TEMP/all66-common/bin/python" 'PyYAML==6.0.3'[0m
+2026-11-25T22:53:17.2351520Z [36;1muv pip install --python "$RUNNER_TEMP/all66-common/bin/python" --no-deps "$GITHUB_WORKSPACE/runtime"[0m
+2026-11-25T22:53:17.2352655Z [36;1mUV_PROJECT_ENVIRONMENT="$RUNNER_TEMP/all66-fishhat" uv sync --directory "$GITHUB_WORKSPACE/fishhat" --locked --no-default-groups --no-editable --package fishhat-owner-support --no-python-downloads --python "$python312"[0m
+2026-11-25T22:53:17.2354637Z [36;1mUV_PROJECT_ENVIRONMENT="$RUNNER_TEMP/all66-riverhog" uv sync --directory "$GITHUB_WORKSPACE/riverhog" --locked --no-default-groups --no-editable --package riverhog-client --no-python-downloads --python "$python312"[0m
+2026-11-25T22:53:17.2355762Z [36;1muv pip install --python "$RUNNER_TEMP/all66-fishhat/bin/python" --no-deps "$GITHUB_WORKSPACE/runtime"[0m
+2026-11-25T22:53:17.2356396Z [36;1muv pip install --python "$RUNNER_TEMP/all66-riverhog/bin/python" 'PyYAML==6.0.3'[0m
+2026-11-25T22:53:17.2357051Z [36;1muv pip install --python "$RUNNER_TEMP/all66-riverhog/bin/python" --no-deps "$GITHUB_WORKSPACE/runtime"[0m
+2026-11-25T22:53:17.2358373Z [36;1mpython -I -B -c 'import json,sys,time; from pathlib import Path; Path(sys.argv[2]).write_text(json.dumps({"bootstrap_wall_ns":time.perf_counter_ns()-int(sys.argv[1])})+"\n")' "$start" "$GITHUB_WORKSPACE/storage-output/bootstrap.json"[0m
+2026-11-25T22:53:17.2385163Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-25T22:53:17.2385513Z env:
+2026-11-25T22:53:17.2385798Z   FROZEN_SHARED_SHA: bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:17.2386144Z   STORAGE66_PHASE: acceptance
+2026-11-25T22:53:17.2386383Z   STORAGE66_WORKER: 1
+2026-11-25T22:53:17.2386680Z   STORAGE66_WORKFLOW_SHA: 9f81bfa4fe431a51e9ed65d2ed41cb12ded53157
+2026-11-25T22:53:17.2387105Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:17.2387537Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-25T22:53:17.2387952Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:17.2388325Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:17.2388706Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:17.2389079Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-25T22:53:17.2389476Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-11-25T22:53:17.2389796Z ##[endgroup]
+2026-11-25T22:53:17.2754634Z Using CPython 3.12.16 interpreter at: /opt/hostedtoolcache/Python/3.12.16/x64/bin/python
+2026-11-25T22:53:17.2755743Z Creating virtual environment at: /home/runner/work/_temp/all66-common
+2026-11-25T22:53:17.2763920Z Activate with: /home/runner/work/_temp/all66-common/bin/activate
+2026-11-25T22:53:17.3482120Z Using Python 3.12.16 environment at: /home/runner/work/_temp/all66-common
+2026-11-25T22:53:17.5088464Z Resolved 1 package in 159ms
+2026-11-25T22:53:17.5859759Z Prepared 1 package in 77ms
+2026-11-25T22:53:17.5874509Z Installed 1 package in 1ms
+2026-11-25T22:53:17.5874856Z  + pyyaml==6.0.3
+2026-11-25T22:53:17.6527709Z Using Python 3.12.16 environment at: /home/runner/work/_temp/all66-common
+2026-11-25T22:53:17.6547750Z Resolved 1 package in 1ms
+2026-11-25T22:53:17.6554109Z    Building nashspence-all @ file:///home/runner/work/all/all/runtime
+2026-11-25T22:53:19.1894687Z       Built nashspence-all @ file:///home/runner/work/all/all/runtime
+2026-11-25T22:53:19.1914574Z Prepared 1 package in 1.53s
+2026-11-25T22:53:19.1937671Z Installed 1 package in 2ms
+2026-11-25T22:53:19.1938335Z  + nashspence-all==0 (from file:///home/runner/work/all/all/runtime)
+2026-11-25T22:53:19.2252280Z Using CPython 3.12.16 interpreter at: /opt/hostedtoolcache/Python/3.12.16/x64/bin/python
+2026-11-25T22:53:19.2253406Z Creating virtual environment at: /home/runner/work/_temp/all66-fishhat
+2026-11-25T22:53:19.2386469Z Resolved 114 packages in 4ms
+2026-11-25T22:53:19.2443071Z    Building fishhat-owner-support @ file:///home/runner/work/all/all/fishhat/fishhat/owner-support
+2026-11-25T22:53:19.2445182Z    Building fishhat-adapter-protocol @ file:///home/runner/work/all/all/fishhat/packages/fishhat-adapter-protocol
+2026-11-25T22:53:19.2446963Z    Building fishhat-contracts @ file:///home/runner/work/all/all/fishhat/packages/fishhat-contracts
+2026-11-25T22:53:19.3323064Z Downloading sqlalchemy (4.5MiB)
+2026-11-25T22:53:19.3325636Z Downloading cryptography (4.5MiB)
+2026-11-25T22:53:19.6485380Z  Downloaded sqlalchemy
+2026-11-25T22:53:19.6564332Z  Downloaded cryptography
+2026-11-25T22:53:20.3370828Z       Built fishhat-adapter-protocol @ file:///home/runner/work/all/all/fishhat/packages/fishhat-adapter-protocol
+2026-11-25T22:53:20.5478790Z       Built fishhat-owner-support @ file:///home/runner/work/all/all/fishhat/fishhat/owner-support
+2026-11-25T22:53:20.6229017Z       Built fishhat-contracts @ file:///home/runner/work/all/all/fishhat/packages/fishhat-contracts
+2026-11-25T22:53:20.6354006Z Prepared 17 packages in 1.39s
+2026-11-25T22:53:20.6521095Z Installed 18 packages in 16ms
+2026-11-25T22:53:20.6521605Z  + alembic==1.20.0
+2026-11-25T22:53:20.6521961Z  + attrs==26.1.0
+2026-11-25T22:53:20.6522612Z  + cffi==2.1.1
+2026-11-25T22:53:20.6522953Z  + cryptography==50.0.2
+2026-11-25T22:53:20.6524208Z  + fishhat-adapter-protocol==0.1.0.dev0 (from file:///home/runner/work/all/all/fishhat/packages/fishhat-adapter-protocol)
+2026-11-25T22:53:20.6525566Z  + fishhat-contracts==0.1.0.dev0 (from file:///home/runner/work/all/all/fishhat/packages/fishhat-contracts)
+2026-11-25T22:53:20.6526808Z  + fishhat-owner-support==0.1.0.dev0 (from file:///home/runner/work/all/all/fishhat/fishhat/owner-support)
+2026-11-25T22:53:20.6527630Z  + jsonschema==4.26.0
+2026-11-25T22:53:20.6528025Z  + jsonschema-specifications==2025.9.1
+2026-11-25T22:53:20.6528466Z  + mako==1.4.3
+2026-11-25T22:53:20.6528791Z  + markupsafe==3.0.4
+2026-11-25T22:53:20.6529139Z  + pycparser==3.11
+2026-11-25T22:53:20.6529468Z  + pyyaml==6.0.3
+2026-11-25T22:53:20.6529798Z  + referencing==0.37.0
+2026-11-25T22:53:20.6530147Z  + rfc8785==0.1.4
+2026-11-25T22:53:20.6530448Z  + rpds-py==2026.9.1
+2026-11-25T22:53:20.6530769Z  + sqlalchemy==2.1.5
+2026-11-25T22:53:20.6531123Z  + typing-extensions==4.16.0
+2026-11-25T22:53:20.7130134Z Using CPython 3.12.16 interpreter at: /opt/hostedtoolcache/Python/3.12.16/x64/bin/python
+2026-11-25T22:53:20.7131193Z Creating virtual environment at: /home/runner/work/_temp/all66-riverhog
+2026-11-25T22:53:20.7371728Z Resolved 192 packages in 11ms
+2026-11-25T22:53:20.7473252Z    Building riverhog-protocol @ file:///home/runner/work/all/all/riverhog/packages/riverhog-protocol
+2026-11-25T22:53:20.7475199Z    Building workspace-reclamation @ file:///home/runner/work/all/all/riverhog/packages/workspace-reclamation
+2026-11-25T22:53:20.7491471Z    Building time-formats @ file:///home/runner/work/all/all/riverhog/packages/time-formats
+2026-11-25T22:53:20.7492948Z    Building http-api-contracts @ file:///home/runner/work/all/all/riverhog/packages/http-api-contracts
+2026-11-25T22:53:20.7495328Z    Building release-documentation-lib @ file:///home/runner/work/all/all/riverhog/packages/release-documentation-lib
+2026-11-25T22:53:20.7509661Z    Building riverhog-application-access @ file:///home/runner/work/all/all/riverhog/packages/riverhog-application-access
+2026-11-25T22:53:20.7512308Z    Building riverhog-archive-contracts @ file:///home/runner/work/all/all/riverhog/packages/riverhog-archive-contracts
+2026-11-25T22:53:20.7522489Z    Building riverhog-growth-contracts @ file:///home/runner/work/all/all/riverhog/packages/riverhog-growth-contracts
+2026-11-25T22:53:20.7524369Z    Building riverhog-canonical-json @ file:///home/runner/work/all/all/riverhog/packages/riverhog-canonical-json
+2026-11-25T22:53:20.7533637Z    Building riverhog-provenance @ file:///home/runner/work/all/all/riverhog/packages/riverhog-provenance
+2026-11-25T22:53:20.7535618Z    Building riverhog-provenance-contracts @ file:///home/runner/work/all/all/riverhog/packages/riverhog-provenance-contracts
+2026-11-25T22:53:20.7537671Z    Building sqlite-admission @ file:///home/runner/work/all/all/riverhog/packages/sqlite-admission
+2026-11-25T22:53:20.7539727Z    Building riverhog-client @ file:///home/runner/work/all/all/riverhog/packages/riverhog-client
+2026-11-25T22:53:20.7551332Z    Building sha256-continuation @ file:///home/runner/work/all/all/riverhog/packages/sha256-continuation
+2026-11-25T22:53:20.7552785Z    Building lifecycle-events @ file:///home/runner/work/all/all/riverhog/packages/lifecycle-events
+2026-11-25T22:53:20.7562435Z    Building retained-resource @ file:///home/runner/work/all/all/riverhog/packages/retained-resource
+2026-11-25T22:53:20.7563948Z    Building state-schema @ file:///home/runner/work/all/all/riverhog/packages/state-schema
+2026-11-25T22:53:20.8347003Z Downloading pydantic-core (2.0MiB)
+2026-11-25T22:53:20.8347824Z Downloading sqlalchemy (3.2MiB)
+2026-11-25T22:53:21.1764410Z  Downloaded pydantic-core
+2026-11-25T22:53:21.4884236Z  Downloaded sqlalchemy
+2026-11-25T22:53:22.3124800Z       Built state-schema @ file:///home/runner/work/all/all/riverhog/packages/state-schema
+2026-11-25T22:53:22.3844797Z       Built riverhog-provenance @ file:///home/runner/work/all/all/riverhog/packages/riverhog-provenance
+2026-11-25T22:53:22.4314656Z       Built riverhog-client @ file:///home/runner/work/all/all/riverhog/packages/riverhog-client
+2026-11-25T22:53:22.5726089Z       Built riverhog-provenance-contracts @ file:///home/runner/work/all/all/riverhog/packages/riverhog-provenance-contracts
+2026-11-25T22:53:22.6134672Z       Built riverhog-protocol @ file:///home/runner/work/all/all/riverhog/packages/riverhog-protocol
+2026-11-25T22:53:22.6754692Z       Built sha256-continuation @ file:///home/runner/work/all/all/riverhog/packages/sha256-continuation
+2026-11-25T22:53:22.8625529Z       Built lifecycle-events @ file:///home/runner/work/all/all/riverhog/packages/lifecycle-events
+2026-11-25T22:53:22.8874742Z       Built release-documentation-lib @ file:///home/runner/work/all/all/riverhog/packages/release-documentation-lib
+2026-11-25T22:53:22.9645181Z       Built riverhog-growth-contracts @ file:///home/runner/work/all/all/riverhog/packages/riverhog-growth-contracts
+2026-11-25T22:53:23.1134192Z       Built sqlite-admission @ file:///home/runner/work/all/all/riverhog/packages/sqlite-admission
+2026-11-25T22:53:23.1714918Z       Built riverhog-canonical-json @ file:///home/runner/work/all/all/riverhog/packages/riverhog-canonical-json
+2026-11-25T22:53:23.2435873Z       Built riverhog-archive-contracts @ file:///home/runner/work/all/all/riverhog/packages/riverhog-archive-contracts
+2026-11-25T22:53:23.3355837Z       Built http-api-contracts @ file:///home/runner/work/all/all/riverhog/packages/http-api-contracts
+2026-11-25T22:53:23.4549710Z       Built workspace-reclamation @ file:///home/runner/work/all/all/riverhog/packages/workspace-reclamation
+2026-11-25T22:53:23.5019635Z       Built time-formats @ file:///home/runner/work/all/all/riverhog/packages/time-formats
+2026-11-25T22:53:23.5781627Z       Built riverhog-application-access @ file:///home/runner/work/all/all/riverhog/packages/riverhog-application-access
+2026-11-25T22:53:23.6894078Z       Built retained-resource @ file:///home/runner/work/all/all/riverhog/packages/retained-resource
+2026-11-25T22:53:23.6906426Z Prepared 37 packages in 2.95s
+2026-11-25T22:53:23.7194409Z Installed 42 packages in 28ms
+2026-11-25T22:53:23.7195059Z  + alembic==1.18.5
+2026-11-25T22:53:23.7195499Z  + annotated-types==0.7.0
+2026-11-25T22:53:23.7195964Z  + anyio==4.14.2
+2026-11-25T22:53:23.7196355Z  + attrs==26.1.0
+2026-11-25T22:53:23.7197040Z  + certifi==2026.6.17
+2026-11-25T22:53:23.7197502Z  + greenlet==3.5.2
+2026-11-25T22:53:23.7197896Z  + h11==0.16.0
+2026-11-25T22:53:23.7198270Z  + h2==4.4.1
+2026-11-25T22:53:23.7198639Z  + hpack==4.2.0
+2026-11-25T22:53:23.7199442Z  + http-api-contracts==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/http-api-contracts)
+2026-11-25T22:53:23.7200357Z  + httpcore==1.0.9
+2026-11-25T22:53:23.7200760Z  + httpx==0.28.1
+2026-11-25T22:53:23.7201103Z  + hyperframe==6.1.0
+2026-11-25T22:53:23.7201508Z  + idna==3.18
+2026-11-25T22:53:23.7201876Z  + jsonschema==4.26.0
+2026-11-25T22:53:23.7202272Z  + jsonschema-specifications==2025.9.1
+2026-11-25T22:53:23.7203102Z  + lifecycle-events==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/lifecycle-events)
+2026-11-25T22:53:23.7204159Z  + mako==1.3.12
+2026-11-25T22:53:23.7204497Z  + markupsafe==3.0.3
+2026-11-25T22:53:23.7204841Z  + pydantic==2.13.4
+2026-11-25T22:53:23.7205194Z  + pydantic-core==2.46.4
+2026-11-25T22:53:23.7205573Z  + referencing==0.37.0
+2026-11-25T22:53:23.7206555Z  + release-documentation-lib==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/release-documentation-lib)
+2026-11-25T22:53:23.7207945Z  + retained-resource==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/retained-resource)
+2026-11-25T22:53:23.7208811Z  + rfc8785==0.1.4
+2026-11-25T22:53:23.7209750Z  + riverhog-application-access==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/riverhog-application-access)
+2026-11-25T22:53:23.7211271Z  + riverhog-archive-contracts==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/riverhog-archive-contracts)
+2026-11-25T22:53:23.7212935Z  + riverhog-canonical-json==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/riverhog-canonical-json)
+2026-11-25T22:53:23.7214336Z  + riverhog-client==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/riverhog-client)
+2026-11-25T22:53:23.7215524Z  + riverhog-growth-contracts==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/riverhog-growth-contracts)
+2026-11-25T22:53:23.7216798Z  + riverhog-protocol==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/riverhog-protocol)
+2026-11-25T22:53:23.7217962Z  + riverhog-provenance==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/riverhog-provenance)
+2026-11-25T22:53:23.7219317Z  + riverhog-provenance-contracts==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/riverhog-provenance-contracts)
+2026-11-25T22:53:23.7220341Z  + rpds-py==2026.5.1
+2026-11-25T22:53:23.7221133Z  + sha256-continuation==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/sha256-continuation)
+2026-11-25T22:53:23.7222007Z  + sqlalchemy==2.0.51
+2026-11-25T22:53:23.7222728Z  + sqlite-admission==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/sqlite-admission)
+2026-11-25T22:53:23.7224046Z  + state-schema==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/state-schema)
+2026-11-25T22:53:23.7225104Z  + time-formats==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/time-formats)
+2026-11-25T22:53:23.7225872Z  + typing-extensions==4.15.0
+2026-11-25T22:53:23.7226312Z  + typing-inspection==0.4.2
+2026-11-25T22:53:23.7227135Z  + workspace-reclamation==0.1.0 (from file:///home/runner/work/all/all/riverhog/packages/workspace-reclamation)
+2026-11-25T22:53:23.9027156Z Using Python 3.12.16 environment at: /home/runner/work/_temp/all66-fishhat
+2026-11-25T22:53:23.9051351Z Resolved 1 package in 1ms
+2026-11-25T22:53:23.9057870Z    Building nashspence-all @ file:///home/runner/work/all/all/runtime
+2026-11-25T22:53:24.6620063Z       Built nashspence-all @ file:///home/runner/work/all/all/runtime
+2026-11-25T22:53:24.6644357Z Prepared 1 package in 759ms
+2026-11-25T22:53:24.6669268Z Installed 1 package in 2ms
+2026-11-25T22:53:24.6669885Z  + nashspence-all==0 (from file:///home/runner/work/all/all/runtime)
+2026-11-25T22:53:24.7371906Z Using Python 3.12.16 environment at: /home/runner/work/_temp/all66-riverhog
+2026-11-25T22:53:24.7407699Z Resolved 1 package in 1ms
+2026-11-25T22:53:24.7424048Z Installed 1 package in 1ms
+2026-11-25T22:53:24.7424495Z  + pyyaml==6.0.3
+2026-11-25T22:53:24.8094880Z Using Python 3.12.16 environment at: /home/runner/work/_temp/all66-riverhog
+2026-11-25T22:53:24.8122939Z Resolved 1 package in 1ms
+2026-11-25T22:53:24.8129135Z    Building nashspence-all @ file:///home/runner/work/all/all/runtime
+2026-11-25T22:53:25.5741595Z       Built nashspence-all @ file:///home/runner/work/all/all/runtime
+2026-11-25T22:53:25.5765321Z Prepared 1 package in 764ms
+2026-11-25T22:53:25.5791263Z Installed 1 package in 2ms
+2026-11-25T22:53:25.5792027Z  + nashspence-all==0 (from file:///home/runner/work/all/all/runtime)
+2026-11-25T22:53:25.6220465Z ##[group]Run if "$RUNNER_TEMP/all66-common/bin/python" -I -B -m unittest discover -s "$GITHUB_WORKSPACE/runtime/tests" -v > "$GITHUB_WORKSPACE/storage-output/controls.stdout" 2> "$GITHUB_WORKSPACE/storage-output/controls.stderr"; then
+2026-11-25T22:53:25.6222144Z [36;1mif "$RUNNER_TEMP/all66-common/bin/python" -I -B -m unittest discover -s "$GITHUB_WORKSPACE/runtime/tests" -v > "$GITHUB_WORKSPACE/storage-output/controls.stdout" 2> "$GITHUB_WORKSPACE/storage-output/controls.stderr"; then[0m
+2026-11-25T22:53:25.6223527Z [36;1m  printf '{"exit_code":0}\n' > "$GITHUB_WORKSPACE/storage-output/controls.json"[0m
+2026-11-25T22:53:25.6223993Z [36;1melse[0m
+2026-11-25T22:53:25.6224327Z [36;1m  printf '{"exit_code":1}\n' > "$GITHUB_WORKSPACE/storage-output/controls.json"[0m
+2026-11-25T22:53:25.6224809Z [36;1m  cat "$GITHUB_WORKSPACE/storage-output/controls.stderr"[0m
+2026-11-25T22:53:25.6225151Z [36;1m  exit 1[0m
+2026-11-25T22:53:25.6225542Z [36;1mfi[0m
+2026-11-25T22:53:25.6248165Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-25T22:53:25.6248501Z env:
+2026-11-25T22:53:25.6248765Z   FROZEN_SHARED_SHA: bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:25.6249104Z   STORAGE66_PHASE: acceptance
+2026-11-25T22:53:25.6249336Z   STORAGE66_WORKER: 1
+2026-11-25T22:53:25.6249629Z   STORAGE66_WORKFLOW_SHA: 9f81bfa4fe431a51e9ed65d2ed41cb12ded53157
+2026-11-25T22:53:25.6250043Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:25.6250466Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-25T22:53:25.6250895Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:25.6251274Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:25.6251663Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:25.6252065Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-25T22:53:25.6252479Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-11-25T22:53:25.6252800Z ##[endgroup]
+2026-11-25T22:53:28.6792700Z test_archived_and_forked_repositories_are_not_exempt (test_audit.AuditTests.test_archived_and_forked_repositories_are_not_exempt) ... ok
+2026-11-25T22:53:28.6795194Z test_current_successful_self_and_consumer_pass (test_audit.AuditTests.test_current_successful_self_and_consumer_pass) ... ok
+2026-11-25T22:53:28.6796822Z test_disabled_workflow_fails (test_audit.AuditTests.test_disabled_workflow_fails) ... ok
+2026-11-25T22:53:28.6798066Z test_head_change_during_audit_fails (test_audit.AuditTests.test_head_change_during_audit_fails) ... ok
+2026-11-25T22:53:28.6799167Z test_invalid_configuration_cannot_pass_on_old_green_results (test_audit.AuditTests.test_invalid_configuration_cannot_pass_on_old_green_results) ... ok
+2026-11-25T22:53:28.6800372Z test_inventory_and_source_api_errors_are_failures (test_audit.AuditTests.test_inventory_and_source_api_errors_are_failures) ... ok
+2026-11-25T22:53:28.6801343Z test_latest_attempt_is_checked (test_audit.AuditTests.test_latest_attempt_is_checked) ... ok
+2026-11-25T22:53:28.6802422Z test_local_provenance_is_accepted_only_for_the_source_repository (test_audit.AuditTests.test_local_provenance_is_accepted_only_for_the_source_repository) ... ok
+2026-11-25T22:53:28.6804013Z test_malformed_run_is_a_failure_without_hiding_siblings (test_audit.AuditTests.test_malformed_run_is_a_failure_without_hiding_siblings) ... ok
+2026-11-25T22:53:28.6805012Z test_missing_or_invalid_ordering_evidence_cannot_hide_a_failure (test_audit.AuditTests.test_missing_or_invalid_ordering_evidence_cannot_hide_a_failure) ... ok
+2026-11-25T22:53:28.6805980Z test_missing_or_restricted_private_inventory_fails (test_audit.AuditTests.test_missing_or_restricted_private_inventory_fails) ... ok
+2026-11-25T22:53:28.6806859Z test_missing_workflow_fails_without_hiding_siblings (test_audit.AuditTests.test_missing_workflow_fails_without_hiding_siblings) ... ok
+2026-11-25T22:53:28.6808175Z test_newer_failed_attempt_of_an_older_run_wins_over_newer_id_success (test_audit.AuditTests.test_newer_failed_attempt_of_an_older_run_wins_over_newer_id_success) ... ok
+2026-11-25T22:53:28.6809239Z test_newest_failure_or_pending_run_wins_over_older_success (test_audit.AuditTests.test_newest_failure_or_pending_run_wins_over_older_success) ... ok
+2026-11-25T22:53:28.6810320Z test_old_head_wrong_branch_and_pull_request_runs_cannot_certify_default_head (test_audit.AuditTests.test_old_head_wrong_branch_and_pull_request_runs_cannot_certify_default_head) ... ok
+2026-11-25T22:53:28.6811229Z test_other_owners_are_excluded (test_audit.AuditTests.test_other_owners_are_excluded) ... ok
+2026-11-25T22:53:28.6811955Z test_pending_run_without_a_timestamp_is_a_failure (test_audit.AuditTests.test_pending_run_without_a_timestamp_is_a_failure) ... ok
+2026-11-25T22:53:28.6812725Z test_policy_change_during_audit_fails (test_audit.AuditTests.test_policy_change_during_audit_fails) ... ok
+2026-11-25T22:53:28.6814949Z test_public_fallback_audits_repositories_but_never_certifies_complete_inventory (test_audit.AuditTests.test_public_fallback_audits_repositories_but_never_certifies_complete_inventory) ... ok
+2026-11-25T22:53:28.6816588Z test_restricted_public_inventory_fails (test_audit.AuditTests.test_restricted_public_inventory_fails) ... ok
+2026-11-25T22:53:28.6817349Z test_run_attempt_change_during_audit_fails (test_audit.AuditTests.test_run_attempt_change_during_audit_fails) ... ok
+2026-11-25T22:53:28.6818250Z test_same_named_tags_cannot_shadow_default_or_policy_branches (test_audit.AuditTests.test_same_named_tags_cannot_shadow_default_or_policy_branches) ... ok
+2026-11-25T22:53:28.6819352Z test_skipped_failed_and_missing_policy_job_fail_even_if_workflow_is_green (test_audit.AuditTests.test_skipped_failed_and_missing_policy_job_fail_even_if_workflow_is_green) ... ok
+2026-11-25T22:53:28.6820259Z test_stale_and_future_results_fail (test_audit.AuditTests.test_stale_and_future_results_fail) ... ok
+2026-11-25T22:53:28.6821047Z test_stale_missing_and_foreign_policy_provenance_fail (test_audit.AuditTests.test_stale_missing_and_foreign_policy_provenance_fail) ... ok
+2026-11-25T22:53:28.6822056Z test_token_for_another_owner_fails_and_only_reads_public_inventory (test_audit.AuditTests.test_token_for_another_owner_fails_and_only_reads_public_inventory) ... ok
+2026-11-25T22:53:28.6823059Z test_http_and_network_errors_never_expose_credentials (test_audit.GitHubTests.test_http_and_network_errors_never_expose_credentials) ... ok
+2026-11-25T22:53:28.6824189Z test_malformed_pages_are_api_errors (test_audit.GitHubTests.test_malformed_pages_are_api_errors) ... ok
+2026-11-25T22:53:28.6824981Z test_pagination_includes_the_last_repository_and_job (test_audit.GitHubTests.test_pagination_includes_the_last_repository_and_job) ... ok
+2026-11-25T22:53:28.6825869Z test_audit_reports_every_result_and_fails_if_any_fail (test_cli.CliTests.test_audit_reports_every_result_and_fails_if_any_fail) ... ok
+2026-11-25T22:53:28.6826714Z test_audit_success_and_empty_inventory_exit_codes (test_cli.CliTests.test_audit_success_and_empty_inventory_exit_codes) ... ok
+2026-11-25T22:53:28.6827504Z test_check_uses_github_repository_identity (test_cli.CliTests.test_check_uses_github_repository_identity) ... ok
+2026-11-25T22:53:28.6828303Z test_installed_cli_and_module_expose_the_library_check (test_cli.CliTests.test_installed_cli_and_module_expose_the_library_check) ... 
+2026-11-25T22:53:28.6829382Z   test_installed_cli_and_module_expose_the_library_check (test_cli.CliTests.test_installed_cli_and_module_expose_the_library_check) (command=['all-policy']) ... ERROR
+2026-11-25T22:53:28.6830226Z test_missing_protocol_is_nonzero (test_cli.CliTests.test_missing_protocol_is_nonzero) ... ok
+2026-11-25T22:53:28.6831106Z test_performance_cli_rejects_floating_authority_before_running_candidate (test_cli.CliTests.test_performance_cli_rejects_floating_authority_before_running_candidate) ... ok
+2026-11-25T22:53:28.6832378Z test_command_cannot_pass_while_descendant_continues_work (test_performance.CommonTests.test_command_cannot_pass_while_descendant_continues_work) ... ok
+2026-11-25T22:53:28.6833829Z test_fast_wrong_output_is_failed_and_changed_adapter_needs_approval (test_performance.CommonTests.test_fast_wrong_output_is_failed_and_changed_adapter_needs_approval) ... ok
+2026-11-25T22:53:28.6835047Z test_incomplete_or_incorrect_evidence_blocks_even_when_every_time_is_small (test_performance.CommonTests.test_incomplete_or_incorrect_evidence_blocks_even_when_every_time_is_small) ... ok
+2026-11-25T22:53:28.6836304Z test_product_source_mutation_cannot_be_attributed_to_the_original_revision (test_performance.CommonTests.test_product_source_mutation_cannot_be_attributed_to_the_original_revision) ... ok
+2026-11-25T22:53:28.6837571Z test_real_periodic_stall_cannot_be_hidden_by_candidate_time_or_budget_proposal (test_performance.CommonTests.test_real_periodic_stall_cannot_be_hidden_by_candidate_time_or_budget_proposal) ... ok
+2026-11-25T22:53:28.6838875Z test_storage_claims_are_explicit_and_native_sync_never_promotes_to_persistence (test_performance.CommonTests.test_storage_claims_are_explicit_and_native_sync_never_promotes_to_persistence) ... ok
+2026-11-25T22:53:28.6840199Z test_unqualified_environment_does_not_execute_candidate (test_performance.CommonTests.test_unqualified_environment_does_not_execute_candidate) ... ok
+2026-11-25T22:53:28.6841341Z test_untracked_and_ignored_helpers_cannot_be_attributed_to_candidate_commit (test_performance.CommonTests.test_untracked_and_ignored_helpers_cannot_be_attributed_to_candidate_commit) ... ok
+2026-11-25T22:53:28.6842665Z test_complete_synthetic_pair_admits_timing_without_certifying_persistence (test_prepared_storage.PreparedStorageTests.test_complete_synthetic_pair_admits_timing_without_certifying_persistence) ... ok
+2026-11-25T22:53:28.6844253Z test_direct_io_or_writable_flag_cannot_be_replaced_by_success_metadata (test_prepared_storage.PreparedStorageTests.test_direct_io_or_writable_flag_cannot_be_replaced_by_success_metadata) ... ok
+2026-11-25T22:53:28.6845576Z test_fast_samples_do_not_replace_custody_mount_evidence_or_correct_runtime (test_prepared_storage.PreparedStorageTests.test_fast_samples_do_not_replace_custody_mount_evidence_or_correct_runtime) ... ok
+2026-11-25T22:53:28.6846928Z test_inspection_binds_requested_root_to_the_actual_enrolled_mount (test_prepared_storage.PreparedStorageTests.test_inspection_binds_requested_root_to_the_actual_enrolled_mount) ... ok
+2026-11-25T22:53:28.6848242Z test_other_filesystem_must_have_complete_same_resource_probe_evidence (test_prepared_storage.PreparedStorageTests.test_other_filesystem_must_have_complete_same_resource_probe_evidence) ... ok
+2026-11-25T22:53:28.6849533Z test_schedule_requires_main_even_when_another_branch_is_allowlisted (test_prepared_storage.PreparedStorageTests.test_schedule_requires_main_even_when_another_branch_is_allowlisted) ... ok
+2026-11-25T22:53:28.6850825Z test_setup_refuses_wrong_workflow_context_before_any_storage_command (test_prepared_storage.PreparedStorageTests.test_setup_refuses_wrong_workflow_context_before_any_storage_command) ... ok
+2026-11-25T22:53:28.6852140Z test_unrelated_path_and_noncanonical_manifest_cannot_claim_preparation (test_prepared_storage.PreparedStorageTests.test_unrelated_path_and_noncanonical_manifest_cannot_claim_preparation) ... ok
+2026-11-25T22:53:28.6853663Z test_adoption_is_one_workflow_using_main_as_a_required_test_job (test_protocol.ProtocolTests.test_adoption_is_one_workflow_using_main_as_a_required_test_job) ... ok
+2026-11-25T22:53:28.6854623Z test_daily_time_and_display_name_can_vary (test_protocol.ProtocolTests.test_daily_time_and_display_name_can_vary) ... ok
+2026-11-25T22:53:28.6855578Z test_filtered_skipped_masked_or_replaced_policy_is_not_adoption (test_protocol.ProtocolTests.test_filtered_skipped_masked_or_replaced_policy_is_not_adoption) ... ok
+2026-11-25T22:53:28.6856553Z test_library_checks_the_same_file_as_the_cli (test_protocol.ProtocolTests.test_library_checks_the_same_file_as_the_cli) ... ok
+2026-11-25T22:53:28.6857597Z test_malformed_and_ambiguous_workflows_fail_closed (test_protocol.ProtocolTests.test_malformed_and_ambiguous_workflows_fail_closed) ... ok
+2026-11-25T22:53:28.6858658Z test_this_repository_obeys_the_protocol_using_its_candidate_policy (test_protocol.ProtocolTests.test_this_repository_obeys_the_protocol_using_its_candidate_policy) ... ok
+2026-11-25T22:53:28.6859653Z test_unfiltered_events_can_use_yaml_null (test_protocol.ProtocolTests.test_unfiltered_events_can_use_yaml_null) ... ok
+2026-11-25T22:53:28.6860748Z test_completed_screen_cannot_approve_and_existing_packet_is_preserved (test_storage_qualification.StorageQualificationTests.test_completed_screen_cannot_approve_and_existing_packet_is_preserved) ... ok
+2026-11-25T22:53:28.6862168Z test_deadline_retains_valid_partial_observations_and_stops_waiting (test_storage_qualification.StorageQualificationTests.test_deadline_retains_valid_partial_observations_and_stops_waiting) ... ok
+2026-11-25T22:53:28.6862898Z 
+2026-11-25T22:53:28.6863021Z ======================================================================
+2026-11-25T22:53:28.6864204Z ERROR: test_installed_cli_and_module_expose_the_library_check (test_cli.CliTests.test_installed_cli_and_module_expose_the_library_check) (command=['all-policy'])
+2026-11-25T22:53:28.6864953Z ----------------------------------------------------------------------
+2026-11-25T22:53:28.6865335Z Traceback (most recent call last):
+2026-11-25T22:53:28.6871546Z   File "/home/runner/work/all/all/runtime/tests/test_cli.py", line 32, in test_installed_cli_and_module_expose_the_library_check
+2026-11-25T22:53:28.6872190Z     result = subprocess.run(
+2026-11-25T22:53:28.6872446Z              ^^^^^^^^^^^^^^^
+2026-11-25T22:53:28.6872967Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/subprocess.py", line 548, in run
+2026-11-25T22:53:28.6873912Z     with Popen(*popenargs, **kwargs) as process:
+2026-11-25T22:53:28.6874212Z          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-11-25T22:53:28.6874727Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/subprocess.py", line 1026, in __init__
+2026-11-25T22:53:28.6875294Z     self._execute_child(args, executable, preexec_fn, close_fds,
+2026-11-25T22:53:28.6875898Z   File "/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/subprocess.py", line 1955, in _execute_child
+2026-11-25T22:53:28.6876502Z     raise child_exception_type(errno_num, err_msg, err_filename)
+2026-11-25T22:53:28.6876969Z FileNotFoundError: [Errno 2] No such file or directory: 'all-policy'
+2026-11-25T22:53:28.6877256Z 
+2026-11-25T22:53:28.6877408Z ----------------------------------------------------------------------
+2026-11-25T22:53:28.6877740Z Ran 60 tests in 2.088s
+2026-11-25T22:53:28.6877880Z 
+2026-11-25T22:53:28.6877960Z FAILED (errors=1)
+2026-11-25T22:53:28.6888576Z ##[error]Process completed with exit code 1.
+2026-11-25T22:53:28.6948187Z ##[group]Run if [[ -d "$GITHUB_WORKSPACE/storage-output" ]]; then
+2026-11-25T22:53:28.6948688Z [36;1mif [[ -d "$GITHUB_WORKSPACE/storage-output" ]]; then[0m
+2026-11-25T22:53:28.6949210Z [36;1m  sudo chown -R --no-dereference "$(id -u):$(id -g)" "$GITHUB_WORKSPACE/storage-output"[0m
+2026-11-25T22:53:28.6949661Z [36;1mfi[0m
+2026-11-25T22:53:28.6971589Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-25T22:53:28.6971935Z env:
+2026-11-25T22:53:28.6972207Z   FROZEN_SHARED_SHA: bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:28.6972551Z   STORAGE66_PHASE: acceptance
+2026-11-25T22:53:28.6972787Z   STORAGE66_WORKER: 1
+2026-11-25T22:53:28.6973085Z   STORAGE66_WORKFLOW_SHA: 9f81bfa4fe431a51e9ed65d2ed41cb12ded53157
+2026-11-25T22:53:28.6973668Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:28.6974088Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-25T22:53:28.6974556Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:28.6974930Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:28.6975307Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:28.6975688Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-25T22:53:28.6976096Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-11-25T22:53:28.6976417Z ##[endgroup]
+2026-11-25T22:53:28.7237094Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-25T22:53:28.7237548Z with:
+2026-11-25T22:53:28.7237747Z   name: storage66-1
+2026-11-25T22:53:28.7237972Z   path: storage-output/
+2026-11-25T22:53:28.7238202Z   if-no-files-found: error
+2026-11-25T22:53:28.7238427Z   retention-days: 30
+2026-11-25T22:53:28.7238639Z   compression-level: 6
+2026-11-25T22:53:28.7238844Z   overwrite: false
+2026-11-25T22:53:28.7239052Z   include-hidden-files: false
+2026-11-25T22:53:28.7239283Z env:
+2026-11-25T22:53:28.7239528Z   FROZEN_SHARED_SHA: bea509359a6abb2f42f56ae5ef15622ed4a3d292
+2026-11-25T22:53:28.7239863Z   STORAGE66_PHASE: acceptance
+2026-11-25T22:53:28.7240097Z   STORAGE66_WORKER: 1
+2026-11-25T22:53:28.7240398Z   STORAGE66_WORKFLOW_SHA: 9f81bfa4fe431a51e9ed65d2ed41cb12ded53157
+2026-11-25T22:53:28.7241062Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:28.7241530Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+2026-11-25T22:53:28.7241951Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:28.7242330Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:28.7242707Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+2026-11-25T22:53:28.7243091Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+2026-11-25T22:53:28.7243833Z   UV_PYTHON_INSTALL_DIR: /home/runner/work/_temp/uv-python-dir
+2026-11-25T22:53:28.7244160Z ##[endgroup]
+2026-11-25T22:53:28.9169253Z (node:3261) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-25T22:53:28.9186316Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-25T22:53:28.9267507Z With the provided path, there will be 4 files uploaded
+2026-11-25T22:53:28.9268415Z Artifact name is valid!
+2026-11-25T22:53:28.9268806Z Root directory input is valid!
+2026-11-25T22:53:29.1193103Z Beginning upload of artifact content to blob storage
+2026-11-25T22:53:29.1446875Z (node:3261) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-25T22:53:29.1884516Z Uploaded bytes 2843
+2026-11-25T22:53:29.2069425Z Finished uploading artifact content to blob storage!
+2026-11-25T22:53:29.2070707Z SHA256 digest of uploaded artifact zip is b2180ae1dacea3447a211fd8afedc0b5f87c7b4edd9a55d70a12db2134e74af7
+2026-11-25T22:53:29.2071838Z Finalizing artifact upload
+2026-11-25T22:53:29.5403793Z Artifact storage66-1.zip successfully finalized. Artifact ID 15070216879
+2026-11-25T22:53:29.5404988Z Artifact storage66-1 has been successfully uploaded! Final size is 2843 bytes. Artifact ID is 15070216879
+2026-11-25T22:53:29.5411279Z Artifact download URL: https://github.com/nashspence/all/actions/runs/45716944073/artifacts/15070216879
+2026-11-25T22:53:29.5649325Z Post job cleanup.
+2026-11-25T22:53:29.6618259Z [command]/usr/bin/git version
+2026-11-25T22:53:29.6672845Z git version 2.56.1
+2026-11-25T22:53:29.6724721Z Temporarily overriding HOME='/home/runner/work/_temp/eaaf80a4-ff42-48b9-9568-399bdb3e384b' before making global git config changes
+2026-11-25T22:53:29.6726188Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T22:53:29.6727310Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/all/all/riverhog
+2026-11-25T22:53:29.6774431Z Removing SSH command configuration
+2026-11-25T22:53:29.6778963Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T22:53:29.6852360Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T22:53:29.7158981Z Removing HTTP extra header
+2026-11-25T22:53:29.7165696Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T22:53:29.7223693Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T22:53:29.7524944Z Removing includeIf entries pointing to credentials config files
+2026-11-25T22:53:29.7535045Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T22:53:29.7599497Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T22:53:29.8062854Z Post job cleanup.
+2026-11-25T22:53:29.8994070Z [command]/usr/bin/git version
+2026-11-25T22:53:29.9039551Z git version 2.56.1
+2026-11-25T22:53:29.9084005Z Temporarily overriding HOME='/home/runner/work/_temp/6e2f2eea-4bca-494e-92a4-690df805ec43' before making global git config changes
+2026-11-25T22:53:29.9085754Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T22:53:29.9090572Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/all/all/fishhat
+2026-11-25T22:53:29.9132899Z Removing SSH command configuration
+2026-11-25T22:53:29.9141849Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T22:53:29.9212398Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T22:53:29.9518655Z Removing HTTP extra header
+2026-11-25T22:53:29.9525478Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T22:53:29.9592720Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T22:53:29.9853782Z Removing includeIf entries pointing to credentials config files
+2026-11-25T22:53:29.9860990Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T22:53:29.9934262Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T22:53:30.0385339Z Post job cleanup.
+2026-11-25T22:53:30.1294834Z [command]/usr/bin/git version
+2026-11-25T22:53:30.1394373Z git version 2.56.1
+2026-11-25T22:53:30.1460759Z Temporarily overriding HOME='/home/runner/work/_temp/2131efcc-cd16-483f-a8ff-cf8ea4c5e96c' before making global git config changes
+2026-11-25T22:53:30.1462445Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T22:53:30.1469189Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/all/all/runtime
+2026-11-25T22:53:30.1541887Z Removing SSH command configuration
+2026-11-25T22:53:30.1551766Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T22:53:30.1610124Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T22:53:30.1916251Z Removing HTTP extra header
+2026-11-25T22:53:30.1922167Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T22:53:30.1985500Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T22:53:30.2272772Z Removing includeIf entries pointing to credentials config files
+2026-11-25T22:53:30.2280105Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T22:53:30.2331194Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T22:53:30.2740196Z Cleaning up orphan processes
+2026-11-25T22:53:30.3130843Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

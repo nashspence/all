@@ -1,0 +1,603 @@
+{
+  "both_consumers_applicable": false,
+  "consumer_engineering_misses": {
+    "fishhat": [],
+    "riverhog": []
+  },
+  "consumer_valid_observations": 54,
+  "consumer_workers_correct": 8,
+  "expected_consumer_observations": 72,
+  "expected_generic_observations": 288,
+  "expected_workers": 12,
+  "generic_valid_observations": 216,
+  "images": {
+    "20261116.133.1": 5,
+    "20261116.376.1": 5,
+    "20261122.23.1": 1,
+    "unavailable": 1
+  },
+  "interpretation": "All required raw observations must pass. Means/minima are diagnostics. Consumer320ms misses do not disqualify a resource. No crash/release proof follows.",
+  "metrics": {
+    "consumer/fishhat": {
+      "count": 27,
+      "max_ns": 27067353,
+      "mean_ns": 14366904.296296297,
+      "median_ns": 11709639,
+      "min_ns": 10535440,
+      "total_ns": 387906416
+    },
+    "consumer/riverhog": {
+      "count": 27,
+      "max_ns": 25911369,
+      "mean_ns": 15848937.518518519,
+      "median_ns": 13017741,
+      "min_ns": 11078168,
+      "total_ns": 427921313
+    },
+    "consumer_stage/fishhat/drain_ns": {
+      "count": 9,
+      "max_ns": 31660303,
+      "mean_ns": 26955477.888888888,
+      "median_ns": 27047481,
+      "min_ns": 19458755,
+      "total_ns": 242599301
+    },
+    "consumer_stage/fishhat/startup_ns": {
+      "count": 9,
+      "max_ns": 398238243,
+      "mean_ns": 276981428.4444444,
+      "median_ns": 259361344,
+      "min_ns": 221571280,
+      "total_ns": 2492832856
+    },
+    "consumer_stage/fishhat/verification_ns": {
+      "count": 27,
+      "max_ns": 1511841,
+      "mean_ns": 1015741.0370370371,
+      "median_ns": 970589,
+      "min_ns": 802180,
+      "total_ns": 27425008
+    },
+    "consumer_stage/riverhog/drain_ns": {
+      "count": 9,
+      "max_ns": 192637542,
+      "mean_ns": 137856700.66666666,
+      "median_ns": 130799114,
+      "min_ns": 111222281,
+      "total_ns": 1240710306
+    },
+    "consumer_stage/riverhog/startup_ns": {
+      "count": 9,
+      "max_ns": 3310436762,
+      "mean_ns": 2525278175.6666665,
+      "median_ns": 2443097577,
+      "min_ns": 2120020529,
+      "total_ns": 22727503581
+    },
+    "consumer_stage/riverhog/verification_ns": {
+      "count": 27,
+      "max_ns": 5351985,
+      "mean_ns": 1930222.111111111,
+      "median_ns": 1586779,
+      "min_ns": 937329,
+      "total_ns": 52115997
+    },
+    "cost/bootstrap": {
+      "count": 11,
+      "max_ns": 9910322943,
+      "mean_ns": 7561026694.181818,
+      "median_ns": 7689157338,
+      "min_ns": 5558902822,
+      "total_ns": 83171293636
+    },
+    "cost/controller": {
+      "count": 11,
+      "max_ns": 35837749993,
+      "mean_ns": 25570163569.81818,
+      "median_ns": 24502233079,
+      "min_ns": 18123634799,
+      "total_ns": 281271799268
+    },
+    "cost/setup_cleanup": {
+      "count": 11,
+      "max_ns": 3263051345,
+      "mean_ns": 1996799226.8181818,
+      "median_ns": 1652033068,
+      "min_ns": 1050880326,
+      "total_ns": 21964791495
+    },
+    "generic/append64_sync": {
+      "count": 27,
+      "max_ns": 45690946,
+      "mean_ns": 22636138.555555556,
+      "median_ns": 17675730,
+      "min_ns": 14350654,
+      "total_ns": 611175741
+    },
+    "generic/atomic16_p1": {
+      "count": 27,
+      "max_ns": 28752312,
+      "mean_ns": 14369585.222222222,
+      "median_ns": 13953423,
+      "min_ns": 8269049,
+      "total_ns": 387978801
+    },
+    "generic/atomic16_p2": {
+      "count": 27,
+      "max_ns": 229580245,
+      "mean_ns": 25175276.037037037,
+      "median_ns": 11942590,
+      "min_ns": 7536228,
+      "total_ns": 679732453
+    },
+    "generic/atomic16_p4": {
+      "count": 27,
+      "max_ns": 15130922,
+      "mean_ns": 8212972.814814814,
+      "median_ns": 6649936,
+      "min_ns": 5452812,
+      "total_ns": 221750266
+    },
+    "generic/sqlite64_delete_extra": {
+      "count": 27,
+      "max_ns": 149301948,
+      "mean_ns": 79726872.92592593,
+      "median_ns": 60182970,
+      "min_ns": 52169884,
+      "total_ns": 2152625569
+    },
+    "generic/sqlite64_delete_extra_batch": {
+      "count": 27,
+      "max_ns": 5716979,
+      "mean_ns": 3736469.6296296297,
+      "median_ns": 3145535,
+      "min_ns": 2664914,
+      "total_ns": 100884680
+    },
+    "generic/sqlite64_wal_full": {
+      "count": 27,
+      "max_ns": 47622340,
+      "mean_ns": 27981852.666666668,
+      "median_ns": 21457427,
+      "min_ns": 19992794,
+      "total_ns": 755510022
+    },
+    "generic/sqlite64_wal_full_batch": {
+      "count": 27,
+      "max_ns": 7573963,
+      "mean_ns": 4878162.62962963,
+      "median_ns": 3972278,
+      "min_ns": 3479771,
+      "total_ns": 131710391
+    },
+    "generic_stage/drain_fixture_cleanup_ns": {
+      "count": 216,
+      "max_ns": 21833590,
+      "mean_ns": 15902198.49074074,
+      "median_ns": 16148430.0,
+      "min_ns": 10887485,
+      "total_ns": 3434874874
+    },
+    "generic_stage/startup_prepare_ns": {
+      "count": 216,
+      "max_ns": 251633881,
+      "mean_ns": 164523154.80555555,
+      "median_ns": 150153100.5,
+      "min_ns": 143323521,
+      "total_ns": 35537001438
+    },
+    "generic_stage/verification_reset_ns": {
+      "count": 216,
+      "max_ns": 84778244,
+      "mean_ns": 3875506.837962963,
+      "median_ns": 911421.0,
+      "min_ns": 571956,
+      "total_ns": 837109477
+    },
+    "probe/cpu_p4": {
+      "count": 264,
+      "max_ns": 228452712,
+      "mean_ns": 119425994.96969697,
+      "median_ns": 108980688.0,
+      "min_ns": 84962779,
+      "total_ns": 31528462672
+    },
+    "probe/cpu_serial": {
+      "count": 264,
+      "max_ns": 369610468,
+      "mean_ns": 238752125.4848485,
+      "median_ns": 227355870.0,
+      "min_ns": 165397952,
+      "total_ns": 63030561128
+    },
+    "probe/fdatasync64": {
+      "count": 264,
+      "max_ns": 930709848,
+      "mean_ns": 43031570.85227273,
+      "median_ns": 32479403.0,
+      "min_ns": 15940649,
+      "total_ns": 11360334705
+    },
+    "probe/sha256": {
+      "count": 264,
+      "max_ns": 170732723,
+      "mean_ns": 146231180.9431818,
+      "median_ns": 143702059.0,
+      "min_ns": 121100257,
+      "total_ns": 38605031769
+    },
+    "probe/warm_files": {
+      "count": 264,
+      "max_ns": 115992774,
+      "mean_ns": 64480549.734848484,
+      "median_ns": 46835316.0,
+      "min_ns": 45116951,
+      "total_ns": 17022865130
+    }
+  },
+  "phase": "acceptance",
+  "physical_persistence_proven": false,
+  "population_failures": [
+    "missing/extra worker files",
+    "distinct worker runner identities required"
+  ],
+  "profile_approved_by_analyzer": false,
+  "resource_qualification": "not_qualified",
+  "resource_workers_passed": 8,
+  "run": "45716944073",
+  "schema": "all.storage66.independent-analysis/v1",
+  "source": "bea509359a6abb2f42f56ae5ef15622ed4a3d292",
+  "workers": [
+    {
+      "both_consumers_correct": false,
+      "common_failures": [
+        "FileNotFoundError: [Errno 2] No such file or directory: 'experiments/66/v1/acceptance/worker-1.json'"
+      ],
+      "consumer_failures": [],
+      "resource_failures": [],
+      "resource_pass": false,
+      "worker": 1
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.133.1",
+      "job_id": 139565307562,
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056485",
+      "worker": 2
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.133.1",
+      "job_id": 139565307726,
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056488",
+      "worker": 3
+    },
+    {
+      "both_consumers_correct": false,
+      "common_failures": [
+        "GitHub job missing or not successful"
+      ],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.376.1",
+      "job_id": 139565307077,
+      "resource_failures": [
+        "controller/collection errors",
+        "collection/generic command incomplete",
+        "postflight/root_loop_a: unqualified",
+        "postflight/root_loop_a/paired/fdatasync64/0: invalid/over-cap"
+      ],
+      "resource_pass": false,
+      "runner": "GitHub Actions 1000056479",
+      "worker": 4
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.376.1",
+      "job_id": 139565307692,
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056490",
+      "worker": 5
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.133.1",
+      "job_id": 139565307660,
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056489",
+      "worker": 6
+    },
+    {
+      "both_consumers_correct": false,
+      "common_failures": [
+        "GitHub job missing or not successful"
+      ],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [
+        "both consumer packets required",
+        "fishhat: consumer execution incomplete",
+        "fishhat: source/dependency pin mismatch",
+        "fishhat shared: module hashes",
+        "fishhat shared: source aggregate/runtime",
+        "fishhat shared: shared package identity",
+        "fishhat shared: shared module tuple differs",
+        "fishhat: normal product module/runtime pin",
+        "fishhat: reviewed binding hashes",
+        "fishhat: actual worker did not inspect the same prepared resource",
+        "fishhat: exactly three observations required",
+        "fishhat: three retained verifications required",
+        "fishhat: missing startup_ns",
+        "fishhat: missing drain_ns",
+        "riverhog: consumer execution incomplete",
+        "riverhog: source/dependency pin mismatch",
+        "riverhog shared: module hashes",
+        "riverhog shared: source aggregate/runtime",
+        "riverhog shared: shared package identity",
+        "riverhog shared: shared module tuple differs",
+        "riverhog: normal product module/runtime pin",
+        "riverhog: reviewed binding hashes",
+        "riverhog: actual worker did not inspect the same prepared resource",
+        "riverhog: exactly three observations required",
+        "riverhog: three retained verifications required",
+        "riverhog: missing startup_ns",
+        "riverhog: missing drain_ns"
+      ],
+      "consumer_valid_observations": {
+        "fishhat": 0,
+        "riverhog": 0
+      },
+      "generic_valid_observations": 0,
+      "image": "20261116.376.1",
+      "job_id": 139565307509,
+      "resource_failures": [
+        "controller/collection errors",
+        "collection/generic command incomplete",
+        "preflight/root_loop_b: unqualified",
+        "preflight/root_loop_b/cpu_serial/1: invalid/over-cap",
+        "postflight/root_loop_a: unqualified",
+        "postflight/root_loop_a/paired/cpu_serial/0: invalid/over-cap",
+        "generic shared: module hashes",
+        "generic shared: source aggregate/runtime",
+        "generic shared: shared package identity",
+        "generic shared: shared module tuple differs",
+        "generic packet/extent/placement",
+        "atomic16_p1: fixed screen changed",
+        "atomic16_p1: exactly three observations required",
+        "atomic16_p2: fixed screen changed",
+        "atomic16_p2: exactly three observations required",
+        "atomic16_p4: fixed screen changed",
+        "atomic16_p4: exactly three observations required",
+        "append64_sync: fixed screen changed",
+        "append64_sync: exactly three observations required",
+        "sqlite64_delete_extra: fixed screen changed",
+        "sqlite64_delete_extra: exactly three observations required",
+        "sqlite64_wal_full: fixed screen changed",
+        "sqlite64_wal_full: exactly three observations required",
+        "sqlite64_delete_extra_batch: fixed screen changed",
+        "sqlite64_delete_extra_batch: exactly three observations required",
+        "sqlite64_wal_full_batch: fixed screen changed",
+        "sqlite64_wal_full_batch: exactly three observations required"
+      ],
+      "resource_pass": false,
+      "runner": "GitHub Actions 1000056483",
+      "worker": 7
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.133.1",
+      "job_id": 139565307611,
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056484",
+      "worker": 8
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.133.1",
+      "job_id": 139565307603,
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056487",
+      "worker": 9
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261122.23.1",
+      "job_id": 139565307551,
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056482",
+      "worker": 10
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.376.1",
+      "job_id": 139565307537,
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056486",
+      "worker": 11
+    },
+    {
+      "both_consumers_correct": false,
+      "common_failures": [
+        "GitHub job missing or not successful"
+      ],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [
+        "both consumer packets required",
+        "fishhat: consumer execution incomplete",
+        "fishhat: source/dependency pin mismatch",
+        "fishhat shared: module hashes",
+        "fishhat shared: source aggregate/runtime",
+        "fishhat shared: shared package identity",
+        "fishhat shared: shared module tuple differs",
+        "fishhat: normal product module/runtime pin",
+        "fishhat: reviewed binding hashes",
+        "fishhat: actual worker did not inspect the same prepared resource",
+        "fishhat: exactly three observations required",
+        "fishhat: three retained verifications required",
+        "fishhat: missing startup_ns",
+        "fishhat: missing drain_ns",
+        "riverhog: consumer execution incomplete",
+        "riverhog: source/dependency pin mismatch",
+        "riverhog shared: module hashes",
+        "riverhog shared: source aggregate/runtime",
+        "riverhog shared: shared package identity",
+        "riverhog shared: shared module tuple differs",
+        "riverhog: normal product module/runtime pin",
+        "riverhog: reviewed binding hashes",
+        "riverhog: actual worker did not inspect the same prepared resource",
+        "riverhog: exactly three observations required",
+        "riverhog: three retained verifications required",
+        "riverhog: missing startup_ns",
+        "riverhog: missing drain_ns"
+      ],
+      "consumer_valid_observations": {
+        "fishhat": 0,
+        "riverhog": 0
+      },
+      "generic_valid_observations": 0,
+      "image": "20261116.376.1",
+      "job_id": 139565307756,
+      "resource_failures": [
+        "controller/collection errors",
+        "collection/generic command incomplete",
+        "preflight/root_loop_a: unqualified",
+        "preflight/root_loop_a/fdatasync64/1: invalid/over-cap",
+        "generic shared: module hashes",
+        "generic shared: source aggregate/runtime",
+        "generic shared: shared package identity",
+        "generic shared: shared module tuple differs",
+        "generic packet/extent/placement",
+        "atomic16_p1: fixed screen changed",
+        "atomic16_p1: exactly three observations required",
+        "atomic16_p2: fixed screen changed",
+        "atomic16_p2: exactly three observations required",
+        "atomic16_p4: fixed screen changed",
+        "atomic16_p4: exactly three observations required",
+        "append64_sync: fixed screen changed",
+        "append64_sync: exactly three observations required",
+        "sqlite64_delete_extra: fixed screen changed",
+        "sqlite64_delete_extra: exactly three observations required",
+        "sqlite64_wal_full: fixed screen changed",
+        "sqlite64_wal_full: exactly three observations required",
+        "sqlite64_delete_extra_batch: fixed screen changed",
+        "sqlite64_delete_extra_batch: exactly three observations required",
+        "sqlite64_wal_full_batch: fixed screen changed",
+        "sqlite64_wal_full_batch: exactly three observations required"
+      ],
+      "resource_pass": false,
+      "runner": "GitHub Actions 1000056491",
+      "worker": 12
+    }
+  ]
+}
