@@ -6,7 +6,7 @@ on:
 permissions:
   contents: read
 env:
-  FROZEN_SHARED_SHA: bea509359a6abb2f42f56ae5ef15622ed4a3d292
+  FROZEN_SHARED_SHA: 5086428a29871eeb267ea7225537aa0225930bac
   STORAGE66_PHASE: acceptance
 jobs:
   storage:
@@ -71,7 +71,7 @@ jobs:
         if: ${{ matrix.worker == 1 }}
         shell: bash
         run: |
-          if "$RUNNER_TEMP/all66-common/bin/python" -I -B -m unittest discover -s "$GITHUB_WORKSPACE/runtime/tests" -v > "$GITHUB_WORKSPACE/storage-output/controls.stdout" 2> "$GITHUB_WORKSPACE/storage-output/controls.stderr"; then
+          if PATH="$RUNNER_TEMP/all66-common/bin:$PATH" "$RUNNER_TEMP/all66-common/bin/python" -I -B -m unittest discover -s "$GITHUB_WORKSPACE/runtime/tests" -v > "$GITHUB_WORKSPACE/storage-output/controls.stdout" 2> "$GITHUB_WORKSPACE/storage-output/controls.stderr"; then
             printf '{"exit_code":0}\n' > "$GITHUB_WORKSPACE/storage-output/controls.json"
           else
             printf '{"exit_code":1}\n' > "$GITHUB_WORKSPACE/storage-output/controls.json"
