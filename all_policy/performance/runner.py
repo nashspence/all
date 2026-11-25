@@ -100,7 +100,13 @@ def _remaining(deadline):
 
 
 def _environment(subject, work):
-    env = {k: os.environ[k] for k in ("PATH", "HOME", "LANG", "LC_ALL", "ImageOS", "ImageVersion")
+    # Preserve actual public runner identity so an approved adapter can inspect
+    # the already-admitted protected storage pair. Never synthesize authority or
+    # forward credentials; this context cannot approve a profile or budget.
+    env = {k: os.environ[k] for k in ("PATH", "HOME", "LANG", "LC_ALL", "ImageOS", "ImageVersion",
+           "GITHUB_ACTIONS", "GITHUB_REPOSITORY", "GITHUB_REF", "GITHUB_SHA",
+           "GITHUB_RUN_ID", "GITHUB_RUN_ATTEMPT", "GITHUB_EVENT_NAME",
+           "RUNNER_ENVIRONMENT", "RUNNER_OS", "RUNNER_NAME")
            if k in os.environ}
     env.update(PYTHONDONTWRITEBYTECODE="1", ALL_PERFORMANCE_SUBJECT=str(subject),
                ALL_PERFORMANCE_WORK=str(work))

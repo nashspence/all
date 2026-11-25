@@ -6,6 +6,7 @@ native mount which accepts fsync is not thereby certified to survive power loss.
 from concurrent.futures import ProcessPoolExecutor
 from dataclasses import dataclass
 import hashlib
+import importlib.util
 import json
 import multiprocessing
 import os
@@ -24,18 +25,26 @@ class Profile:
     storage: str
     sync: bool
     claim: str
+    probe_runtime: str = "3.11.9"
 
 
 CORE = "public-linux-x64-4cpu-native-api-v1"
 NATIVE_SYNC = "public-linux-x64-4cpu-native-sync-api-v1"
 VOLATILE_SYNC = "public-linux-x64-4cpu-volatile-memory-v1"
 DURABLE = "linux-x64-4cpu-qualified-durable-v1"
+PREPARED_EXT4 = "public-linux-x64-4cpu-prepared-ext4-v2"
 PROFILES = MappingProxyType({
     CORE: Profile("native", False, "CPU and native filesystem API latency; no persistence qualification"),
     NATIVE_SYNC: Profile("native", True, "Native synchronization API latency; no persistence qualification"),
     VOLATILE_SYNC: Profile("volatile", True, "Software and synchronization-call latency on volatile tmpfs; no persistence"),
     DURABLE: Profile("durable", True, "Reserved: requires approved infrastructure-specific durability qualification"),
+    PREPARED_EXT4: Profile("prepared_ext4", True,
+        "Prepared host-native ext4 configuration admission and probe correctness; all probe timings are diagnostic, with no CPU-speed or probe-latency guarantee; complete operation budgets and product failure/custody qualification remain separate; no physical-power-loss claim",
+        "3.12.16"),
 })
+# Existing profiles retain these latency gates. Prepared v2 retains every raw
+# observation but admits configuration/correctness only; its operation screens
+# and consumer budgets are separately owned and are never changed here.
 CAPS_NS = MappingProxyType({"cpu_serial": 350_000_000, "cpu_p4": 300_000_000,
                            "sha256": 250_000_000, "warm_files": 150_000_000,
                            "fdatasync64": 250_000_000})
@@ -55,6 +64,18 @@ def _read(path):
 def _json_command(arguments):
     return json.loads(subprocess.check_output(arguments, text=True, timeout=10,
                                               stderr=subprocess.DEVNULL))
+
+
+def _prepared_metadata(root):
+    # The existing isolated preflight executes this file directly. Resolve the
+    # reviewed installed sibling explicitly, never a candidate/PYTHONPATH module.
+    path = Path(__file__).with_name("prepared_storage.py")
+    spec = importlib.util.spec_from_file_location("_all_prepared_storage", path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError("installed prepared-storage inspector is unavailable")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.inspect(root)
 
 
 def metadata(root):
@@ -83,6 +104,10 @@ def metadata(root):
                                             "KNAME,TYPE,PKNAME,MAJ:MIN,MODEL,ROTA,TRAN"])
     except Exception as error:
         result["topology_error"] = str(error)
+    try:
+        result["prepared_storage"] = _prepared_metadata(root)
+    except Exception as error:
+        result["prepared_storage"] = {"errors": [type(error).__name__ + ": " + str(error)]}
     return result
 
 
@@ -98,7 +123,7 @@ def _cpu_p4():
         return list(pool.map(_cpu, range(16), chunksize=1))
 
 
-def collect(root):
+def _collect_one(root):
     """One fixed five-probe, three-observation preflight per actual storage root."""
     root = Path(root).resolve()
     record = {"samples_ns": {name: [] for name in CAPS_NS}, "errors": [], "metadata": {}}
@@ -156,7 +181,21 @@ def collect(root):
     return record
 
 
-def admit(profile_id, evidence):
+def collect(root):
+    """Prepared resources include both fixed filesystems; older roots stay single."""
+    record = _collect_one(root)
+    prepared = record.get("metadata", {}).get("prepared_storage", {})
+    if (isinstance(prepared, dict) and prepared.get("profile") == PREPARED_EXT4 and
+            prepared.get("errors") == [] and
+            prepared.get("selected_role") in {"root_loop_a", "root_loop_b"}):
+        role = "root_loop_b" if prepared["selected_role"] == "root_loop_a" else "root_loop_a"
+        counterpart = prepared["resource_roots"][role]
+        record["prepared_pair"] = {"counterpart_role": role, "counterpart_root": counterpart,
+                                    "evidence": _collect_one(counterpart)}
+    return record
+
+
+def _admit_one(profile_id, evidence):
     """Reject incompatible or impaired environments without adjusting any budget."""
     profile, reasons = PROFILES[profile_id], []
     if profile.storage == "durable":
@@ -167,7 +206,8 @@ def admit(profile_id, evidence):
         checks = [
             (row.get("system") == "Linux", "Linux required"),
             (row.get("machine", "").lower() in {"x86_64", "amd64"}, "x64 required"),
-            (row.get("python") == "3.11.9", "shared probe runtime Python 3.11.9 required"),
+            (row.get("python") == profile.probe_runtime,
+             f"shared probe runtime Python {profile.probe_runtime} required"),
             (row.get("logical_cpus") == 4 and row.get("affinity_count") == 4, "four available CPUs required"),
             (isinstance(row.get("memory_total_bytes"), int) and row["memory_total_bytes"] >= 14 * 1024**3,
              "14 GiB memory required"),
@@ -193,20 +233,105 @@ def admit(profile_id, evidence):
         if profile.storage == "durable":
             options = set(mount.get("options", "").split(","))
             checks.append((not options & UNSAFE_DURABILITY_OPTIONS, "unsafe durability mount option"))
+        if profile.storage == "prepared_ext4":
+            prepared = row.get("prepared_storage", {})
+            if not isinstance(prepared, dict):
+                prepared = {}
+            verification = prepared.get("verification", {})
+            if not isinstance(verification, dict):
+                verification = {}
+            manifest_identity = prepared.get("manifest_identity", {})
+            if not isinstance(manifest_identity, dict):
+                manifest_identity = {}
+            prepared_mount = prepared.get("selected_mount", {})
+            if not isinstance(prepared_mount, dict):
+                prepared_mount = {}
+            observed_mounts = verification.get("mounts")
+            checks.extend([
+                (row.get("image_os") == "ubuntu24", "prepared profile requires Ubuntu 24.04 image"),
+                (mount.get("fstype") == "ext4", "prepared target must be ext4"),
+                (prepared.get("profile") == PREPARED_EXT4 and prepared.get("errors") == [],
+                 "canonical prepared resource inspection required"),
+                (verification.get("status") == "verified" and isinstance(observed_mounts, dict) and
+                 set(observed_mounts) == {"a", "b"},
+                 "both prepared filesystem identities/options must be verified"),
+                (manifest_identity.get("uid") == 0 and manifest_identity.get("gid") == 0 and
+                 manifest_identity.get("mode") == 0o400 and manifest_identity.get("nlink") == 1,
+                 "protected root-owned canonical manifest required"),
+                (prepared.get("preparation_source_sha256") is not None and
+                 prepared.get("preparation_source_sha256") == prepared.get("current_source_sha256"),
+                 "installed preparation source must match actual resource custody"),
+                (prepared.get("selected_root") == row.get("root") and
+                 prepared.get("selected_role") in {"root_loop_a", "root_loop_b"},
+                 "actual measured target must be one of the owned prepared filesystems"),
+                (all(prepared_mount.get(key) == mount.get(key) for key in
+                     ("target", "source", "fstype", "options", "maj:min")),
+                 "ordinary and prepared inspectors must observe the same actual mount"),
+                (bool(prepared.get("binding_sha256")) and bool(prepared.get("manifest_sha256")),
+                 "prepared resource identity binding required"),
+            ])
         reasons.extend(f"{when}: {message}" for ok, message in checks if not ok)
     before, after = evidence.get("metadata", {}), evidence.get("metadata_after", {})
     if any(before.get(k) != after.get(k) for k in ("root", "device", "mount")):
         reasons.append("storage location or mount changed during preflight")
+    if profile.storage == "prepared_ext4":
+        first, last = before.get("prepared_storage", {}), after.get("prepared_storage", {})
+        if not isinstance(first, dict) or not isinstance(last, dict) or any(
+                first.get(key) != last.get(key) for key in ("binding_sha256", "manifest_sha256")):
+            reasons.append("prepared resource custody/configuration changed during preflight")
     for name, cap in CAPS_NS.items():
         if name == "fdatasync64" and not profile.sync:
             continue
         samples = evidence.get("samples_ns", {}).get(name, [])
-        if len(samples) != 3 or any(type(n) is not int or n <= 0 or n > cap for n in samples):
+        invalid = len(samples) != 3 or any(type(n) is not int or n <= 0 for n in samples)
+        if profile.storage == "prepared_ext4":
+            if invalid:
+                reasons.append(f"{name}: missing or invalid diagnostic observation")
+        elif invalid or any(n > cap for n in samples):
             reasons.append(f"{name}: missing, invalid or over-cap observation")
         if any(e.get("probe") in {name, "metadata"} for e in evidence.get("errors", [])):
             reasons.append(f"{name}: probe failed")
     return {"profile": profile_id, "admitted": not reasons, "reasons": reasons,
             "claim": profile.claim, "persistence_qualified": False}
+
+
+def admit(profile_id, evidence):
+    """Prepared v2 requires both configurations and all correct diagnostic probes."""
+    result = _admit_one(profile_id, evidence)
+    if profile_id != PREPARED_EXT4:
+        return result
+    reasons = result["reasons"]
+    pair = evidence.get("prepared_pair", {})
+    if not isinstance(pair, dict):
+        pair = {}
+    secondary = pair.get("evidence", {})
+    if not isinstance(secondary, dict):
+        secondary = {}
+    counterpart = _admit_one(profile_id, secondary)
+    reasons.extend("counterpart: " + reason for reason in counterpart["reasons"])
+    primary = evidence.get("metadata", {}).get("prepared_storage", {})
+    other = secondary.get("metadata", {}).get("prepared_storage", {})
+    if not isinstance(primary, dict):
+        primary = {}
+    if not isinstance(other, dict):
+        other = {}
+    expected = ("root_loop_b" if primary.get("selected_role") == "root_loop_a"
+                else "root_loop_a" if primary.get("selected_role") == "root_loop_b" else None)
+    roots = primary.get("resource_roots", {})
+    if not isinstance(roots, dict):
+        roots = {}
+    if not expected or pair.get("counterpart_role") != expected or other.get("selected_role") != expected:
+        reasons.append("paired preflight must observe the opposite enrolled filesystem role")
+    if (not expected or pair.get("counterpart_root") != roots.get(expected) or
+            other.get("selected_root") != roots.get(expected)):
+        reasons.append("paired preflight root differs from the protected resource tuple")
+    if (not primary.get("manifest_sha256") or
+            primary.get("manifest_sha256") != other.get("manifest_sha256") or
+            roots != other.get("resource_roots")):
+        reasons.append("paired preflights do not share the same protected resource custody")
+    result["admitted"] = not reasons
+    result["counterpart_root"] = pair.get("counterpart_root")
+    return result
 
 
 if __name__ == "__main__":

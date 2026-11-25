@@ -1,0 +1,161 @@
+# Approved under all #66; exact tested source and scope are recorded in
+# docs/storage-profile-enrollment.md.
+# The acceptance analyzer is bound to its original experiment ref/phase. Do not
+# feed it invented ref/phase values for these real main-branch refresh runs.
+# This workflow uses unchanged coordinator verdicts and requires all 12 workers;
+# raw per-worker evidence remains the source for the maintainer's disposition.
+name: Prepared storage profile weekly refresh
+on:
+  schedule:
+    - cron: '37 6 * * 1'
+  workflow_dispatch:
+concurrency:
+  group: prepared-storage-profile-refresh-main
+  cancel-in-progress: false
+permissions:
+  contents: read
+env:
+  FROZEN_SHARED_SHA: 5086428a29871eeb267ea7225537aa0225930bac
+  STORAGE66_PHASE: refresh
+jobs:
+  storage:
+    if: ${{ github.ref == 'refs/heads/main' && github.run_attempt == 1 }}
+    name: storage-${{ matrix.worker }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        worker: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    env:
+      STORAGE66_WORKER: ${{ matrix.worker }}
+      STORAGE66_WORKFLOW_SHA: ${{ github.workflow_sha }}
+    steps:
+      - name: Check out frozen common source and experiment
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: nashspence/all
+          ref: ${{ env.FROZEN_SHARED_SHA }}
+          path: runtime
+          persist-credentials: false
+      - name: Check out actual Fishhat source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: nashspence/fishhat
+          ref: f96b83dc20f059d62a4363a63c37bb0ef8c642e5
+          path: fishhat
+          persist-credentials: false
+      - name: Check out actual Riverhog source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: nashspence/riverhog
+          ref: be483fd6d567616d5fcd355202d61f1e682efe75
+          path: riverhog
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12.16'
+          check-latest: false
+      - uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9
+        with:
+          version: '0.11.24'
+          enable-cache: false
+      - name: Install normal locked consumer environments
+        shell: bash
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/storage-output"
+          start="$(python -I -B -c 'import time; print(time.perf_counter_ns())')"
+          python312="$(command -v python)"
+          uv venv --python "$python312" "$RUNNER_TEMP/all66-common"
+          uv pip install --python "$RUNNER_TEMP/all66-common/bin/python" 'PyYAML==6.0.3'
+          uv pip install --python "$RUNNER_TEMP/all66-common/bin/python" --no-deps "$GITHUB_WORKSPACE/runtime"
+          UV_PROJECT_ENVIRONMENT="$RUNNER_TEMP/all66-fishhat" uv sync --directory "$GITHUB_WORKSPACE/fishhat" --locked --no-default-groups --no-editable --package fishhat-owner-support --no-python-downloads --python "$python312"
+          UV_PROJECT_ENVIRONMENT="$RUNNER_TEMP/all66-riverhog" uv sync --directory "$GITHUB_WORKSPACE/riverhog" --locked --no-default-groups --no-editable --package riverhog-client --no-python-downloads --python "$python312"
+          uv pip install --python "$RUNNER_TEMP/all66-fishhat/bin/python" --no-deps "$GITHUB_WORKSPACE/runtime"
+          uv pip install --python "$RUNNER_TEMP/all66-riverhog/bin/python" 'PyYAML==6.0.3'
+          uv pip install --python "$RUNNER_TEMP/all66-riverhog/bin/python" --no-deps "$GITHUB_WORKSPACE/runtime"
+          python -I -B -c 'import json,sys,time; from pathlib import Path; Path(sys.argv[2]).write_text(json.dumps({"bootstrap_wall_ns":time.perf_counter_ns()-int(sys.argv[1])})+"\n")' "$start" "$GITHUB_WORKSPACE/storage-output/bootstrap.json"
+      - name: Verify the shared authority and completion controls once
+        if: ${{ matrix.worker == 1 }}
+        shell: bash
+        run: |
+          if PATH="$RUNNER_TEMP/all66-common/bin:$PATH" "$RUNNER_TEMP/all66-common/bin/python" -I -B -m unittest discover -s "$GITHUB_WORKSPACE/runtime/tests" -v > "$GITHUB_WORKSPACE/storage-output/controls.stdout" 2> "$GITHUB_WORKSPACE/storage-output/controls.stderr"; then
+            printf '{"exit_code":0}\n' > "$GITHUB_WORKSPACE/storage-output/controls.json"
+          else
+            printf '{"exit_code":1}\n' > "$GITHUB_WORKSPACE/storage-output/controls.json"
+            cat "$GITHUB_WORKSPACE/storage-output/controls.stderr"
+            exit 1
+          fi
+      - name: Prepare actual storage and collect the fixed cohort
+        shell: bash
+        run: |
+          sudo --preserve-env=PATH,GITHUB_ACTIONS,RUNNER_ENVIRONMENT,RUNNER_OS,RUNNER_ARCH,ImageOS,ImageVersion,GITHUB_REPOSITORY,GITHUB_REF,GITHUB_SHA,GITHUB_RUN_ID,GITHUB_RUN_ATTEMPT,GITHUB_EVENT_NAME,RUNNER_NAME,FROZEN_SHARED_SHA,STORAGE66_PHASE,STORAGE66_WORKER,STORAGE66_WORKFLOW_SHA "$RUNNER_TEMP/all66-common/bin/python" -I -B "$GITHUB_WORKSPACE/runtime/experiments/66/campaign.py" --workspace "$GITHUB_WORKSPACE" --output "$GITHUB_WORKSPACE/storage-output" --fishhat-python "$RUNNER_TEMP/all66-fishhat/bin/python" --riverhog-python "$RUNNER_TEMP/all66-riverhog/bin/python"
+      - name: Retain all raw measurements and partial evidence
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          if [[ -d "$GITHUB_WORKSPACE/storage-output" ]]; then
+            sudo chown -R --no-dereference "$(id -u):$(id -g)" "$GITHUB_WORKSPACE/storage-output"
+          fi
+      - name: Upload retained evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: storage-profile-refresh-${{ github.run_id }}-${{ matrix.worker }}
+          path: storage-output/
+          if-no-files-found: error
+          retention-days: 90
+
+  refresh-result:
+    name: Prepared storage refresh result
+    needs: [storage]
+    if: ${{ always() }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    env:
+      REFRESH_MATRIX_RESULT: ${{ needs.storage.result }}
+      REFRESH_REF: ${{ github.ref }}
+      REFRESH_ATTEMPT: ${{ github.run_attempt }}
+      REFRESH_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      REFRESH_RUN_ID: ${{ github.run_id }}
+    steps:
+      - name: Require the complete first-attempt twelve-worker cohort
+        shell: bash
+        run: |
+          python3 -I -B - <<'PY_REFRESH'
+          import os
+          from pathlib import Path
+          import sys
+
+          ok = (os.environ['REFRESH_REF'] == 'refs/heads/main'
+                and os.environ['REFRESH_ATTEMPT'] == '1'
+                and os.environ['REFRESH_MATRIX_RESULT'] == 'success')
+          lines = [
+              '# Prepared storage profile refresh',
+              '',
+              'Run: ' + os.environ['REFRESH_RUN_URL'],
+              'Frozen source: `' + os.environ['FROZEN_SHARED_SHA'] + '`',
+              'Expected measured workers: 12; controls run once on worker 1.',
+              'Matrix result: `' + os.environ['REFRESH_MATRIX_RESULT'] + '`',
+              '',
+              'Raw artifacts: `storage-profile-refresh-' + os.environ['REFRESH_RUN_ID']
+                  + '-1` through `-12`, retained for 90 days on this exact run.',
+              'Artifact upload is unconditional; failed or incomplete workers retain available partial evidence.',
+              '',
+          ]
+          if ok:
+              lines += ['All twelve workers completed successfully under the frozen requirements.',
+                        'This refresh supplies evidence; it does not approve a different source, profile or budget.']
+          else:
+              lines += ['Refresh failed, was incomplete, used a different ref, or was rerun.',
+                        'Shared profile approval remains suspended pending a recorded review.',
+                        'Keep all misses and missing observations; do not replace failed workers or select a successful attempt.']
+          lines += ['', 'The frozen acceptance analyzer is specific to its original experiment ref and phase.',
+                    'Do not relabel this refresh as acceptance; inspect its real per-worker records and coordinator verdicts.']
+          text = '\n'.join(lines) + '\n'
+          with Path(os.environ['GITHUB_STEP_SUMMARY']).open('a') as summary:
+              summary.write(text)
+          print(text)
+          sys.exit(0 if ok else 1)
+          PY_REFRESH
