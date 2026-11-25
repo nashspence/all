@@ -1,0 +1,62 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/62",
+  "purpose": "Converge canonical JSON on one shared RFC 8785 implementation and version",
+  "producer": [
+    "ChatGPT"
+  ],
+  "requester": "nashspence",
+  "first_step": "Independently evaluate the common RFC 8785 authority and exact version pin. Inventory actual canonicalization and raw admission entry points, reconcile the evidenced numeric and Unicode differences, and qualify real consumers before accepting, adapting, deferring or rejecting.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "cd /tmp/jcs-reference && PYTHONPATH=/tmp/jcs-deps python -B -m unittest discover -s . -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "e5662ad6f9c5f88c5a0e118ec3b2826b62aac8aa"
+      },
+      "environment": "Python 3.13.5; rfc8785 0.1.4 upstream source; Git blobs 5a1f9d919643fa3bcaa0999ea66d9c535568c42a and 3137d3326b98938affadb1be711ee411eb2ab86e",
+      "notes": "Nine tests passed without skips. Published reference file blob IDs match the locally tested files. Tested tree preserved by 0454606119879b2f714cf032c646c2a6a8f06f3b."
+    },
+    {
+      "command": "cd /tmp/jcs-reference && PYTHONPATH=/tmp/jcs-deps python -B reproduce.py",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "e5662ad6f9c5f88c5a0e118ec3b2826b62aac8aa"
+      },
+      "environment": "Python 3.13.5; same verified upstream source; Node.js v22.16.0",
+      "notes": "Six independent ECMAScript byte comparisons on admitted values passed."
+    },
+    {
+      "command": "Qualify installed rfc8785==0.1.4 wheel and dependency custody",
+      "result": "not-run",
+      "reason": "Attempted pip install failed due DNS; source-level tests used exact upstream source blobs instead."
+    },
+    {
+      "command": "Integrate real consumer admission and canonicalization boundaries and qualify migration",
+      "result": "not-run",
+      "reason": "Unadopted policy possibility; no consumer repository or all/main modified."
+    }
+  ],
+  "limitations": [
+    "This wrapper operates on admitted values and delegates serialization to rfc8785. It does not implement strict raw JSON/YAML admission, exact numeric field codecs, or native resource limits. The json.loads test illustrates exact-byte comparison, not a sufficient admission parser.",
+    "Raw duplicate keys and integer precision already discarded cannot be recovered. Preserve numeric lexemes until exact-integer or binary64 field semantics are known; do not silently narrow existing supported data.",
+    "Version attribute check is not installed artifact or import-origin proof. Pin and verify distribution custody through the ordinary lock and qualification path.",
+    "Upstream source tested, not installed distribution; no complete RFC 8785 conformance certification or native consumer suite run.",
+    "ECMAScript comparison is a verification oracle, not a second production implementation. Preserve external commitments and original-byte digest referents."
+  ]
+}
