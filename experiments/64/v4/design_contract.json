@@ -1,0 +1,20 @@
+{
+  "format": "all-experimental-raw-design-contract/v1",
+  "status": "experimental_numbers_not_approved_product_budgets",
+  "authority_note": "These predeclared experiment numbers are not approved product budgets. The acceptance runner loads this contract from a separate pinned checkout; candidate declarations cannot activate changes.",
+  "repetitions": 3,
+  "acceptance": "Every complete raw observation must be less than or equal to its fixed budget. Mixed and all-over results block acceptance.",
+  "operations": {
+    "policy16_p1": {"budget_ns": 20000000, "profile": "public-linux-x64-4cpu-v1"},
+    "policy16_p2": {"budget_ns": 30000000, "profile": "public-linux-x64-4cpu-v1"},
+    "policy16_p4": {"budget_ns": 30000000, "profile": "public-linux-x64-4cpu-v1"},
+    "policy512_p1": {"budget_ns": 500000000, "profile": "public-linux-x64-4cpu-v1"},
+    "policy512_p2": {"budget_ns": 350000000, "profile": "public-linux-x64-4cpu-v1"},
+    "policy512_p4": {"budget_ns": 300000000, "profile": "public-linux-x64-4cpu-v1"},
+    "cycle48": {"budget_ns": 50000000, "profile": "public-linux-x64-4cpu-v1"},
+    "cold16": {"budget_ns": 125000000, "profile": "public-linux-x64-4cpu-v1"},
+    "copy16": {"budget_ns": 20000000, "profile": "public-linux-x64-4cpu-v1"},
+    "copy16_sync": {"budget_ns": 100000000, "profile": "public-linux-x64-4cpu-sync-v1"},
+    "sqlite64": {"budget_ns": 150000000, "profile": "public-linux-x64-4cpu-sync-v1"}
+  }
+}
