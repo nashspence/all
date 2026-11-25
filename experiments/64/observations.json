@@ -1,0 +1,2826 @@
+{
+  "format": "all-calibration-collected/v1",
+  "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+  "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+  "run_id": 45675949036,
+  "run_attempt": 1,
+  "complete": true,
+  "expected_allocations": 24,
+  "verified_unique_runner_ids": 24,
+  "source_of_observations": "original GitHub job log CALIBRATION_OBSERVATION lines; uploaded ZIP metadata matched; ZIP contents not independently downloaded",
+  "prior_no_job_attempts": [
+    45675661631,
+    45675751870,
+    45675828606
+  ],
+  "records": [
+    {
+      "affinity_count": 4,
+      "allocation": 1,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.376.1",
+      "kernel": "7.0.0-1017-azure",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16367528 kB",
+      "order": [
+        [
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4"
+        ],
+        [
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256"
+        ],
+        [
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          203422026,
+          218874794,
+          200232503
+        ],
+        "cpu_p2": [
+          151941701,
+          139053443,
+          126598730
+        ],
+        "cpu_p4": [
+          103238698,
+          100926379,
+          100861161
+        ],
+        "files_warm": [
+          63791553,
+          64216814,
+          64050753
+        ],
+        "policy_p1": [
+          254637591,
+          252249607,
+          250696694
+        ],
+        "policy_p2": [
+          179357463,
+          179668893,
+          196546812
+        ],
+        "policy_p4": [
+          162031377,
+          160121304,
+          165080729
+        ],
+        "sha256": [
+          148636825,
+          148499596,
+          148541631
+        ],
+        "sqlite_full": [
+          71183758,
+          68767942,
+          111617332
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423401008,
+      "runner_id": 1000056258,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423401008",
+      "artifact": {
+        "id": 15052960170,
+        "name": "calibration-1",
+        "digest": "sha256:cb8fd9a7429f45d3dbbf3259c9a4eed04add80562a17f7f82c136086f591fd94",
+        "size_in_bytes": 899
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 2,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261122.23.1",
+      "kernel": "7.0.0-1018-aws",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16078392 kB",
+      "order": [
+        [
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256"
+        ],
+        [
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256"
+        ],
+        [
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          178626542,
+          178155069,
+          178363246
+        ],
+        "cpu_p2": [
+          102211513,
+          103592653,
+          105516244
+        ],
+        "cpu_p4": [
+          85508643,
+          83722165,
+          84080644
+        ],
+        "files_warm": [
+          31673402,
+          33751959,
+          33665648
+        ],
+        "policy_p1": [
+          249261061,
+          243926848,
+          243480430
+        ],
+        "policy_p2": [
+          169772866,
+          174638514,
+          175130268
+        ],
+        "policy_p4": [
+          185261418,
+          146217154,
+          150152299
+        ],
+        "sha256": [
+          143937769,
+          143850371,
+          143833791
+        ],
+        "sqlite_full": [
+          32673814,
+          34194101,
+          35705659
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400964,
+      "runner_id": 1000056261,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400964",
+      "artifact": {
+        "id": 15052950091,
+        "name": "calibration-2",
+        "digest": "sha256:62558b0a91436b0730b51849075df937e13d7edf03eb34bc532fab5b6cea31de",
+        "size_in_bytes": 883
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 3,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.133.1",
+      "kernel": "7.0.0-1014-aws",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16078416 kB",
+      "order": [
+        [
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256"
+        ],
+        [
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1"
+        ],
+        [
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          175021219,
+          175682050,
+          176307901
+        ],
+        "cpu_p2": [
+          125397544,
+          108014228,
+          107053482
+        ],
+        "cpu_p4": [
+          97334146,
+          87763158,
+          91689287
+        ],
+        "files_warm": [
+          33086349,
+          32822456,
+          33060766
+        ],
+        "policy_p1": [
+          240174970,
+          242634783,
+          242450057
+        ],
+        "policy_p2": [
+          180277163,
+          225854386,
+          152931610
+        ],
+        "policy_p4": [
+          144001413,
+          146696174,
+          145535227
+        ],
+        "sha256": [
+          143490655,
+          144306264,
+          143464833
+        ],
+        "sqlite_full": [
+          34790515,
+          36848586,
+          31965785
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400852,
+      "runner_id": 1000056252,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400852",
+      "artifact": {
+        "id": 15052715810,
+        "name": "calibration-3",
+        "digest": "sha256:7ab732717e3ea692f06795a0e38400baebe8348a1b943366d495a79f79f7887b",
+        "size_in_bytes": 887
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 4,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.133.1",
+      "kernel": "7.0.0-1014-aws",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16078424 kB",
+      "order": [
+        [
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1"
+        ],
+        [
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1"
+        ],
+        [
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          176136641,
+          175664499,
+          175197807
+        ],
+        "cpu_p2": [
+          93864416,
+          100868149,
+          104822785
+        ],
+        "cpu_p4": [
+          82317449,
+          83068654,
+          84286808
+        ],
+        "files_warm": [
+          31301762,
+          32498853,
+          32220276
+        ],
+        "policy_p1": [
+          241026391,
+          240242502,
+          240570332
+        ],
+        "policy_p2": [
+          156052050,
+          148356013,
+          150190094
+        ],
+        "policy_p4": [
+          164603514,
+          142289800,
+          141583159
+        ],
+        "sha256": [
+          143271418,
+          143231752,
+          143195393
+        ],
+        "sqlite_full": [
+          36512270,
+          33331258,
+          32361282
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400834,
+      "runner_id": 1000056247,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400834",
+      "artifact": {
+        "id": 15051213147,
+        "name": "calibration-4",
+        "digest": "sha256:5f14d692b4e3dd6f2c627c5f28e1f9011dd70b4cc94a3bef9bbc23aa42349202",
+        "size_in_bytes": 882
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 5,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261122.23.1",
+      "kernel": "7.0.0-1018-aws",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16078396 kB",
+      "order": [
+        [
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1"
+        ],
+        [
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2"
+        ],
+        [
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          175406945,
+          175895556,
+          177865709
+        ],
+        "cpu_p2": [
+          121424575,
+          102460120,
+          103222433
+        ],
+        "cpu_p4": [
+          84307054,
+          84423075,
+          83247041
+        ],
+        "files_warm": [
+          33428030,
+          32576440,
+          33189839
+        ],
+        "policy_p1": [
+          240917618,
+          239605526,
+          239519857
+        ],
+        "policy_p2": [
+          154689609,
+          148855466,
+          166533886
+        ],
+        "policy_p4": [
+          147011139,
+          146508268,
+          144489225
+        ],
+        "sha256": [
+          142830238,
+          142984766,
+          142811130
+        ],
+        "sqlite_full": [
+          33030060,
+          35598500,
+          31812640
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400685,
+      "runner_id": 1000056254,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400685",
+      "artifact": {
+        "id": 15051676661,
+        "name": "calibration-5",
+        "digest": "sha256:3d52b56e86deddcfac7e93fe84f0152f40bb2960020869079173774e64ee6eae",
+        "size_in_bytes": 887
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 6,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.133.1",
+      "kernel": "7.0.0-1014-aws",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16078420 kB",
+      "order": [
+        [
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2"
+        ],
+        [
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2"
+        ],
+        [
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          177684087,
+          175581308,
+          176161608
+        ],
+        "cpu_p2": [
+          107069832,
+          101952219,
+          96377002
+        ],
+        "cpu_p4": [
+          85262947,
+          84412088,
+          84592308
+        ],
+        "files_warm": [
+          31981298,
+          33255934,
+          32095984
+        ],
+        "policy_p1": [
+          242602411,
+          244924716,
+          240431812
+        ],
+        "policy_p2": [
+          165052519,
+          148652159,
+          159206795
+        ],
+        "policy_p4": [
+          167262885,
+          144994471,
+          151586452
+        ],
+        "sha256": [
+          144472615,
+          143436191,
+          143511081
+        ],
+        "sqlite_full": [
+          34996850,
+          35840676,
+          33277125
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423401069,
+      "runner_id": 1000056269,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423401069",
+      "artifact": {
+        "id": 15052146682,
+        "name": "calibration-6",
+        "digest": "sha256:7726461f7575664c9d108afb492f4f5fee3d984b36e5eb63bc960579b385de0d",
+        "size_in_bytes": 888
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 7,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.133.1",
+      "kernel": "7.0.0-1014-aws",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16078416 kB",
+      "order": [
+        [
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2"
+        ],
+        [
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4"
+        ],
+        [
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          175159027,
+          175248335,
+          175283195
+        ],
+        "cpu_p2": [
+          100155005,
+          102321837,
+          105591353
+        ],
+        "cpu_p4": [
+          85391287,
+          85102864,
+          85933212
+        ],
+        "files_warm": [
+          32983259,
+          32645667,
+          32349181
+        ],
+        "policy_p1": [
+          235537588,
+          236849101,
+          233966134
+        ],
+        "policy_p2": [
+          175108708,
+          145893634,
+          217410132
+        ],
+        "policy_p4": [
+          148301493,
+          138919554,
+          139039742
+        ],
+        "sha256": [
+          142728792,
+          142852775,
+          142909349
+        ],
+        "sqlite_full": [
+          33719369,
+          32861448,
+          31328949
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423401368,
+      "runner_id": 1000056268,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423401368",
+      "artifact": {
+        "id": 15051113381,
+        "name": "calibration-7",
+        "digest": "sha256:f988a1bd4222d6783c4fc5692a38ef99ca754e0709f3bd8442b4c635536afd15",
+        "size_in_bytes": 886
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 8,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "AMD EPYC 9V45 96-Core Processor",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.376.1",
+      "kernel": "7.0.0-1017-azure",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16367524 kB",
+      "order": [
+        [
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4"
+        ],
+        [
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4"
+        ],
+        [
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          142366825,
+          133344559,
+          146239513
+        ],
+        "cpu_p2": [
+          94873351,
+          85506252,
+          87989002
+        ],
+        "cpu_p4": [
+          73532141,
+          74797978,
+          75613054
+        ],
+        "files_warm": [
+          48292493,
+          49276326,
+          47694994
+        ],
+        "policy_p1": [
+          200908469,
+          196470730,
+          200764956
+        ],
+        "policy_p2": [
+          177971690,
+          136700639,
+          135048593
+        ],
+        "policy_p4": [
+          125209161,
+          119475144,
+          123264035
+        ],
+        "sha256": [
+          128142222,
+          127561829,
+          129685097
+        ],
+        "sqlite_full": [
+          83896778,
+          83136021,
+          1108382668
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400957,
+      "runner_id": 1000056264,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400957",
+      "artifact": {
+        "id": 15051506986,
+        "name": "calibration-8",
+        "digest": "sha256:8bfc20476879d23c3214a30faaf4336fe16b2467e64a1ab0129d8cadc263dc77",
+        "size_in_bytes": 899
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 9,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261122.23.1",
+      "kernel": "7.0.0-1020-azure",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16367496 kB",
+      "order": [
+        [
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4"
+        ],
+        [
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm"
+        ],
+        [
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          201130163,
+          215650389,
+          202461909
+        ],
+        "cpu_p2": [
+          127121764,
+          132533227,
+          130106142
+        ],
+        "cpu_p4": [
+          101836561,
+          101392449,
+          102063385
+        ],
+        "files_warm": [
+          63753546,
+          64045147,
+          63903193
+        ],
+        "policy_p1": [
+          257418674,
+          253947388,
+          253449965
+        ],
+        "policy_p2": [
+          216091993,
+          180567762,
+          186665484
+        ],
+        "policy_p4": [
+          189201484,
+          165444436,
+          165992918
+        ],
+        "sha256": [
+          148593791,
+          148382992,
+          148432267
+        ],
+        "sqlite_full": [
+          59903761,
+          61371439,
+          59455578
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400770,
+      "runner_id": 1000056255,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400770",
+      "artifact": {
+        "id": 15052875549,
+        "name": "calibration-9",
+        "digest": "sha256:d50afebbbf67c3adf95f11aa6b36b1447ce9d3ea09eca12bf1641dfb62c0a3ea",
+        "size_in_bytes": 898
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 10,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "AMD EPYC 9V45 96-Core Processor",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.376.1",
+      "kernel": "7.0.0-1017-azure",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16367524 kB",
+      "order": [
+        [
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm"
+        ],
+        [
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm"
+        ],
+        [
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          148124609,
+          143501585,
+          151197060
+        ],
+        "cpu_p2": [
+          99111957,
+          91467013,
+          96491523
+        ],
+        "cpu_p4": [
+          80148548,
+          78801415,
+          83026832
+        ],
+        "files_warm": [
+          51092905,
+          52332085,
+          51475545
+        ],
+        "policy_p1": [
+          209107006,
+          208733827,
+          209394513
+        ],
+        "policy_p2": [
+          152902586,
+          149855575,
+          141628708
+        ],
+        "policy_p4": [
+          180980515,
+          126653683,
+          126262762
+        ],
+        "sha256": [
+          133380706,
+          134191762,
+          133210550
+        ],
+        "sqlite_full": [
+          73439098,
+          1209713111,
+          64720080
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400842,
+      "runner_id": 1000056257,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400842",
+      "artifact": {
+        "id": 15052845666,
+        "name": "calibration-10",
+        "digest": "sha256:5f66e9a22be3fdae6eb3eb0582416425e64d08c825289a4aa8c76c204bc9747c",
+        "size_in_bytes": 897
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 11,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.133.1",
+      "kernel": "7.0.0-1014-aws",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16078416 kB",
+      "order": [
+        [
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm"
+        ],
+        [
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full"
+        ],
+        [
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          181887910,
+          186147910,
+          181542451
+        ],
+        "cpu_p2": [
+          128500060,
+          104137136,
+          105650670
+        ],
+        "cpu_p4": [
+          87437599,
+          83741496,
+          85351458
+        ],
+        "files_warm": [
+          33361442,
+          33117874,
+          33438271
+        ],
+        "policy_p1": [
+          242410356,
+          243863732,
+          240443283
+        ],
+        "policy_p2": [
+          157969623,
+          156123263,
+          151948356
+        ],
+        "policy_p4": [
+          148078364,
+          148505927,
+          144509273
+        ],
+        "sha256": [
+          144454177,
+          144769086,
+          144690691
+        ],
+        "sqlite_full": [
+          36053506,
+          33977333,
+          31928589
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400825,
+      "runner_id": 1000056251,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400825",
+      "artifact": {
+        "id": 15052431242,
+        "name": "calibration-11",
+        "digest": "sha256:f980a5b1aebef1bcb5ceadd548d86ad3943aec53c025f8e990b52479e01e9e12",
+        "size_in_bytes": 884
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 12,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "INTEL(R) XEON(R) PLATINUM 8573C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.376.1",
+      "kernel": "7.0.0-1017-azure",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16366512 kB",
+      "order": [
+        [
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full"
+        ],
+        [
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full"
+        ],
+        [
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          253073274,
+          242760518,
+          243349797
+        ],
+        "cpu_p2": [
+          147608171,
+          140817355,
+          140145004
+        ],
+        "cpu_p4": [
+          125727759,
+          120642124,
+          119240619
+        ],
+        "files_warm": [
+          44412062,
+          43906451,
+          43518110
+        ],
+        "policy_p1": [
+          321336541,
+          306837903,
+          316404397
+        ],
+        "policy_p2": [
+          225751242,
+          221135472,
+          216649232
+        ],
+        "policy_p4": [
+          418014439,
+          214317639,
+          224731897
+        ],
+        "sha256": [
+          180280290,
+          179264420,
+          179450077
+        ],
+        "sqlite_full": [
+          2866333691,
+          93888593,
+          113554296
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400816,
+      "runner_id": 1000056249,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400816",
+      "artifact": {
+        "id": 15050439849,
+        "name": "calibration-12",
+        "digest": "sha256:8bd833e9f1a33712ccfd017806a7daf9d4a99b992330b2d63b592f4e347adbbe",
+        "size_in_bytes": 902
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 13,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.133.1",
+      "kernel": "7.0.0-1014-aws",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16078420 kB",
+      "order": [
+        [
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full"
+        ],
+        [
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1"
+        ],
+        [
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          180140604,
+          176503255,
+          176267621
+        ],
+        "cpu_p2": [
+          119431493,
+          104635443,
+          105400631
+        ],
+        "cpu_p4": [
+          85053662,
+          86647606,
+          85605886
+        ],
+        "files_warm": [
+          32783958,
+          32639003,
+          32851870
+        ],
+        "policy_p1": [
+          239597831,
+          242581238,
+          241828060
+        ],
+        "policy_p2": [
+          180932273,
+          150396249,
+          228791793
+        ],
+        "policy_p4": [
+          144101580,
+          144254571,
+          145361280
+        ],
+        "sha256": [
+          143496981,
+          144378688,
+          144335373
+        ],
+        "sqlite_full": [
+          32343006,
+          33256184,
+          34925652
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400933,
+      "runner_id": 1000056253,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400933",
+      "artifact": {
+        "id": 15051143958,
+        "name": "calibration-13",
+        "digest": "sha256:84fd051fb445902e236fb7a56c4c08c2bf0fb605735df65604efcd887f97137f",
+        "size_in_bytes": 882
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 14,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "AMD EPYC 7763 64-Core Processor",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.376.1",
+      "kernel": "7.0.0-1017-azure",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16367520 kB",
+      "order": [
+        [
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1"
+        ],
+        [
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1"
+        ],
+        [
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          262572608,
+          245567954,
+          254272287
+        ],
+        "cpu_p2": [
+          149572219,
+          143383156,
+          139565929
+        ],
+        "cpu_p4": [
+          138344882,
+          135950585,
+          134330022
+        ],
+        "files_warm": [
+          77228633,
+          77858046,
+          77049760
+        ],
+        "policy_p1": [
+          402784543,
+          397063440,
+          397387895
+        ],
+        "policy_p2": [
+          273982037,
+          288539176,
+          272545739
+        ],
+        "policy_p4": [
+          270806367,
+          229657386,
+          240833860
+        ],
+        "sha256": [
+          170066199,
+          170209146,
+          170249501
+        ],
+        "sqlite_full": [
+          78923523,
+          75880741,
+          72245057
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400898,
+      "runner_id": 1000056266,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400898",
+      "artifact": {
+        "id": 15052890521,
+        "name": "calibration-14",
+        "digest": "sha256:912e828a736dcd45b24df3f5c09bb9954b0b97e6ca5161079c0c5f44d6a0689d",
+        "size_in_bytes": 898
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 15,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.133.1",
+      "kernel": "7.0.0-1014-aws",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16078420 kB",
+      "order": [
+        [
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1"
+        ],
+        [
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2"
+        ],
+        [
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          178212852,
+          178093662,
+          177962935
+        ],
+        "cpu_p2": [
+          120117410,
+          103658752,
+          102406854
+        ],
+        "cpu_p4": [
+          85229106,
+          82967067,
+          84626546
+        ],
+        "files_warm": [
+          32855779,
+          32567419,
+          32844079
+        ],
+        "policy_p1": [
+          240716077,
+          238102137,
+          240089043
+        ],
+        "policy_p2": [
+          155472823,
+          216269987,
+          154729276
+        ],
+        "policy_p4": [
+          140674208,
+          141178915,
+          141834624
+        ],
+        "sha256": [
+          143002549,
+          142957279,
+          142790159
+        ],
+        "sqlite_full": [
+          33152343,
+          32445345,
+          30238614
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400954,
+      "runner_id": 1000056256,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400954",
+      "artifact": {
+        "id": 15051407231,
+        "name": "calibration-15",
+        "digest": "sha256:ba6918ff70d71e8643c2d7a15f3b3d04772a7a76cf71fbf63387c3fee689976f",
+        "size_in_bytes": 886
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 16,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261122.23.1",
+      "kernel": "7.0.0-1018-aws",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16078396 kB",
+      "order": [
+        [
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2"
+        ],
+        [
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2"
+        ],
+        [
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          175549004,
+          175411043,
+          176657846
+        ],
+        "cpu_p2": [
+          124123202,
+          104426501,
+          111931440
+        ],
+        "cpu_p4": [
+          84758482,
+          84317531,
+          89432040
+        ],
+        "files_warm": [
+          32741396,
+          33172654,
+          32933617
+        ],
+        "policy_p1": [
+          238614515,
+          238280252,
+          239053450
+        ],
+        "policy_p2": [
+          148585062,
+          147795336,
+          150007926
+        ],
+        "policy_p4": [
+          153360333,
+          143199440,
+          142576330
+        ],
+        "sha256": [
+          143402721,
+          143124062,
+          143317092
+        ],
+        "sqlite_full": [
+          35560934,
+          31122335,
+          31693352
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423401097,
+      "runner_id": 1000056267,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423401097",
+      "artifact": {
+        "id": 15051836397,
+        "name": "calibration-16",
+        "digest": "sha256:9a0c187cb722e3b583eea95c87e8d8f9838cbecb74b709727441d09fbf59cf78",
+        "size_in_bytes": 886
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 17,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.376.1",
+      "kernel": "7.0.0-1017-azure",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16367528 kB",
+      "order": [
+        [
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2"
+        ],
+        [
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4"
+        ],
+        [
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          210148182,
+          224130612,
+          200809436
+        ],
+        "cpu_p2": [
+          134447195,
+          124720435,
+          122151767
+        ],
+        "cpu_p4": [
+          126837500,
+          107380431,
+          101623553
+        ],
+        "files_warm": [
+          64618961,
+          63651990,
+          63635732
+        ],
+        "policy_p1": [
+          260897061,
+          266434759,
+          256742747
+        ],
+        "policy_p2": [
+          223055380,
+          183344978,
+          188955853
+        ],
+        "policy_p4": [
+          165835161,
+          175257414,
+          164583757
+        ],
+        "sha256": [
+          148348014,
+          148712373,
+          148595801
+        ],
+        "sqlite_full": [
+          85210405,
+          1972171530,
+          92189954
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400911,
+      "runner_id": 1000056263,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400911",
+      "artifact": {
+        "id": 15052805640,
+        "name": "calibration-17",
+        "digest": "sha256:50ec8647583429b1a2c5f4fe0c0e2d9fb5a4f2a0ef994b5cc04da8d3117fe06f",
+        "size_in_bytes": 900
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 18,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "INTEL(R) XEON(R) PLATINUM 8573C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261122.23.1",
+      "kernel": "7.0.0-1020-azure",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16366488 kB",
+      "order": [
+        [
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4"
+        ],
+        [
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4"
+        ],
+        [
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          222808858,
+          229281425,
+          226960735
+        ],
+        "cpu_p2": [
+          155213757,
+          128295404,
+          132848020
+        ],
+        "cpu_p4": [
+          225845419,
+          110445587,
+          108540725
+        ],
+        "files_warm": [
+          37888507,
+          39403478,
+          37277716
+        ],
+        "policy_p1": [
+          293488750,
+          276492713,
+          283745715
+        ],
+        "policy_p2": [
+          214413883,
+          210379079,
+          200532002
+        ],
+        "policy_p4": [
+          198146298,
+          202467771,
+          192870853
+        ],
+        "sha256": [
+          162289996,
+          167450272,
+          157800172
+        ],
+        "sqlite_full": [
+          1889231736,
+          115255300,
+          87471981
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423401071,
+      "runner_id": 1000056265,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423401071",
+      "artifact": {
+        "id": 15052406260,
+        "name": "calibration-18",
+        "digest": "sha256:9e103b9050a5db24369b877c81490bec16899feb7af9690a9f600aaf2ebccf86",
+        "size_in_bytes": 912
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 19,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261122.23.1",
+      "kernel": "7.0.0-1018-aws",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16078380 kB",
+      "order": [
+        [
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4"
+        ],
+        [
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256"
+        ],
+        [
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          175183586,
+          174507269,
+          174774751
+        ],
+        "cpu_p2": [
+          119899002,
+          102284170,
+          100970419
+        ],
+        "cpu_p4": [
+          87000430,
+          84801440,
+          87319396
+        ],
+        "files_warm": [
+          31562537,
+          33046851,
+          33691011
+        ],
+        "policy_p1": [
+          240326959,
+          239716579,
+          238792482
+        ],
+        "policy_p2": [
+          152178703,
+          152987207,
+          147425561
+        ],
+        "policy_p4": [
+          143450249,
+          142502198,
+          145114386
+        ],
+        "sha256": [
+          142679254,
+          142874444,
+          142669410
+        ],
+        "sqlite_full": [
+          31893989,
+          31056929,
+          32558601
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400937,
+      "runner_id": 1000056262,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400937",
+      "artifact": {
+        "id": 15050779482,
+        "name": "calibration-19",
+        "digest": "sha256:cd8ce1092eaad4432d2de3670a1e6f4e4704647dd498a2d7d6075364c35a9ab4",
+        "size_in_bytes": 886
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 20,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.376.1",
+      "kernel": "7.0.0-1017-azure",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16367524 kB",
+      "order": [
+        [
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256"
+        ],
+        [
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256"
+        ],
+        [
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          217103174,
+          200315272,
+          219506330
+        ],
+        "cpu_p2": [
+          147633339,
+          127341566,
+          127971619
+        ],
+        "cpu_p4": [
+          111239584,
+          101792911,
+          101147175
+        ],
+        "files_warm": [
+          63301232,
+          63189706,
+          64549169
+        ],
+        "policy_p1": [
+          252038541,
+          253502617,
+          255962367
+        ],
+        "policy_p2": [
+          186700845,
+          185742808,
+          186445933
+        ],
+        "policy_p4": [
+          189104262,
+          163988867,
+          171465940
+        ],
+        "sha256": [
+          148338487,
+          148431676,
+          148371046
+        ],
+        "sqlite_full": [
+          80362229,
+          60811708,
+          60691631
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423401007,
+      "runner_id": 1000056259,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423401007",
+      "artifact": {
+        "id": 15052570989,
+        "name": "calibration-20",
+        "digest": "sha256:7d01d996f00616740df0603a9d011f3a676238519b54dda8828844858e682293",
+        "size_in_bytes": 898
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 21,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "INTEL(R) XEON(R) PLATINUM 8573C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.376.1",
+      "kernel": "7.0.0-1017-azure",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16366508 kB",
+      "order": [
+        [
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256"
+        ],
+        [
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1"
+        ],
+        [
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          258228379,
+          247482806,
+          245593540
+        ],
+        "cpu_p2": [
+          462980955,
+          142614800,
+          144092285
+        ],
+        "cpu_p4": [
+          124068265,
+          121389729,
+          124351475
+        ],
+        "files_warm": [
+          44193444,
+          43686355,
+          44509205
+        ],
+        "policy_p1": [
+          344604610,
+          307581789,
+          304942356
+        ],
+        "policy_p2": [
+          232210883,
+          243029599,
+          227876015
+        ],
+        "policy_p4": [
+          214903899,
+          211209543,
+          217901875
+        ],
+        "sha256": [
+          179491183,
+          179612872,
+          179324610
+        ],
+        "sqlite_full": [
+          3513046394,
+          110854418,
+          97768337
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400813,
+      "runner_id": 1000056246,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400813",
+      "artifact": {
+        "id": 15052251432,
+        "name": "calibration-21",
+        "digest": "sha256:855d642060c04f92babb1f49cd77d1f9f8b7f9cad905e0bffdb3339677feff9b",
+        "size_in_bytes": 907
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 22,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "INTEL(R) XEON(R) PLATINUM 8573C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.376.1",
+      "kernel": "7.0.0-1017-azure",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16366512 kB",
+      "order": [
+        [
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1"
+        ],
+        [
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1"
+        ],
+        [
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          245132404,
+          248018435,
+          247691375
+        ],
+        "cpu_p2": [
+          141635456,
+          143615056,
+          151339748
+        ],
+        "cpu_p4": [
+          121531011,
+          125077150,
+          121781943
+        ],
+        "files_warm": [
+          41815238,
+          44690097,
+          44440675
+        ],
+        "policy_p1": [
+          314102931,
+          313514838,
+          314611158
+        ],
+        "policy_p2": [
+          231003784,
+          227727278,
+          238116015
+        ],
+        "policy_p4": [
+          274849857,
+          215702928,
+          340455296
+        ],
+        "sha256": [
+          182400858,
+          183823069,
+          181110969
+        ],
+        "sqlite_full": [
+          3815592291,
+          95018350,
+          115778172
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400972,
+      "runner_id": 1000056250,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400972",
+      "artifact": {
+        "id": 15050859266,
+        "name": "calibration-22",
+        "digest": "sha256:c051390e9971dc0a910560fce87a7834ef4785bdde4f8bbed149c7e774edfe6e",
+        "size_in_bytes": 907
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 23,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261122.23.1",
+      "kernel": "7.0.0-1018-aws",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16078392 kB",
+      "order": [
+        [
+          "policy_p1",
+          "cpu_p2",
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1"
+        ],
+        [
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2"
+        ],
+        [
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          174200925,
+          173878521,
+          175687641
+        ],
+        "cpu_p2": [
+          118042354,
+          111960119,
+          95510836
+        ],
+        "cpu_p4": [
+          86414199,
+          85058519,
+          85729863
+        ],
+        "files_warm": [
+          32732258,
+          32266781,
+          32860194
+        ],
+        "policy_p1": [
+          238072428,
+          249822860,
+          238802377
+        ],
+        "policy_p2": [
+          148939786,
+          152545099,
+          173282421
+        ],
+        "policy_p4": [
+          145573625,
+          144786562,
+          148351860
+        ],
+        "sha256": [
+          143312607,
+          143249650,
+          144361591
+        ],
+        "sqlite_full": [
+          36249728,
+          35531549,
+          31186996
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423400814,
+      "runner_id": 1000056248,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423400814",
+      "artifact": {
+        "id": 15052800672,
+        "name": "calibration-23",
+        "digest": "sha256:6059ff59a936a9f1166697c586084bdb1872212654f92963a39a8d1d585d7688",
+        "size_in_bytes": 885
+      }
+    },
+    {
+      "affinity_count": 4,
+      "allocation": 24,
+      "batches": 32,
+      "cpu_max": null,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "filesystem": "ext2/ext3",
+      "fixture_sha256": "e2b3a325c2656969cc88573c78f625d0ae1d08578227fef4c6092de71123bf5a",
+      "format": "all-calibration-pilot/v1",
+      "frozen_source": "03de186a044c9c6b365347485a6c4093ce831c79",
+      "image_os": "ubuntu24",
+      "image_version": "20261116.133.1",
+      "kernel": "7.0.0-1014-aws",
+      "logical_cpus": 4,
+      "machine": "x86_64",
+      "members": 16,
+      "memory_max": null,
+      "memory_total": "16078424 kB",
+      "order": [
+        [
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4",
+          "policy_p2",
+          "cpu_p2"
+        ],
+        [
+          "policy_p2",
+          "cpu_p4",
+          "policy_p4",
+          "files_warm",
+          "sha256",
+          "sqlite_full",
+          "cpu_p1",
+          "policy_p1",
+          "cpu_p2"
+        ],
+        [
+          "policy_p2",
+          "cpu_p2",
+          "policy_p1",
+          "cpu_p1",
+          "sqlite_full",
+          "sha256",
+          "files_warm",
+          "policy_p4",
+          "cpu_p4"
+        ]
+      ],
+      "python": "3.11.9",
+      "run_attempt": "1",
+      "run_id": "45675949036",
+      "samples_ns": {
+        "cpu_p1": [
+          177639479,
+          177640467,
+          177664808
+        ],
+        "cpu_p2": [
+          104001346,
+          102603659,
+          109829411
+        ],
+        "cpu_p4": [
+          86768226,
+          93561128,
+          88063278
+        ],
+        "files_warm": [
+          31446327,
+          32916831,
+          32666758
+        ],
+        "policy_p1": [
+          242616926,
+          244512419,
+          242275799
+        ],
+        "policy_p2": [
+          165403033,
+          153860786,
+          160135895
+        ],
+        "policy_p4": [
+          163935796,
+          148806098,
+          145900663
+        ],
+        "sha256": [
+          143465990,
+          143147641,
+          143231103
+        ],
+        "sqlite_full": [
+          35454528,
+          36226254,
+          32942401
+        ]
+      },
+      "source": "6d72d6ceea9ef02c40d56b8202f9df5be1643405",
+      "sqlite": "3.45.1",
+      "verified": true,
+      "yaml": "6.0.3",
+      "job_id": 139423401018,
+      "runner_id": 1000056260,
+      "job_url": "https://github.com/nashspence/all/actions/runs/45675949036/job/139423401018",
+      "artifact": {
+        "id": 15052111673,
+        "name": "calibration-24",
+        "digest": "sha256:a22e2139d4d3718baf2f1dfbe781cdf2ca5d0667f5235c56ef48cf5f73ba6793",
+        "size_in_bytes": 885
+      }
+    }
+  ]
+}

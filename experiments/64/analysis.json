@@ -1,0 +1,329 @@
+{
+  "cases": {
+    "cpu_p1": {
+      "reference_ms": 176.4325355,
+      "means_ms": {
+        "min": 140.650299,
+        "median": 177.86903383333333,
+        "max": 254.13761633333334
+      },
+      "training_max_relative_error": 0.3965368063684982,
+      "holdout_max_relative_error": 0.4404237609187074,
+      "candidate_allowance": 0.4465368063684982,
+      "holdout_outside_count": 0,
+      "pilot_max_allowance": 0.2,
+      "supported_in_pilot": false,
+      "within_three_run_relative_spread": {
+        "min": 0.00014258654744203625,
+        "median": 0.01799482932783858,
+        "max": 0.11613585728112885
+      },
+      "max_single_ms": 262.572608
+    },
+    "cpu_p2": {
+      "reference_ms": 106.40458966666667,
+      "means_ms": {
+        "min": 89.45620166666667,
+        "median": 111.29257216666666,
+        "max": 249.89601333333334
+      },
+      "training_max_relative_error": 0.34258159146011025,
+      "holdout_max_relative_error": 1.3485454350811543,
+      "candidate_allowance": 0.39258159146011024,
+      "holdout_outside_count": 1,
+      "pilot_max_allowance": 0.2,
+      "supported_in_pilot": false,
+      "within_three_run_relative_spread": {
+        "min": 0.03233227748032652,
+        "median": 0.12907625285749535,
+        "max": 2.2463738335712704
+      },
+      "max_single_ms": 462.980955
+    },
+    "cpu_p4": {
+      "reference_ms": 85.11578433333334,
+      "means_ms": {
+        "min": 74.64772433333333,
+        "median": 86.27155316666668,
+        "max": 148.27724366666666
+      },
+      "training_max_relative_error": 0.43181629926666987,
+      "holdout_max_relative_error": 0.7420651742569659,
+      "candidate_allowance": 0.48181629926666986,
+      "holdout_outside_count": 2,
+      "pilot_max_allowance": 0.2,
+      "supported_in_pilot": false,
+      "within_three_run_relative_spread": {
+        "min": 0.006617218605697195,
+        "median": 0.028739124077133638,
+        "max": 1.080743601076923
+      },
+      "max_single_ms": 225.845419
+    },
+    "files_warm": {
+      "reference_ms": 33.185316,
+      "means_ms": {
+        "min": 32.00696366666667,
+        "median": 33.185316,
+        "max": 77.378813
+      },
+      "training_max_relative_error": 0.929157663186533,
+      "holdout_max_relative_error": 1.331718432333144,
+      "candidate_allowance": 0.9791576631865331,
+      "holdout_outside_count": 1,
+      "pilot_max_allowance": 0.2,
+      "supported_in_pilot": false,
+      "within_three_run_relative_spread": {
+        "min": 0.004573878918044727,
+        "median": 0.020071560614478234,
+        "max": 0.06875146806530186
+      },
+      "max_single_ms": 77.858046
+    },
+    "policy_p1": {
+      "reference_ms": 241.99619683333333,
+      "means_ms": {
+        "min": 199.381385,
+        "median": 242.44605166666665,
+        "max": 399.078626
+      },
+      "training_max_relative_error": 0.30109323116146136,
+      "holdout_max_relative_error": 0.6491111481179674,
+      "candidate_allowance": 0.35109323116146135,
+      "holdout_outside_count": 1,
+      "pilot_max_allowance": 0.2,
+      "supported_in_pilot": false,
+      "within_three_run_relative_spread": {
+        "min": 0.0031652081001705135,
+        "median": 0.014317066154170832,
+        "max": 0.1300647588621635
+      },
+      "max_single_ms": 402.784543
+    },
+    "policy_p2": {
+      "reference_ms": 165.40885350000002,
+      "means_ms": {
+        "min": 148.12895633333335,
+        "median": 177.48076,
+        "max": 278.3556506666667
+      },
+      "training_max_relative_error": 0.3371633016407227,
+      "holdout_max_relative_error": 0.682834048944464,
+      "candidate_allowance": 0.3871633016407227,
+      "holdout_outside_count": 3,
+      "pilot_max_allowance": 0.2,
+      "supported_in_pilot": false,
+      "within_three_run_relative_spread": {
+        "min": 0.005157868615833561,
+        "median": 0.0773095573514756,
+        "max": 0.5212599683918979
+      },
+      "max_single_ms": 288.539176
+    },
+    "policy_p4": {
+      "reference_ms": 148.2616728333333,
+      "means_ms": {
+        "min": 122.64944666666668,
+        "median": 151.186505,
+        "max": 285.6879916666667
+      },
+      "training_max_relative_error": 0.9269173631125802,
+      "holdout_max_relative_error": 0.8683364916437719,
+      "candidate_allowance": 0.9769173631125803,
+      "holdout_outside_count": 0,
+      "pilot_max_allowance": 0.2,
+      "supported_in_pilot": false,
+      "within_three_run_relative_spread": {
+        "min": 0.0082489606054863,
+        "median": 0.06619374118470467,
+        "max": 0.9504434676979621
+      },
+      "max_single_ms": 418.014439
+    },
+    "sha256": {
+      "reference_ms": 143.78027316666666,
+      "means_ms": {
+        "min": 128.46304933333332,
+        "median": 143.840303,
+        "max": 182.44496533333336
+      },
+      "training_max_relative_error": 0.24957982790682776,
+      "holdout_max_relative_error": 0.2689151391571465,
+      "candidate_allowance": 0.29957982790682774,
+      "holdout_outside_count": 0,
+      "pilot_max_allowance": 0.2,
+      "supported_in_pilot": false,
+      "within_three_run_relative_spread": {
+        "min": 0.0005309179185672974,
+        "median": 0.0020634837749455848,
+        "max": 0.06115392573843326
+      },
+      "max_single_ms": 183.823069
+    },
+    "sqlite_full": {
+      "reference_ms": 34.619922833333334,
+      "means_ms": {
+        "min": 31.836506333333332,
+        "median": 34.789639,
+        "max": 1342.1296043333332
+      },
+      "training_max_relative_error": 28.59544994556771,
+      "holdout_max_relative_error": 37.76755043027079,
+      "candidate_allowance": 28.645449945567712,
+      "holdout_outside_count": 2,
+      "pilot_max_allowance": 0.2,
+      "supported_in_pilot": false,
+      "within_three_run_relative_spread": {
+        "min": 0.03222340215076214,
+        "median": 0.1359048809368577,
+        "max": 39.156372858505755
+      },
+      "max_single_ms": 3815.592291
+    }
+  },
+  "by_cpu": {
+    "AMD EPYC 9V74 80-Core Processor": {
+      "allocations": 4,
+      "policy_serial_mean_ms": {
+        "min": 252.527964,
+        "median": 254.386592,
+        "max": 261.358189
+      },
+      "cpu_serial_mean_ms": {
+        "min": 206.41415366666666,
+        "median": 209.60292550000003,
+        "max": 212.30825866666666
+      },
+      "sqlite_mean_ms": {
+        "min": 60.243592666666665,
+        "median": 75.57243333333334,
+        "max": 716.523963
+      }
+    },
+    "Intel(R) Xeon(R) 6975P-C": {
+      "allocations": 13,
+      "policy_serial_mean_ms": {
+        "min": 235.450941,
+        "median": 241.33570966666665,
+        "max": 245.556113
+      },
+      "cpu_serial_mean_ms": {
+        "min": 174.589029,
+        "median": 176.38940333333335,
+        "max": 183.192757
+      },
+      "sqlite_mean_ms": {
+        "min": 31.836506333333332,
+        "median": 33.986476,
+        "max": 34.874394333333335
+      }
+    },
+    "AMD EPYC 9V45 96-Core Processor": {
+      "allocations": 2,
+      "policy_serial_mean_ms": {
+        "min": 199.381385,
+        "median": 204.22991683333333,
+        "max": 209.07844866666665
+      },
+      "cpu_serial_mean_ms": {
+        "min": 140.650299,
+        "median": 144.12902516666668,
+        "max": 147.60775133333334
+      },
+      "sqlite_mean_ms": {
+        "min": 425.138489,
+        "median": 437.214626,
+        "max": 449.290763
+      }
+    },
+    "INTEL(R) XEON(R) PLATINUM 8573C": {
+      "allocations": 4,
+      "policy_serial_mean_ms": {
+        "min": 284.575726,
+        "median": 314.46796133333334,
+        "max": 319.0429183333333
+      },
+      "cpu_serial_mean_ms": {
+        "min": 226.35033933333335,
+        "median": 246.67096716666668,
+        "max": 250.43490833333334
+      },
+      "sqlite_mean_ms": {
+        "min": 697.3196723333334,
+        "median": 1132.5742881666667,
+        "max": 1342.1296043333332
+      }
+    },
+    "AMD EPYC 7763 64-Core Processor": {
+      "allocations": 1,
+      "policy_serial_mean_ms": {
+        "min": 399.078626,
+        "median": 399.078626,
+        "max": 399.078626
+      },
+      "cpu_serial_mean_ms": {
+        "min": 254.13761633333334,
+        "median": 254.13761633333334,
+        "max": 254.13761633333334
+      },
+      "sqlite_mean_ms": {
+        "min": 75.683107,
+        "median": 75.683107,
+        "max": 75.683107
+      }
+    }
+  },
+  "parallel": {
+    "cpu": {
+      "p2": {
+        "min": 1.0021564769794113,
+        "median": 1.6237741909538195,
+        "max": 1.762717447554907
+      },
+      "p4": {
+        "min": 1.5265345762845324,
+        "median": 2.029979050078254,
+        "max": 2.142350158969174
+      }
+    },
+    "policy": {
+      "p2": {
+        "min": 1.2925921620964596,
+        "median": 1.3884903276948204,
+        "max": 1.6038686016348402
+      },
+      "p4": {
+        "min": 1.1021100741050283,
+        "median": 1.5999464389351319,
+        "max": 1.6967855740232205
+      }
+    }
+  },
+  "profile": {
+    "image_versions": [
+      "20261116.376.1",
+      "20261122.23.1",
+      "20261116.133.1"
+    ],
+    "kernels": [
+      "7.0.0-1017-azure",
+      "7.0.0-1018-aws",
+      "7.0.0-1014-aws",
+      "7.0.0-1020-azure"
+    ],
+    "sqlite_versions": [
+      "3.45.1"
+    ],
+    "filesystems": [
+      "ext2/ext3"
+    ],
+    "cpu_quota_values": [
+      null
+    ],
+    "memory_quota_values": [
+      null
+    ]
+  },
+  "single_allowance_candidate": 28.645449945567712,
+  "all_cases_supported": false
+}
