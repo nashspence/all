@@ -1,0 +1,80 @@
+name: Frozen prepared storage profile 66
+on:
+  push:
+    branches: [experiment/66-native-storage]
+    paths: [.github/workflows/storage-profile-66.yml]
+permissions:
+  contents: read
+env:
+  FROZEN_SHARED_SHA: ad9ff2798e1860305bf5a293a7d3ee7e6f99bf04
+  STORAGE66_PHASE: feasibility
+jobs:
+  storage:
+    if: ${{ github.run_attempt == 1 }}
+    name: storage-${{ matrix.worker }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        worker: [1, 2]
+    env:
+      STORAGE66_WORKER: ${{ matrix.worker }}
+      STORAGE66_WORKFLOW_SHA: ${{ github.workflow_sha }}
+    steps:
+      - name: Check out frozen common source and experiment
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: nashspence/all
+          ref: ${{ env.FROZEN_SHARED_SHA }}
+          path: runtime
+          persist-credentials: false
+      - name: Check out actual Fishhat source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: nashspence/fishhat
+          ref: f96b83dc20f059d62a4363a63c37bb0ef8c642e5
+          path: fishhat
+          persist-credentials: false
+      - name: Check out actual Riverhog source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: nashspence/riverhog
+          ref: be483fd6d567616d5fcd355202d61f1e682efe75
+          path: riverhog
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12.16'
+          check-latest: false
+      - uses: astral-sh/setup-uv@94527f2e458b27549849d47d273a16bec83a01e9
+        with:
+          version: '0.11.24'
+          enable-cache: false
+      - name: Install normal locked consumer environments
+        shell: bash
+        run: |
+          mkdir -p "$GITHUB_WORKSPACE/storage-output"
+          start="$(python -I -B -c 'import time; print(time.perf_counter_ns())')"
+          python312="$(command -v python)"
+          uv venv --python "$python312" "$RUNNER_TEMP/all66-common"
+          uv pip install --python "$RUNNER_TEMP/all66-common/bin/python" 'PyYAML==6.0.3'
+          uv pip install --python "$RUNNER_TEMP/all66-common/bin/python" --no-deps "$GITHUB_WORKSPACE/runtime"
+          UV_PROJECT_ENVIRONMENT="$RUNNER_TEMP/all66-fishhat" uv sync --directory "$GITHUB_WORKSPACE/fishhat" --locked --no-default-groups --no-editable --package fishhat-owner-support --no-python-downloads --python "$python312"
+          UV_PROJECT_ENVIRONMENT="$RUNNER_TEMP/all66-riverhog" uv sync --directory "$GITHUB_WORKSPACE/riverhog" --locked --no-default-groups --no-editable --package riverhog-client --no-python-downloads --python "$python312"
+          uv pip install --python "$RUNNER_TEMP/all66-fishhat/bin/python" --no-deps "$GITHUB_WORKSPACE/runtime"
+          uv pip install --python "$RUNNER_TEMP/all66-riverhog/bin/python" 'PyYAML==6.0.3'
+          uv pip install --python "$RUNNER_TEMP/all66-riverhog/bin/python" --no-deps "$GITHUB_WORKSPACE/runtime"
+          python -I -B -c 'import json,sys,time; from pathlib import Path; Path(sys.argv[2]).write_text(json.dumps({"bootstrap_wall_ns":time.perf_counter_ns()-int(sys.argv[1])})+"\n")' "$start" "$GITHUB_WORKSPACE/storage-output/bootstrap.json"
+      - name: Prepare actual storage and collect the fixed cohort
+        shell: bash
+        run: |
+          sudo --preserve-env=PATH,GITHUB_ACTIONS,RUNNER_ENVIRONMENT,RUNNER_OS,RUNNER_ARCH,ImageOS,ImageVersion,GITHUB_REPOSITORY,GITHUB_REF,GITHUB_SHA,GITHUB_RUN_ID,GITHUB_RUN_ATTEMPT,GITHUB_EVENT_NAME,RUNNER_NAME,FROZEN_SHARED_SHA,STORAGE66_PHASE,STORAGE66_WORKER,STORAGE66_WORKFLOW_SHA "$RUNNER_TEMP/all66-common/bin/python" -I -B "$GITHUB_WORKSPACE/runtime/experiments/66/campaign.py" --workspace "$GITHUB_WORKSPACE" --output "$GITHUB_WORKSPACE/storage-output" --fishhat-python "$RUNNER_TEMP/all66-fishhat/bin/python" --riverhog-python "$RUNNER_TEMP/all66-riverhog/bin/python"
+      - name: Retain all raw measurements and partial evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: storage66-${{ matrix.worker }}
+          path: storage-output/
+          if-no-files-found: error
+          retention-days: 30
