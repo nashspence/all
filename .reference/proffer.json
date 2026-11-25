@@ -1,0 +1,57 @@
+{
+  "kind": "handoff",
+  "issue": "https://github.com/nashspence/all/issues/63",
+  "purpose": "Keep validation work scalable across independent proof obligations",
+  "producer": [
+    "ChatGPT"
+  ],
+  "requester": "nashspence",
+  "first_step": "Independently evaluate the Fishhat #84 and Riverhog #954/#960 evidence and the reference counterexamples. Select one real independent composition path, derive its required proof inventory and justified measured work envelope, wire its actual execution and independent oracle, and accept, adapt, defer or reject after qualification. Do not start with a broad CI rewrite.",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "03de186a044c9c6b365347485a6c4093ce831c79"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/reproduce.py"
+  ],
+  "checks": [
+    {
+      "command": "python -B -m unittest discover -s .reference -p test_policy.py -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "b49be5497aa1186505d084c4f2bb68c0fabd8c50"
+      },
+      "environment": "Python 3.13.5; standard library only; git version 2.47.3 for file-identity checks",
+      "notes": "10 tests passed, no skips. The three local tested reference files match the remote tree's exact Git blob IDs. Tested code tree is preserved by parent commit 52b97c4a33cad03c6ce5c04cf1fa6b45c68f5d03."
+    },
+    {
+      "command": "python -B .reference/reproduce.py",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "b49be5497aa1186505d084c4f2bb68c0fabd8c50"
+      },
+      "environment": "Python 3.13.5; standard library only",
+      "notes": "12 deterministic synthetic cases independently vary scope count (1, 4, 16), common-input size (64, 256 bytes), and extra extent of one scope (0, 1024 bytes). Partitioned work passes all cases. Each of the two amplification mutants produces equivalent complete receipts but violates its read-byte envelope in eight cases. At the largest case, whole-report reads charge 24576 versus 1536 bytes and repeated common-input setup charges 4096 versus 256 bytes."
+    },
+    {
+      "command": "Integrate real validation execution, measured counters and independent acceptance; qualify full ordinary suite and native evidence on the exact source",
+      "result": "not-run",
+      "reason": "Unadopted policy possibility. No consumer source or CI workload was modified or executed."
+    }
+  ],
+  "limitations": [
+    "The comparison is a synthetic in-memory byte-read/hash experiment, not a reproduction of actual Fishhat or Riverhog CI, physical I/O, or wall-clock savings. Historical evidence is attributed to the linked issue reviews; original native artifacts were not re-audited in this publication.",
+    "The harness checks finite owner-selected cases, affine bounds on supplied independent extents, exact result inventory and measured counter values. It does not prove asymptotics, infer independence, justify arbitrary coefficients or guarantee all expensive operations were instrumented.",
+    "The synthetic digest receipts are an independent result oracle only for this experiment, not a generic proof of source, run, native custody, authorization, or actual assertion completeness. Integrate the real owner oracle and cohort/extent checks before adoption.",
+    "Required coupled work, immutable input custody, mutable observations, failure lifetimes, and retries must retain their actual semantics. No authorization to remove existing work solely because an observed counter is large.",
+    "No elapsed-time, memory, or artifact-size target is enforced. No universal growth envelope for all validation is proposed."
+  ]
+}
