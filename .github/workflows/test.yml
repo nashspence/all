@@ -21,3 +21,22 @@ jobs:
       - run: python -m pip install .
       - run: python -m unittest discover -s tests -v
       - run: all-policy check .
+
+  calibration:
+    if: github.ref == 'refs/heads/experiment/64-runner-calibration'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 6
+    strategy:
+      fail-fast: false
+      matrix:
+        allocation: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24']
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.9'
+      - run: python -m pip install --disable-pip-version-check --only-binary=:all: PyYAML==6.0.3
+      - run: PYTHONPATH=. python experiments/64/calibrate.py ${{ matrix.allocation }}
