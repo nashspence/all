@@ -153,14 +153,14 @@ class PreparedStorageTests(unittest.TestCase):
                 self.assertFalse(profiles.admit(profiles.PREPARED_EXT4, evidence)["admitted"])
 
     def test_other_filesystem_must_have_complete_same_resource_probe_evidence(self):
-        for variant in ("missing", "slow", "different_manifest", "wrong_role", "changed_options"):
+        for variant in ("missing", "incomplete", "different_manifest", "wrong_role", "changed_options"):
             with self.subTest(variant=variant):
                 evidence = synthetic_pair()
                 pair = evidence["prepared_pair"]
                 if variant == "missing":
                     evidence.pop("prepared_pair")
-                elif variant == "slow":
-                    pair["evidence"]["samples_ns"]["fdatasync64"][1] = profiles.CAPS_NS["fdatasync64"] + 1
+                elif variant == "incomplete":
+                    pair["evidence"]["samples_ns"]["fdatasync64"].pop()
                 elif variant == "different_manifest":
                     for key in ("metadata", "metadata_after"):
                         pair["evidence"][key]["prepared_storage"]["manifest_sha256"] = "d" * 64
@@ -169,6 +169,42 @@ class PreparedStorageTests(unittest.TestCase):
                 else:
                     pair["evidence"]["metadata_after"]["mount"]["options"] = "rw,nobarrier"
                 self.assertFalse(profiles.admit(profiles.PREPARED_EXT4, evidence)["admitted"])
+
+    def test_prepared_v2_keeps_slow_valid_probes_as_diagnostics(self):
+        evidence = synthetic_pair()
+        for record in (evidence, evidence["prepared_pair"]["evidence"]):
+            record["samples_ns"] = {name: [cap * 4] * 3 for name, cap in profiles.CAPS_NS.items()}
+        before = copy.deepcopy(evidence)
+        result = profiles.admit(profiles.PREPARED_EXT4, evidence)
+        self.assertEqual(profiles.PREPARED_EXT4, "public-linux-x64-4cpu-prepared-ext4-v2")
+        self.assertTrue(result["admitted"], result["reasons"])
+        self.assertEqual(evidence, before)
+        self.assertFalse(result["persistence_qualified"])
+
+    def test_diagnostic_probe_times_still_require_complete_valid_correct_observations(self):
+        invalid = ([], [1, 1], [1, 0, 1], [1, True, 1], [1, None, 1], [1, -1, 1])
+        for secondary in (False, True):
+            for values in invalid:
+                with self.subTest(secondary=secondary, values=values):
+                    evidence = synthetic_pair()
+                    record = evidence["prepared_pair"]["evidence"] if secondary else evidence
+                    record["samples_ns"]["fdatasync64"] = list(values)
+                    self.assertFalse(profiles.admit(profiles.PREPARED_EXT4, evidence)["admitted"])
+            evidence = synthetic_pair()
+            record = evidence["prepared_pair"]["evidence"] if secondary else evidence
+            record["errors"].append({"probe": "sha256", "repeat": 1, "error": "probe output mismatch"})
+            self.assertFalse(profiles.admit(profiles.PREPARED_EXT4, evidence)["admitted"])
+
+    def test_legacy_caps_still_apply_and_failed_prepared_v1_is_not_registered(self):
+        evidence = synthetic_pair()
+        for key in ("metadata", "metadata_after"):
+            evidence[key]["python"] = "3.11.9"
+        evidence["samples_ns"]["cpu_serial"][1] = profiles.CAPS_NS["cpu_serial"] + 1
+        self.assertFalse(profiles.admit(profiles.NATIVE_SYNC, evidence)["admitted"])
+        failed_v1 = "public-linux-x64-4cpu-prepared-ext4-v1"
+        self.assertNotIn(failed_v1, profiles.PROFILES)
+        with self.assertRaises(KeyError):
+            profiles.admit(failed_v1, synthetic_pair())
 
 
 if __name__ == "__main__":

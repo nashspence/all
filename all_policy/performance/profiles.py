@@ -32,16 +32,19 @@ CORE = "public-linux-x64-4cpu-native-api-v1"
 NATIVE_SYNC = "public-linux-x64-4cpu-native-sync-api-v1"
 VOLATILE_SYNC = "public-linux-x64-4cpu-volatile-memory-v1"
 DURABLE = "linux-x64-4cpu-qualified-durable-v1"
-PREPARED_EXT4 = "public-linux-x64-4cpu-prepared-ext4-v1"
+PREPARED_EXT4 = "public-linux-x64-4cpu-prepared-ext4-v2"
 PROFILES = MappingProxyType({
     CORE: Profile("native", False, "CPU and native filesystem API latency; no persistence qualification"),
     NATIVE_SYNC: Profile("native", True, "Native synchronization API latency; no persistence qualification"),
     VOLATILE_SYNC: Profile("volatile", True, "Software and synchronization-call latency on volatile tmpfs; no persistence"),
     DURABLE: Profile("durable", True, "Reserved: requires approved infrastructure-specific durability qualification"),
     PREPARED_EXT4: Profile("prepared_ext4", True,
-        "Prepared host-native ext4 synchronization and operation latency; product failure/custody qualification remains separate; no physical-power-loss claim",
+        "Prepared host-native ext4 configuration admission and probe correctness; all probe timings are diagnostic, with no CPU-speed or probe-latency guarantee; complete operation budgets and product failure/custody qualification remain separate; no physical-power-loss claim",
         "3.12.16"),
 })
+# Existing profiles retain these latency gates. Prepared v2 retains every raw
+# observation but admits configuration/correctness only; its operation screens
+# and consumer budgets are separately owned and are never changed here.
 CAPS_NS = MappingProxyType({"cpu_serial": 350_000_000, "cpu_p4": 300_000_000,
                            "sha256": 250_000_000, "warm_files": 150_000_000,
                            "fdatasync64": 250_000_000})
@@ -280,7 +283,11 @@ def _admit_one(profile_id, evidence):
         if name == "fdatasync64" and not profile.sync:
             continue
         samples = evidence.get("samples_ns", {}).get(name, [])
-        if len(samples) != 3 or any(type(n) is not int or n <= 0 or n > cap for n in samples):
+        invalid = len(samples) != 3 or any(type(n) is not int or n <= 0 for n in samples)
+        if profile.storage == "prepared_ext4":
+            if invalid:
+                reasons.append(f"{name}: missing or invalid diagnostic observation")
+        elif invalid or any(n > cap for n in samples):
             reasons.append(f"{name}: missing, invalid or over-cap observation")
         if any(e.get("probe") in {name, "metadata"} for e in evidence.get("errors", [])):
             reasons.append(f"{name}: probe failed")
@@ -289,7 +296,7 @@ def _admit_one(profile_id, evidence):
 
 
 def admit(profile_id, evidence):
-    """Admit prepared pairs only when both fixed locations pass the same caps."""
+    """Prepared v2 requires both configurations and all correct diagnostic probes."""
     result = _admit_one(profile_id, evidence)
     if profile_id != PREPARED_EXT4:
         return result

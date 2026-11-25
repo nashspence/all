@@ -8,7 +8,7 @@ and fixed generic resource probes. These implementations and their measured
 availability must be qualified as a new shared package; earlier experimental
 probe results do not automatically qualify changed code.
 
-The prepared storage profile uses Python **3.12.16** and the shared setup,
+The candidate prepared storage v2 profile uses Python **3.12.16** and the shared setup,
 protected resource custody and paired admission described in
 [Prepared native storage](prepared-storage.md). It supports small CI timing
 checks with actual synchronization; existing product fault/custody/release
@@ -83,7 +83,7 @@ host temporary directory does not qualify a different guest's checkpoint store.
 | `public-linux-x64-4cpu-native-api-v1` | CPU and native filesystem API latency; no persistence qualification. |
 | `public-linux-x64-4cpu-native-sync-api-v1` | Native synchronization-call API latency; no automatic persistence qualification. |
 | `public-linux-x64-4cpu-volatile-memory-v1` | Software-operation and synchronization-call latency on an actual tmpfs mount; no host-crash or power-loss persistence. |
-| `public-linux-x64-4cpu-prepared-ext4-v1` | Complete operation timing on the shared prepared native ext4 pair with real synchronization, enabled barriers and verified backing/loop identities; Python3.12.16. Product failure-model evidence remains separate. |
+| `public-linux-x64-4cpu-prepared-ext4-v2` | Candidate configuration-admitted native ext4 pair with real synchronization and verified backing/loop identities; Python3.12.16. Probe times are diagnostic; actual operation limits remain authoritative. No fixed probe speed envelope or physical-persistence certificate. |
 | `linux-x64-4cpu-qualified-durable-v1` | Reserved and unqualified until shared authority adopts infrastructure-specific evidence and a qualification mechanism. |
 
 Storage paths are explicit workflow inputs. The runner never silently substitutes
@@ -164,7 +164,7 @@ A branch containing this implementation is not itself approval. Its setup enable
 backing root and both loop filesystems, retains the real file/directory sync
 path, and disables optional ext4 synchronous batching delay. Its protected
 manifest and actual configuration are rechecked at admission, and both storage
-locations must pass the same fixed probes. It does not activate the reserved
+locations must complete the same fixed probes correctly, with three positive integer raw durations each. In prepared v2 those durations are diagnostic, not latency-admission caps; custody/configuration/runtime and bounded execution still determine admission. The fixed CPU/sync probe speed envelope is withdrawn, while the actual operation limits remain unchanged. Prepared v1 failed its declared campaign and was not approved; v2 has a distinct prospective campaign and cannot retroactively approve v1. It does not activate the reserved
 physical-durability claim. See the linked setup/operation recipe and the shared
 enrollment record for the exact approval, evidence and refresh boundary.
 

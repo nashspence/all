@@ -1,6 +1,6 @@
 # Using the prepared native storage profile in CI
 
-`public-linux-x64-4cpu-prepared-ext4-v1` gives projects a shared, reproducible native filesystem configuration for raw operation timing. Use the activated shared revision and its retained qualification record in [all #66](https://github.com/nashspence/all/issues/66). The implementation, preparation manifest and fast probe results do not independently approve a profile revision or a consumer design budget.
+`public-linux-x64-4cpu-prepared-ext4-v2` is the candidate shared native filesystem configuration for raw operation timing. Prepared v1 failed its declared campaign and was not approved; v2 requires its own prospective qualification. Use the activated shared revision and its retained qualification record in [all #66](https://github.com/nashspence/all/issues/66). The implementation, preparation manifest and fast probe results do not independently approve a profile revision or a consumer design budget.
 
 Design supplies the operation's raw maximum wall-clock number and this profile ID. Integration supplies a small, reviewed binding to the actual production operation and ordinary output checks. The shared package owns storage preparation, admission, the outer clock and the verdict. No project implements a calibration service, reference executor, benchmark normalization or durability runtime to adopt this profile.
 
@@ -14,11 +14,11 @@ Design supplies the operation's raw maximum wall-clock number and this profile I
 | Prepared mount settings | Barriers enabled, `data=ordered`, `max_batch_time=0`, `nosuid,nodev,noatime`, and `errors=remount-ro` |
 | Backing root | Its existing data mode is preserved; barriers are enabled and `max_batch_time=0` is verified and later restored |
 | Protected custody | Root-owned private ancestry and an immutable 0400 `resource.json`, bound to preparation source, repository/ref, run, attempt, runner and actual device/backing identities |
-| Resource probes | Three observations each: serial CPU 350 ms; parallel CPU 300 ms; SHA256 250 ms; warm file reads 150 ms; 64 `fdatasync` calls 250 ms |
+| Resource probes | Three complete, correct observations each of serial CPU, parallel CPU, SHA256, warm file reads and 64 `fdatasync` calls; all raw times are retained as diagnostics, without a v2 latency-admission cap |
 
-The common preflight probes **both** enrolled filesystems before running a candidate. Missing custody, a different measured root, changed mount/direct-I/O settings, a mismatched runtime or one over-cap probe makes admission fail. It never makes the product limit larger. The two filesystems share a host and backing failure domain; filesystem separation is not independent physical storage.
+The common preflight probes **both** enrolled filesystems before running a candidate. Missing custody, a different measured root, changed mount/direct-I/O settings, a mismatched runtime, incomplete/invalid probe observations or wrong probe output makes admission fail. Probe durations must be three positive integer nanosecond values; their magnitude does not admit or exclude a v2 worker. Watchdogs still bound execution. V2 withdraws the fixed CPU/synchronization probe speed envelope. It never makes a product limit larger: real operation times decide the unchanged operation gates, and a slow diagnostic cannot excuse a miss. The two filesystems share a host and backing failure domain; filesystem separation is not independent physical storage.
 
-This profile measures actual native synchronization and operation costs. It does not certify host power-loss survival, replace an existing fault/custody proof, or change either project's failure model. The older profiles retain their own Python 3.11.9 requirement; the reserved stronger durable profile is a separate claim. See [the common timing and authority contract](performance.md).
+This profile measures actual native synchronization and operation costs. It does not certify host power-loss survival, replace an existing fault/custody proof, or change either project's failure model. The older native/volatile profiles retain their Python 3.11.9 requirement and existing numeric probe caps; the reserved stronger durable profile is a separate claim. See [the common timing and authority contract](performance.md).
 
 ## Workflow-owned setup and cleanup
 
@@ -46,7 +46,7 @@ The JSON result supplies `manifest`, `root_loop_a` and `root_loop_b`. Keep them 
   --approved-revision APPROVED_CONTRACT_FULL_SHA \
   --repository nashspence/riverhog \
   --subject /work/candidate \
-  --storage "public-linux-x64-4cpu-prepared-ext4-v1=$ROOT_LOOP_A" \
+  --storage "public-linux-x64-4cpu-prepared-ext4-v2=$ROOT_LOOP_A" \
   > "$CONTROL/performance.json"
 ```
 
@@ -102,6 +102,6 @@ Use the actual pinned source/locked installation and independently checked bytes
 
 Archive the raw gate JSON, preparation/postflight/cleanup reports, exact source tuple, installation provenance and all failures. Ensure the artifact-upload identity can read root-created reports; retain them even when the gate fails. A `pass` is 0, product `miss` is 1, `unqualified` is 2 and incorrect/incomplete/changed-source evidence is `failed` with exit 3. Preparation success is not itself a performance pass.
 
-Central profile maintenance belongs to `nashspence/all`: a weekly cohort of 12 fresh workers uses the same frozen profile, generic cases, raw screens and no-retry rules. Consumer repositories run ordinary admission and their approved operation gates, not the central research campaign. An incomplete or failed refresh suspends shared approval pending a recorded review; raw misses remain visible. A helper, runtime, probe body/cap or resource-configuration change requires a new version and qualification. Public image/kernel changes remain recorded and reviewed.
+After successful v2 qualification and explicit activation, central profile maintenance belongs to `nashspence/all`: a weekly cohort of 12 fresh workers uses the same frozen profile, actual generic operation cases, raw operation screens and no-retry rules. The failed v1 campaign is never reclassified as a pass. Initial v2 qualification is limited to the one new twelve-worker campaign in its prospective plan; another failure does not authorize further threshold fitting. Consumer repositories run ordinary admission and their approved operation gates, not the central research campaign. An incomplete or failed refresh suspends shared approval pending a recorded review; raw misses remain visible. A helper, runtime, probe body/validation rule, operation screen or resource-configuration change requires a new version and qualification. Public image/kernel changes remain recorded and reviewed.
 
 That maintenance rule does not claim automatic remote revocation of an already pinned package. The shared owner publishes the disposition and consumers must follow the active approved revision. Per-job admission still rejects an observed mismatch immediately. Activate the profile through the ordinary reviewed shared-package and repository-CI change, then select consumer numbers and bindings through their existing design authority. No additional project-specific hardware approval service is required.

@@ -29,7 +29,7 @@ import time
 BASE = Path("/var/lib/all-policy-66")
 IMAGE_BYTES = 256 * 1024 * 1024
 SCHEMA = "all-prepared-native-storage/1"
-PROFILE_ID = "public-linux-x64-4cpu-prepared-ext4-v1"
+PROFILE_ID = "public-linux-x64-4cpu-prepared-ext4-v2"
 MANIFEST_NAME = "resource.json"
 MAX_MANIFEST_BYTES = 1024 * 1024
 MOUNT_OPTIONS = "barrier=1,data=ordered,max_batch_time=0,nosuid,nodev,noatime,errors=remount-ro"

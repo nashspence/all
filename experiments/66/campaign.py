@@ -13,7 +13,7 @@ import time
 from all_policy.performance import prepared_storage as native_storage
 
 ALLOWED_REFS = ["refs/heads/experiment/66-native-storage", "refs/heads/main"]
-PROFILE = "public-linux-x64-4cpu-prepared-ext4-v1"
+PROFILE = "public-linux-x64-4cpu-prepared-ext4-v2"
 
 
 def save(path, value):
