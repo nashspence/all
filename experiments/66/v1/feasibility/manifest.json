@@ -1,0 +1,27 @@
+{
+  "schema": 1,
+  "run": 45714554382,
+  "source": "ad9ff2798e1860305bf5a293a7d3ee7e6f99bf04",
+  "activation": "b3342d61fae5aff8680cbbfbf175764c55214232",
+  "kind": "feasibility; not acceptance",
+  "jobs": [
+    {
+      "id": 139557154047,
+      "name": "storage-1",
+      "conclusion": "failure"
+    },
+    {
+      "id": 139557154562,
+      "name": "storage-2",
+      "conclusion": "failure"
+    }
+  ],
+  "record_source": "Exact STORAGE66_RECORD JSON lines recovered from workflow job logs.",
+  "retention_failure": "Both upload steps failed EACCES on root-owned fishhat-work directory. Raw preflight/postflight probe timings were separate files not embedded in records and are not recovered. Consumer/generic raw observations and storage preparation/verification/cleanup are retained in these JSON lines.",
+  "formal_fixes": [
+    "Restore artifact access to the runner after root measurement.",
+    "Embed all probe records in final JSON.",
+    "Require clean generic coordinator exit and no timeout in aggregate decision."
+  ],
+  "qualification_count": 0
+}

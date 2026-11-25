@@ -17,10 +17,10 @@ SOURCE = Path(__file__).resolve().parents[2]
 PINS = {
     "fishhat": ("f96b83dc20f059d62a4363a63c37bb0ef8c642e5",
                 "9bd952bfee4c465e1fb8cf0b8d816361ff508d3c2767078795e0a30fdfb8650d",
-                "e59b241a2e3af5bd2ba4e17b7b7cda8640998c3c954d7445ac796d0849054cee"),
+                "2b1769a4903d6a99ab29454527bddd21bb550345b69d4b64591824b68d92cd7b"),
     "riverhog": ("be483fd6d567616d5fcd355202d61f1e682efe75",
                  "16b64145aa11bfbd6d2076a7a5adc783ed7d2e000237f9c31e9977ef48815f24",
-                 "9cac47ec2007496555bcea5ed210250881015780fa8ae76c84304c29b7a9de6d"),
+                 "d0a38212f2bc2af6dc63df0678e2770e9026564a3bcb5cd9efbfad76440bda48"),
 }
 HELPER_SHA256 = "d39da81d384818c2c8a920d78e82a8ac2617378932d345fe74dd94b3ae78b2b3"
 SCREEN_NS = 320_000_000

@@ -10,10 +10,9 @@ import subprocess
 import sys
 import time
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import native_storage
+from all_policy.performance import prepared_storage as native_storage
 
-BRANCH = "refs/heads/experiment/66-native-storage"
+ALLOWED_REFS = ["refs/heads/experiment/66-native-storage", "refs/heads/main"]
 PROFILE = "public-linux-x64-4cpu-prepared-ext4-v1"
 
 
@@ -39,52 +38,11 @@ def invoke(command, output, name, timeout):
     return result
 
 
-def experimental_admit(evidence):
-    """Explicit provisional profile; same generic probes, new fixed runtime."""
-    from all_policy.performance.profiles import CAPS_NS
-    reasons = []
-    for phase in ("metadata", "metadata_after"):
-        row = evidence.get(phase, {})
-        mount = row.get("mount", {})
-        checks = [
-            (row.get("system") == "Linux", "Linux"),
-            (row.get("machine") == "x86_64", "x86_64"),
-            (row.get("python") == "3.12.16", "Python3.12.16"),
-            (row.get("logical_cpus") == 4 and row.get("affinity_count") == 4, "four available CPUs"),
-            (row.get("memory_total_bytes", 0) >= 14 * 1024**3, "14GiB memory"),
-            (row.get("free_bytes", 0) >= 64 * 1024**2, "64MiB free"),
-            (mount.get("fstype") == "ext4", "ext4"),
-            (bool(row.get("topology")), "topology"),
-        ]
-        quota = row.get("cpu_max")
-        if quota and not quota.startswith("max "):
-            try:
-                amount, period = map(int, quota.split())
-                checks.append((period > 0 and amount >= 4 * period, "CPU quota"))
-            except ValueError:
-                checks.append((False, "CPU quota"))
-        mem_max = row.get("memory_max")
-        checks.append((mem_max in (None, "max") or str(mem_max).isdigit() and int(mem_max) >= 14 * 1024**3,
-                       "memory quota"))
-        reasons.extend(phase + ": " + message for ok, message in checks if not ok)
-    before, after = evidence.get("metadata", {}), evidence.get("metadata_after", {})
-    if any(before.get(k) != after.get(k) for k in ("root", "device", "mount")):
-        reasons.append("mount identity changed")
-    for name, cap in CAPS_NS.items():
-        values = evidence.get("samples_ns", {}).get(name, [])
-        if len(values) != 3 or any(type(v) is not int or not 0 < v <= cap for v in values):
-            reasons.append(name + ": missing, invalid or over-cap observation")
-    if evidence.get("errors"):
-        reasons.append("generic preflight errors")
-    return {"profile": PROFILE, "admitted": not reasons, "reasons": reasons,
-            "scope": "experimental prepared native synchronization timing", "physical_persistence_proven": False}
-
-
 def collect(args):
     from all_policy.performance import profiles
     output = Path(args.output).resolve()
     context = json.loads((output / "preparation.json").read_text())
-    result = {"preflights": {}, "postflights": {}, "consumers": {}, "generic": None, "errors": []}
+    result = {"preflights": {}, "postflights": {}, "probe_evidence": {}, "consumers": {}, "generic": None, "errors": []}
     record_path = output / "collection.json"
     def probe(key, phase):
         name = phase + "-" + key
@@ -96,7 +54,8 @@ def collect(args):
         if call["returncode"] != 0 or call.get("timed_out"):
             evidence.setdefault("errors", []).append({"probe": "metadata", "error": "preflight command failed"})
         save(path, evidence)
-        return experimental_admit(evidence)
+        result["probe_evidence"][name] = evidence
+        return profiles.admit(profiles.PREPARED_EXT4, evidence)
     try:
         context = native_storage.verify(context, output / "preparation.json")
         save(output / "prepared-before.json", context)
@@ -169,9 +128,12 @@ def main(args):
         record["source_revision"] = source
         if (output / "bootstrap.json").exists():
             record["bootstrap"] = json.loads((output / "bootstrap.json").read_text())
+        if (output / "controls.json").exists():
+            record["controls"] = json.loads((output / "controls.json").read_text())
+            record["controls"]["stderr"] = (output / "controls.stderr").read_text()
         phase_start = time.perf_counter_ns()
         try:
-            context = native_storage.setup(expected_repository="nashspence/all", allowed_refs=[BRANCH],
+            context = native_storage.setup(expected_repository="nashspence/all", allowed_refs=ALLOWED_REFS,
                 worker_id=record["worker"], report_path=output / "preparation.json", setup_timeout_s=180)
         finally:
             record["setup_outer_ns"] = time.perf_counter_ns() - phase_start
@@ -208,8 +170,10 @@ def main(args):
         generic = collected.get("generic") or {}
         generic_rows = generic.get("operations", {})
         command = record.get("collection_command", {})
+        generic_command = collected.get("generic_command", {})
         resource_ok = (not record["errors"] and command.get("returncode") == 0
             and not command.get("timed_out") and not collected.get("errors")
+            and generic_command.get("returncode") == 0 and not generic_command.get("timed_out")
             and collected.get("postflight_intact") is True
             and record.get("setup_cleanup_within_60s") is True
             and all(len(collected.get(phase, {})) == 2 and

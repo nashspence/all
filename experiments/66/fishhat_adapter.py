@@ -19,12 +19,18 @@ def _guard(work, phase, operation):
 
 
 def _prepare(work):
+    from all_policy.performance.prepared_storage import inspect
+
     roots = json.loads((work / "storage-context.json").read_text())
+    prepared = inspect(roots["root_loop_a"])
+    cases.require(prepared.get("errors") == [] and prepared.get("resource_roots") ==
+                  {key: roots[key] for key in ("root_loop_a", "root_loop_b")},
+                  "common inspector did not verify the trusted prepared resource tuple")
     context = cases.prepare("fishhat", roots["root_loop_a"], roots["root_loop_b"])
     context["evidence_work"] = work
     (work / "consumer-provenance.json").write_text(json.dumps({
         "kind": "fishhat", "fixture_id": context["id"], "path": str(context["path"]),
-        "provenance": context["provenance"]}, sort_keys=True) + "\n")
+        "provenance": context["provenance"], "prepared_resource": prepared}, sort_keys=True) + "\n")
     return context
 
 

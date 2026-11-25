@@ -92,6 +92,43 @@ Record fresh-process startup/initialization and close separately, including thei
 
 ## Decision and adoption
 
+### Feasibility disposition and acceptance implementation
+
+The two feasibility workers ran once in GitHub Actions run **45714554382** at
+experiment source `ad9ff2798e1860305bf5a293a7d3ee7e6f99bf04`. Both completed
+the generic and actual-consumer measurements with correct results and successful
+owned cleanup. Both jobs then failed artifact upload because the runner could
+not traverse the root-owned control work directory. Exact consumer/generic raw
+records and preparation evidence were recovered from job logs; separate raw
+probe files were not recovered. These are retained feasibility failures and
+contribute **zero** acceptance workers.
+
+Before acceptance, the reusable implementation is moved into the installed
+`all_policy.performance.prepared_storage` module. It publishes a protected,
+source-bound canonical resource manifest, reinspects actual resources and
+requires the installed profile's normal admission. Paired admission probes both
+fixed filesystems with the **same** five probe bodies, ceilings and observation
+rule. The campaign still explicitly collects A and B before and after the
+operations; any duplicated pair observations remain in the packet and must pass.
+It does not choose a faster filesystem or a favorable probe round.
+
+The acceptance workflow restores runner access to the completed control-evidence
+directory before artifact upload, embeds every raw probe record in the final
+packet, and requires both collection and generic-coordinator processes to exit
+cleanly without watchdog termination. Worker1 runs the shared authority,
+completion, delay, source-mutation and prepared-resource controls once. Actual
+public runner identity is forwarded unchanged to approved product adapters so
+the common inspector can supply the paired resource paths; no credential or
+invented enrollment variable is forwarded.
+
+The code, source pins, complete operation bodies and all numeric screens are
+frozen again before the 12 new acceptance allocations. No feasibility timing is
+used to tune the limits. Shared weekly refresh will repeat the same finite
+12-worker campaign on `all/main`; its failures stay visible and require shared
+review before renewed approval. Per-job admission remains mandatory, and the
+weekly maintenance rule does not claim instantaneous revocation of an already
+pinned package in another repository.
+
 Resource qualification succeeds only with **12/12 complete admitted acceptance workers**, all **288** generic observations within their fixed screens, correct outputs, intact provenance/controls, and setup plus cleanup within 60 seconds on every worker. A single miss yields a failed prospective qualification campaign; report exactly which condition failed. It does not prove that all possible public-worker storage profiles are unusable.
 
 Report consumer results separately: functional applicability to both projects, the **72** raw warm timings, and any 320 ms target misses. Resource qualification may succeed while a consumer needs optimization. If generic resource qualification fails, retain the evidence and give a concrete next disposition; do not promote tmpfs, an unmodified relaxed root, or the fastest worker as a successful substitute.

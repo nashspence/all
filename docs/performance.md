@@ -8,6 +8,12 @@ and fixed generic resource probes. These implementations and their measured
 availability must be qualified as a new shared package; earlier experimental
 probe results do not automatically qualify changed code.
 
+The prepared storage profile uses Python **3.12.16** and the shared setup,
+protected resource custody and paired admission described in
+[Prepared native storage](prepared-storage.md). It supports small CI timing
+checks with actual synchronization; existing product fault/custody/release
+qualification remains separate.
+
 ## Approval and source
 
 The protected workflow selects three independent inputs: the installed shared
@@ -77,6 +83,7 @@ host temporary directory does not qualify a different guest's checkpoint store.
 | `public-linux-x64-4cpu-native-api-v1` | CPU and native filesystem API latency; no persistence qualification. |
 | `public-linux-x64-4cpu-native-sync-api-v1` | Native synchronization-call API latency; no automatic persistence qualification. |
 | `public-linux-x64-4cpu-volatile-memory-v1` | Software-operation and synchronization-call latency on an actual tmpfs mount; no host-crash or power-loss persistence. |
+| `public-linux-x64-4cpu-prepared-ext4-v1` | Complete operation timing on the shared prepared native ext4 pair with real synchronization, enabled barriers and verified backing/loop identities; Python3.12.16. Product failure-model evidence remains separate. |
 | `linux-x64-4cpu-qualified-durable-v1` | Reserved and unqualified until shared authority adopts infrastructure-specific evidence and a qualification mechanism. |
 
 Storage paths are explicit workflow inputs. The runner never silently substitutes
@@ -102,7 +109,7 @@ package.
 
 ## Controlled native storage qualification
 
-Standard public-runner storage is not a qualified substitute for a project's
+Unprepared standard public-runner storage is not a qualified substitute for a project's
 stronger acknowledged-storage promise. The v5 campaign observed relaxed root
 mounts on all 24 workers, and generic sync probes did not predict the actual
 operation misses. A volatile profile can expose software costs but cannot earn
@@ -150,6 +157,16 @@ unless the project's existing failure model requires that claim.
 The presently reserved durable profile therefore fails closed. A real controlled
 storage target is an infrastructure prerequisite; editing a metadata boolean,
 rerunning an unsuitable public worker or passing on tmpfs cannot supply it.
+
+The versioned prepared-ext4 profile is a separate, concrete timing resource;
+its approval is governed by #66's prospective campaign and enrollment record.
+A branch containing this implementation is not itself approval. Its setup enables barriers on the
+backing root and both loop filesystems, retains the real file/directory sync
+path, and disables optional ext4 synchronous batching delay. Its protected
+manifest and actual configuration are rechecked at admission, and both storage
+locations must pass the same fixed probes. It does not activate the reserved
+physical-durability claim. See the linked setup/operation recipe and the shared
+enrollment record for the exact approval, evidence and refresh boundary.
 
 ## Runnable adoption example
 
