@@ -1,0 +1,671 @@
+{
+  "both_consumers_applicable": true,
+  "consumer_engineering_misses": {
+    "fishhat": [
+      "worker-7/0",
+      "worker-7/1"
+    ],
+    "riverhog": []
+  },
+  "consumer_valid_observations": 72,
+  "consumer_workers_correct": 12,
+  "expected_consumer_observations": 72,
+  "expected_generic_observations": 288,
+  "expected_workers": 12,
+  "generic_valid_observations": 288,
+  "images": {
+    "20261116.133.1": 2,
+    "20261116.376.1": 5,
+    "20261122.23.1": 5
+  },
+  "interpretation": "V2 admits the declared resource configuration and requires complete correct raw probes; probe latencies are diagnostic. Every actual generic storage operation must meet its unchanged fixed maximum. Means/minima never rescue an operation miss. Consumer320ms misses remain separate. V1 verdicts are unchanged. No crash/release proof follows.",
+  "legacy_probe_cap_exceedances": [
+    {
+      "elapsed_ns": 357987442,
+      "legacy_cap_ns": 250000000,
+      "location": "preflight/root_loop_b",
+      "probe": "fdatasync64",
+      "repeat": 1,
+      "worker": 1
+    },
+    {
+      "elapsed_ns": 625465385,
+      "legacy_cap_ns": 250000000,
+      "location": "preflight/root_loop_a",
+      "probe": "fdatasync64",
+      "repeat": 0,
+      "worker": 3
+    },
+    {
+      "elapsed_ns": 362574320,
+      "legacy_cap_ns": 250000000,
+      "location": "postflight/root_loop_a",
+      "probe": "fdatasync64",
+      "repeat": 2,
+      "worker": 3
+    },
+    {
+      "elapsed_ns": 452763128,
+      "legacy_cap_ns": 250000000,
+      "location": "postflight/root_loop_a/paired",
+      "probe": "fdatasync64",
+      "repeat": 1,
+      "worker": 3
+    },
+    {
+      "elapsed_ns": 260397125,
+      "legacy_cap_ns": 250000000,
+      "location": "preflight/root_loop_a",
+      "probe": "fdatasync64",
+      "repeat": 1,
+      "worker": 5
+    },
+    {
+      "elapsed_ns": 332056517,
+      "legacy_cap_ns": 250000000,
+      "location": "preflight/root_loop_a/paired",
+      "probe": "fdatasync64",
+      "repeat": 1,
+      "worker": 5
+    },
+    {
+      "elapsed_ns": 317000069,
+      "legacy_cap_ns": 250000000,
+      "location": "preflight/root_loop_b/paired",
+      "probe": "fdatasync64",
+      "repeat": 1,
+      "worker": 5
+    },
+    {
+      "elapsed_ns": 353234331,
+      "legacy_cap_ns": 350000000,
+      "location": "preflight/root_loop_a/paired",
+      "probe": "cpu_serial",
+      "repeat": 0,
+      "worker": 7
+    },
+    {
+      "elapsed_ns": 488257704,
+      "legacy_cap_ns": 250000000,
+      "location": "postflight/root_loop_a",
+      "probe": "fdatasync64",
+      "repeat": 1,
+      "worker": 7
+    },
+    {
+      "elapsed_ns": 447559370,
+      "legacy_cap_ns": 250000000,
+      "location": "postflight/root_loop_b",
+      "probe": "fdatasync64",
+      "repeat": 0,
+      "worker": 7
+    }
+  ],
+  "legacy_probe_caps_ns": {
+    "cpu_p4": 300000000,
+    "cpu_serial": 350000000,
+    "fdatasync64": 250000000,
+    "sha256": 250000000,
+    "warm_files": 150000000
+  },
+  "metrics": {
+    "consumer/fishhat": {
+      "count": 36,
+      "max_ns": 605141475,
+      "mean_ns": 45636038.583333336,
+      "median_ns": 13826054.0,
+      "min_ns": 9413701,
+      "total_ns": 1642897389
+    },
+    "consumer/riverhog": {
+      "count": 36,
+      "max_ns": 69181473,
+      "mean_ns": 23043340.166666668,
+      "median_ns": 14863582.0,
+      "min_ns": 10870713,
+      "total_ns": 829560246
+    },
+    "consumer_stage/fishhat/drain_ns": {
+      "count": 12,
+      "max_ns": 33471700,
+      "mean_ns": 28483375,
+      "median_ns": 28878442.5,
+      "min_ns": 23453989,
+      "total_ns": 341800500
+    },
+    "consumer_stage/fishhat/startup_ns": {
+      "count": 12,
+      "max_ns": 382914584,
+      "mean_ns": 296780570.6666667,
+      "median_ns": 285869415.5,
+      "min_ns": 253646661,
+      "total_ns": 3561366848
+    },
+    "consumer_stage/fishhat/verification_ns": {
+      "count": 36,
+      "max_ns": 1615271,
+      "mean_ns": 1168646.638888889,
+      "median_ns": 1136215.0,
+      "min_ns": 869707,
+      "total_ns": 42071279
+    },
+    "consumer_stage/riverhog/drain_ns": {
+      "count": 12,
+      "max_ns": 205230912,
+      "mean_ns": 151004756.41666666,
+      "median_ns": 148774034.0,
+      "min_ns": 108089650,
+      "total_ns": 1812057077
+    },
+    "consumer_stage/riverhog/startup_ns": {
+      "count": 12,
+      "max_ns": 3554605473,
+      "mean_ns": 2659645555.8333335,
+      "median_ns": 2604675108.5,
+      "min_ns": 2241528085,
+      "total_ns": 31915746670
+    },
+    "consumer_stage/riverhog/verification_ns": {
+      "count": 36,
+      "max_ns": 8227645,
+      "mean_ns": 2218342.277777778,
+      "median_ns": 1807245.5,
+      "min_ns": 943708,
+      "total_ns": 79860322
+    },
+    "cost/bootstrap": {
+      "count": 12,
+      "max_ns": 12060447109,
+      "mean_ns": 8258507234.583333,
+      "median_ns": 7685057215.0,
+      "min_ns": 6271284635,
+      "total_ns": 99102086815
+    },
+    "cost/controller": {
+      "count": 12,
+      "max_ns": 38395966831,
+      "mean_ns": 29797423128.583332,
+      "median_ns": 29332803477.0,
+      "min_ns": 23521125489,
+      "total_ns": 357569077543
+    },
+    "cost/setup_cleanup": {
+      "count": 12,
+      "max_ns": 3823413244,
+      "mean_ns": 2121122675.6666667,
+      "median_ns": 1650273127.0,
+      "min_ns": 997693567,
+      "total_ns": 25453472108
+    },
+    "generic/append64_sync": {
+      "count": 36,
+      "max_ns": 153543188,
+      "mean_ns": 34692220.88888889,
+      "median_ns": 21022649.0,
+      "min_ns": 14614232,
+      "total_ns": 1248919952
+    },
+    "generic/atomic16_p1": {
+      "count": 36,
+      "max_ns": 119233702,
+      "mean_ns": 21524483.444444444,
+      "median_ns": 13992317.0,
+      "min_ns": 7522880,
+      "total_ns": 774881404
+    },
+    "generic/atomic16_p2": {
+      "count": 36,
+      "max_ns": 84857485,
+      "mean_ns": 17611905.388888888,
+      "median_ns": 12491905.0,
+      "min_ns": 7410692,
+      "total_ns": 634028594
+    },
+    "generic/atomic16_p4": {
+      "count": 36,
+      "max_ns": 35651751,
+      "mean_ns": 10777832.722222222,
+      "median_ns": 7366747.5,
+      "min_ns": 5640036,
+      "total_ns": 388001978
+    },
+    "generic/sqlite64_delete_extra": {
+      "count": 36,
+      "max_ns": 496986180,
+      "mean_ns": 126347277.6388889,
+      "median_ns": 71118965.5,
+      "min_ns": 53996423,
+      "total_ns": 4548501995
+    },
+    "generic/sqlite64_delete_extra_batch": {
+      "count": 36,
+      "max_ns": 78914412,
+      "mean_ns": 6708104.555555556,
+      "median_ns": 3475671.0,
+      "min_ns": 2661804,
+      "total_ns": 241491764
+    },
+    "generic/sqlite64_wal_full": {
+      "count": 36,
+      "max_ns": 134138346,
+      "mean_ns": 42712778.55555555,
+      "median_ns": 26848612.5,
+      "min_ns": 18169971,
+      "total_ns": 1537660028
+    },
+    "generic/sqlite64_wal_full_batch": {
+      "count": 36,
+      "max_ns": 14709599,
+      "mean_ns": 6236084.5,
+      "median_ns": 4873407.0,
+      "min_ns": 3445087,
+      "total_ns": 224499042
+    },
+    "generic_stage/drain_fixture_cleanup_ns": {
+      "count": 288,
+      "max_ns": 24978660,
+      "mean_ns": 17039624.197916668,
+      "median_ns": 17130454.0,
+      "min_ns": 12961775,
+      "total_ns": 4907411769
+    },
+    "generic_stage/startup_prepare_ns": {
+      "count": 288,
+      "max_ns": 569313071,
+      "mean_ns": 185560461.9340278,
+      "median_ns": 172673923.5,
+      "min_ns": 143618064,
+      "total_ns": 53441413037
+    },
+    "generic_stage/verification_reset_ns": {
+      "count": 288,
+      "max_ns": 204999816,
+      "mean_ns": 5412814.59375,
+      "median_ns": 1028428.0,
+      "min_ns": 557449,
+      "total_ns": 1558890603
+    },
+    "probe/cpu_p4": {
+      "count": 288,
+      "max_ns": 215821430,
+      "mean_ns": 128164023.99305555,
+      "median_ns": 112815733.5,
+      "min_ns": 100959930,
+      "total_ns": 36911238910
+    },
+    "probe/cpu_serial": {
+      "count": 288,
+      "max_ns": 353234331,
+      "mean_ns": 256023961.6736111,
+      "median_ns": 229423429.5,
+      "min_ns": 212859108,
+      "total_ns": 73734900962
+    },
+    "probe/fdatasync64": {
+      "count": 288,
+      "max_ns": 625465385,
+      "mean_ns": 59506887.625,
+      "median_ns": 34105005.0,
+      "min_ns": 16875275,
+      "total_ns": 17137983636
+    },
+    "probe/sha256": {
+      "count": 288,
+      "max_ns": 210622634,
+      "mean_ns": 154723708.7951389,
+      "median_ns": 144258568.5,
+      "min_ns": 135941035,
+      "total_ns": 44560428133
+    },
+    "probe/warm_files": {
+      "count": 288,
+      "max_ns": 110870153,
+      "mean_ns": 61544664.9375,
+      "median_ns": 46833267.0,
+      "min_ns": 43633003,
+      "total_ns": 17724863502
+    }
+  },
+  "phase": "acceptance",
+  "physical_persistence_proven": false,
+  "population_failures": [],
+  "probe_latency_caps_are_acceptance_conditions": false,
+  "profile": "public-linux-x64-4cpu-prepared-ext4-v2",
+  "profile_approved_by_analyzer": false,
+  "resource_qualification": "passed",
+  "resource_workers_passed": 12,
+  "run": "45718971162",
+  "schema": "all.storage66.independent-analysis/v2",
+  "source": "5086428a29871eeb267ea7225537aa0225930bac",
+  "workers": [
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.376.1",
+      "job_id": 139572160970,
+      "legacy_probe_cap_exceedances": [
+        {
+          "elapsed_ns": 357987442,
+          "legacy_cap_ns": 250000000,
+          "location": "preflight/root_loop_b",
+          "probe": "fdatasync64",
+          "repeat": 1
+        }
+      ],
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056508",
+      "worker": 1
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261122.23.1",
+      "job_id": 139572160964,
+      "legacy_probe_cap_exceedances": [],
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056510",
+      "worker": 2
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.376.1",
+      "job_id": 139572161023,
+      "legacy_probe_cap_exceedances": [
+        {
+          "elapsed_ns": 625465385,
+          "legacy_cap_ns": 250000000,
+          "location": "preflight/root_loop_a",
+          "probe": "fdatasync64",
+          "repeat": 0
+        },
+        {
+          "elapsed_ns": 362574320,
+          "legacy_cap_ns": 250000000,
+          "location": "postflight/root_loop_a",
+          "probe": "fdatasync64",
+          "repeat": 2
+        },
+        {
+          "elapsed_ns": 452763128,
+          "legacy_cap_ns": 250000000,
+          "location": "postflight/root_loop_a/paired",
+          "probe": "fdatasync64",
+          "repeat": 1
+        }
+      ],
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056506",
+      "worker": 3
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.133.1",
+      "job_id": 139572160414,
+      "legacy_probe_cap_exceedances": [],
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056501",
+      "worker": 4
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.376.1",
+      "job_id": 139572161087,
+      "legacy_probe_cap_exceedances": [
+        {
+          "elapsed_ns": 260397125,
+          "legacy_cap_ns": 250000000,
+          "location": "preflight/root_loop_a",
+          "probe": "fdatasync64",
+          "repeat": 1
+        },
+        {
+          "elapsed_ns": 332056517,
+          "legacy_cap_ns": 250000000,
+          "location": "preflight/root_loop_a/paired",
+          "probe": "fdatasync64",
+          "repeat": 1
+        },
+        {
+          "elapsed_ns": 317000069,
+          "legacy_cap_ns": 250000000,
+          "location": "preflight/root_loop_b/paired",
+          "probe": "fdatasync64",
+          "repeat": 1
+        }
+      ],
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056513",
+      "worker": 5
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.133.1",
+      "job_id": 139572161605,
+      "legacy_probe_cap_exceedances": [],
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056514",
+      "worker": 6
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [
+          0,
+          1
+        ],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.376.1",
+      "job_id": 139572160819,
+      "legacy_probe_cap_exceedances": [
+        {
+          "elapsed_ns": 353234331,
+          "legacy_cap_ns": 350000000,
+          "location": "preflight/root_loop_a/paired",
+          "probe": "cpu_serial",
+          "repeat": 0
+        },
+        {
+          "elapsed_ns": 488257704,
+          "legacy_cap_ns": 250000000,
+          "location": "postflight/root_loop_a",
+          "probe": "fdatasync64",
+          "repeat": 1
+        },
+        {
+          "elapsed_ns": 447559370,
+          "legacy_cap_ns": 250000000,
+          "location": "postflight/root_loop_b",
+          "probe": "fdatasync64",
+          "repeat": 0
+        }
+      ],
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056503",
+      "worker": 7
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261122.23.1",
+      "job_id": 139572160800,
+      "legacy_probe_cap_exceedances": [],
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056502",
+      "worker": 8
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261116.376.1",
+      "job_id": 139572161130,
+      "legacy_probe_cap_exceedances": [],
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056511",
+      "worker": 9
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261122.23.1",
+      "job_id": 139572160795,
+      "legacy_probe_cap_exceedances": [],
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056505",
+      "worker": 10
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261122.23.1",
+      "job_id": 139572160890,
+      "legacy_probe_cap_exceedances": [],
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056504",
+      "worker": 11
+    },
+    {
+      "both_consumers_correct": true,
+      "common_failures": [],
+      "consumer_engineering_misses": {
+        "fishhat": [],
+        "riverhog": []
+      },
+      "consumer_failures": [],
+      "consumer_valid_observations": {
+        "fishhat": 3,
+        "riverhog": 3
+      },
+      "generic_valid_observations": 24,
+      "image": "20261122.23.1",
+      "job_id": 139572161006,
+      "legacy_probe_cap_exceedances": [],
+      "resource_failures": [],
+      "resource_pass": true,
+      "runner": "GitHub Actions 1000056509",
+      "worker": 12
+    }
+  ]
+}
