@@ -1,11 +1,16 @@
 import argparse
 import os
+import sys
 
 from .audit import audit
 from .protocol import SOURCE_REPOSITORY, check_repository
 
 
 def main(argv=None):
+    argv = list(sys.argv[1:] if argv is None else argv)
+    if argv and argv[0] == "performance":
+        from .performance.__main__ import main as performance_main
+        return performance_main(argv[1:])
     parser = argparse.ArgumentParser(prog="all-policy")
     commands = parser.add_subparsers(dest="command", required=True)
     check = commands.add_parser("check")
@@ -13,6 +18,7 @@ def main(argv=None):
     check.add_argument("--repository", default=os.environ.get("GITHUB_REPOSITORY", ""))
     inventory = commands.add_parser("audit")
     inventory.add_argument("--owner", default=SOURCE_REPOSITORY.split("/")[0])
+    commands.add_parser("performance", help="run an approved absolute performance contract")
     args = parser.parse_args(argv)
     if args.command == "check":
         errors = check_repository(args.path, args.repository)
