@@ -1,0 +1,1842 @@
+{
+  "source": "2f1a2f6406f8f7d52592cb95a693483cc111c838",
+  "allocations": 12,
+  "timings": 648,
+  "families": {
+    "64": {
+      "e": 0.148227162237581,
+      "same": [
+        {
+          "allocation": 1,
+          "ratio": 1.0189201008087212,
+          "guard": 0.07249158908803843,
+          "eligible": true
+        },
+        {
+          "allocation": 2,
+          "ratio": 1.0539665260519038,
+          "guard": 0.0704079372852513,
+          "eligible": true
+        },
+        {
+          "allocation": 3,
+          "ratio": 1.0731143662715221,
+          "guard": 0.06252665896041854,
+          "eligible": true
+        },
+        {
+          "allocation": 4,
+          "ratio": 1.0085718691288084,
+          "guard": 0.04727800158264195,
+          "eligible": true
+        },
+        {
+          "allocation": 5,
+          "ratio": 1.118227162237581,
+          "guard": 0.01712883979732105,
+          "eligible": true
+        },
+        {
+          "allocation": 6,
+          "ratio": 0.9913808806717652,
+          "guard": 0.07510289632054823,
+          "eligible": true
+        },
+        {
+          "allocation": 7,
+          "ratio": 0.9329463131387824,
+          "guard": 0.06452097960484005,
+          "eligible": true
+        },
+        {
+          "allocation": 8,
+          "ratio": 1.1959704074420279,
+          "guard": 0.1977406148724441,
+          "eligible": false
+        },
+        {
+          "allocation": 9,
+          "ratio": 1.1290939005231941,
+          "guard": 0.0025867175427203293,
+          "eligible": true
+        },
+        {
+          "allocation": 10,
+          "ratio": 1.0257789426166557,
+          "guard": 0.018801997743970178,
+          "eligible": true
+        },
+        {
+          "allocation": 11,
+          "ratio": 1.1647457044537317,
+          "guard": 0.029458179695682762,
+          "eligible": true
+        },
+        {
+          "allocation": 12,
+          "ratio": 1.041713844991075,
+          "guard": 0.055910447156306775,
+          "eligible": true
+        }
+      ],
+      "work50": [
+        {
+          "allocation": 1,
+          "ratio": 1.5117455516589478,
+          "guard": 0.0015783313341097838,
+          "eligible": true
+        },
+        {
+          "allocation": 2,
+          "ratio": 1.4226463485059437,
+          "guard": 0.030166789287286777,
+          "eligible": true
+        },
+        {
+          "allocation": 3,
+          "ratio": 1.3172477142829038,
+          "guard": 0.004628388078168122,
+          "eligible": true
+        },
+        {
+          "allocation": 4,
+          "ratio": 1.4477692795974437,
+          "guard": 0.048010333631083535,
+          "eligible": true
+        },
+        {
+          "allocation": 5,
+          "ratio": 1.5468676583140903,
+          "guard": 0.14752109861266227,
+          "eligible": false
+        },
+        {
+          "allocation": 6,
+          "ratio": 1.4085848593592623,
+          "guard": 0.011122430945820438,
+          "eligible": true
+        },
+        {
+          "allocation": 7,
+          "ratio": 1.428329127840617,
+          "guard": 0.00493443385034209,
+          "eligible": true
+        },
+        {
+          "allocation": 8,
+          "ratio": 1.6083377489454043,
+          "guard": 0.18165368050250663,
+          "eligible": false
+        },
+        {
+          "allocation": 9,
+          "ratio": 1.3822395693593443,
+          "guard": 0.037385659637029445,
+          "eligible": true
+        },
+        {
+          "allocation": 10,
+          "ratio": 1.2906540532857353,
+          "guard": 0.002907138966949052,
+          "eligible": true
+        },
+        {
+          "allocation": 11,
+          "ratio": 1.6561155057860804,
+          "guard": 0.697417886555737,
+          "eligible": false
+        },
+        {
+          "allocation": 12,
+          "ratio": 1.5094029102775255,
+          "guard": 0.0006182731646087181,
+          "eligible": true
+        }
+      ],
+      "eligible_null": 5,
+      "eligible_work": 4,
+      "null_screen": false,
+      "null_budget_pass": 1,
+      "work_sensitivity": 4,
+      "work_budget_miss": 3,
+      "strong_screen": false,
+      "diagnostics": {
+        "first": {
+          "same": [
+            {
+              "allocation": 1,
+              "ratio": 0.9300878897711511,
+              "guard": 0.028378408887685946,
+              "eligible": true
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.0285231709693632,
+              "guard": 0.05947921150129187,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.1070104865850938,
+              "guard": 0.27331397355130815,
+              "eligible": false
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.1260276371105884,
+              "guard": 0.03959243220998965,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.52912012664127,
+              "guard": 0.557230407066525,
+              "eligible": false
+            },
+            {
+              "allocation": 6,
+              "ratio": 0.9913808806717652,
+              "guard": 0.14743868157176943,
+              "eligible": false
+            },
+            {
+              "allocation": 7,
+              "ratio": 0.9264222429481086,
+              "guard": 0.06955445256916115,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 0.9868322360117536,
+              "guard": 0.014066421516472305,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.1290939005231941,
+              "guard": 0.1274471285410026,
+              "eligible": false
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.0257789426166557,
+              "guard": 0.018801997743970178,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 1.130857222997507,
+              "guard": 0.0612573474448912,
+              "eligible": true
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.041713844991075,
+              "guard": 0.055910447156306775,
+              "eligible": true
+            }
+          ],
+          "work50": [
+            {
+              "allocation": 1,
+              "ratio": 1.3938894955537198,
+              "guard": 0.024016474861975556,
+              "eligible": true
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.4226463485059437,
+              "guard": 0.030166789287286777,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.524091861331125,
+              "guard": 0.04349718554031412,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.4228493304038354,
+              "guard": 0.051688365753268295,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.6041230460509173,
+              "guard": 0.019921612894439056,
+              "eligible": true
+            },
+            {
+              "allocation": 6,
+              "ratio": 1.6760752716775367,
+              "guard": 0.12078848566678824,
+              "eligible": false
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.413507177132824,
+              "guard": 0.032931387887096264,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.6083377489454043,
+              "guard": 0.18165368050250663,
+              "eligible": false
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.3490176411266201,
+              "guard": 0.012238871869330259,
+              "eligible": true
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.2906540532857353,
+              "guard": 0.002907138966949052,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 0.7609879692925301,
+              "guard": 0.8725047685282186,
+              "eligible": false
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.5423337785032258,
+              "guard": 0.12347577212530458,
+              "eligible": false
+            }
+          ]
+        },
+        "mean": {
+          "same": [
+            {
+              "allocation": 1,
+              "ratio": 0.9540462187706935,
+              "guard": 0.04108420528345347,
+              "eligible": true
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.0226223229045048,
+              "guard": 0.03400791727711927,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.04606912035329,
+              "guard": 0.051587996073853226,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.0278612320670146,
+              "guard": 0.01880184100800153,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.447926287902271,
+              "guard": 0.19991602760636074,
+              "eligible": false
+            },
+            {
+              "allocation": 6,
+              "ratio": 1.0112511806749869,
+              "guard": 0.021449306969039794,
+              "eligible": true
+            },
+            {
+              "allocation": 7,
+              "ratio": 0.9580850401715908,
+              "guard": 0.0938731718186101,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.0485282534718536,
+              "guard": 0.06051188134761354,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.1140052804051317,
+              "guard": 0.0707299709533935,
+              "eligible": true
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.036994647697939,
+              "guard": 0.04552612918307197,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 1.396037593970299,
+              "guard": 0.17719469123102427,
+              "eligible": false
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.0132673435857658,
+              "guard": 0.06818454821936215,
+              "eligible": true
+            }
+          ],
+          "work50": [
+            {
+              "allocation": 1,
+              "ratio": 1.443559296367037,
+              "guard": 0.04025527090176606,
+              "eligible": true
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.3848043669842456,
+              "guard": 0.006257943080620443,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.4066109825880133,
+              "guard": 0.012940934066361987,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.4022372740671536,
+              "guard": 0.003148343645918761,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.4594633499635261,
+              "guard": 0.03018426325043788,
+              "eligible": true
+            },
+            {
+              "allocation": 6,
+              "ratio": 1.4430896435813,
+              "guard": 0.006193888463801311,
+              "eligible": true
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.4486170860765264,
+              "guard": 0.018865642903056923,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.4498539969592845,
+              "guard": 0.040723705532506926,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.341647835620548,
+              "guard": 0.020264584811837683,
+              "eligible": true
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.37135214257445,
+              "guard": 0.0092194241408865,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 0.7616528006547268,
+              "guard": 0.19016931353181032,
+              "eligible": false
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.4360271040494286,
+              "guard": 0.016725584999472298,
+              "eligible": true
+            }
+          ]
+        },
+        "median": {
+          "same": [
+            {
+              "allocation": 1,
+              "ratio": 0.9588859956078257,
+              "guard": 0.09840155912850368,
+              "eligible": true
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.015855334154785,
+              "guard": 0.02625333171811528,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.0714222780777651,
+              "guard": 0.0949947826175419,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 0.9660304259748882,
+              "guard": 0.03147674536208567,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.6180263860859978,
+              "guard": 0.036401367057611766,
+              "eligible": true
+            },
+            {
+              "allocation": 6,
+              "ratio": 0.9813105035779247,
+              "guard": 0.00153598682672218,
+              "eligible": true
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.0237374329107412,
+              "guard": 0.15422373227962782,
+              "eligible": false
+            },
+            {
+              "allocation": 8,
+              "ratio": 0.9982485865902723,
+              "guard": 0.0007755864897043274,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.022526075705414,
+              "guard": 0.011654541287330122,
+              "eligible": true
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.0882803303402468,
+              "guard": 0.10343790043545087,
+              "eligible": false
+            },
+            {
+              "allocation": 11,
+              "ratio": 1.1654138538374919,
+              "guard": 0.0612573474448912,
+              "eligible": true
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.0055568429978288,
+              "guard": 0.12168134489491611,
+              "eligible": false
+            }
+          ],
+          "work50": [
+            {
+              "allocation": 1,
+              "ratio": 1.4443113605057052,
+              "guard": 0.09994719182518752,
+              "eligible": true
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.3619501572958606,
+              "guard": 0.034828448391285294,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.5139079508667772,
+              "guard": 0.03652458619970744,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.4126555300665098,
+              "guard": 0.01203941156454924,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.5290048332327104,
+              "guard": 0.019921612894439056,
+              "eligible": true
+            },
+            {
+              "allocation": 6,
+              "ratio": 1.5187820677968484,
+              "guard": 0.015606806322120192,
+              "eligible": true
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.5174505586302585,
+              "guard": 0.025200250329634466,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.418840078849036,
+              "guard": 0.02325490354521631,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.3490176411266201,
+              "guard": 0.07153881717392951,
+              "eligible": true
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.4183233058782998,
+              "guard": 0.020343893823313808,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 1.588577964357806,
+              "guard": 1.4196676826502568,
+              "eligible": false
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.3728233547801016,
+              "guard": 0.02110734517196522,
+              "eligible": true
+            }
+          ]
+        }
+      }
+    },
+    "256": {
+      "e": 0.11672920895083469,
+      "same": [
+        {
+          "allocation": 1,
+          "ratio": 1.0235028683057614,
+          "guard": 0.019266474015966706,
+          "eligible": true
+        },
+        {
+          "allocation": 2,
+          "ratio": 1.0708656290704153,
+          "guard": 0.07026996649987183,
+          "eligible": true
+        },
+        {
+          "allocation": 3,
+          "ratio": 1.0867292089508347,
+          "guard": 0.07837664173861425,
+          "eligible": true
+        },
+        {
+          "allocation": 4,
+          "ratio": 1.0260586845120334,
+          "guard": 0.023658410569201704,
+          "eligible": true
+        },
+        {
+          "allocation": 5,
+          "ratio": 0.9942789533643199,
+          "guard": 0.023383482277707923,
+          "eligible": true
+        },
+        {
+          "allocation": 6,
+          "ratio": 1.0459109943035858,
+          "guard": 0.07085768237703371,
+          "eligible": true
+        },
+        {
+          "allocation": 7,
+          "ratio": 0.9746925349929791,
+          "guard": 0.007758111760143516,
+          "eligible": true
+        },
+        {
+          "allocation": 8,
+          "ratio": 1.1031181202977112,
+          "guard": 0.0026140570827710707,
+          "eligible": true
+        },
+        {
+          "allocation": 9,
+          "ratio": 1.0394103701226425,
+          "guard": 0.01822929716413335,
+          "eligible": true
+        },
+        {
+          "allocation": 10,
+          "ratio": 1.0936289012127163,
+          "guard": 0.0923527883566666,
+          "eligible": true
+        },
+        {
+          "allocation": 11,
+          "ratio": 1.083618163045575,
+          "guard": 0.1525553853542847,
+          "eligible": false
+        },
+        {
+          "allocation": 12,
+          "ratio": 1.061639004209444,
+          "guard": 0.0651784967147635,
+          "eligible": true
+        }
+      ],
+      "work50": [
+        {
+          "allocation": 1,
+          "ratio": 1.449119927966295,
+          "guard": 0.028891588781477795,
+          "eligible": true
+        },
+        {
+          "allocation": 2,
+          "ratio": 1.3979752637587588,
+          "guard": 0.0229734752069084,
+          "eligible": true
+        },
+        {
+          "allocation": 3,
+          "ratio": 1.4791669802823204,
+          "guard": 0.055729223311799414,
+          "eligible": true
+        },
+        {
+          "allocation": 4,
+          "ratio": 1.4172026786179708,
+          "guard": 0.020175305333052673,
+          "eligible": true
+        },
+        {
+          "allocation": 5,
+          "ratio": 1.3869857738064104,
+          "guard": 0.07057919549612435,
+          "eligible": true
+        },
+        {
+          "allocation": 6,
+          "ratio": 1.4316189254405314,
+          "guard": 0.06942104199342958,
+          "eligible": true
+        },
+        {
+          "allocation": 7,
+          "ratio": 1.4550294804856305,
+          "guard": 0.016878089311945788,
+          "eligible": true
+        },
+        {
+          "allocation": 8,
+          "ratio": 1.4674024040720948,
+          "guard": 0.0630842374923748,
+          "eligible": true
+        },
+        {
+          "allocation": 9,
+          "ratio": 1.492228760526034,
+          "guard": 0.07268107493374809,
+          "eligible": true
+        },
+        {
+          "allocation": 10,
+          "ratio": 1.457691357881293,
+          "guard": 0.07898957153760877,
+          "eligible": true
+        },
+        {
+          "allocation": 11,
+          "ratio": 1.4706280219973935,
+          "guard": 0.026555937334472146,
+          "eligible": true
+        },
+        {
+          "allocation": 12,
+          "ratio": 1.3708132374240334,
+          "guard": 0.04548902538545141,
+          "eligible": true
+        }
+      ],
+      "eligible_null": 5,
+      "eligible_work": 6,
+      "null_screen": true,
+      "null_budget_pass": 2,
+      "work_sensitivity": 6,
+      "work_budget_miss": 6,
+      "strong_screen": false,
+      "diagnostics": {
+        "first": {
+          "same": [
+            {
+              "allocation": 1,
+              "ratio": 1.0086097391489128,
+              "guard": 0.17860991641214885,
+              "eligible": false
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.0708656290704153,
+              "guard": 0.07026996649987183,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.2009738159974048,
+              "guard": 0.255057901592304,
+              "eligible": false
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.2025759976324815,
+              "guard": 0.13105394428909833,
+              "eligible": false
+            },
+            {
+              "allocation": 5,
+              "ratio": 0.9644820731923078,
+              "guard": 0.35709343945392047,
+              "eligible": false
+            },
+            {
+              "allocation": 6,
+              "ratio": 0.976704011668411,
+              "guard": 0.05805427975971811,
+              "eligible": true
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.0349623948081839,
+              "guard": 0.36389862915220883,
+              "eligible": false
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.1031181202977112,
+              "guard": 0.0026140570827710707,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.2722227162045978,
+              "guard": 0.3729263940986798,
+              "eligible": false
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.2819535884065263,
+              "guard": 0.26376996949002685,
+              "eligible": false
+            },
+            {
+              "allocation": 11,
+              "ratio": 1.083618163045575,
+              "guard": 0.4531099210462288,
+              "eligible": false
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.073005591848891,
+              "guard": 0.10055118616843028,
+              "eligible": false
+            }
+          ],
+          "work50": [
+            {
+              "allocation": 1,
+              "ratio": 1.4325665962701284,
+              "guard": 0.40338805655769394,
+              "eligible": false
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.4509877249824668,
+              "guard": 0.010437936972504946,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.4791669802823204,
+              "guard": 0.055729223311799414,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.45138559833705,
+              "guard": 0.016377561360512383,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.6569195092862463,
+              "guard": 0.13075585035497017,
+              "eligible": false
+            },
+            {
+              "allocation": 6,
+              "ratio": 1.4253724614620924,
+              "guard": 0.12019585737744798,
+              "eligible": false
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.442154406542655,
+              "guard": 0.06234771596433686,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.3241096078003949,
+              "guard": 0.07792625881767612,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.528197107325586,
+              "guard": 0.015612633577589241,
+              "eligible": true
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.457691357881293,
+              "guard": 0.07898957153760877,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 1.4637113115187452,
+              "guard": 1.3788735882103693,
+              "eligible": false
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.478691210112847,
+              "guard": 0.0018155043641818747,
+              "eligible": true
+            }
+          ]
+        },
+        "mean": {
+          "same": [
+            {
+              "allocation": 1,
+              "ratio": 1.0150027781494624,
+              "guard": 0.0696168213635795,
+              "eligible": true
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.0402939646879414,
+              "guard": 0.032281726379658426,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.095573431278539,
+              "guard": 0.1142453757516344,
+              "eligible": false
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.074647803924319,
+              "guard": 0.030518927424893372,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.188801809678254,
+              "guard": 0.1341674942254325,
+              "eligible": false
+            },
+            {
+              "allocation": 6,
+              "ratio": 0.9962129410366917,
+              "guard": 0.008883282057673858,
+              "eligible": true
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.001759068059731,
+              "guard": 0.19097642945940008,
+              "eligible": false
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.03909298900573,
+              "guard": 0.009876822694040444,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.0859339847737408,
+              "guard": 0.12230887696242099,
+              "eligible": false
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.087243947112683,
+              "guard": 0.08136047187648243,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 1.1090745751539501,
+              "guard": 0.1292971658065456,
+              "eligible": false
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.0392837317767125,
+              "guard": 0.04837677926566508,
+              "eligible": true
+            }
+          ],
+          "work50": [
+            {
+              "allocation": 1,
+              "ratio": 1.4290416769779546,
+              "guard": 0.1583950071193212,
+              "eligible": false
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.4222229254839849,
+              "guard": 0.009034392421846338,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.409402056544939,
+              "guard": 0.011694307183434782,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.409622890749012,
+              "guard": 0.006072149761506385,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.4331747263527121,
+              "guard": 0.0223433523604617,
+              "eligible": true
+            },
+            {
+              "allocation": 6,
+              "ratio": 1.4151074734790867,
+              "guard": 0.04954808668972954,
+              "eligible": true
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.4260314493811976,
+              "guard": 0.024802688266963857,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.3937251199302805,
+              "guard": 0.03985331462335129,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.4564037266336431,
+              "guard": 0.0030741593652692245,
+              "eligible": true
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.462823012006575,
+              "guard": 0.015209193095949702,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 1.821210247435253,
+              "guard": 0.36833334231828396,
+              "eligible": false
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.4141142423723014,
+              "guard": 0.003225297448842923,
+              "eligible": true
+            }
+          ]
+        },
+        "median": {
+          "same": [
+            {
+              "allocation": 1,
+              "ratio": 1.02146054821241,
+              "guard": 0.0072509920055447985,
+              "eligible": true
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.0560936062914954,
+              "guard": 0.026453404388760537,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.030586010330253,
+              "guard": 0.035733847909507954,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.0281573842726008,
+              "guard": 0.04974921051102599,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.0317634584719726,
+              "guard": 0.0442265965422286,
+              "eligible": true
+            },
+            {
+              "allocation": 6,
+              "ratio": 0.9809599467469267,
+              "guard": 0.03337037995945913,
+              "eligible": true
+            },
+            {
+              "allocation": 7,
+              "ratio": 0.9928734026290734,
+              "guard": 0.18657109815998418,
+              "eligible": false
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.0299694772802204,
+              "guard": 0.024293013079104142,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 0.9842729706724699,
+              "guard": 0.07281050391256993,
+              "eligible": true
+            },
+            {
+              "allocation": 10,
+              "ratio": 0.9995725988750305,
+              "guard": 0.00019989568884604125,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 1.0487411378098581,
+              "guard": 0.2604717420485987,
+              "eligible": false
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.0653660781527383,
+              "guard": 0.09271555518577745,
+              "eligible": true
+            }
+          ],
+          "work50": [
+            {
+              "allocation": 1,
+              "ratio": 1.406098394225874,
+              "guard": 0.010687979181693619,
+              "eligible": true
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.4509877249824668,
+              "guard": 0.010437936972504946,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.391299429175338,
+              "guard": 0.0019574663092374323,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.3879088495961995,
+              "guard": 0.021428485606459713,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.43981957564289,
+              "guard": 0.07162026182732095,
+              "eligible": true
+            },
+            {
+              "allocation": 6,
+              "ratio": 1.4253724614620924,
+              "guard": 0.12019585737744798,
+              "eligible": false
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.4017635018406676,
+              "guard": 0.00865027472828972,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.3241096078003949,
+              "guard": 0.07792625881767612,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.4797787940215696,
+              "guard": 0.015612633577589241,
+              "eligible": true
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.417308379816202,
+              "guard": 0.019607728792843115,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 1.7780551381329432,
+              "guard": 0.13872882006417941,
+              "eligible": false
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.478691210112847,
+              "guard": 0.0018155043641818747,
+              "eligible": true
+            }
+          ]
+        }
+      }
+    },
+    "1024": {
+      "e": 0.10843092884350011,
+      "same": [
+        {
+          "allocation": 1,
+          "ratio": 0.9914695709793635,
+          "guard": 0.0345483592154745,
+          "eligible": true
+        },
+        {
+          "allocation": 2,
+          "ratio": 0.9941339434568156,
+          "guard": 0.11537445543697067,
+          "eligible": false
+        },
+        {
+          "allocation": 3,
+          "ratio": 1.0784309288435001,
+          "guard": 0.11258266560266961,
+          "eligible": false
+        },
+        {
+          "allocation": 4,
+          "ratio": 1.0116081484844999,
+          "guard": 0.012054476369115719,
+          "eligible": true
+        },
+        {
+          "allocation": 5,
+          "ratio": 1.001124992651411,
+          "guard": 0.11610911281953706,
+          "eligible": false
+        },
+        {
+          "allocation": 6,
+          "ratio": 1.032681239851941,
+          "guard": 0.1074684459575097,
+          "eligible": false
+        },
+        {
+          "allocation": 7,
+          "ratio": 1.0206760972876947,
+          "guard": 0.021248872848306233,
+          "eligible": true
+        },
+        {
+          "allocation": 8,
+          "ratio": 1.0212743615707571,
+          "guard": 0.0721343949783324,
+          "eligible": true
+        },
+        {
+          "allocation": 9,
+          "ratio": 0.9952703185530473,
+          "guard": 0.14909828648233803,
+          "eligible": false
+        },
+        {
+          "allocation": 10,
+          "ratio": 1.1284111269677235,
+          "guard": 0.16653170306091636,
+          "eligible": false
+        },
+        {
+          "allocation": 11,
+          "ratio": 1.0120804748811165,
+          "guard": 0.0177882471756885,
+          "eligible": true
+        },
+        {
+          "allocation": 12,
+          "ratio": 1.0415580473138666,
+          "guard": 0.0029440774030469186,
+          "eligible": true
+        }
+      ],
+      "work50": [
+        {
+          "allocation": 1,
+          "ratio": 1.44287867802198,
+          "guard": 0.019482047707699568,
+          "eligible": true
+        },
+        {
+          "allocation": 2,
+          "ratio": 1.4086477831983282,
+          "guard": 0.08419561173237122,
+          "eligible": true
+        },
+        {
+          "allocation": 3,
+          "ratio": 1.5185435386161081,
+          "guard": 0.03335271806994,
+          "eligible": true
+        },
+        {
+          "allocation": 4,
+          "ratio": 1.4351716703244117,
+          "guard": 0.024828053429496677,
+          "eligible": true
+        },
+        {
+          "allocation": 5,
+          "ratio": 1.4276979768461007,
+          "guard": 0.0010860086356376808,
+          "eligible": true
+        },
+        {
+          "allocation": 6,
+          "ratio": 1.4227792263361305,
+          "guard": 0.14871569264329754,
+          "eligible": false
+        },
+        {
+          "allocation": 7,
+          "ratio": 1.4075978795818394,
+          "guard": 0.011209797638640495,
+          "eligible": true
+        },
+        {
+          "allocation": 8,
+          "ratio": 1.5591070826193325,
+          "guard": 0.22342204962865098,
+          "eligible": false
+        },
+        {
+          "allocation": 9,
+          "ratio": 1.436727107501661,
+          "guard": 0.046620793688969764,
+          "eligible": true
+        },
+        {
+          "allocation": 10,
+          "ratio": 1.3266859756877907,
+          "guard": 0.07180836813686109,
+          "eligible": true
+        },
+        {
+          "allocation": 11,
+          "ratio": 1.655091706886217,
+          "guard": 0.05621922210006525,
+          "eligible": true
+        },
+        {
+          "allocation": 12,
+          "ratio": 1.3923338446512676,
+          "guard": 0.010820170434389542,
+          "eligible": true
+        }
+      ],
+      "eligible_null": 4,
+      "eligible_work": 5,
+      "null_screen": true,
+      "null_budget_pass": 4,
+      "work_sensitivity": 5,
+      "work_budget_miss": 4,
+      "strong_screen": false,
+      "diagnostics": {
+        "first": {
+          "same": [
+            {
+              "allocation": 1,
+              "ratio": 0.9870664863665013,
+              "guard": 1.106700175265963,
+              "eligible": false
+            },
+            {
+              "allocation": 2,
+              "ratio": 0.9641985730661389,
+              "guard": 0.0501208189562945,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 0.9999047268273251,
+              "guard": 0.031569696832846716,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.0053237693171395,
+              "guard": 0.029240130191096947,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 5.063711913263008,
+              "guard": 0.32011968332701657,
+              "eligible": false
+            },
+            {
+              "allocation": 6,
+              "ratio": 1.140091993842369,
+              "guard": 0.26401860335225846,
+              "eligible": false
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.0641448548028016,
+              "guard": 0.0758614114978815,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.0533738630506937,
+              "guard": 0.03820324369888595,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 0.9952703185530473,
+              "guard": 0.14909828648233803,
+              "eligible": false
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.0175876624417766,
+              "guard": 0.051964342173609346,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 0.9750016869870769,
+              "guard": 0.3131622793504141,
+              "eligible": false
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.0682856715235283,
+              "guard": 0.3333114315399981,
+              "eligible": false
+            }
+          ],
+          "work50": [
+            {
+              "allocation": 1,
+              "ratio": 1.408091606434025,
+              "guard": 0.10721842533100889,
+              "eligible": false
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.5496685241254977,
+              "guard": 0.300991769120061,
+              "eligible": false
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.513581043059734,
+              "guard": 0.08998922796624043,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.5849775356420066,
+              "guard": 0.2508986860555835,
+              "eligible": false
+            },
+            {
+              "allocation": 5,
+              "ratio": 2.254178896402801,
+              "guard": 0.07825215640633343,
+              "eligible": true
+            },
+            {
+              "allocation": 6,
+              "ratio": 1.4227792263361305,
+              "guard": 0.14871569264329754,
+              "eligible": false
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.4572776519740398,
+              "guard": 0.05683174205610353,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.5591070826193325,
+              "guard": 0.3348642425140087,
+              "eligible": false
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.436727107501661,
+              "guard": 0.046620793688969764,
+              "eligible": true
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.5488517393172485,
+              "guard": 0.07180836813686109,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 1.9382818650673364,
+              "guard": 0.2638218830867327,
+              "eligible": false
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.4717816207186407,
+              "guard": 0.12066314239567344,
+              "eligible": false
+            }
+          ]
+        },
+        "mean": {
+          "same": [
+            {
+              "allocation": 1,
+              "ratio": 0.968089909949103,
+              "guard": 0.356105154295292,
+              "eligible": false
+            },
+            {
+              "allocation": 2,
+              "ratio": 0.9704365084684877,
+              "guard": 0.02937798335717301,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.0647242223747715,
+              "guard": 0.08464620964777403,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.0120123245154349,
+              "guard": 0.009690471151921454,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 2.2697980069486534,
+              "guard": 0.0351002355804535,
+              "eligible": true
+            },
+            {
+              "allocation": 6,
+              "ratio": 1.0575929371459323,
+              "guard": 0.11799226061562895,
+              "eligible": false
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.0263906934211284,
+              "guard": 0.03278882444712106,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.021774838021858,
+              "guard": 0.041003147315253896,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.0942594976349116,
+              "guard": 0.11756952343689786,
+              "eligible": false
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.0517174168890655,
+              "guard": 0.07458650097362463,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 0.9555105714453226,
+              "guard": 0.059444152769899894,
+              "eligible": true
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.0352898932225176,
+              "guard": 0.11184018033439691,
+              "eligible": false
+            }
+          ],
+          "work50": [
+            {
+              "allocation": 1,
+              "ratio": 1.4269452000332496,
+              "guard": 0.03662465467205411,
+              "eligible": true
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.4483759630050985,
+              "guard": 0.12689553343522775,
+              "eligible": false
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.4560850385782793,
+              "guard": 0.02725905998238365,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.462527463595628,
+              "guard": 0.061994872639776766,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.7156703169400458,
+              "guard": 0.01319734215701085,
+              "eligible": true
+            },
+            {
+              "allocation": 6,
+              "ratio": 1.4003058582175507,
+              "guard": 0.03481386616364346,
+              "eligible": true
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.4562290283188604,
+              "guard": 0.04318240355131775,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.5024104908211702,
+              "guard": 0.1445426634361484,
+              "eligible": false
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.3761063081507763,
+              "guard": 0.0010328480887482616,
+              "eligible": true
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.4180836627075364,
+              "guard": 0.08305386680948956,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 2.7633577499848276,
+              "guard": 0.06374018874501997,
+              "eligible": true
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.3590968905665453,
+              "guard": 0.01180977802154981,
+              "eligible": true
+            }
+          ]
+        },
+        "median": {
+          "same": [
+            {
+              "allocation": 1,
+              "ratio": 0.9979470671964952,
+              "guard": 0.04173871797593143,
+              "eligible": true
+            },
+            {
+              "allocation": 2,
+              "ratio": 0.9427187895658994,
+              "guard": 0.02672691600895205,
+              "eligible": true
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.1102273777829796,
+              "guard": 0.10887596367853436,
+              "eligible": false
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.00961214897135,
+              "guard": 0.0042656702100294375,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.0166234796047258,
+              "guard": 0.09173335096465052,
+              "eligible": true
+            },
+            {
+              "allocation": 6,
+              "ratio": 1.1089729934442414,
+              "guard": 0.09876867029509406,
+              "eligible": true
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.0055794072654722,
+              "guard": 0.012287489892624848,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.0533738630506937,
+              "guard": 0.07032436280307741,
+              "eligible": true
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.0003578969855136,
+              "guard": 0.02168963192613993,
+              "eligible": true
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.0470572951613653,
+              "guard": 0.07668693230322288,
+              "eligible": true
+            },
+            {
+              "allocation": 11,
+              "ratio": 1.0270545856247282,
+              "guard": 0.05460828669044071,
+              "eligible": true
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.0682856715235283,
+              "guard": 0.121626667885403,
+              "eligible": false
+            }
+          ],
+          "work50": [
+            {
+              "allocation": 1,
+              "ratio": 1.436574083749003,
+              "guard": 0.01811287587598831,
+              "eligible": true
+            },
+            {
+              "allocation": 2,
+              "ratio": 1.5496685241254977,
+              "guard": 0.16092857715157804,
+              "eligible": false
+            },
+            {
+              "allocation": 3,
+              "ratio": 1.513581043059734,
+              "guard": 0.08998922796624043,
+              "eligible": true
+            },
+            {
+              "allocation": 4,
+              "ratio": 1.4592446272457136,
+              "guard": 0.01810426949413646,
+              "eligible": true
+            },
+            {
+              "allocation": 5,
+              "ratio": 1.5998265600945722,
+              "guard": 0.00815832813938866,
+              "eligible": true
+            },
+            {
+              "allocation": 6,
+              "ratio": 1.400423168693503,
+              "guard": 0.01640049887975481,
+              "eligible": true
+            },
+            {
+              "allocation": 7,
+              "ratio": 1.4982773531614082,
+              "guard": 0.06081665655852819,
+              "eligible": true
+            },
+            {
+              "allocation": 8,
+              "ratio": 1.5598512322237421,
+              "guard": 0.1304326575573851,
+              "eligible": false
+            },
+            {
+              "allocation": 9,
+              "ratio": 1.625585293182114,
+              "guard": 0.17084864386624732,
+              "eligible": false
+            },
+            {
+              "allocation": 10,
+              "ratio": 1.537857243589597,
+              "guard": 0.18290953561328838,
+              "eligible": false
+            },
+            {
+              "allocation": 11,
+              "ratio": 1.666035362449944,
+              "guard": 0.08630843996852211,
+              "eligible": true
+            },
+            {
+              "allocation": 12,
+              "ratio": 1.3133131313414765,
+              "guard": 0.03374541097954453,
+              "eligible": true
+            }
+          ]
+        }
+      }
+    }
+  },
+  "elapsed_seconds": {
+    "min": 10.028741303,
+    "median": 10.7807725505,
+    "max": 34.618061366
+  }
+}
