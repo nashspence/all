@@ -6,8 +6,8 @@ on:
 permissions:
   contents: read
 env:
-  FROZEN_SHARED_SHA: ad9ff2798e1860305bf5a293a7d3ee7e6f99bf04
-  STORAGE66_PHASE: feasibility
+  FROZEN_SHARED_SHA: bea509359a6abb2f42f56ae5ef15622ed4a3d292
+  STORAGE66_PHASE: acceptance
 jobs:
   storage:
     if: ${{ github.run_attempt == 1 }}
@@ -16,8 +16,9 @@ jobs:
     timeout-minutes: 15
     strategy:
       fail-fast: false
+      max-parallel: 12
       matrix:
-        worker: [1, 2]
+        worker: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     env:
       STORAGE66_WORKER: ${{ matrix.worker }}
       STORAGE66_WORKFLOW_SHA: ${{ github.workflow_sha }}
@@ -66,11 +67,29 @@ jobs:
           uv pip install --python "$RUNNER_TEMP/all66-riverhog/bin/python" 'PyYAML==6.0.3'
           uv pip install --python "$RUNNER_TEMP/all66-riverhog/bin/python" --no-deps "$GITHUB_WORKSPACE/runtime"
           python -I -B -c 'import json,sys,time; from pathlib import Path; Path(sys.argv[2]).write_text(json.dumps({"bootstrap_wall_ns":time.perf_counter_ns()-int(sys.argv[1])})+"\n")' "$start" "$GITHUB_WORKSPACE/storage-output/bootstrap.json"
+      - name: Verify the shared authority and completion controls once
+        if: ${{ matrix.worker == 1 }}
+        shell: bash
+        run: |
+          if "$RUNNER_TEMP/all66-common/bin/python" -I -B -m unittest discover -s "$GITHUB_WORKSPACE/runtime/tests" -v > "$GITHUB_WORKSPACE/storage-output/controls.stdout" 2> "$GITHUB_WORKSPACE/storage-output/controls.stderr"; then
+            printf '{"exit_code":0}\n' > "$GITHUB_WORKSPACE/storage-output/controls.json"
+          else
+            printf '{"exit_code":1}\n' > "$GITHUB_WORKSPACE/storage-output/controls.json"
+            cat "$GITHUB_WORKSPACE/storage-output/controls.stderr"
+            exit 1
+          fi
       - name: Prepare actual storage and collect the fixed cohort
         shell: bash
         run: |
           sudo --preserve-env=PATH,GITHUB_ACTIONS,RUNNER_ENVIRONMENT,RUNNER_OS,RUNNER_ARCH,ImageOS,ImageVersion,GITHUB_REPOSITORY,GITHUB_REF,GITHUB_SHA,GITHUB_RUN_ID,GITHUB_RUN_ATTEMPT,GITHUB_EVENT_NAME,RUNNER_NAME,FROZEN_SHARED_SHA,STORAGE66_PHASE,STORAGE66_WORKER,STORAGE66_WORKFLOW_SHA "$RUNNER_TEMP/all66-common/bin/python" -I -B "$GITHUB_WORKSPACE/runtime/experiments/66/campaign.py" --workspace "$GITHUB_WORKSPACE" --output "$GITHUB_WORKSPACE/storage-output" --fishhat-python "$RUNNER_TEMP/all66-fishhat/bin/python" --riverhog-python "$RUNNER_TEMP/all66-riverhog/bin/python"
       - name: Retain all raw measurements and partial evidence
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          if [[ -d "$GITHUB_WORKSPACE/storage-output" ]]; then
+            sudo chown -R --no-dereference "$(id -u):$(id -g)" "$GITHUB_WORKSPACE/storage-output"
+          fi
+      - name: Upload retained evidence
         if: ${{ always() }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
