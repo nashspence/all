@@ -1,0 +1,853 @@
+{
+  "screen_passed": true,
+  "errors": [],
+  "failures": [],
+  "workers": 12,
+  "core_admitted": 12,
+  "product_observations": 72,
+  "native_rejection_controls_complete": 12,
+  "operations": {
+    "check_repository16_warm": {
+      "budget_ms": 20,
+      "count": 36,
+      "min_ms": 5.774044,
+      "median_ms": 8.3186,
+      "max_ms": 10.858089,
+      "pass_workers": 12,
+      "verdicts": {
+        "pass": 12
+      }
+    },
+    "check_repository16_cold": {
+      "budget_ms": 125,
+      "count": 36,
+      "min_ms": 59.136348,
+      "median_ms": 84.967658,
+      "max_ms": 94.082929,
+      "pass_workers": 12,
+      "verdicts": {
+        "pass": 12
+      }
+    }
+  },
+  "probes": {
+    "cpu_serial": {
+      "count": 36,
+      "min_ms": 173.044238,
+      "median_ms": 231.615167,
+      "max_ms": 277.978056,
+      "cap_ms": 350,
+      "binding": true,
+      "over_cap": []
+    },
+    "cpu_p4": {
+      "count": 36,
+      "min_ms": 82.199406,
+      "median_ms": 117.5349515,
+      "max_ms": 156.454284,
+      "cap_ms": 300,
+      "binding": true,
+      "over_cap": []
+    },
+    "sha256": {
+      "count": 36,
+      "min_ms": 142.639663,
+      "median_ms": 158.9097955,
+      "max_ms": 170.04261,
+      "cap_ms": 250,
+      "binding": true,
+      "over_cap": []
+    },
+    "warm_files": {
+      "count": 36,
+      "min_ms": 39.166107,
+      "median_ms": 87.2814265,
+      "max_ms": 99.417737,
+      "cap_ms": 150,
+      "binding": true,
+      "over_cap": []
+    },
+    "fdatasync64": {
+      "count": 36,
+      "min_ms": 12.655639,
+      "median_ms": 22.564482,
+      "max_ms": 96.775907,
+      "cap_ms": 250,
+      "binding": false,
+      "over_cap": []
+    }
+  },
+  "cli": {
+    "count": 12,
+    "min_ms": 1870.566664,
+    "median_ms": 2596.86761,
+    "max_ms": 2824.497534
+  },
+  "preflight": {
+    "count": 12,
+    "min_ms": 1458.307506,
+    "median_ms": 1992.897885,
+    "max_ms": 2179.449645
+  },
+  "native_cli": {
+    "count": 12,
+    "min_ms": 213.933445,
+    "median_ms": 289.2668375,
+    "max_ms": 314.405874
+  },
+  "images": {
+    "20261116.133.1": 3,
+    "20261122.23.1": 9
+  },
+  "cpus": {
+    "AMD EPYC 7763 64-Core Processor": 6,
+    "AMD EPYC 9V74 80-Core Processor": 2,
+    "Intel(R) Xeon(R) 6975P-C": 4
+  },
+  "by_worker": [
+    {
+      "worker": 1,
+      "job_id": 140218696044,
+      "runner_id": 1000056548,
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "image_version": "20261122.23.1",
+      "mount_source": "/dev/nvme0n1p1",
+      "admitted": true,
+      "admission_reasons": [],
+      "operations": {
+        "check_repository16_warm": {
+          "verdict": "pass",
+          "samples_ns": [
+            6991901,
+            6194502,
+            6177282
+          ]
+        },
+        "check_repository16_cold": {
+          "verdict": "pass",
+          "samples_ns": [
+            71173111,
+            70259196,
+            72171699
+          ]
+        }
+      },
+      "probes_ns": {
+        "cpu_p4": [
+          105598939,
+          101719791,
+          105373635
+        ],
+        "cpu_serial": [
+          223705562,
+          211560610,
+          210174512
+        ],
+        "fdatasync64": [
+          27587888,
+          16055264,
+          16718732
+        ],
+        "sha256": [
+          148793732,
+          148624881,
+          148525065
+        ],
+        "warm_files": [
+          77396445,
+          76249554,
+          76344467
+        ]
+      },
+      "cli_wall_ns": 2319894621,
+      "preflight_ns": 1781274105,
+      "native_wall_ns": 264215538,
+      "native_rejection_complete": true,
+      "native_reasons": [
+        "relaxed mount settings are outside this proposed native profile: data=writeback, journal_async_commit, nobarrier"
+      ]
+    },
+    {
+      "worker": 2,
+      "job_id": 140218696090,
+      "runner_id": 1000056552,
+      "cpu_model": "AMD EPYC 7763 64-Core Processor",
+      "image_version": "20261122.23.1",
+      "mount_source": "/dev/sda1",
+      "admitted": true,
+      "admission_reasons": [],
+      "operations": {
+        "check_repository16_warm": {
+          "verdict": "pass",
+          "samples_ns": [
+            10672378,
+            9559622,
+            9525238
+          ]
+        },
+        "check_repository16_cold": {
+          "verdict": "pass",
+          "samples_ns": [
+            91002451,
+            89757489,
+            89187195
+          ]
+        }
+      },
+      "probes_ns": {
+        "cpu_p4": [
+          135300853,
+          130323489,
+          132760869
+        ],
+        "cpu_serial": [
+          263466888,
+          253031962,
+          244867182
+        ],
+        "fdatasync64": [
+          22743674,
+          20579849,
+          23218329
+        ],
+        "sha256": [
+          169165442,
+          169298810,
+          169083949
+        ],
+        "warm_files": [
+          98142169,
+          98229131,
+          97996718
+        ]
+      },
+      "cli_wall_ns": 2774229303,
+      "preflight_ns": 2135688286,
+      "native_wall_ns": 314387651,
+      "native_rejection_complete": true,
+      "native_reasons": [
+        "relaxed mount settings are outside this proposed native profile: data=writeback, journal_async_commit, nobarrier"
+      ]
+    },
+    {
+      "worker": 3,
+      "job_id": 140218696140,
+      "runner_id": 1000056554,
+      "cpu_model": "AMD EPYC 7763 64-Core Processor",
+      "image_version": "20261122.23.1",
+      "mount_source": "/dev/sda1",
+      "admitted": true,
+      "admission_reasons": [],
+      "operations": {
+        "check_repository16_warm": {
+          "verdict": "pass",
+          "samples_ns": [
+            10858089,
+            9613975,
+            9459696
+          ]
+        },
+        "check_repository16_cold": {
+          "verdict": "pass",
+          "samples_ns": [
+            88437774,
+            88375076,
+            87764084
+          ]
+        }
+      },
+      "probes_ns": {
+        "cpu_p4": [
+          134507068,
+          141933948,
+          135432230
+        ],
+        "cpu_serial": [
+          277978056,
+          239524772,
+          252432211
+        ],
+        "fdatasync64": [
+          31749830,
+          24389263,
+          22830792
+        ],
+        "sha256": [
+          169148879,
+          169528388,
+          169025859
+        ],
+        "warm_files": [
+          97910574,
+          96746088,
+          96190961
+        ]
+      },
+      "cli_wall_ns": 2824497534,
+      "preflight_ns": 2165300339,
+      "native_wall_ns": 314260331,
+      "native_rejection_complete": true,
+      "native_reasons": [
+        "relaxed mount settings are outside this proposed native profile: data=writeback, journal_async_commit, nobarrier"
+      ]
+    },
+    {
+      "worker": 4,
+      "job_id": 140218696050,
+      "runner_id": 1000056547,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "image_version": "20261116.133.1",
+      "mount_source": "/dev/mapper/cow-root",
+      "admitted": true,
+      "admission_reasons": [],
+      "operations": {
+        "check_repository16_warm": {
+          "verdict": "pass",
+          "samples_ns": [
+            6756717,
+            5915178,
+            5970049
+          ]
+        },
+        "check_repository16_cold": {
+          "verdict": "pass",
+          "samples_ns": [
+            60949659,
+            59929017,
+            61528727
+          ]
+        }
+      },
+      "probes_ns": {
+        "cpu_p4": [
+          90051983,
+          84298276,
+          87487364
+        ],
+        "cpu_serial": [
+          183678005,
+          175371370,
+          175255261
+        ],
+        "fdatasync64": [
+          15984074,
+          16550082,
+          12748779
+        ],
+        "sha256": [
+          143584573,
+          143165853,
+          143390490
+        ],
+        "warm_files": [
+          41001441,
+          41042324,
+          40240908
+        ]
+      },
+      "cli_wall_ns": 1918611889,
+      "preflight_ns": 1477337955,
+      "native_wall_ns": 214181125,
+      "native_rejection_complete": true,
+      "native_reasons": [
+        "relaxed mount settings are outside this proposed native profile: data=writeback, journal_async_commit, nobarrier"
+      ]
+    },
+    {
+      "worker": 5,
+      "job_id": 140218696190,
+      "runner_id": 1000056555,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "image_version": "20261116.133.1",
+      "mount_source": "/dev/mapper/cow-root",
+      "admitted": true,
+      "admission_reasons": [],
+      "operations": {
+        "check_repository16_warm": {
+          "verdict": "pass",
+          "samples_ns": [
+            6444170,
+            5906868,
+            5857511
+          ]
+        },
+        "check_repository16_cold": {
+          "verdict": "pass",
+          "samples_ns": [
+            62436688,
+            62313279,
+            63442861
+          ]
+        }
+      },
+      "probes_ns": {
+        "cpu_p4": [
+          96857486,
+          83561717,
+          84359591
+        ],
+        "cpu_serial": [
+          182753457,
+          179877541,
+          175382889
+        ],
+        "fdatasync64": [
+          15297827,
+          13624720,
+          15505150
+        ],
+        "sha256": [
+          143381357,
+          143630760,
+          143495390
+        ],
+        "warm_files": [
+          41316095,
+          41560497,
+          40898019
+        ]
+      },
+      "cli_wall_ns": 1918395555,
+      "preflight_ns": 1481520591,
+      "native_wall_ns": 214184616,
+      "native_rejection_complete": true,
+      "native_reasons": [
+        "relaxed mount settings are outside this proposed native profile: data=writeback, journal_async_commit, nobarrier"
+      ]
+    },
+    {
+      "worker": 6,
+      "job_id": 140218696106,
+      "runner_id": 1000056550,
+      "cpu_model": "AMD EPYC 7763 64-Core Processor",
+      "image_version": "20261122.23.1",
+      "mount_source": "/dev/sda1",
+      "admitted": true,
+      "admission_reasons": [],
+      "operations": {
+        "check_repository16_warm": {
+          "verdict": "pass",
+          "samples_ns": [
+            10728621,
+            9755760,
+            9568841
+          ]
+        },
+        "check_repository16_cold": {
+          "verdict": "pass",
+          "samples_ns": [
+            92054224,
+            92502008,
+            93433151
+          ]
+        }
+      },
+      "probes_ns": {
+        "cpu_p4": [
+          156454284,
+          134895889,
+          137969860
+        ],
+        "cpu_serial": [
+          267447547,
+          248152743,
+          254548985
+        ],
+        "fdatasync64": [
+          27526595,
+          23829339,
+          22385290
+        ],
+        "sha256": [
+          170042610,
+          169643686,
+          169183202
+        ],
+        "warm_files": [
+          98730183,
+          96699090,
+          95890934
+        ]
+      },
+      "cli_wall_ns": 2822215313,
+      "preflight_ns": 2179449645,
+      "native_wall_ns": 314319296,
+      "native_rejection_complete": true,
+      "native_reasons": [
+        "relaxed mount settings are outside this proposed native profile: data=writeback, journal_async_commit, nobarrier"
+      ]
+    },
+    {
+      "worker": 7,
+      "job_id": 140218696170,
+      "runner_id": 1000056551,
+      "cpu_model": "AMD EPYC 7763 64-Core Processor",
+      "image_version": "20261122.23.1",
+      "mount_source": "/dev/sda1",
+      "admitted": true,
+      "admission_reasons": [],
+      "operations": {
+        "check_repository16_warm": {
+          "verdict": "pass",
+          "samples_ns": [
+            10835445,
+            9697600,
+            9669287
+          ]
+        },
+        "check_repository16_cold": {
+          "verdict": "pass",
+          "samples_ns": [
+            92469536,
+            90880429,
+            91259918
+          ]
+        }
+      },
+      "probes_ns": {
+        "cpu_p4": [
+          135539743,
+          131790210,
+          135373559
+        ],
+        "cpu_serial": [
+          254451545,
+          252456207,
+          247049313
+        ],
+        "fdatasync64": [
+          28476368,
+          21647385,
+          23464179
+        ],
+        "sha256": [
+          169445733,
+          169635462,
+          169270191
+        ],
+        "warm_files": [
+          99417737,
+          97859988,
+          97238923
+        ]
+      },
+      "cli_wall_ns": 2823295209,
+      "preflight_ns": 2145330570,
+      "native_wall_ns": 314336464,
+      "native_rejection_complete": true,
+      "native_reasons": [
+        "relaxed mount settings are outside this proposed native profile: data=writeback, journal_async_commit, nobarrier"
+      ]
+    },
+    {
+      "worker": 8,
+      "job_id": 140218696052,
+      "runner_id": 1000056545,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "image_version": "20261122.23.1",
+      "mount_source": "/dev/mapper/cow-root",
+      "admitted": true,
+      "admission_reasons": [],
+      "operations": {
+        "check_repository16_warm": {
+          "verdict": "pass",
+          "samples_ns": [
+            6609697,
+            5897735,
+            6450618
+          ]
+        },
+        "check_repository16_cold": {
+          "verdict": "pass",
+          "samples_ns": [
+            61490319,
+            62498829,
+            60179186
+          ]
+        }
+      },
+      "probes_ns": {
+        "cpu_p4": [
+          90616091,
+          83501866,
+          83795537
+        ],
+        "cpu_serial": [
+          183647465,
+          174906702,
+          175168433
+        ],
+        "fdatasync64": [
+          14738123,
+          14792487,
+          13051748
+        ],
+        "sha256": [
+          143454970,
+          143329029,
+          143071017
+        ],
+        "warm_files": [
+          40547544,
+          40868922,
+          40141237
+        ]
+      },
+      "cli_wall_ns": 1921250919,
+      "preflight_ns": 1494190077,
+      "native_wall_ns": 214439952,
+      "native_rejection_complete": true,
+      "native_reasons": [
+        "relaxed mount settings are outside this proposed native profile: data=writeback, journal_async_commit, nobarrier"
+      ]
+    },
+    {
+      "worker": 9,
+      "job_id": 140218696047,
+      "runner_id": 1000056546,
+      "cpu_model": "Intel(R) Xeon(R) 6975P-C",
+      "image_version": "20261116.133.1",
+      "mount_source": "/dev/mapper/cow-root",
+      "admitted": true,
+      "admission_reasons": [],
+      "operations": {
+        "check_repository16_warm": {
+          "verdict": "pass",
+          "samples_ns": [
+            6452808,
+            5913218,
+            5774044
+          ]
+        },
+        "check_repository16_cold": {
+          "verdict": "pass",
+          "samples_ns": [
+            60231523,
+            59136348,
+            59210433
+          ]
+        }
+      },
+      "probes_ns": {
+        "cpu_p4": [
+          85057621,
+          82199406,
+          97611258
+        ],
+        "cpu_serial": [
+          179106084,
+          176812375,
+          173044238
+        ],
+        "fdatasync64": [
+          13796018,
+          14746060,
+          12655639
+        ],
+        "sha256": [
+          143124227,
+          142703845,
+          142639663
+        ],
+        "warm_files": [
+          40396456,
+          39627852,
+          39166107
+        ]
+      },
+      "cli_wall_ns": 1870566664,
+      "preflight_ns": 1458307506,
+      "native_wall_ns": 213933445,
+      "native_rejection_complete": true,
+      "native_reasons": [
+        "relaxed mount settings are outside this proposed native profile: data=writeback, journal_async_commit, nobarrier"
+      ]
+    },
+    {
+      "worker": 10,
+      "job_id": 140218695829,
+      "runner_id": 1000056544,
+      "cpu_model": "AMD EPYC 7763 64-Core Processor",
+      "image_version": "20261122.23.1",
+      "mount_source": "/dev/sda1",
+      "admitted": true,
+      "admission_reasons": [],
+      "operations": {
+        "check_repository16_warm": {
+          "verdict": "pass",
+          "samples_ns": [
+            10675574,
+            9729687,
+            9765114
+          ]
+        },
+        "check_repository16_cold": {
+          "verdict": "pass",
+          "samples_ns": [
+            88703278,
+            87008908,
+            88403997
+          ]
+        }
+      },
+      "probes_ns": {
+        "cpu_p4": [
+          135779426,
+          149431871,
+          129170934
+        ],
+        "cpu_serial": [
+          254701473,
+          249233927,
+          242473139
+        ],
+        "fdatasync64": [
+          32122886,
+          25246412,
+          21673592
+        ],
+        "sha256": [
+          169383311,
+          169409440,
+          169191191
+        ],
+        "warm_files": [
+          99020719,
+          96779461,
+          96248704
+        ]
+      },
+      "cli_wall_ns": 2772305115,
+      "preflight_ns": 2143857996,
+      "native_wall_ns": 314294864,
+      "native_rejection_complete": true,
+      "native_reasons": [
+        "relaxed mount settings are outside this proposed native profile: data=writeback, journal_async_commit, nobarrier"
+      ]
+    },
+    {
+      "worker": 11,
+      "job_id": 140218696039,
+      "runner_id": 1000056549,
+      "cpu_model": "AMD EPYC 7763 64-Core Processor",
+      "image_version": "20261122.23.1",
+      "mount_source": "/dev/sda1",
+      "admitted": true,
+      "admission_reasons": [],
+      "operations": {
+        "check_repository16_warm": {
+          "verdict": "pass",
+          "samples_ns": [
+            10655739,
+            9805460,
+            9561675
+          ]
+        },
+        "check_repository16_cold": {
+          "verdict": "pass",
+          "samples_ns": [
+            94082929,
+            91692485,
+            92989076
+          ]
+        }
+      },
+      "probes_ns": {
+        "cpu_p4": [
+          135908545,
+          130850223,
+          131943993
+        ],
+        "cpu_serial": [
+          265674055,
+          256985070,
+          244589571
+        ],
+        "fdatasync64": [
+          27113440,
+          22843188,
+          27410538
+        ],
+        "sha256": [
+          169628819,
+          169471164,
+          169362386
+        ],
+        "warm_files": [
+          97317152,
+          96752337,
+          98135015
+        ]
+      },
+      "cli_wall_ns": 2822421580,
+      "preflight_ns": 2151044691,
+      "native_wall_ns": 314405874,
+      "native_rejection_complete": true,
+      "native_reasons": [
+        "relaxed mount settings are outside this proposed native profile: data=writeback, journal_async_commit, nobarrier"
+      ]
+    },
+    {
+      "worker": 12,
+      "job_id": 140218696111,
+      "runner_id": 1000056553,
+      "cpu_model": "AMD EPYC 9V74 80-Core Processor",
+      "image_version": "20261122.23.1",
+      "mount_source": "/dev/nvme0n1p1",
+      "admitted": true,
+      "admission_reasons": [],
+      "operations": {
+        "check_repository16_warm": {
+          "verdict": "pass",
+          "samples_ns": [
+            7177504,
+            6272635,
+            6282310
+          ]
+        },
+        "check_repository16_cold": {
+          "verdict": "pass",
+          "samples_ns": [
+            74536598,
+            73594685,
+            82926408
+          ]
+        }
+      },
+      "probes_ns": {
+        "cpu_p4": [
+          105898969,
+          103331519,
+          102337037
+        ],
+        "cpu_serial": [
+          215638129,
+          207564490,
+          197254040
+        ],
+        "fdatasync64": [
+          24781966,
+          22903273,
+          96775907
+        ],
+        "sha256": [
+          148561454,
+          148564079,
+          148239465
+        ],
+        "warm_files": [
+          78671919,
+          76898507,
+          76364481
+        ]
+      },
+      "cli_wall_ns": 2421430105,
+      "preflight_ns": 1850107484,
+      "native_wall_ns": 264273344,
+      "native_rejection_complete": true,
+      "native_reasons": [
+        "relaxed mount settings are outside this proposed native profile: data=writeback, journal_async_commit, nobarrier"
+      ]
+    }
+  ]
+}
