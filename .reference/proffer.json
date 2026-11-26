@@ -1,0 +1,48 @@
+{
+  "kind": "handoff",
+  "producer": [
+    "ChatGPT implementation agent",
+    "ChatGPT independent evidence/code reviewer"
+  ],
+  "requester": "nashspence",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "29d2af516a91d762094da1da55c71d07d79e095c"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/proffer.json"
+  ],
+  "issue": "https://github.com/nashspence/all/issues/67",
+  "purpose": "Offer globally and individually disableable optional progress, resumability and logging through one immutable invocation policy, preserving independently required core outcomes.",
+  "first_step": "Read #67's evidence and optional/core boundary, then run python -m unittest discover -s .reference -v. Inspect the eager-work and ignored-parent controls before deciding whether to adopt or adapt the helper in real owner bindings.",
+  "checks": [
+    {
+      "command": "python -m unittest discover -s .reference -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "a01da5f9e03894137f316ab9ae9f61b77aaa41b1"
+      },
+      "environment": "Python 3.12.14; Linux x86_64; Git 2.56.1; PyYAML 6.0.3. Local reference tests, not an admitted GitHub Actions performance profile.",
+      "notes": "6 focused tests passed. Includes one actual isolated child process, lazy origin suppression, individual/all-off modes, required refusal/cancellation and two deliberately faulty bindings rejected by the same witness."
+    },
+    {
+      "command": "Consumer integration, native crash/recovery qualification and GitHub Actions operation measurements",
+      "result": "not-run",
+      "reason": "This handoff publishes a reference for independent decision; no consumer implementation or numerical contract was adopted."
+    }
+  ],
+  "limitations": [
+    "Synthetic owner binding only. Real entrypoints, descendants, defaults and optional-work inventory are not discovered or qualified.",
+    "Optionality must follow real result/failure guarantees. Required acknowledged durability, effect identity, authorization, heartbeat/control work and mandatory evidence remain core. Historical barriers are not automatically mandatory.",
+    "Controls.call cannot prevent work done by the caller before invoking it; the eager-preparation counterexample demonstrates this integration risk. Child propagation is explicit cooperation, not a security sandbox.",
+    "No resumability algorithm, live-reconfiguration protocol, runtime allowance allocator, performance qualification or consumer-repository change is supplied.",
+    "The handling agent may accept, adapt, defer or reject this reference and must record its own Proffer disposition. Publication does not adopt the policy."
+  ]
+}
