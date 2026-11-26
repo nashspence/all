@@ -1,0 +1,1760 @@
+{
+  "schema": 1,
+  "run": {
+    "id": 45910890189,
+    "head_sha": "fdd5c7f7c333dfc7d5359af04f6c79045870da19",
+    "head_branch": "experiment/64-core-refresh-2026-11-26",
+    "event": "push",
+    "run_attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-26T23:25:46Z",
+    "updated_at": "2026-11-26T23:26:20Z",
+    "html_url": "https://github.com/nashspence/all/actions/runs/45910890189",
+    "path": ".github/workflows/performance-common-64.yml"
+  },
+  "original_run_id": 45705830013,
+  "original_runner_ids": [
+    1000056444,
+    1000056445,
+    1000056449,
+    1000056453,
+    1000056454,
+    1000056446,
+    1000056451,
+    1000056452,
+    1000056450,
+    1000056448,
+    1000056455,
+    1000056456
+  ],
+  "jobs": [
+    {
+      "id": 140218695829,
+      "name": "common-10",
+      "runner_id": 1000056544,
+      "runner_name": "GitHub Actions 1000056544",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-26T23:25:49Z",
+      "completed_at": "2026-11-26T23:26:18Z",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45910890189/job/140218695829",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-26T23:25:50Z",
+          "completed_at": "2026-11-26T23:25:51Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-26T23:25:51Z",
+          "completed_at": "2026-11-26T23:25:52Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-26T23:25:52Z",
+          "completed_at": "2026-11-26T23:25:53Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-26T23:25:53Z",
+          "completed_at": "2026-11-26T23:25:54Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-26T23:25:54Z",
+          "completed_at": "2026-11-26T23:26:03Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-26T23:26:03Z",
+          "completed_at": "2026-11-26T23:26:09Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-26T23:26:09Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:14Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-26T23:26:14Z",
+          "completed_at": "2026-11-26T23:26:14Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-26T23:26:14Z",
+          "completed_at": "2026-11-26T23:26:14Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-26T23:26:14Z",
+          "completed_at": "2026-11-26T23:26:14Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-26T23:26:14Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-26T23:26:15Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        }
+      ]
+    },
+    {
+      "id": 140218696039,
+      "name": "common-11",
+      "runner_id": 1000056549,
+      "runner_name": "GitHub Actions 1000056549",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-26T23:25:49Z",
+      "completed_at": "2026-11-26T23:26:15Z",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45910890189/job/140218696039",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-26T23:25:49Z",
+          "completed_at": "2026-11-26T23:25:50Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-26T23:25:50Z",
+          "completed_at": "2026-11-26T23:25:51Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-26T23:25:51Z",
+          "completed_at": "2026-11-26T23:25:52Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-26T23:25:52Z",
+          "completed_at": "2026-11-26T23:25:53Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-26T23:25:53Z",
+          "completed_at": "2026-11-26T23:26:01Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-26T23:26:01Z",
+          "completed_at": "2026-11-26T23:26:08Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-26T23:26:08Z",
+          "completed_at": "2026-11-26T23:26:11Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-26T23:26:11Z",
+          "completed_at": "2026-11-26T23:26:12Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-26T23:26:12Z",
+          "completed_at": "2026-11-26T23:26:12Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-26T23:26:12Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        }
+      ]
+    },
+    {
+      "id": 140218696044,
+      "name": "common-1",
+      "runner_id": 1000056548,
+      "runner_name": "GitHub Actions 1000056548",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-26T23:25:49Z",
+      "completed_at": "2026-11-26T23:26:13Z",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45910890189/job/140218696044",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-26T23:25:49Z",
+          "completed_at": "2026-11-26T23:25:50Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-26T23:25:50Z",
+          "completed_at": "2026-11-26T23:25:51Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-26T23:25:51Z",
+          "completed_at": "2026-11-26T23:25:51Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-26T23:25:51Z",
+          "completed_at": "2026-11-26T23:25:52Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-26T23:25:52Z",
+          "completed_at": "2026-11-26T23:26:01Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-26T23:26:01Z",
+          "completed_at": "2026-11-26T23:26:06Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-26T23:26:06Z",
+          "completed_at": "2026-11-26T23:26:09Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-26T23:26:09Z",
+          "completed_at": "2026-11-26T23:26:10Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-26T23:26:10Z",
+          "completed_at": "2026-11-26T23:26:10Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-26T23:26:10Z",
+          "completed_at": "2026-11-26T23:26:10Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-26T23:26:10Z",
+          "completed_at": "2026-11-26T23:26:10Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-26T23:26:10Z",
+          "completed_at": "2026-11-26T23:26:11Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-26T23:26:11Z",
+          "completed_at": "2026-11-26T23:26:11Z"
+        }
+      ]
+    },
+    {
+      "id": 140218696047,
+      "name": "common-9",
+      "runner_id": 1000056546,
+      "runner_name": "GitHub Actions 1000056546",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-26T23:25:49Z",
+      "completed_at": "2026-11-26T23:26:18Z",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45910890189/job/140218696047",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-26T23:25:49Z",
+          "completed_at": "2026-11-26T23:25:52Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-26T23:25:52Z",
+          "completed_at": "2026-11-26T23:25:56Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-26T23:25:56Z",
+          "completed_at": "2026-11-26T23:25:56Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-26T23:25:56Z",
+          "completed_at": "2026-11-26T23:25:57Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-26T23:25:57Z",
+          "completed_at": "2026-11-26T23:26:04Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-26T23:26:04Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-26T23:26:15Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-26T23:26:16Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-26T23:26:16Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-26T23:26:16Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-26T23:26:16Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-26T23:26:16Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        }
+      ]
+    },
+    {
+      "id": 140218696050,
+      "name": "common-4",
+      "runner_id": 1000056547,
+      "runner_name": "GitHub Actions 1000056547",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-26T23:25:49Z",
+      "completed_at": "2026-11-26T23:26:20Z",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45910890189/job/140218696050",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-26T23:25:50Z",
+          "completed_at": "2026-11-26T23:25:53Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-26T23:25:53Z",
+          "completed_at": "2026-11-26T23:25:56Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-26T23:25:56Z",
+          "completed_at": "2026-11-26T23:25:57Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-26T23:25:57Z",
+          "completed_at": "2026-11-26T23:25:58Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-26T23:25:58Z",
+          "completed_at": "2026-11-26T23:26:06Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-26T23:26:06Z",
+          "completed_at": "2026-11-26T23:26:12Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-26T23:26:12Z",
+          "completed_at": "2026-11-26T23:26:14Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-26T23:26:14Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-26T23:26:16Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-26T23:26:16Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-26T23:26:16Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-26T23:26:16Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-26T23:26:16Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        }
+      ]
+    },
+    {
+      "id": 140218696052,
+      "name": "common-8",
+      "runner_id": 1000056545,
+      "runner_name": "GitHub Actions 1000056545",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-26T23:25:50Z",
+      "completed_at": "2026-11-26T23:26:18Z",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45910890189/job/140218696052",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-26T23:25:50Z",
+          "completed_at": "2026-11-26T23:25:52Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-26T23:25:52Z",
+          "completed_at": "2026-11-26T23:25:56Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-26T23:25:56Z",
+          "completed_at": "2026-11-26T23:25:57Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-26T23:25:57Z",
+          "completed_at": "2026-11-26T23:25:57Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-26T23:25:57Z",
+          "completed_at": "2026-11-26T23:26:05Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-26T23:26:05Z",
+          "completed_at": "2026-11-26T23:26:11Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-26T23:26:11Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-26T23:26:15Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-26T23:26:15Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-26T23:26:15Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-26T23:26:15Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-26T23:26:15Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        }
+      ]
+    },
+    {
+      "id": 140218696090,
+      "name": "common-2",
+      "runner_id": 1000056552,
+      "runner_name": "GitHub Actions 1000056552",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-26T23:25:49Z",
+      "completed_at": "2026-11-26T23:26:17Z",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45910890189/job/140218696090",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-26T23:25:50Z",
+          "completed_at": "2026-11-26T23:25:51Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-26T23:25:51Z",
+          "completed_at": "2026-11-26T23:25:52Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-26T23:25:52Z",
+          "completed_at": "2026-11-26T23:25:53Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-26T23:25:53Z",
+          "completed_at": "2026-11-26T23:25:54Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-26T23:25:54Z",
+          "completed_at": "2026-11-26T23:26:03Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-26T23:26:03Z",
+          "completed_at": "2026-11-26T23:26:09Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-26T23:26:09Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:14Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-26T23:26:14Z",
+          "completed_at": "2026-11-26T23:26:14Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-26T23:26:14Z",
+          "completed_at": "2026-11-26T23:26:14Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-26T23:26:14Z",
+          "completed_at": "2026-11-26T23:26:14Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-26T23:26:14Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-26T23:26:15Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        }
+      ]
+    },
+    {
+      "id": 140218696106,
+      "name": "common-6",
+      "runner_id": 1000056550,
+      "runner_name": "GitHub Actions 1000056550",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-26T23:25:49Z",
+      "completed_at": "2026-11-26T23:26:15Z",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45910890189/job/140218696106",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-26T23:25:50Z",
+          "completed_at": "2026-11-26T23:25:50Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-26T23:25:50Z",
+          "completed_at": "2026-11-26T23:25:51Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-26T23:25:51Z",
+          "completed_at": "2026-11-26T23:25:52Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-26T23:25:52Z",
+          "completed_at": "2026-11-26T23:25:53Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-26T23:25:53Z",
+          "completed_at": "2026-11-26T23:26:02Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-26T23:26:02Z",
+          "completed_at": "2026-11-26T23:26:08Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-26T23:26:08Z",
+          "completed_at": "2026-11-26T23:26:11Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-26T23:26:11Z",
+          "completed_at": "2026-11-26T23:26:12Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-26T23:26:12Z",
+          "completed_at": "2026-11-26T23:26:12Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-26T23:26:12Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        }
+      ]
+    },
+    {
+      "id": 140218696111,
+      "name": "common-12",
+      "runner_id": 1000056553,
+      "runner_name": "GitHub Actions 1000056553",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-26T23:25:49Z",
+      "completed_at": "2026-11-26T23:26:14Z",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45910890189/job/140218696111",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-26T23:25:49Z",
+          "completed_at": "2026-11-26T23:25:51Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-26T23:25:51Z",
+          "completed_at": "2026-11-26T23:25:51Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-26T23:25:51Z",
+          "completed_at": "2026-11-26T23:25:52Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-26T23:25:52Z",
+          "completed_at": "2026-11-26T23:25:53Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-26T23:25:53Z",
+          "completed_at": "2026-11-26T23:26:01Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-26T23:26:01Z",
+          "completed_at": "2026-11-26T23:26:08Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-26T23:26:08Z",
+          "completed_at": "2026-11-26T23:26:10Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-26T23:26:10Z",
+          "completed_at": "2026-11-26T23:26:11Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-26T23:26:11Z",
+          "completed_at": "2026-11-26T23:26:11Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-26T23:26:11Z",
+          "completed_at": "2026-11-26T23:26:11Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-26T23:26:11Z",
+          "completed_at": "2026-11-26T23:26:12Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-26T23:26:12Z",
+          "completed_at": "2026-11-26T23:26:12Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-26T23:26:12Z",
+          "completed_at": "2026-11-26T23:26:12Z"
+        }
+      ]
+    },
+    {
+      "id": 140218696140,
+      "name": "common-3",
+      "runner_id": 1000056554,
+      "runner_name": "GitHub Actions 1000056554",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-26T23:25:49Z",
+      "completed_at": "2026-11-26T23:26:16Z",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45910890189/job/140218696140",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-26T23:25:50Z",
+          "completed_at": "2026-11-26T23:25:51Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-26T23:25:51Z",
+          "completed_at": "2026-11-26T23:25:52Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-26T23:25:52Z",
+          "completed_at": "2026-11-26T23:25:52Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-26T23:25:52Z",
+          "completed_at": "2026-11-26T23:25:53Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-26T23:25:53Z",
+          "completed_at": "2026-11-26T23:26:02Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-26T23:26:02Z",
+          "completed_at": "2026-11-26T23:26:08Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-26T23:26:08Z",
+          "completed_at": "2026-11-26T23:26:11Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-26T23:26:11Z",
+          "completed_at": "2026-11-26T23:26:12Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-26T23:26:12Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-26T23:26:13Z",
+          "completed_at": "2026-11-26T23:26:13Z"
+        }
+      ]
+    },
+    {
+      "id": 140218696170,
+      "name": "common-7",
+      "runner_id": 1000056551,
+      "runner_name": "GitHub Actions 1000056551",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-26T23:25:49Z",
+      "completed_at": "2026-11-26T23:26:17Z",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45910890189/job/140218696170",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-26T23:25:50Z",
+          "completed_at": "2026-11-26T23:25:50Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-26T23:25:50Z",
+          "completed_at": "2026-11-26T23:25:52Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-26T23:25:52Z",
+          "completed_at": "2026-11-26T23:25:53Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-26T23:25:53Z",
+          "completed_at": "2026-11-26T23:25:53Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-26T23:25:53Z",
+          "completed_at": "2026-11-26T23:26:03Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-26T23:26:03Z",
+          "completed_at": "2026-11-26T23:26:11Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-26T23:26:11Z",
+          "completed_at": "2026-11-26T23:26:14Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-26T23:26:14Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-26T23:26:15Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-26T23:26:15Z",
+          "completed_at": "2026-11-26T23:26:15Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-26T23:26:15Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-26T23:26:16Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-26T23:26:16Z",
+          "completed_at": "2026-11-26T23:26:16Z"
+        }
+      ]
+    },
+    {
+      "id": 140218696190,
+      "name": "common-5",
+      "runner_id": 1000056555,
+      "runner_name": "GitHub Actions 1000056555",
+      "run_attempt": 1,
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-26T23:25:49Z",
+      "completed_at": "2026-11-26T23:26:14Z",
+      "html_url": "https://github.com/nashspence/all/actions/runs/45910890189/job/140218696190",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-26T23:25:49Z",
+          "completed_at": "2026-11-26T23:25:51Z"
+        },
+        {
+          "name": "Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-26T23:25:51Z",
+          "completed_at": "2026-11-26T23:25:54Z"
+        },
+        {
+          "name": "Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-26T23:25:54Z",
+          "completed_at": "2026-11-26T23:25:54Z"
+        },
+        {
+          "name": "Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-26T23:25:54Z",
+          "completed_at": "2026-11-26T23:25:55Z"
+        },
+        {
+          "name": "Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-26T23:25:55Z",
+          "completed_at": "2026-11-26T23:26:03Z"
+        },
+        {
+          "name": "Install frozen package outside the candidate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-26T23:26:03Z",
+          "completed_at": "2026-11-26T23:26:08Z"
+        },
+        {
+          "name": "Collect one complete common-package observation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-26T23:26:08Z",
+          "completed_at": "2026-11-26T23:26:10Z"
+        },
+        {
+          "name": "Retain raw result, metadata and diagnostics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-26T23:26:10Z",
+          "completed_at": "2026-11-26T23:26:11Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-11-26T23:26:11Z",
+          "completed_at": "2026-11-26T23:26:11Z"
+        },
+        {
+          "name": "Post Check out previously published authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-11-26T23:26:11Z",
+          "completed_at": "2026-11-26T23:26:11Z"
+        },
+        {
+          "name": "Post Check out separate frozen subject",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-26T23:26:11Z",
+          "completed_at": "2026-11-26T23:26:12Z"
+        },
+        {
+          "name": "Post Check out frozen shared runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-26T23:26:12Z",
+          "completed_at": "2026-11-26T23:26:12Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-26T23:26:12Z",
+          "completed_at": "2026-11-26T23:26:12Z"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 15160585310,
+      "name": "common-package-9",
+      "size_in_bytes": 12094,
+      "digest": "sha256:f4771cedf7a72710958e1a257ac86b00875a35387e3f0d186187a44d60a66930",
+      "expired": false,
+      "created_at": "2026-11-26T23:26:16Z",
+      "updated_at": "2026-11-26T23:26:16Z",
+      "expires_at": "2026-12-26T23:26:15Z",
+      "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15160585310/zip",
+      "workflow_run": {
+        "id": 45910890189,
+        "repository_id": 1470000450,
+        "head_repository_id": 1470000450,
+        "head_branch": "experiment/64-core-refresh-2026-11-26",
+        "head_sha": "fdd5c7f7c333dfc7d5359af04f6c79045870da19"
+      }
+    },
+    {
+      "id": 15160485546,
+      "name": "common-package-5",
+      "size_in_bytes": 12086,
+      "digest": "sha256:76abdaed0ed7498db1ddeab02a33f73a48789fb23b8226696830ef0c686f2f64",
+      "expired": false,
+      "created_at": "2026-11-26T23:26:11Z",
+      "updated_at": "2026-11-26T23:26:11Z",
+      "expires_at": "2026-12-26T23:26:11Z",
+      "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15160485546/zip",
+      "workflow_run": {
+        "id": 45910890189,
+        "repository_id": 1470000450,
+        "head_repository_id": 1470000450,
+        "head_branch": "experiment/64-core-refresh-2026-11-26",
+        "head_sha": "fdd5c7f7c333dfc7d5359af04f6c79045870da19"
+      }
+    },
+    {
+      "id": 15160240964,
+      "name": "common-package-10",
+      "size_in_bytes": 11410,
+      "digest": "sha256:456d346a5d6441e962523b49de205dbfb3a85d6737630bb1258b4ca86b8daa8d",
+      "expired": false,
+      "created_at": "2026-11-26T23:26:14Z",
+      "updated_at": "2026-11-26T23:26:14Z",
+      "expires_at": "2026-12-26T23:26:13Z",
+      "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15160240964/zip",
+      "workflow_run": {
+        "id": 45910890189,
+        "repository_id": 1470000450,
+        "head_repository_id": 1470000450,
+        "head_branch": "experiment/64-core-refresh-2026-11-26",
+        "head_sha": "fdd5c7f7c333dfc7d5359af04f6c79045870da19"
+      }
+    },
+    {
+      "id": 15160046525,
+      "name": "common-package-1",
+      "size_in_bytes": 11466,
+      "digest": "sha256:662f6191ada31e6f36d7ea47d5e2b96a4ef8761715a39f3e46a9518edfc7d3d3",
+      "expired": false,
+      "created_at": "2026-11-26T23:26:10Z",
+      "updated_at": "2026-11-26T23:26:10Z",
+      "expires_at": "2026-12-26T23:26:09Z",
+      "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15160046525/zip",
+      "workflow_run": {
+        "id": 45910890189,
+        "repository_id": 1470000450,
+        "head_repository_id": 1470000450,
+        "head_branch": "experiment/64-core-refresh-2026-11-26",
+        "head_sha": "fdd5c7f7c333dfc7d5359af04f6c79045870da19"
+      }
+    },
+    {
+      "id": 15160036665,
+      "name": "common-package-11",
+      "size_in_bytes": 11423,
+      "digest": "sha256:3451a6901f60f2e44d62946a0b56df395f8b7728c72e693bd52fe500a7d365d1",
+      "expired": false,
+      "created_at": "2026-11-26T23:26:12Z",
+      "updated_at": "2026-11-26T23:26:12Z",
+      "expires_at": "2026-12-26T23:26:12Z",
+      "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15160036665/zip",
+      "workflow_run": {
+        "id": 45910890189,
+        "repository_id": 1470000450,
+        "head_repository_id": 1470000450,
+        "head_branch": "experiment/64-core-refresh-2026-11-26",
+        "head_sha": "fdd5c7f7c333dfc7d5359af04f6c79045870da19"
+      }
+    },
+    {
+      "id": 15159962601,
+      "name": "common-package-8",
+      "size_in_bytes": 12083,
+      "digest": "sha256:a53e45ada0c5d2c799ae4664818676876f46bbbe4504be1bffd12d253e74e318",
+      "expired": false,
+      "created_at": "2026-11-26T23:26:15Z",
+      "updated_at": "2026-11-26T23:26:15Z",
+      "expires_at": "2026-12-26T23:26:13Z",
+      "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15159962601/zip",
+      "workflow_run": {
+        "id": 45910890189,
+        "repository_id": 1470000450,
+        "head_repository_id": 1470000450,
+        "head_branch": "experiment/64-core-refresh-2026-11-26",
+        "head_sha": "fdd5c7f7c333dfc7d5359af04f6c79045870da19"
+      }
+    },
+    {
+      "id": 15159892675,
+      "name": "common-package-3",
+      "size_in_bytes": 11417,
+      "digest": "sha256:713935cd16ef3bc4d1d0dbbbf440c70eb36a92f0e00b9368eea8ba23bc46656d",
+      "expired": false,
+      "created_at": "2026-11-26T23:26:12Z",
+      "updated_at": "2026-11-26T23:26:12Z",
+      "expires_at": "2026-12-26T23:26:12Z",
+      "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15159892675/zip",
+      "workflow_run": {
+        "id": 45910890189,
+        "repository_id": 1470000450,
+        "head_repository_id": 1470000450,
+        "head_branch": "experiment/64-core-refresh-2026-11-26",
+        "head_sha": "fdd5c7f7c333dfc7d5359af04f6c79045870da19"
+      }
+    },
+    {
+      "id": 15159867904,
+      "name": "common-package-2",
+      "size_in_bytes": 11427,
+      "digest": "sha256:23d3340c76bfd8b447a0a948bbdc9619841c6859400a804ab37e5e98e0ff7096",
+      "expired": false,
+      "created_at": "2026-11-26T23:26:14Z",
+      "updated_at": "2026-11-26T23:26:14Z",
+      "expires_at": "2026-12-26T23:26:13Z",
+      "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15159867904/zip",
+      "workflow_run": {
+        "id": 45910890189,
+        "repository_id": 1470000450,
+        "head_repository_id": 1470000450,
+        "head_branch": "experiment/64-core-refresh-2026-11-26",
+        "head_sha": "fdd5c7f7c333dfc7d5359af04f6c79045870da19"
+      }
+    },
+    {
+      "id": 15159779015,
+      "name": "common-package-6",
+      "size_in_bytes": 11426,
+      "digest": "sha256:0d12844fe74fac072d6600b0c0b86d30b26c9289cd01e0c61b37bc23bbf19f27",
+      "expired": false,
+      "created_at": "2026-11-26T23:26:12Z",
+      "updated_at": "2026-11-26T23:26:12Z",
+      "expires_at": "2026-12-26T23:26:12Z",
+      "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15159779015/zip",
+      "workflow_run": {
+        "id": 45910890189,
+        "repository_id": 1470000450,
+        "head_repository_id": 1470000450,
+        "head_branch": "experiment/64-core-refresh-2026-11-26",
+        "head_sha": "fdd5c7f7c333dfc7d5359af04f6c79045870da19"
+      }
+    },
+    {
+      "id": 15159699308,
+      "name": "common-package-12",
+      "size_in_bytes": 11465,
+      "digest": "sha256:4d1872222b33cb62082dc3049e6c89a735956bc025308fdcc3d46f5912b5d9e5",
+      "expired": false,
+      "created_at": "2026-11-26T23:26:11Z",
+      "updated_at": "2026-11-26T23:26:11Z",
+      "expires_at": "2026-12-26T23:26:11Z",
+      "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15159699308/zip",
+      "workflow_run": {
+        "id": 45910890189,
+        "repository_id": 1470000450,
+        "head_repository_id": 1470000450,
+        "head_branch": "experiment/64-core-refresh-2026-11-26",
+        "head_sha": "fdd5c7f7c333dfc7d5359af04f6c79045870da19"
+      }
+    },
+    {
+      "id": 15159464546,
+      "name": "common-package-4",
+      "size_in_bytes": 12102,
+      "digest": "sha256:ae8b66dda46a66ac1dd6e13212252efbc003f4b7d4b5ee39de19c34dfe759e56",
+      "expired": false,
+      "created_at": "2026-11-26T23:26:16Z",
+      "updated_at": "2026-11-26T23:26:16Z",
+      "expires_at": "2026-12-26T23:26:14Z",
+      "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15159464546/zip",
+      "workflow_run": {
+        "id": 45910890189,
+        "repository_id": 1470000450,
+        "head_repository_id": 1470000450,
+        "head_branch": "experiment/64-core-refresh-2026-11-26",
+        "head_sha": "fdd5c7f7c333dfc7d5359af04f6c79045870da19"
+      }
+    },
+    {
+      "id": 15159324509,
+      "name": "common-package-7",
+      "size_in_bytes": 11409,
+      "digest": "sha256:25d2f74d0e397113e194a932bc728c26487057b6d828ab67424d27a4126d02d0",
+      "expired": false,
+      "created_at": "2026-11-26T23:26:15Z",
+      "updated_at": "2026-11-26T23:26:15Z",
+      "expires_at": "2026-12-26T23:26:14Z",
+      "archive_download_url": "https://api.github.com/repos/nashspence/all/actions/artifacts/15159324509/zip",
+      "workflow_run": {
+        "id": 45910890189,
+        "repository_id": 1470000450,
+        "head_repository_id": 1470000450,
+        "head_branch": "experiment/64-core-refresh-2026-11-26",
+        "head_sha": "fdd5c7f7c333dfc7d5359af04f6c79045870da19"
+      }
+    }
+  ],
+  "original_workflow_blob": "1a981bd0f58afd8bddd1a1a9d882424e6d45e0fd",
+  "refresh_workflow_blob": "c6ca707bc546aed7bc99d15a22915ce5ca0e8c86",
+  "workflow_diff_only_trigger": true,
+  "frozen_source_inventory": {
+    "activation_revision": "b0d7b03b8e3ffe16932d7036d1df111e088c7782",
+    "authority_revision": "ed6c2dd701d5a8969166872af48b9d434d6f8af3",
+    "files_sha256": {
+      "all_policy/performance/__init__.py": "480cebd84b43bfcfd5c863b3d027700038389840029588d8590458c423714626",
+      "all_policy/performance/__main__.py": "b27055d46760614282335567431ce9a05aa79e327b423664f97b17be3df52379",
+      "all_policy/performance/contracts.py": "0afc96ba91ea31975183ef67b27abfaeaefc6d81057262839d196e7ce32efac3",
+      "all_policy/performance/profiles.py": "f38fef67da36a036f69fcf4fde55ef39d4510e7bbc3ecab34d2f832c6a069adf",
+      "all_policy/performance/qualify_storage.py": "c4b31526375ecc12a166d80f3bac0bd9ddb0e506ad1da97856477b546fa9042f",
+      "all_policy/performance/runner.py": "cc6077ded13c4e6d0f5e62410b3f47feaecda570a51b9010b88e1f51295ff3bc",
+      "all_policy/performance/storage_cases.py": "c68b9ba664ee39e62337c40066417cf388cdab4b533b93f6c6a02f09d42fe94a",
+      "all_policy/performance/worker.py": "ae3778a47489f7fa1d9f0c2ca5507ccabcc00c12dec9bcf9377fb10830c01460",
+      "examples/performance/all_policy_case.py": "00a262b020ff002739f3e90cdc5867d721d10e198df45b70ed01b88ca2508729",
+      "examples/performance/bindings.json": "28cae08101d7f7c43e9d006ef7ae6ab826a0aa2d47323f3c1104dfba4c1c91d1",
+      "examples/performance/limits.json": "828acfefbd21e7131fb3a85740890c68700e8e933b667bcf30fbf9415117f327"
+    },
+    "module_files_sha256": {
+      "__init__.py": "480cebd84b43bfcfd5c863b3d027700038389840029588d8590458c423714626",
+      "__main__.py": "b27055d46760614282335567431ce9a05aa79e327b423664f97b17be3df52379",
+      "contracts.py": "0afc96ba91ea31975183ef67b27abfaeaefc6d81057262839d196e7ce32efac3",
+      "profiles.py": "f38fef67da36a036f69fcf4fde55ef39d4510e7bbc3ecab34d2f832c6a069adf",
+      "qualify_storage.py": "c4b31526375ecc12a166d80f3bac0bd9ddb0e506ad1da97856477b546fa9042f",
+      "runner.py": "cc6077ded13c4e6d0f5e62410b3f47feaecda570a51b9010b88e1f51295ff3bc",
+      "storage_cases.py": "c68b9ba664ee39e62337c40066417cf388cdab4b533b93f6c6a02f09d42fe94a",
+      "worker.py": "ae3778a47489f7fa1d9f0c2ca5507ccabcc00c12dec9bcf9377fb10830c01460"
+    },
+    "package_sha256": "0991da7e0ad0718bb67627c39bd78e7f6edcb275750db20ff23bc04b84b45a53",
+    "publication_sha256": {
+      "authority_bindings": "28cae08101d7f7c43e9d006ef7ae6ab826a0aa2d47323f3c1104dfba4c1c91d1",
+      "authority_limits": "828acfefbd21e7131fb3a85740890c68700e8e933b667bcf30fbf9415117f327",
+      "plan": "d62e93dc625383b242f4a522abf3045627bc7b4284dfc56c394d3c300ecb640c",
+      "workflow": "e7c527b3bebf0c4b7e8396e9cf262c55ce3ae79bff220cc9d11eec10ef16c8d6"
+    },
+    "shared_revision": "a324c2a1c203ac2478afaac127f385f9e1e264d3"
+  },
+  "limits": {
+    "schema": 1,
+    "operations": {
+      "check_repository16_warm": {
+        "profile": "public-linux-x64-4cpu-native-api-v1",
+        "max_wall_ns": 20000000
+      },
+      "check_repository16_cold": {
+        "profile": "public-linux-x64-4cpu-native-api-v1",
+        "max_wall_ns": 125000000
+      }
+    }
+  },
+  "bindings": {
+    "schema": 1,
+    "repository": "nashspence/all",
+    "operations": {
+      "check_repository16_warm": {
+        "approved_files": {
+          "examples/performance/all_policy_case.py": "00a262b020ff002739f3e90cdc5867d721d10e198df45b70ed01b88ca2508729"
+        },
+        "mode": "request",
+        "unit": "Sixteen serial warm all_policy.check_repository calls over the approved real workflow fixtures",
+        "completion": "All sixteen workflow reads, YAML parses and policy decisions have returned; no useful operation work is deferred to verify or close",
+        "adapter": "examples/performance/all_policy_case.py",
+        "cold_operation": "check_repository16_cold"
+      },
+      "check_repository16_cold": {
+        "approved_files": {
+          "examples/performance/all_policy_case.py": "00a262b020ff002739f3e90cdc5867d721d10e198df45b70ed01b88ca2508729"
+        },
+        "mode": "command",
+        "unit": "One fresh Python process creates the sixteen fixtures, imports the candidate, executes all sixteen checks and writes its completed result",
+        "completion": "The result file is closed and the foreground process and all its descendants have exited",
+        "command": [
+          "{python}",
+          "-I",
+          "-B",
+          "{subject}/examples/performance/all_policy_case.py",
+          "run",
+          "{subject}",
+          "{work}"
+        ],
+        "verify": [
+          "{python}",
+          "-I",
+          "-B",
+          "{subject}/examples/performance/all_policy_case.py",
+          "verify",
+          "{subject}",
+          "{work}"
+        ]
+      }
+    }
+  }
+}
