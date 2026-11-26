@@ -1,0 +1,50 @@
+{
+  "kind": "handoff",
+  "producer": [
+    "ChatGPT implementation agent",
+    "ChatGPT independent evidence/code reviewer"
+  ],
+  "requester": "nashspence",
+  "source": {
+    "repository": "nashspence/all",
+    "base": {
+      "ref": "main",
+      "commit": "29d2af516a91d762094da1da55c71d07d79e095c"
+    },
+    "work_state": "edited"
+  },
+  "artifacts": [
+    ".reference/policy.py",
+    ".reference/test_policy.py",
+    ".reference/proffer.json"
+  ],
+  "issue": "https://github.com/nashspence/all/issues/68",
+  "purpose": "Offer a small compiler from independently approved core/per-feature allowances to existing shared raw-time case rows, retaining exact mode selection and truthful feature-activity witnesses.",
+  "first_step": "Read #68 and current #64. Run python -m unittest discover -s .reference -v, including the headroom counterexample. Decide the real authoritative declaration, reviewed binding extraction and feature verification before approving any concrete project limits.",
+  "checks": [
+    {
+      "command": "python -m unittest discover -s .reference -v",
+      "result": "passed",
+      "source": {
+        "kind": "tree",
+        "id": "872ab9f59ec5f5cd6e9e9a9b5b7e5fc785b744ba"
+      },
+      "environment": "Python 3.12.14; Linux x86_64; Git 2.56.1; PyYAML 6.0.3. Local reference tests, not an admitted GitHub Actions performance profile.",
+      "notes": "7 focused tests passed. Uses the existing pinned all performance contracts.load_authority/evaluate API; exact envelopes/modes, zero versus inapplicable allowances, independently read synthetic file events, raw misses and pinned Git-object loading. The seven imported shared source files were checked against their Git blob identities at the base commit."
+    },
+    {
+      "command": "Consumer numerical approval, actual feature-bound operation binding and admitted GitHub Actions timing",
+      "result": "not-run",
+      "reason": "All numbers and admission/elapsed records in these tests are illustrative. No consumer budget, resource profile or production operation was qualified."
+    }
+  ],
+  "limitations": [
+    "C+P/D/L rows are absolute complete-configuration envelopes, not measured marginal feature costs. A tested counterexample shows core headroom can hide feature work exceeding its nominal allowance. Honest independently attributable operations can receive separate approved caps; no noisy subtraction proves exact overhead.",
+    "require_selections and require_activity consume facts from a future reviewed real adapter/verifier. This reference does not discover bindings, establish event provenance/completeness or connect those predicates into the shared runner.",
+    "The compiler assumes all applicable features can be enabled together. A genuinely unsupported combination requires an owning decision and adaptation; no exhaustive configuration matrix is imposed.",
+    "Zero is an applicable no-added-headroom allowance; None is explicitly inapplicable. Example numbers are invented nanoseconds for arithmetic tests, never proposed consumer budgets.",
+    "Normal-operation resumability maintenance cannot qualify post-interruption recovery. That needs its own owning failure/completion contract and approved operation budget.",
+    "Declaration approval, derived-row agreement, protected workflow authority, true feature execution, full production completion and mandatory-guarantee classification remain real integration obligations.",
+    "No timer, calibration model, new runner, adaptive credit/debt framework or consumer-repository modification is introduced. The handling agent owns acceptance and its Proffer disposition."
+  ]
+}
