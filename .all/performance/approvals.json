@@ -2,29 +2,29 @@
   "schema": 1,
   "profiles": {
     "public-linux-x64-4cpu-native-api-v1": {
-      "source_commit": "a3dfcc8bb4e632906414f232a50c9fecf42720f1",
-      "source_digest": "7572e1ab1d1b556f8a7b2d699a27bb3cc0a793364ee5d55ee91e26a375c3a19a",
+      "source_commit": "6758fd2b75a92fd44277350ca8eac981c32a8010",
+      "source_digest": "0ba6c46cf1a4f79c68d94ea1d62b4389d1fd16dd4fc8e3dbde466dee4553ddf8",
       "workflow": ".github/workflows/core-profile-refresh.yml",
-      "workflow_digest": "d09dab3d747c0d82b9de8351919e778af4a21b8510ca724d206905d5efb53ed2",
+      "workflow_digest": "a8116d89f75cbf7db4bd09091d88b6d9050ca7a615ee9a49b85e9a8f0c9798e6",
       "qualification_runs": [
-        45917826673
+        46077839351
       ],
       "disposition": {
-        "url": "https://github.com/nashspence/all/issues/69#issuecomment-7206686550",
-        "reason": "Initial enrollment of exact merged implementation under #69: two sequential fresh cohorts admit all24 original allocations and every fixed operation observation passes. Earlier frozen-source cohorts are historical evidence, not substituted qualification."
+        "url": "https://github.com/nashspence/all/issues/69#issuecomment-7229576743",
+        "reason": "Reviewed new epoch for the exact #68 merged implementation: two sequential fresh cohorts pass all 24 original allocations and unchanged raw limits. The earlier admitted cold miss in run 45921652177 remains unchanged and its cause unproven; this is new-source qualification, not a rerun replacement or retroactive waiver."
       }
     },
     "public-linux-x64-4cpu-prepared-ext4-v2": {
-      "source_commit": "a3dfcc8bb4e632906414f232a50c9fecf42720f1",
-      "source_digest": "7572e1ab1d1b556f8a7b2d699a27bb3cc0a793364ee5d55ee91e26a375c3a19a",
+      "source_commit": "6758fd2b75a92fd44277350ca8eac981c32a8010",
+      "source_digest": "0ba6c46cf1a4f79c68d94ea1d62b4389d1fd16dd4fc8e3dbde466dee4553ddf8",
       "workflow": ".github/workflows/storage-profile-refresh.yml",
-      "workflow_digest": "b58ae10b6145da7810183e5319c6f1911bc51e71e8c6b784d77deaae8226aa15",
+      "workflow_digest": "cbb9d963022af10d1d9475404fd8865012082ffa6e623ab13719985d2cc8210b",
       "qualification_runs": [
-        45917826714
+        46077839295
       ],
       "disposition": {
-        "url": "https://github.com/nashspence/all/issues/69#issuecomment-7206686550",
-        "reason": "Initial enrollment of exact merged implementation under #69: all twelve original prepared-v2 workers satisfy the unchanged #66 resource screens and consumer correctness requirements. Earlier failed campaigns and consumer engineering misses remain retained."
+        "url": "https://github.com/nashspence/all/issues/69#issuecomment-7229576743",
+        "reason": "Reviewed enrollment of the exact #68 merged implementation: all 12 original prepared-v2 workers pass unchanged resource and operation requirements. Earlier campaigns and the two new Riverhog engineering comparison misses remain retained; consumer numerical approval is separate."
       }
     }
   }
