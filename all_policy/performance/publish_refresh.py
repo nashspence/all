@@ -333,14 +333,20 @@ def append(client, summary, evidence, *, attempts=3):
         recovered, new_missing = [], []
         for row, raw in missing:
             path = row["evidence_path"]
-            if _receipt_exists(client, head, path):
-                prior = _decode(_content(client, path, head))
+            try:
+                prior = _decode(_content(client, path, head)) if head else None
+            except HTTPError as error:
+                if error.code != 404:
+                    raise
+                prior = None
+            if prior is None:
+                new_missing.append((row, raw))
+            else:
                 validate_index({"schema": 1, "runs": [prior]})
-                if prior["run_id"] != row["run_id"] or prior["workflow"] != row["workflow"]:
+                if (prior["run_id"] != row["run_id"] or prior["workflow"] != row["workflow"]
+                        or prior["created_at"] != row["created_at"] or prior["event"] != row["event"]):
                     raise PublicationError("historical receipt identity mismatch")
                 recovered.append(prior)
-            else:
-                new_missing.append((row, raw))
         index["runs"].extend(recovered)
         index["runs"].extend(row for row, _ in new_missing)
         index["runs"].append(summary)
