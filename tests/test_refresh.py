@@ -3,7 +3,7 @@ import copy
 from datetime import datetime, timedelta, timezone
 import unittest
 
-from all_policy.performance.refresh import CORE, PREPARED_EXT4, WORKFLOWS, evaluate, validate_index, validate_registry
+from all_policy.performance.refresh import CORE, PREPARED_EXT4, WORKFLOWS, compact_index, evaluate, validate_index, validate_registry
 
 
 SOURCE = "a" * 40
@@ -51,6 +51,25 @@ class RefreshTests(unittest.TestCase):
     def evaluate(self, runs, *, policy=None, profile=CORE, day=2, live=None, digest=DIGEST):
         return evaluate(policy or registry(profile), {"schema": 1, "runs": runs}, profile,
                         digest, START + timedelta(days=day), observed_runs=live)
+
+    def test_compaction_retains_active_failures_and_only_retires_reviewed_epochs(self):
+        rows = [run(1, 0, cohorts=2), run(2, 7), run(3, 14), run(4, 21),
+                run(5, 28), run(6, 35, cohorts=2), run(7, 42), run(8, 49)]
+        rows[1]["cohorts"][0]["workers"][0]["outcome"] = "failed"
+        index = {"schema": 1, "runs": rows}
+        now = START + timedelta(days=50)
+        original = registry(qualification=[1])
+        self.assertEqual(compact_index(original, index, now), index)
+        self.assertEqual(evaluate(original, compact_index(original, index, now),
+                                  CORE, DIGEST, now)["status"], "suspended")
+        # Only a reviewed new qualification can retire the failed epoch.
+        renewed = registry(qualification=[6])
+        compacted = compact_index(renewed, index, now)
+        self.assertEqual([r["run_id"] for r in compacted["runs"]], [4, 5, 6, 7, 8])
+        self.assertEqual(evaluate(renewed, compacted, CORE, DIGEST, now)["status"], "active")
+        self.assertEqual(evaluate(original, compacted, CORE, DIGEST, now)["status"], "suspended")
+        self.assertEqual(compact_index(registry(qualification=[99]), index, now), index)
+        self.assertEqual(len(index["runs"]), 8)
 
     def test_bootstrap_two_cohorts_and_one_environmental_rejection(self):
         rows = [run(1, 0), run(2, 1)]

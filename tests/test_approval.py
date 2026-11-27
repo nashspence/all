@@ -97,6 +97,17 @@ class ApprovalTests(unittest.TestCase):
     def check(self, source, now=NOW):
         return approval._require_current({CORE}, source, now)
 
+    def test_capacity_guard_cannot_be_used_to_discard_active_evidence(self):
+        from all_policy.performance import refresh
+        source = Authority()
+        with patch.object(refresh, "MAX_ACTIVE_INDEX_BYTES", 1):
+            with self.assertRaisesRegex(approval.ApprovalError, "reviewed epoch renewal"):
+                self.check(source)
+        with patch.object(refresh, "MAX_INDEX_BYTES", 1):
+            with self.assertRaisesRegex(approval.ApprovalError, "publication capacity"):
+                self.check(source)
+        self.assertEqual(self.check(source)[CORE]["status"], "active")
+
     def test_current_authorities_are_pinned_and_live_history_is_required(self):
         source = Authority()
         result = self.check(source)[CORE]

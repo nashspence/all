@@ -12,6 +12,10 @@ from .profiles import CORE, PREPARED_EXT4
 FRESHNESS = timedelta(days=10)
 PENDING_ALLOWANCE = timedelta(hours=2)
 LIVE_WINDOW = timedelta(days=30)
+# Reserve room for fresh qualification before the Contents API encoding limit.
+INDEX_WARNING_BYTES = 256 * 1024
+MAX_ACTIVE_INDEX_BYTES = 512 * 1024
+MAX_INDEX_BYTES = 768 * 1024
 WORKFLOWS = {
     CORE: ".github/workflows/core-profile-refresh.yml",
     PREPARED_EXT4: ".github/workflows/storage-profile-refresh.yml",
@@ -118,6 +122,35 @@ def validate_index(index):
                 slots.append(worker["slot"])
             _require(set(slots) == set(range(1, 13)), "duplicate or missing allocation slots")
     return index
+
+
+def compact_index(registry, index, now):
+    """Retire only superseded prefixes; retain recent live-reconciliation rows.
+
+    A reviewed qualification inventory authorizes retirement of an older epoch.
+    Missing anchors never authorize truncation of a currently enrolled epoch.
+    Every current-epoch failure remains binding.
+    """
+    validate_registry(registry)
+    validate_index(index)
+    cutoff = now - LIVE_WINDOW
+    by_id = {run["run_id"]: run for run in index["runs"]}
+    epochs = {}
+    for profile, workflow in WORKFLOWS.items():
+        entry = registry["profiles"].get(profile)
+        if entry is None:
+            # No approved epoch exists. Old unapproved runs cannot satisfy
+            # freshness; their individual immutable receipts remain available.
+            epochs[workflow] = cutoff
+            continue
+        anchors = [by_id.get(identity) for identity in entry["qualification_runs"]]
+        if all(anchor is not None and anchor["workflow"] == workflow for anchor in anchors):
+            epochs[workflow] = min(_time(anchor["created_at"]) for anchor in anchors)
+    return {"schema": 1, "runs": [
+        run for run in index["runs"]
+        if run["workflow"] not in epochs
+        or _time(run["created_at"]) >= min(cutoff, epochs[run["workflow"]])
+    ]}
 
 
 def evaluate(registry, index, profile, installed_digest, now, observed_runs=None):

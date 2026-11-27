@@ -32,15 +32,37 @@ The daily 07:53 UTC status job checks approval without repeating measurements.
 GitHub may disable inactive schedules; re-enable them when resuming maintenance.
 
 Workers have read-only repository permission. Only the trusted main publisher
-appends packets, actual original job/runner identities and an index to
+appends compact first-attempt decision receipts and an active index to
 [`profile-evidence`](https://github.com/nashspence/all/tree/profile-evidence).
-Git history retains raw packets after Actions artifacts expire. Publication uses
-non-forced ancestry checks; previous runs cannot be overwritten. Later publication
-retains incomplete records for earlier runs whose publishers never completed.
-Consumers check recent live run inventory as well as durable historical evidence.
-The recorded completion boundary is all original worker jobs, validated evidence
-and its durable append. A later status-query outage is not an operation miss;
-acceptance still fails while required current authority cannot be read.
+Each receipt contains source/workflow identity, chronology, allocation identities,
+outcomes used by approval and a digest of the verification report. Individual
+receipts allow replay detection after index compaction. Raw worker packets and
+detailed ZIP/packet verification reports stay in Actions artifacts (90 days).
+The publisher verifies exact original ZIP and packet bytes before classification;
+it does not store those bytes in Git. Record material findings and reviewed
+dispositions on [#69](https://github.com/nashspence/all/issues/69) or the owning
+tracker before relevant artifacts expire.
+
+Publication uses non-forced ancestry checks; previous receipts cannot be
+overwritten. Lost original publishers produce durable incomplete receipts.
+Consumers read the index and recent live run inventory, not each receipt or raw
+artifact. Reviewed enrollment permits compacting only older superseded rows,
+keeping the last 30 days for live inventory reconciliation. Both the publisher
+and reader apply this rule; current-epoch failures remain binding.
+
+The index warns at 256 KiB. If the active index exceeds 512 KiB, acceptance
+requires reviewed epoch renewal; collection can continue within a reserved
+publication capacity of 768 KiB (below the Contents API encoding threshold).
+Use the existing enrollment procedure before exhaustion, reusing applicable fresh
+qualifying cohorts where possible. At the hard publication limit, publication
+fails closed rather than erase evidence. Review proactively; if exhausted, a
+reviewed maintenance correction is required. This is a finite maintenance
+safeguard, not a performance budget.
+
+The completion boundary is all original worker jobs, validated evidence and
+its durable compact decision append. A later status-query outage is not an
+operation miss; acceptance fails while required current authority is unavailable.
+Legacy raw Git objects and immutable historical links are not rewritten.
 
 ## Enrollment or reinstatement
 

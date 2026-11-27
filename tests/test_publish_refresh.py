@@ -11,6 +11,7 @@ from unittest.mock import patch
 from urllib.error import HTTPError
 
 from all_policy.performance import publish_refresh as publication
+from all_policy.performance import refresh
 
 
 SOURCE = "a" * 40
@@ -53,6 +54,7 @@ class BranchClient:
         self.writes = []
         self.race = None
         self.history, self.original_runs, self.jobs_by_run = [], {}, {}
+        self.registry = {"schema": 1, "profiles": {}}
 
     @staticmethod
     def missing():
@@ -70,9 +72,18 @@ class BranchClient:
         if "/git/commits/" in path:
             commit = self.commits[path.rsplit("/", 1)[1]]
             return {"tree": {"sha": commit["tree"]}}
-        if "/contents/index.json" in path:
-            tree = self.trees[self.commits[query["ref"]]["tree"]]
-            return {"encoding": "base64", "content": base64.b64encode(self.blobs[tree["index.json"]]).decode()}
+        if "/contents/" in path:
+            name = path.split("/contents/", 1)[1]
+            if name == ".all/performance/approvals.json":
+                raw = publication._encode(self.registry)
+            else:
+                tree = self.trees[self.commits[query["ref"]]["tree"]]
+                if name not in tree:
+                    raise self.missing()
+                raw = self.blobs[tree[name]]
+            identity = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
+            return {"type": "file", "sha": identity, "encoding": "base64",
+                    "content": base64.b64encode(raw).decode()}
         raise AssertionError(path)
 
     def first_attempt_jobs(self, run_id):
@@ -146,7 +157,7 @@ class PublicationTests(unittest.TestCase):
         kwargs.update(changes)
         return publication.collect(self.client, **kwargs)
 
-    def test_original_job_inventory_and_exact_raw_bytes_are_retained(self):
+    def test_original_job_inventory_and_expiring_verification_report(self):
         path = self.write(4, outcome="environment")
         summary, raw = self.collect()
         self.assertEqual(self.client.requested_attempt, (41, 1))
@@ -154,7 +165,11 @@ class PublicationTests(unittest.TestCase):
                          {"slot": 4, "runner_id": 2004, "outcome": "environment"})
         self.assertEqual(summary["cohorts"][0]["completed_at"], "2026-11-27T01:04:00Z")
         retained = json.loads(raw)["reports"][path.name]
-        self.assertEqual(base64.b64decode(retained["base64"]), path.read_bytes())
+        self.assertNotIn("base64", retained)
+        self.assertEqual(retained["sha256"], hashlib.sha256(path.read_bytes()).hexdigest())
+        self.assertEqual(retained["bytes"], len(path.read_bytes()))
+        reports, _, _ = publication.read_reports(self.directory)
+        self.assertEqual(base64.b64decode(reports[path.name]["base64"]), path.read_bytes())
         self.assertEqual(summary["evidence_sha256"], hashlib.sha256(raw).hexdigest())
 
     def test_missing_jobs_missing_packets_and_false_success_are_not_environment(self):
@@ -208,7 +223,10 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual(branch.commits[branch.head]["parents"], [original])
         self.assertEqual([row["run_id"] for row in branch.index()["runs"]], [41, 42])
         tree = branch.trees[branch.commits[branch.head]["tree"]]
-        self.assertEqual(branch.blobs[tree["runs/41.json"]], raw)
+        self.assertEqual(json.loads(branch.blobs[tree["runs/41.json"]]), summary)
+        self.assertEqual(len(tree), 3)
+        self.assertNotIn(raw, branch.blobs.values())
+        self.assertTrue(all(b'"base64"' not in value for value in branch.blobs.values()))
 
     def test_concurrent_append_rebases_on_new_history_without_losing_either_run(self):
         summary, raw = self.collect()
@@ -241,7 +259,7 @@ class PublicationTests(unittest.TestCase):
         self.assertEqual({worker["outcome"] for worker in lost["cohorts"][0]["workers"]}, {"incomplete"})
         first_tree = branch.trees[branch.commits[branch.head]["tree"]]
         retained = branch.blobs[first_tree["runs/40.json"]]
-        self.assertEqual(json.loads(retained)["run"]["conclusion"], "failure")
+        self.assertEqual(json.loads(retained), lost)
         branch.history = []
         later = deepcopy(summary)
         later.update(run_id=42, evidence_path="runs/42.json")
@@ -260,19 +278,44 @@ class PublicationTests(unittest.TestCase):
         self.assertIn("worker-1-6.json", json.loads(raw)["reports"])
         self.assertEqual(json.loads(raw)["artifacts"][0]["status"], "failed")
 
+    def test_compacted_receipt_still_prevents_replay(self):
+        summary, raw = self.collect()
+        branch = BranchClient()
+        publication.append(branch, summary, raw)
+        later = deepcopy(summary)
+        later.update(run_id=42, evidence_path="runs/42.json",
+                     created_at="2027-01-10T01:00:00Z", started_at="2027-01-10T01:00:01Z",
+                     completed_at="2027-01-10T01:05:00Z")
+        later["cohorts"][0]["completed_at"] = "2027-01-10T01:04:00Z"
+        publication.append(branch, later, raw)
+        self.assertEqual([row["run_id"] for row in branch.index()["runs"]], [42])
+        with self.assertRaisesRegex(publication.PublicationError, "already recorded"):
+            publication.append(branch, summary, raw)
+
+    def test_capacity_refuses_before_writing_any_git_objects(self):
+        summary, raw = self.collect()
+        branch = BranchClient()
+        with patch.object(refresh, "MAX_INDEX_BYTES", 1):
+            with self.assertRaisesRegex(publication.PublicationError, "index capacity exhausted"):
+                publication.append(branch, summary, raw)
+        self.assertEqual(branch.writes, [])
+        self.assertIsNone(branch.head)
+
     def test_two_environmental_rejections_publish_then_fail_availability(self):
         self.write(1, outcome="environment")
         self.write(2, outcome="environment")
         summary, raw = self.collect()
         arguments = ["--reports", str(self.directory), "--kind", "core", "--source", SOURCE,
                      "--source-digest", DIGEST, "--workflow", WORKFLOW,
-                     "--workflow-digest", WORKFLOW_DIGEST]
+                     "--workflow-digest", WORKFLOW_DIGEST,
+                     "--verification-report", str(self.directory / "verification.json")]
         with patch.object(publication, "GitHub", return_value=object()), \
                 patch.object(publication, "collect", return_value=(summary, raw)), \
                 patch.object(publication, "append", return_value=SOURCE) as append, \
                 redirect_stdout(io.StringIO()):
             self.assertEqual(publication.main(arguments), 1)
         append.assert_called_once()
+        self.assertEqual((self.directory / "verification.json").read_bytes(), raw)
 
 
 if __name__ == "__main__":
