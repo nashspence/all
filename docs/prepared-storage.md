@@ -104,6 +104,17 @@ Use the actual pinned source/locked installation and independently checked bytes
 
 Archive the raw gate JSON, preparation/postflight/cleanup reports, exact source tuple, installation provenance and all failures. Ensure the artifact-upload identity can read root-created reports; retain them even when the gate fails. A `pass` is 0, product `miss` is 1, `unqualified` is 2 and incorrect/incomplete/changed-source evidence is `failed` with exit 3. Preparation success is not itself a performance pass.
 
-After successful v2 qualification and explicit activation, central profile maintenance belongs to `nashspence/all`: a weekly cohort of 12 fresh workers uses the same frozen profile, actual generic operation cases, raw operation screens and no-retry rules. The failed v1 campaign is never reclassified as a pass. Initial v2 qualification is limited to the one new twelve-worker campaign in its prospective plan; another failure does not authorize further threshold fitting. Consumer repositories run ordinary admission and their approved operation gates, not the central research campaign. An incomplete or failed refresh suspends shared approval pending a recorded review; raw misses remain visible. A helper, runtime, probe body/validation rule, operation screen or resource-configuration change requires a new version and qualification. Public image/kernel changes remain recorded and reviewed.
+Central maintenance follows the [executable refresh contract](profile-refresh.md):
+weekly twelve-worker campaigns retain #66's exact generic operation screens and
+actual consumer applicability checks. Prepared storage requires 12/12, with no
+core-profile environmental allowance. Incomplete evidence, a failed required
+screen or a ten-day freshness gap suspends approval until reviewed reinstatement.
+The failed v1 campaign and consumer engineering misses remain unchanged.
 
-That maintenance rule does not claim automatic remote revocation of an already pinned package. The shared owner publishes the disposition and consumers must follow the active approved revision. Per-job admission still rejects an observed mismatch immediately. Activate the profile through the ordinary reviewed shared-package and repository-CI change, then select consumer numbers and bindings through their existing design authority. No additional project-specific hardware approval service is required.
+The normal entrypoint checks current central approval and binds installed bytes
+to their qualified implementation. An older package lacking this check cannot
+be remotely rewritten. Changes to resource, helper, probe or acceptance semantics
+need a prospective version/qualification decision; maintenance-only source
+changes need exact-source qualification without changing those semantics.
+Consumer numerical contracts, native correctness, custody and release readiness
+remain project-owned. No consumer repeats the central research campaign per PR.

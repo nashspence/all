@@ -1,21 +1,25 @@
-# Approved under all #66; exact tested source and scope are recorded in
-# docs/storage-profile-enrollment.md.
-# The acceptance analyzer is bound to its original experiment ref/phase. Do not
-# feed it invented ref/phase values for these real main-branch refresh runs.
-# This workflow uses unchanged coordinator verdicts and requires all 12 workers;
-# raw per-worker evidence remains the source for the maintainer's disposition.
 name: Prepared storage profile weekly refresh
 on:
+  push:
+    branches: [main]
+    paths: ['all_policy/**', '.github/workflows/storage-profile-refresh.yml']
   schedule:
     - cron: '37 6 * * 1'
   workflow_dispatch:
+    inputs:
+      qualification:
+        description: Collect evidence for reviewed enrollment or reinstatement
+        type: boolean
+        default: false
 concurrency:
   group: prepared-storage-profile-refresh-main
   cancel-in-progress: false
+  queue: max
 permissions:
   contents: read
 env:
-  FROZEN_SHARED_SHA: 5086428a29871eeb267ea7225537aa0225930bac
+  FROZEN_SHARED_SHA: ${{ github.sha }}
+  REFRESH_WORKFLOW_SHA: ${{ github.workflow_sha }}
   STORAGE66_PHASE: refresh
 jobs:
   storage:
@@ -38,6 +42,13 @@ jobs:
           repository: nashspence/all
           ref: ${{ env.FROZEN_SHARED_SHA }}
           path: runtime
+          persist-credentials: false
+      - name: Check out the unchanged storage workload and consumer adapters
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          repository: nashspence/all
+          ref: 5086428a29871eeb267ea7225537aa0225930bac
+          path: campaign
           persist-credentials: false
       - name: Check out actual Fishhat source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -90,7 +101,7 @@ jobs:
       - name: Prepare actual storage and collect the fixed cohort
         shell: bash
         run: |
-          sudo --preserve-env=PATH,GITHUB_ACTIONS,RUNNER_ENVIRONMENT,RUNNER_OS,RUNNER_ARCH,ImageOS,ImageVersion,GITHUB_REPOSITORY,GITHUB_REF,GITHUB_SHA,GITHUB_RUN_ID,GITHUB_RUN_ATTEMPT,GITHUB_EVENT_NAME,RUNNER_NAME,FROZEN_SHARED_SHA,STORAGE66_PHASE,STORAGE66_WORKER,STORAGE66_WORKFLOW_SHA "$RUNNER_TEMP/all66-common/bin/python" -I -B "$GITHUB_WORKSPACE/runtime/experiments/66/campaign.py" --workspace "$GITHUB_WORKSPACE" --output "$GITHUB_WORKSPACE/storage-output" --fishhat-python "$RUNNER_TEMP/all66-fishhat/bin/python" --riverhog-python "$RUNNER_TEMP/all66-riverhog/bin/python"
+          sudo --preserve-env=PATH,GITHUB_ACTIONS,RUNNER_ENVIRONMENT,RUNNER_OS,RUNNER_ARCH,ImageOS,ImageVersion,GITHUB_REPOSITORY,GITHUB_REF,GITHUB_SHA,GITHUB_RUN_ID,GITHUB_RUN_ATTEMPT,GITHUB_EVENT_NAME,RUNNER_NAME,FROZEN_SHARED_SHA,STORAGE66_PHASE,STORAGE66_WORKER,STORAGE66_WORKFLOW_SHA "$RUNNER_TEMP/all66-common/bin/python" -I -B "$GITHUB_WORKSPACE/campaign/experiments/66/campaign.py" --workspace "$GITHUB_WORKSPACE" --output "$GITHUB_WORKSPACE/storage-output" --fishhat-python "$RUNNER_TEMP/all66-fishhat/bin/python" --riverhog-python "$RUNNER_TEMP/all66-riverhog/bin/python"
       - name: Retain all raw measurements and partial evidence
         if: ${{ always() }}
         shell: bash
@@ -98,64 +109,59 @@ jobs:
           if [[ -d "$GITHUB_WORKSPACE/storage-output" ]]; then
             sudo chown -R --no-dereference "$(id -u):$(id -g)" "$GITHUB_WORKSPACE/storage-output"
           fi
+      - name: Classify and bind the original storage packet
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          "$RUNNER_TEMP/all66-common/bin/python" -I -B -m all_policy.performance.refresh_collect storage --workspace "$GITHUB_WORKSPACE" --raw "$GITHUB_WORKSPACE/storage-output" --output "$GITHUB_WORKSPACE/packets" --slot "$STORAGE66_WORKER"
       - name: Upload retained evidence
         if: ${{ always() }}
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: storage-profile-refresh-${{ github.run_id }}-${{ matrix.worker }}
-          path: storage-output/
+          path: |
+            storage-output/
+            packets/
           if-no-files-found: error
           retention-days: 90
 
-  refresh-result:
-    name: Prepared storage refresh result
+  publish:
+    name: Preserve prepared storage refresh evidence
     needs: [storage]
-    if: ${{ always() }}
+    if: ${{ always() && github.ref == 'refs/heads/main' && github.run_attempt == 1 }}
     runs-on: ubuntu-24.04
-    timeout-minutes: 2
-    env:
-      REFRESH_MATRIX_RESULT: ${{ needs.storage.result }}
-      REFRESH_REF: ${{ github.ref }}
-      REFRESH_ATTEMPT: ${{ github.run_attempt }}
-      REFRESH_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-      REFRESH_RUN_ID: ${{ github.run_id }}
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
     steps:
-      - name: Require the complete first-attempt twelve-worker cohort
-        shell: bash
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          path: runtime
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12.16'
+      - run: python -m pip install ./runtime
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        continue-on-error: true
+        with:
+          pattern: storage-profile-refresh-${{ github.run_id }}-*
+          path: packets
+      - name: Append original packets and actual allocation inventory
+        if: ${{ always() }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
-          python3 -I -B - <<'PY_REFRESH'
-          import os
-          from pathlib import Path
-          import sys
-
-          ok = (os.environ['REFRESH_REF'] == 'refs/heads/main'
-                and os.environ['REFRESH_ATTEMPT'] == '1'
-                and os.environ['REFRESH_MATRIX_RESULT'] == 'success')
-          lines = [
-              '# Prepared storage profile refresh',
-              '',
-              'Run: ' + os.environ['REFRESH_RUN_URL'],
-              'Frozen source: `' + os.environ['FROZEN_SHARED_SHA'] + '`',
-              'Expected measured workers: 12; controls run once on worker 1.',
-              'Matrix result: `' + os.environ['REFRESH_MATRIX_RESULT'] + '`',
-              '',
-              'Raw artifacts: `storage-profile-refresh-' + os.environ['REFRESH_RUN_ID']
-                  + '-1` through `-12`, retained for 90 days on this exact run.',
-              'Artifact upload is unconditional; failed or incomplete workers retain available partial evidence.',
-              '',
-          ]
-          if ok:
-              lines += ['All twelve workers completed successfully under the frozen requirements.',
-                        'This refresh supplies evidence; it does not approve a different source, profile or budget.']
-          else:
-              lines += ['Refresh failed, was incomplete, used a different ref, or was rerun.',
-                        'Shared profile approval remains suspended pending a recorded review.',
-                        'Keep all misses and missing observations; do not replace failed workers or select a successful attempt.']
-          lines += ['', 'The frozen acceptance analyzer is specific to its original experiment ref and phase.',
-                    'Do not relabel this refresh as acceptance; inspect its real per-worker records and coordinator verdicts.']
-          text = '\n'.join(lines) + '\n'
-          with Path(os.environ['GITHUB_STEP_SUMMARY']).open('a') as summary:
-              summary.write(text)
-          print(text)
-          sys.exit(0 if ok else 1)
-          PY_REFRESH
+          profile_digest="$(python -I -B -c 'from all_policy.performance.approval import source_digest; print(source_digest())')"
+          workflow_digest="$(sha256sum runtime/.github/workflows/storage-profile-refresh.yml | cut -d' ' -f1)"
+          python -I -B -m all_policy.performance.publish_refresh --reports packets --kind storage --source "$GITHUB_SHA" --source-digest "$profile_digest" --workflow .github/workflows/storage-profile-refresh.yml --workflow-digest "$workflow_digest"
+      - name: Enforce current enrolled status
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          REFRESH_QUALIFICATION: ${{ github.event_name == 'push' || inputs.qualification }}
+        run: |
+          set --
+          if [[ "$REFRESH_QUALIFICATION" == true ]]; then set -- --qualification-only; fi
+          python -I -B -m all_policy.performance.refresh_collect check-enrollment --registry runtime/.all/performance/approvals.json --profile public-linux-x64-4cpu-prepared-ext4-v2 "$@"

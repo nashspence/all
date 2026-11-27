@@ -21,6 +21,7 @@ import platform
 
 from .contracts import REPETITIONS, evaluate
 from .profiles import admit
+from .approval import require_current
 
 MAX_COHORT_SECONDS = 300
 MAX_PHASE_SECONDS = 30
@@ -308,9 +309,12 @@ def _candidate_revision(subject):
 
 
 def run_suite(authority, subject, storage_roots):
-    """Run in a dedicated process which owns and reaps the complete child lifecycle."""
+    """Accept only under current central approval, then own the complete lifecycle."""
+    approval = require_current({limit.profile for limit in authority.limits.values()})
     with _ProcessScope():
-        return _run_suite(authority, subject, storage_roots)
+        record = _run_suite(authority, subject, storage_roots)
+    record["profile_approval"] = approval
+    return record
 
 
 def _run_suite(authority, subject, storage_roots):

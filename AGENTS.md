@@ -11,6 +11,10 @@ Start with the executable contract:
 - [Protocol and adoption example](tests/test_protocol.py)
 - [Owner inventory and current passing evidence](tests/test_audit.py)
 - [CLI and library entry points](tests/test_cli.py)
+- [Profile approval, refresh and suspension](tests/test_refresh.py)
+- [Current authority and durable publication](tests/test_approval.py)
+
+Profile enrollment and reinstatement operations: [refresh](docs/profile-refresh.md).
 
 Keep scope to shared executable policy. Put behavior and examples in tests;
 use prose only for intent or operations that code cannot reasonably convey.

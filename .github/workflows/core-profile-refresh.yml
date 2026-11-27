@@ -1,0 +1,164 @@
+name: Core profile weekly refresh
+on:
+  push:
+    branches: [main]
+    paths: ['all_policy/**', 'examples/performance/**', '.github/workflows/core-profile-refresh.yml']
+  schedule:
+    - cron: '37 6 * * 2'
+  workflow_dispatch:
+    inputs:
+      bootstrap:
+        description: Collect two consecutive cohorts for a reviewed enrollment
+        type: boolean
+        default: false
+concurrency:
+  group: core-profile-refresh-main
+  cancel-in-progress: false
+  queue: max
+permissions:
+  contents: read
+env:
+  REFRESH_WORKFLOW_SHA: ${{ github.workflow_sha }}
+jobs:
+  core1:
+    if: ${{ github.ref == 'refs/heads/main' && github.run_attempt == 1 }}
+    name: core-1-${{ matrix.worker }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        worker: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          path: runtime
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          path: subject
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ed6c2dd701d5a8969166872af48b9d434d6f8af3
+          path: authority
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.9'
+          check-latest: false
+      - name: Install the exact merged runtime outside source
+        run: |
+          python -m venv "$RUNNER_TEMP/profile-runtime"
+          "$RUNNER_TEMP/profile-runtime/bin/python" -I -B -m pip install --disable-pip-version-check 'PyYAML==6.0.3'
+          "$RUNNER_TEMP/profile-runtime/bin/python" -I -B -m pip install --disable-pip-version-check --no-deps ./runtime
+      - name: Collect the fixed first-attempt allocation
+        env:
+          REFRESH_SLOT: ${{ matrix.worker }}
+        run: |
+          "$RUNNER_TEMP/profile-runtime/bin/python" -I -B -m all_policy.performance.refresh_collect core --workspace "$GITHUB_WORKSPACE" --output "$GITHUB_WORKSPACE/packets" --cohort 1 --slot "$REFRESH_SLOT"
+      - name: Upload retained evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: profile-core-1-${{ matrix.worker }}
+          path: packets/
+          if-no-files-found: error
+          retention-days: 90
+  core2:
+    needs: [core1]
+    if: ${{ always() && github.ref == 'refs/heads/main' && github.run_attempt == 1 && (github.event_name == 'push' || inputs.bootstrap) }}
+    name: core-2-${{ matrix.worker }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        worker: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          path: runtime
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          path: subject
+          persist-credentials: false
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ed6c2dd701d5a8969166872af48b9d434d6f8af3
+          path: authority
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.9'
+          check-latest: false
+      - name: Install the exact merged runtime outside source
+        run: |
+          python -m venv "$RUNNER_TEMP/profile-runtime"
+          "$RUNNER_TEMP/profile-runtime/bin/python" -I -B -m pip install --disable-pip-version-check 'PyYAML==6.0.3'
+          "$RUNNER_TEMP/profile-runtime/bin/python" -I -B -m pip install --disable-pip-version-check --no-deps ./runtime
+      - name: Collect the fixed first-attempt allocation
+        env:
+          REFRESH_SLOT: ${{ matrix.worker }}
+        run: |
+          "$RUNNER_TEMP/profile-runtime/bin/python" -I -B -m all_policy.performance.refresh_collect core --workspace "$GITHUB_WORKSPACE" --output "$GITHUB_WORKSPACE/packets" --cohort 2 --slot "$REFRESH_SLOT"
+      - name: Upload retained evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: profile-core-2-${{ matrix.worker }}
+          path: packets/
+          if-no-files-found: error
+          retention-days: 90
+
+  publish:
+    name: Preserve core refresh evidence
+    needs: [core1, core2]
+    if: ${{ always() && github.ref == 'refs/heads/main' && github.run_attempt == 1 }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ github.sha }}
+          path: runtime
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.11.9'
+      - run: python -m pip install ./runtime
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        id: download
+        continue-on-error: true
+        with:
+          pattern: profile-core-*
+          path: packets
+      - name: Append original packets and actual allocation inventory
+        if: ${{ always() }}
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          REFRESH_BOOTSTRAP: ${{ github.event_name == 'push' || inputs.bootstrap }}
+        run: |
+          set --
+          if [[ "$REFRESH_BOOTSTRAP" == true ]]; then set -- --bootstrap; fi
+          profile_digest="$(python -I -B -c 'from all_policy.performance.approval import source_digest; print(source_digest())')"
+          workflow_digest="$(sha256sum runtime/.github/workflows/core-profile-refresh.yml | cut -d' ' -f1)"
+          python -I -B -m all_policy.performance.publish_refresh --reports packets --kind core --source "$GITHUB_SHA" --source-digest "$profile_digest" --workflow .github/workflows/core-profile-refresh.yml --workflow-digest "$workflow_digest" "$@"
+      - name: Enforce current enrolled status
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          REFRESH_BOOTSTRAP: ${{ github.event_name == 'push' || inputs.bootstrap }}
+        run: |
+          set --
+          if [[ "$REFRESH_BOOTSTRAP" == true ]]; then set -- --qualification-only; fi
+          python -I -B -m all_policy.performance.refresh_collect check-enrollment --registry runtime/.all/performance/approvals.json --profile public-linux-x64-4cpu-native-api-v1 "$@"

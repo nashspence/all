@@ -105,17 +105,17 @@ duplicated paired pre/post probes and all generic/consumer fixtures, took
 over a bounded cohort; it does not repeat this central twelve-worker study for
 every PR or every tiny file.
 
-Activate the central weekly twelve-worker refresh with this exact qualified
-source, unchanged resource screens and a final all-jobs-success requirement.
-Retain failures and suspend shared approval pending a recorded review after an
-incomplete/failed refresh. A changed helper, runtime, resource configuration,
-probe semantic or acceptance rule requires a new profile version and prospective
-qualification. Public image/kernel changes remain recorded and reviewed.
+The current [maintenance contract](profile-refresh.md) preserves strict twelve-worker
+prepared-storage qualification and the unchanged generic/consumer workload. It
+adds executable ten-day freshness, durable first-attempt evidence and reviewed
+reinstatement. Each implementation is qualified at its exact merged source;
+helper, resource, probe or acceptance semantic changes still require a prospective
+profile-version decision. Core's 23/24 allowance never applies to prepared v2.
+Public image/kernel changes remain recorded and reviewed.
 
-This maintenance rule does not claim instant remote revocation of an already
-pinned package. Consumers must follow the active shared decision. Per-job
-configuration mismatches fail admission immediately, and actual operation budget
-misses remain binding.
+The common acceptance entrypoint checks live shared approval. Older pinned
+packages lacking that protocol cannot be remotely changed; consumer adoption
+remains separate. Per-job admission and raw operation limits remain mandatory.
 
 ## V1 remains failed
 
