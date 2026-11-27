@@ -155,15 +155,36 @@ class CommonTests(unittest.TestCase):
             helper.unlink()
 
     def test_product_source_mutation_cannot_be_attributed_to_the_original_revision(self):
-        adapter = ADAPTER.replace('    return Path(work)',
-            '    (Path(subject) / "product.txt").write_text("changed")\n    return Path(work)')
-        authority = self.fixture(adapter=adapter.replace("time.sleep(0.12)", "time.sleep(0)"))
-        (self.subject / "product.txt").write_text("original")
-        self.commit()
-        result = self.run_admitted(authority)
-        self.assertTrue(all(row["decision"]["verdict"] == "pass" for row in result["operations"].values()))
-        self.assertEqual("failed", result["verdict"])
-        self.assertIn("source_error", result)
+        for deliberate_delay in (False, True):
+            with self.subTest(deliberate_delay=deliberate_delay):
+                adapter = ADAPTER.replace('    return Path(work)',
+                    '    (Path(subject) / "product.txt").write_text("changed")\n    return Path(work)')
+                if not deliberate_delay:
+                    adapter = adapter.replace("time.sleep(0.12)", "pass")
+                authority = self.fixture(adapter=adapter)
+                (self.subject / "product.txt").write_text("original")
+                candidate = self.commit()
+                result = self.run_admitted(authority)
+                self.assertEqual({"cold", "warm"}, set(result["operations"]))
+                for row in result["operations"].values():
+                    # Source rejection must not depend on the host meeting a
+                    # separate timing budget; correct raw misses stay visible.
+                    self.assertIn(row["decision"]["verdict"], {"pass", "miss"}, row)
+                    self.assertEqual(3, len(row["observations"]), row)
+                    self.assertTrue(all(observation["completed"] and observation["verified"]
+                                        and not observation["error"]
+                                        for observation in row["observations"]), row)
+                    self.assertFalse(row["excluded_stages"].get("error"), row)
+                self.assertEqual(candidate, result["candidate_revision"])
+                self.assertEqual("changed", (self.subject / "product.txt").read_text())
+                self.assertEqual("failed", result["verdict"], result)
+                self.assertTrue(result.get("source_error"), result)
+                if deliberate_delay:
+                    warm = result["operations"]["warm"]["decision"]
+                    self.assertEqual(50_000_000, warm["budget_ns"])
+                    self.assertEqual("miss", warm["verdict"], warm)
+                    self.assertGreater(warm["samples_ns"][1], 50_000_000)
+                    self.assertIn(1, warm["over_budget_indices"])
 
     def test_unqualified_environment_does_not_execute_candidate(self):
         authority = self.fixture()
