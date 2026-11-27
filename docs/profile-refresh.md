@@ -62,7 +62,13 @@ safeguard, not a performance budget.
 The completion boundary is all original worker jobs, validated evidence and
 its durable compact decision append. A later status-query outage is not an
 operation miss; acceptance fails while required current authority is unavailable.
-Legacy raw Git objects and immutable historical links are not rewritten.
+The one-time [maintainer-authorized #72 cleanup](https://github.com/nashspence/all/issues/72#issuecomment-7207403538)
+rewrote only the evidence branch's legacy raw-archive ancestry, preserving the
+compact decision receipts and updating the qualification disposition's evidence
+links. [Fresh-clone verification](https://github.com/nashspence/all/issues/72#issuecomment-7207440295)
+confirmed the obsolete objects were absent from a new full clone. This does not
+establish deletion from older clones or GitHub's internal storage. Routine
+publication continues to append without rewriting history.
 
 ## Enrollment or reinstatement
 
