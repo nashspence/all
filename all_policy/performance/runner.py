@@ -7,6 +7,7 @@ substitutes it for native storage. A preflight rejection never earns a pass.
 """
 import hashlib
 import ctypes
+from contextlib import nullcontext
 import importlib.metadata
 import json
 import os
@@ -19,7 +20,8 @@ import tempfile
 import time
 import platform
 
-from .contracts import REPETITIONS, evaluate
+from .allowances import FEATURES, validate_witness
+from .contracts import REPETITIONS, _unique, evaluate
 from .profiles import admit
 from .approval import require_current
 
@@ -100,7 +102,7 @@ def _remaining(deadline):
     return seconds
 
 
-def _environment(subject, work):
+def _environment(subject, work, features=None):
     # Preserve actual public runner identity so an approved adapter can inspect
     # the already-admitted protected storage pair. Never synthesize authority or
     # forward credentials; this context cannot approve a profile or budget.
@@ -111,6 +113,9 @@ def _environment(subject, work):
            if k in os.environ}
     env.update(PYTHONDONTWRITEBYTECODE="1", ALL_PERFORMANCE_SUBJECT=str(subject),
                ALL_PERFORMANCE_WORK=str(work))
+    if features is not None:
+        env["ALL_PERFORMANCE_FEATURES"] = json.dumps(
+            {feature: feature in features for feature in FEATURES}, sort_keys=True)
     return env
 
 
@@ -164,19 +169,27 @@ def _preflight(root, deadline):
             _stop(process)
 
 
-def _command(argv, subject, work, deadline, repeat=0):
+def _command(argv, subject, work, deadline, repeat=0, features=None, witness=False):
     substitutions = dict(python=sys.executable, subject=str(subject), work=str(work), repeat=repeat)
     command = [argument.format_map(substitutions) for argument in argv]
     # Harness output must not add members to a candidate's measured directory.
-    with tempfile.TemporaryFile(dir=work.parent) as log:
+    with (tempfile.TemporaryFile(dir=work.parent) as log,
+          (tempfile.TemporaryFile(dir=work.parent) if witness else nullcontext(log)) as output):
         start = time.perf_counter_ns()
-        process = subprocess.Popen(command, cwd=subject, env=_environment(subject, work),
-                                   stdout=log, stderr=log, start_new_session=True)
+        process = subprocess.Popen(command, cwd=subject, env=_environment(subject, work, features),
+                                   stdout=output, stderr=log, start_new_session=True)
         try:
             code = _wait(process, deadline)
             if code != 0 or _children_remain(process):
                 raise RuntimeError(f"command did not complete cleanly (exit {code} or live descendants)")
-            return time.perf_counter_ns() - start
+            elapsed = time.perf_counter_ns() - start
+            if witness:
+                output.seek(0)
+                data = output.read(65537)
+                if len(data) > 65536:
+                    raise ValueError("oversized feature witness")
+                return json.loads(data, object_pairs_hook=_unique)
+            return elapsed
         finally:
             _stop(process)
 
@@ -200,7 +213,7 @@ class _Worker:
             self.process = subprocess.Popen(
                 [sys.executable, "-I", "-B", str(Path(__file__).with_name("worker.py")),
                  str(subject / binding.adapter), str(subject), str(work)],
-                cwd=subject, env=_environment(subject, work), stdin=subprocess.PIPE,
+                cwd=subject, env=_environment(subject, work, binding.features), stdin=subprocess.PIPE,
                 stdout=subprocess.PIPE, stderr=self.log, start_new_session=True)
         except Exception:
             self.log.close()
@@ -208,7 +221,7 @@ class _Worker:
         self.selector = selectors.DefaultSelector()
         self.selector.register(self.process.stdout, selectors.EVENT_READ)
 
-    def receive(self, kind, repeat=None):
+    def receive(self, kind, repeat=None, witness=False):
         until = time.monotonic() + _remaining(self.deadline)
         while b"\n" not in self.buffer:
             seconds = until - time.monotonic()
@@ -221,7 +234,13 @@ class _Worker:
             if len(self.buffer) > 65536:
                 raise RuntimeError("oversized worker response")
         line, self.buffer = self.buffer.split(b"\n", 1)
-        if json.loads(line) != {"kind": kind, "repeat": repeat}:
+        frame = json.loads(line, object_pairs_hook=_unique)
+        if witness:
+            if (not isinstance(frame, dict) or set(frame) != {"kind", "repeat", "witness"}
+                    or frame["kind"] != kind or frame["repeat"] != repeat):
+                raise RuntimeError("unexpected feature verification response")
+            return frame["witness"]
+        if frame != {"kind": kind, "repeat": repeat}:
             raise RuntimeError("unexpected worker response; timing/authority claims are not accepted")
 
     def send(self, kind, repeat=None):
@@ -254,9 +273,11 @@ def _measure(binding, subject, work, deadline):
             try:
                 if worker is None:
                     if binding.prepare:
-                        row["prepare_ns"] = _command(binding.prepare, subject, work, deadline, repeat)
+                        row["prepare_ns"] = _command(binding.prepare, subject, work, deadline, repeat,
+                                                     features=binding.features)
                     start = time.perf_counter_ns()
-                    row["elapsed_ns"] = _command(binding.command, subject, work, deadline, repeat)
+                    row["elapsed_ns"] = _command(binding.command, subject, work, deadline, repeat,
+                                                 features=binding.features)
                 else:
                     start = time.perf_counter_ns()
                     worker.send("run", repeat)
@@ -265,10 +286,14 @@ def _measure(binding, subject, work, deadline):
                 row["completed"] = True
                 verification_start = time.perf_counter_ns()
                 if worker is None:
-                    _command(binding.verify, subject, work, deadline, repeat)
+                    witness = _command(binding.verify, subject, work, deadline, repeat,
+                                       features=binding.features, witness=binding.features is not None)
                 else:
                     worker.send("verify", repeat)
-                    worker.receive("verified", repeat)
+                    witness = worker.receive("verified", repeat, witness=binding.features is not None)
+                if binding.features is not None:
+                    row["feature_witness"] = witness
+                    validate_witness(binding.features, witness)
                 row["verification_ns"] = time.perf_counter_ns() - verification_start
                 row["verified"] = True
             except Exception as error:
@@ -371,6 +396,8 @@ def _run_suite(authority, subject, storage_roots):
                                               mode=binding.mode, unit=binding.unit,
                                               completion=binding.completion,
                                               observations=observations, excluded_stages=stages)
+            if binding.features is not None:
+                record["operations"][name]["features"] = list(binding.features)
     verdicts = {r["decision"]["verdict"] for r in record["operations"].values()}
     try:
         if _candidate_revision(subject) != record["candidate_revision"]:

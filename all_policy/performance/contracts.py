@@ -12,6 +12,7 @@ import re
 import subprocess
 from types import MappingProxyType
 
+from .allowances import compile_limits
 from .profiles import PROFILES
 
 LIMITS_PATH = ".all/performance/limits.json"
@@ -37,6 +38,7 @@ class Binding:
     prepare: tuple = ()
     adapter: str = ""
     cold_operation: str = ""
+    features: tuple | None = None
 
 
 @dataclass(frozen=True)
@@ -75,6 +77,31 @@ def _command(value):
     return tuple(value)
 
 
+def _limits(document):
+    _require(isinstance(document, dict) and set(document) == {"schema", "operations"}
+             and type(document["schema"]) is int and document["schema"] in {1, 2},
+             "invalid limits schema")
+    declared = document["operations"]
+    _require(isinstance(declared, dict) and 0 < len(declared) <= MAX_OPERATIONS,
+             "bounded operation inventory required")
+    rows, selections = {}, {}
+    for name, row in declared.items():
+        _require(isinstance(name, str) and re.fullmatch(r"[a-z][a-z0-9_]{0,79}", name),
+                 "invalid operation id")
+        _require(isinstance(row, dict), "invalid limit declaration")
+        if document["schema"] == 2 and set(row) == {"profile", "core_ns", "optional_ns"}:
+            expanded, features = compile_limits(name, **row)
+            expanded = expanded["operations"]
+        else:
+            _require(set(row) == {"profile", "max_wall_ns"}, "invalid limit declaration")
+            expanded, features = {name: row}, {}
+        _require(not rows.keys() & expanded.keys(), "canonical operation ids collide")
+        rows.update(expanded)
+        selections.update(features)
+        _require(len(rows) <= MAX_OPERATIONS, "expanded operation inventory exceeds 32 cases")
+    return rows, selections
+
+
 def load_authority(checkout, approved_revision, repository):
     """Load only previously approved objects; candidate manifests are never read."""
     _require(isinstance(approved_revision, str) and
@@ -90,12 +117,11 @@ def load_authority(checkout, approved_revision, repository):
         documents.append(json.loads(data, object_pairs_hook=_unique))
         digests.append(hashlib.sha256(data).hexdigest())
     limits_doc, bindings_doc = documents
-    _require(set(limits_doc) == {"schema", "operations"} and limits_doc["schema"] == 1,
-             "invalid limits schema")
+    rows, selections = _limits(limits_doc)
     _require(set(bindings_doc) == {"schema", "repository", "operations"}
              and bindings_doc["schema"] == 1 and bindings_doc["repository"] == repository,
              "invalid binding schema or repository")
-    rows, bindings = limits_doc["operations"], bindings_doc["operations"]
+    bindings = bindings_doc["operations"]
     _require(isinstance(rows, dict) and 0 < len(rows) <= MAX_OPERATIONS
              and isinstance(bindings, dict) and set(rows) == set(bindings),
              "every operation requires exactly one limit and approved binding")
@@ -103,17 +129,24 @@ def load_authority(checkout, approved_revision, repository):
     for name, row in rows.items():
         _require(re.fullmatch(r"[a-z][a-z0-9_]{0,79}", name), "invalid operation id")
         _require(isinstance(row, dict) and set(row) == {"profile", "max_wall_ns"}
-                 and row["profile"] in PROFILES and type(row["max_wall_ns"]) is int
+                 and isinstance(row["profile"], str) and row["profile"] in PROFILES
+                 and type(row["max_wall_ns"]) is int
                  and row["max_wall_ns"] > 0, "limits contain only profile and positive raw nanoseconds")
         limits[name] = Limit(**row)
         spec = bindings[name]
         required = {"mode", "unit", "completion", "approved_files"}
+        if name in selections:
+            required.add("features")
         _require(isinstance(spec, dict) and required <= set(spec), "incomplete operation binding")
         mode = spec["mode"]
         allowed = required | ({"command", "verify", "prepare"} if mode == "command"
                               else {"adapter", "cold_operation"})
         _require(mode in {"command", "request"} and set(spec) <= allowed,
                  "unknown binding mode or authority override field")
+        features = selections.get(name)
+        if features is not None:
+            _require(spec["features"] == list(features),
+                     "binding must use the exact canonical feature selection")
         _require(all(isinstance(spec[k], str) and spec[k].strip() for k in ("unit", "completion")),
                  "unit and completed-operation boundary must be stated")
         files = spec["approved_files"]
@@ -121,7 +154,7 @@ def load_authority(checkout, approved_revision, repository):
                  isinstance(h, str) and re.fullmatch(r"[0-9a-f]{64}", h) for p, h in files.items()),
                  "approved adapter, fixture and verifier hashes required")
         common = dict(mode=mode, unit=spec["unit"], completion=spec["completion"],
-                      approved_files=tuple(sorted(files.items())))
+                      approved_files=tuple(sorted(files.items())), features=features)
         if mode == "command":
             operations[name] = Binding(**common, command=_command(spec.get("command")),
                                       verify=_command(spec.get("verify")),
@@ -131,10 +164,14 @@ def load_authority(checkout, approved_revision, repository):
                      "warm request requires an approved adapter and cold counterpart")
             operations[name] = Binding(**common, adapter=spec["adapter"],
                                       cold_operation=spec["cold_operation"])
-    for binding in operations.values():
+    for name, binding in operations.items():
         if binding.mode == "request":
             _require(operations[binding.cold_operation].mode == "command",
                      "warm counterpart must measure a complete command")
+            if binding.features is not None or operations[binding.cold_operation].features is not None:
+                _require(operations[binding.cold_operation].features == binding.features
+                         and limits[binding.cold_operation].profile == limits[name].profile,
+                         "warm and cold counterparts require the same features and profile")
     return Authority(approved_revision, repository, *digests,
                      MappingProxyType(limits), MappingProxyType(operations))
 
