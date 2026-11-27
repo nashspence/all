@@ -36,6 +36,74 @@ Integration may propose that binding but cannot approve its own easier boundary
 or budget. A proposed candidate edit does not activate: the runner reads approved
 Git objects and checks adapter/fixture/verifier hashes before and after use.
 
+### Optional-work allowances
+
+An approved `limits.json` may opt into schema 2. It keeps ordinary
+`{profile, max_wall_ns}` rows and also accepts a declaration of this shape:
+
+```json
+{
+  "schema": 2,
+  "operations": {
+    "publish": {
+      "profile": "public-linux-x64-4cpu-native-api-v1",
+      "core_ns": 100,
+      "optional_ns": {"progress": 10, "resumability": null, "logging": 0}
+    }
+  }
+}
+```
+
+These numbers are synthetic arithmetic examples, not proposed product budgets.
+Design supplies the real values and explicitly considers all three features.
+`null` means inapplicable; zero means applicable with no additional headroom.
+The loader derives `publish_core` (100), `publish_progress` (110),
+`publish_logging` (100), and `publish_all` (110) directly from the pinned
+declaration. There is no second numeric table to maintain. Every applicable
+singleton remains required even at zero allowance; the all-on case is omitted
+only when it duplicates a configuration with zero or one applicable feature.
+The complete expanded inventory, including ordinary operations, is limited to
+32 cases. This declaration assumes the applicable features are jointly supported;
+unsupported interactions need an owning decision and adaptation, not silent case
+omission or an unconditional configuration cross-product.
+
+Each derived row needs a reviewed binding with the exact `features` array, in
+`progress`, `resumability`, `logging` order. The core array is empty. The parent
+passes `ALL_PERFORMANCE_FEATURES` as a JSON object of all three booleans to
+preparation, operation and verification processes. The real adapter must apply
+and propagate that selection through the existing production path; the variable
+does not itself suppress producers or implement [#67](https://github.com/nashspence/all/issues/67).
+Warm and cold counterparts must use identical selections and profiles.
+
+For these bindings, the existing command verifier emits one JSON witness, or the
+warm adapter's `verify` returns it: `{"verified": true, "activity": {"progress": 0,
+"resumability": 0, "logging": 0}}`. Each count is an exact nonnegative integer;
+every enabled feature must have completed activity and every disabled feature
+must have none. The parent validates and retains the witness for each of the
+three observations. The command witness output must fit 64 KiB and contain only
+that JSON on stdout; diagnostics may use stderr. Ordinary schema 1
+bindings retain their existing verifier contract.
+
+The approved verifier must extract real, complete per-observation producer facts
+and independently check the required result. Echoing the requested flags,
+hand-writing `exercised: true`, or counting stale fixture files is insufficient.
+Review must establish provenance and the timed boundary: optional preparation,
+periodic checkpoints, output, synchronization and completion belong inside the
+declared production operation. A checkpoint that never occurs cannot qualify,
+and useful work cannot move into excluded preparation or final teardown. Generic
+count validation cannot establish these semantic facts by itself.
+
+Only enabled features contribute allowance. These are absolute configuration
+envelopes, not separate measured overhead caps: unused core headroom can hide a
+feature costing more than its nominal allowance. A separately attributable real
+operation may have its own approved ordinary cap; off/on subtraction does not
+prove attribution. Recovery after an actual interruption likewise retains its
+own operation, failure/reset semantics and budget. Normal resumability allowance
+cannot weaken mandatory durable acknowledgement or revive retired recovery rules.
+See [#68](https://github.com/nashspence/all/issues/68) and the executable examples in
+`tests/test_allowances.py`. Consumer values, bindings and real admitted evidence
+still require their own approval; these examples install no consumer gate.
+
 The candidate source must be clean, including untracked and ignored files. Build
 artifacts and installed dependencies belong outside that source checkout. The
 reviewed binding must identify the actual candidate implementation and any
