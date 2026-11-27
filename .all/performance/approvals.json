@@ -1,4 +1,31 @@
 {
   "schema": 1,
-  "profiles": {}
+  "profiles": {
+    "public-linux-x64-4cpu-native-api-v1": {
+      "source_commit": "a3dfcc8bb4e632906414f232a50c9fecf42720f1",
+      "source_digest": "7572e1ab1d1b556f8a7b2d699a27bb3cc0a793364ee5d55ee91e26a375c3a19a",
+      "workflow": ".github/workflows/core-profile-refresh.yml",
+      "workflow_digest": "d09dab3d747c0d82b9de8351919e778af4a21b8510ca724d206905d5efb53ed2",
+      "qualification_runs": [
+        45917826673
+      ],
+      "disposition": {
+        "url": "https://github.com/nashspence/all/issues/69#issuecomment-7206686550",
+        "reason": "Initial enrollment of exact merged implementation under #69: two sequential fresh cohorts admit all24 original allocations and every fixed operation observation passes. Earlier frozen-source cohorts are historical evidence, not substituted qualification."
+      }
+    },
+    "public-linux-x64-4cpu-prepared-ext4-v2": {
+      "source_commit": "a3dfcc8bb4e632906414f232a50c9fecf42720f1",
+      "source_digest": "7572e1ab1d1b556f8a7b2d699a27bb3cc0a793364ee5d55ee91e26a375c3a19a",
+      "workflow": ".github/workflows/storage-profile-refresh.yml",
+      "workflow_digest": "b58ae10b6145da7810183e5319c6f1911bc51e71e8c6b784d77deaae8226aa15",
+      "qualification_runs": [
+        45917826714
+      ],
+      "disposition": {
+        "url": "https://github.com/nashspence/all/issues/69#issuecomment-7206686550",
+        "reason": "Initial enrollment of exact merged implementation under #69: all twelve original prepared-v2 workers satisfy the unchanged #66 resource screens and consumer correctness requirements. Earlier failed campaigns and consumer engineering misses remain retained."
+      }
+    }
+  }
 }
