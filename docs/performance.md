@@ -16,6 +16,10 @@ qualification remains separate.
 
 ## Approval and source
 
+The required entrypoint also checks [current shared profile approval](profile-refresh.md).
+A package pin or historical enrollment alone cannot authorize a suspended, stale
+or changed implementation. Use `all-policy performance-status` to inspect it.
+
 The protected workflow selects three independent inputs: the installed shared
 `nashspence-all` revision, the approved contract revision, and the candidate
 revision. Run the installed shared command in isolation, for example

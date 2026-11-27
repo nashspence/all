@@ -50,6 +50,9 @@ def evidence(filesystem="ext4", options="rw,relatime", root="/work"):
 
 class CommonTests(unittest.TestCase):
     def setUp(self):
+        approval = patch("all_policy.performance.runner.require_current", return_value={CORE: {"status": "active"}})
+        approval.start()
+        self.addCleanup(approval.stop)
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
