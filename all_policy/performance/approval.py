@@ -194,7 +194,8 @@ def _workflow_runs(client, entry, index, now):
 
 
 def _require_current(profiles, client, now):
-    from .refresh import evaluate, validate_index, validate_registry
+    from .refresh import (MAX_ACTIVE_INDEX_BYTES, MAX_INDEX_BYTES, compact_index,
+                          evaluate, validate_index, validate_registry)
 
     main = _head(client, "main")
     registry = validate_registry(_json(_content(client, REGISTRY_PATH, main)))
@@ -203,7 +204,13 @@ def _require_current(profiles, client, now):
     digest = _digest(files)
     _current_source(client, main, files)
     evidence = _head(client, EVIDENCE_BRANCH)
-    index = validate_index(_json(_content(client, "index.json", evidence)))
+    raw_index = _content(client, "index.json", evidence)
+    _require(len(raw_index) <= MAX_INDEX_BYTES, "shared evidence index exceeds publication capacity")
+    index = compact_index(registry, validate_index(_json(raw_index)), now)
+    size = len(json.dumps(index, sort_keys=True, separators=(",", ":"),
+                          ensure_ascii=True).encode()) + 1
+    _require(size <= MAX_ACTIVE_INDEX_BYTES,
+             "active approval history requires reviewed epoch renewal; no evidence was waived")
     results, workflows = {}, {}
     for profile in sorted(profiles):
         entry = registry["profiles"][profile]

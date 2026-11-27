@@ -1,4 +1,4 @@
-"""Append first-attempt refresh evidence to the dedicated Git history.
+"""Append compact first-attempt decision receipts to dedicated Git history.
 
 Only the trusted main workflow receives a write token. Reports are data; the
 publisher never imports or executes anything from a downloaded artifact.
@@ -266,8 +266,12 @@ def collect(client, *, reports, kind, source, source_digest, workflow,
             cohorts[0]["workers"][0]["outcome"] = "incomplete"
         if packets.keys() - expected_keys:
             errors.append("reports include undeclared campaign slots")
-    evidence = {"schema": 1, "run": run, "jobs": jobs, "reports": retained, "artifacts": artifacts,
-                "errors": errors, "published_at": now}
+    # Keep the original worker bytes in their expiring Actions artifacts.
+    # The diagnostic verification report need not duplicate their payloads.
+    evidence = {"schema": 1, "run": run, "jobs": jobs,
+                "reports": {name: {key: value for key, value in record.items() if key != "base64"}
+                            for name, record in retained.items()},
+                "artifacts": artifacts, "errors": errors, "published_at": now}
     raw = _encode(evidence)
     summary = {"run_id": run_id, "workflow": workflow, "source_commit": source,
                "source_digest": source_digest, "workflow_digest": workflow_digest,
@@ -279,11 +283,27 @@ def collect(client, *, reports, kind, source, source_digest, workflow,
     return summary, raw
 
 
+def _receipt_exists(client, head, path):
+    if head is None:
+        return False
+    try:
+        client.get(f"{PREFIX}/contents/{path}", ref=head)
+        return True
+    except HTTPError as error:
+        if error.code != 404:
+            raise
+        return False
+
+
 def append(client, summary, evidence, *, attempts=3):
-    """Non-forced ref update supplies compare-and-swap through ancestry."""
+    """Append decision records using non-forced ancestry; never store packets."""
     if _sha(evidence) != summary["evidence_sha256"]:
         raise PublicationError("evidence digest differs from summary")
-    from .refresh import validate_index
+    from .approval import REGISTRY_PATH, _content
+    from .refresh import (INDEX_WARNING_BYTES, MAX_INDEX_BYTES, compact_index,
+                          validate_index, validate_registry)
+    registry = validate_registry(_decode(_content(client, REGISTRY_PATH, summary["source_commit"])))
+    when = datetime.fromisoformat(summary["completed_at"].replace("Z", "+00:00"))
     for attempt in range(attempts):
         head, tree = None, None
         try:
@@ -297,20 +317,45 @@ def append(client, summary, evidence, *, attempts=3):
             contents = client.get(f"{PREFIX}/contents/index.json", ref=head)
             if contents.get("encoding") != "base64":
                 raise PublicationError("evidence index is not a regular JSON file")
-            index = _decode(base64.b64decode("".join(contents["content"].split()), validate=True))
+            raw_index = base64.b64decode("".join(contents["content"].split()), validate=True)
+            if len(raw_index) > MAX_INDEX_BYTES:
+                raise PublicationError("existing index exceeds publication capacity; reviewed maintenance required")
+            index = _decode(raw_index)
         else:
             index = {"schema": 1, "runs": []}
         validate_index(index)
-        if any(row["run_id"] == summary["run_id"] for row in index["runs"]):
+        if (any(row["run_id"] == summary["run_id"] for row in index["runs"])
+                or _receipt_exists(client, head, summary["evidence_path"])):
             raise PublicationError("run already recorded; first-attempt evidence cannot be replaced")
         missing = missing_publications(client, summary, {row["run_id"] for row in index["runs"]})
-        index["runs"].extend(row for row, _ in missing)
+        # Reuse an immutable receipt if a previously compacted original is
+        # encountered in the live inventory. Never recreate it as a tombstone.
+        recovered, new_missing = [], []
+        for row, raw in missing:
+            path = row["evidence_path"]
+            if _receipt_exists(client, head, path):
+                prior = _decode(_content(client, path, head))
+                validate_index({"schema": 1, "runs": [prior]})
+                if prior["run_id"] != row["run_id"] or prior["workflow"] != row["workflow"]:
+                    raise PublicationError("historical receipt identity mismatch")
+                recovered.append(prior)
+            else:
+                new_missing.append((row, raw))
+        index["runs"].extend(recovered)
+        index["runs"].extend(row for row, _ in new_missing)
         index["runs"].append(summary)
         index["runs"].sort(key=lambda row: (row["created_at"], row["run_id"]))
-        validate_index(index)
+        index = compact_index(registry, index, when)
+        encoded_index = _encode(index)
+        if len(encoded_index) > MAX_INDEX_BYTES:
+            raise PublicationError("index capacity exhausted; reviewed epoch renewal required")
+        if len(encoded_index) >= INDEX_WARNING_BYTES:
+            print("::warning::Profile evidence index approaching capacity; review enrollment before exhaustion")
         elements = []
-        files = [(row["evidence_path"], raw) for row, raw in missing]
-        files.extend(((summary["evidence_path"], evidence), ("index.json", _encode(index))))
+        # The receipt's evidence_sha256 commits to its expiring verification
+        # report. The compact receipt itself supplies replay detection.
+        files = [(row["evidence_path"], _encode(row)) for row, _ in new_missing]
+        files.extend(((summary["evidence_path"], _encode(summary)), ("index.json", encoded_index)))
         for path, raw in files:
             blob = client.request("POST", f"{PREFIX}/git/blobs",
                                   {"content": base64.b64encode(raw).decode("ascii"), "encoding": "base64"})
@@ -408,10 +453,16 @@ def main(argv=None):
     parser.add_argument("--workflow", required=True)
     parser.add_argument("--workflow-digest", required=True)
     parser.add_argument("--bootstrap", action="store_true")
+    parser.add_argument("--verification-report", type=Path, required=True,
+                        help="owned output for expiring Actions diagnostic artifact")
     args = parser.parse_args(argv)
+    report = args.verification_report
+    del args.verification_report
     try:
         client = GitHub(os.environ.get("GITHUB_TOKEN"))
         summary, evidence = collect(client, **vars(args))
+        report.parent.mkdir(parents=True, exist_ok=True)
+        report.write_bytes(evidence)
         revision = append(client, summary, evidence)
         print(json.dumps({"evidence_commit": revision, "run": summary}, sort_keys=True))
         workers = [worker for cohort in summary["cohorts"] for worker in cohort["workers"]]

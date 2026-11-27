@@ -149,14 +149,22 @@ jobs:
         with:
           pattern: storage-profile-refresh-${{ github.run_id }}-*
           path: packets
-      - name: Append original packets and actual allocation inventory
+      - name: Publish compact original allocation decisions
         if: ${{ always() }}
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
           profile_digest="$(python -I -B -c 'from all_policy.performance.approval import source_digest; print(source_digest())')"
           workflow_digest="$(sha256sum runtime/.github/workflows/storage-profile-refresh.yml | cut -d' ' -f1)"
-          python -I -B -m all_policy.performance.publish_refresh --reports packets --kind storage --source "$GITHUB_SHA" --source-digest "$profile_digest" --workflow .github/workflows/storage-profile-refresh.yml --workflow-digest "$workflow_digest"
+          python -I -B -m all_policy.performance.publish_refresh --reports packets --verification-report verification/report.json --kind storage --source "$GITHUB_SHA" --source-digest "$profile_digest" --workflow .github/workflows/storage-profile-refresh.yml --workflow-digest "$workflow_digest"
+      - name: Retain expiring verification report
+        if: ${{ always() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: profile-verification-${{ github.run_id }}
+          path: verification/report.json
+          if-no-files-found: warn
+          retention-days: 90
       - name: Enforce current enrolled status
         env:
           GITHUB_TOKEN: ${{ github.token }}
